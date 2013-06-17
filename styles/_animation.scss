@@ -1,0 +1,32 @@
+//
+// Animation design
+//
+
+/*
+
+
+// Simple fade-in
+@include keyframes(fadeIn) {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+// fade-in/down subtle
+@include keyframes(fadeDown) {
+	0% {
+		opacity: 0.75;
+		@include translateY(-5px);
+	}
+	100% {
+		opacity: 1;
+		@include translateY(0);
+	}
+}
+
+.a-fadeDown {
+	@include animation(fadeDown 1s ease-in);
+	@include animation-delay(1s);
+	@include animation-fill-mode(both);
+}
+
+*/

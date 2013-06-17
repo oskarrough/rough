@@ -1,0 +1,71 @@
+//
+// Demo
+//
+
+// These styles are purely for the demo and should NOT be used in a new project.
+
+$blue: hsl(207,53,52);
+$lightblue: hsl(145,7,70);
+$sand: hsl(41,18,87);
+
+.l-Header {
+	background-color: $blue;
+	padding-left: em(10);
+	h1,
+	h2 {
+		font-family: sans-serif;
+		text-transform: uppercase;
+		line-height: 1;
+		font-weight: normal;
+	}
+}
+.Intro {
+	font-size: 1.2rem;
+}
+.SiteTitle {
+	margin-top: 1em;
+	margin-bottom: 0;
+	a {
+		color: $sand;
+	}
+}
+.SiteSubTitle {
+	color: $lightblue;
+}
+
+.l-Primary {
+    margin-right: 1em;
+    margin-left: 12em;
+    max-width: 800px;
+}
+.l-Secondary {
+    position: fixed;
+    top: 1.1em;
+    left: 1em;
+    width: 10em;
+}
+.Section {
+    margin-bottom: 6em;
+    > h2:first-child {
+		padding-top: 2em; // to accomodate scrolling anchors
+    	text-transform: uppercase;
+    }
+}
+
+
+// Primary navigation
+.Nav {
+	background-color: red;
+	
+	a {
+		display: block;
+		padding: 1px 0 1px 5px;
+		text-transform: capitalize;
+		background-color: #fff;
+		color: blue;
+		transition: color 200ms, margin 200ms;
+	}
+	a.is-active {
+		margin-left: 5px;
+	}
+}

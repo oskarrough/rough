@@ -1,0 +1,12 @@
+{
+  "name": "rough-boilerplate",
+  "version": "0.1.0",
+  "dependencies": {
+  	"normalize-css": "latest",
+    "jquery-waypoints": "latest",
+    "jquery.customSelect": "latest",
+    "fancybox": "latest",
+    "jquery": "~1.10.1"
+  },
+  "devDependencies": {}
+}

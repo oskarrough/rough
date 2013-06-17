@@ -1,0 +1,19 @@
+//
+// Navigation
+//
+
+.Nav {
+	margin-top: 0;
+	padding-left: 0;
+	list-style: none;
+	
+	.is-active {
+		color: red;
+	}
+}
+
+// to be done:
+// - .Nav--horizontal
+// - .Nav--vertical
+// - .Nav--toggle
+// - .Nav--dropdown

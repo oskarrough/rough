@@ -1,0 +1,84 @@
+//
+// Base
+// 
+
+html {
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	line-height: $base-line-height-unitless;
+	font-size: $base-font-size;
+	font-family: $font-body;
+	color: #000;
+}
+
+blockquote,
+ol,
+ul
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre {
+    margin: 0 0 1em;
+}
+
+fieldset {
+    border: 0;
+    margin: 0 0 1em;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+// Links
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	color: blue;
+}
+
+// responsive
+iframe,
+img {
+	max-width: 100%;
+	margin-bottom: 1em;
+}
+// remove border in old ie
+a img {
+	border: 0;
+}
+// remove default margin
+figure {
+	margin: 0;
+}
+
+//
+// Alignment helpers
+//
+.align-left {
+	float: left;
+	margin-right: 1em;
+	margin-bottom: 1em;
+}
+.align-right {
+	float: right;
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+.align-center {
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+}

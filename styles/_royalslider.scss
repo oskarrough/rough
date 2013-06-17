@@ -1,0 +1,15 @@
+//
+// Royalslider
+//
+
+/*
+	import these files via <link> because the css minifier doesn't support regular CSS imports
+
+	@import url('../scripts/vendor/royalslider/royalslider.css');
+	@import url('../scripts/vendor/royalslider/skins/default/rs-default.css');
+*/
+
+// Enable resizing in the royalslider script
+.royalSlider {
+	width: 100%;
+}
