@@ -1,15 +1,16 @@
 //
-// Icons using sprites
+// Icons
 //
 
-// space between each icon in the sprite 
 // "icon" is the name of the folder where the images are and is used to prefix all Compass variables related to this sprite.
-$icon-spacing: 40px; 
 
-// Include dimensions for each sprite
+// space between each icon in the sprite 
+$icon-spacing: 30px; 
+
+// include dimensions for each sprite
 $icon-sprite-dimensions: true;
 
-// If an icon should be right aligned with 100%, include these to move the sprite to the right in the compiled image
+// if an icon should be right aligned with 100%, include these to move the sprite to the right in the compiled image
 //$icon-iconname-position: 100%;
 
 // import the compass function that handles the sprites
@@ -22,7 +23,7 @@ $icon-sprite-dimensions: true;
 @include all-icon-sprites;
 
 // assign the icon's width and height to the <i> element
-//.icon-download { height: icons-sprite-height(download); width: icons-sprite-width(download);}
+// .icon-name { height: icons-sprite-height(name); width: icons-sprite-width(name);}
 
 //
 // Markup examples:
@@ -31,3 +32,7 @@ $icon-sprite-dimensions: true;
 	<i class="Icon icon-arrow"></i>
 	<button><i class="Icon icon-arrow"></i> Button text</button>
 */
+
+[class^="icon-"] {
+	display: inline-block;
+}

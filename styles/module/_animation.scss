@@ -1,0 +1,28 @@
+//
+// Animation design
+//
+
+// Fade-in
+@include keyframes(fadeIn) {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
+
+// Fade-in and down
+@include keyframes(fadeDown) {
+	0% {
+		opacity: 0.75;
+		@include translateY(-5px);
+	}
+	100% {
+		opacity: 1;
+		@include translateY(0);
+	}
+}
+
+// Example
+.a-fadeDown {
+	@include animation(fadeDown 200ms ease-in); // include the keyframe
+	@include animation-delay(1000ms); // when to start it
+	@include animation-fill-mode(both); // make sure it keeps the start/end values of the keyframe
+}

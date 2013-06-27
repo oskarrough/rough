@@ -8,9 +8,17 @@
 }
 .MediaBlock-media {
     float: left;
+    margin-right: rem($space);
 }
 .MediaBlock-body {
     display:table-cell;
     width:10000px;
     *width:auto;
+}
+
+// Right aligned
+.MediaBlock--right > .MediaBlock-media {
+	float: right;
+	margin-right: 0;
+	margin-left: rem($space);
 }

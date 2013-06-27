@@ -1,0 +1,26 @@
+//
+// Article
+//
+
+
+//
+// Default for all articles
+//
+.Article {}
+
+
+//
+// Teaser modifier
+//
+.Article--teaser {
+	// Make sure the link contains everything
+	> a {
+		display: block;
+	}
+}
+
+
+//
+// Detail modifier
+//
+.Article--detail {}

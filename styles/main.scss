@@ -3,26 +3,52 @@
 // by: Oskar Rough Mosumgaard
 //
 
-// Handy EM function
-@import "_em.scss";
 
 // Config
 @import "_config.scss";
 
+// Custom mixins
+@import "_mixins.scss";
+
 // Susy (for robust layout math)
 // also applies * { box-sizing: border-box; }
-// @import "susy";
-// @include border-box-sizing;
+@import "susy";
+@include border-box-sizing;
 
-// Compass
-// we need the 0.13 alpha (because of rem mixins and other goodies)
+// Compass (we need the 0.13 alpha - because of rem mixins and other goodies)
 @import "compass/typography"; // REM fallback
 @import "compass/css3"; // CSS3 mixins
 
-// Project styles
-@import "_base.scss";
-@import "_layout.scss";
-@import "_module.scss";
-@import "_nav.scss";
 
-@import "_demo.scss";
+
+// Base styles
+// ------------------------------------
+@import "../bower_components/normalize-scss/_normalize.scss";
+@import "base/_base.scss";
+//@import "base/_forms.scss";
+//@import "base/_icons.scss";
+
+
+// Layout styles
+// ------------------------------------
+@import "layout/_layout.scss";
+
+
+// Plugin styles
+// ------------------------------------
+@import "../bower_components/rough-navtoggle/rough-navtoggle.scss";
+
+
+// Module styles
+// ------------------------------------
+@import "module/_module.scss";
+//@import "module/_animation.scss";
+//@import "module/_article.scss";
+//@import "module/_dynamic-grid.scss";
+//@import "module/_logo.scss";
+//@import "module/_mediablock.scss";
+//@import "module/_nav.scss";
+//@import "module/_nav-primary.scss";
+//@import "module/_royalslider.scss";
+
+

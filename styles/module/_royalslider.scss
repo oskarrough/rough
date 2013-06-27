@@ -13,3 +13,15 @@
 .royalSlider {
 	width: 100%;
 }
+
+// Stretched to fullscreen
+.royalSlider--fullscreen {
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	height: auto;
+	width: auto;
+	overflow: hidden;
+}

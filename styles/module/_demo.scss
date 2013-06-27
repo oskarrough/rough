@@ -7,32 +7,28 @@
 $blue: hsl(207,53,52);
 $lightblue: hsl(145,7,70);
 $sand: hsl(41,18,87);
+$red: rgb(255, 41, 0);
+$purple: rgb(184, 0, 255);
 
-.l-Header {
-	background-color: $blue;
-	padding-left: em(10);
-	h1,
-	h2 {
-		font-family: sans-serif;
-		text-transform: uppercase;
-		line-height: 1;
-		font-weight: normal;
+
+.SiteTitle {
+	font-size: 4rem;
+	letter-spacing: -3px;
+	line-height: 0.8;
+	margin-top: 1em;
+	margin-bottom: 0;
+	text-shadow: 3px 2px 0px darken($red, 25%);
+	a {
+		color: $red;
 	}
+}
+.SiteSubTitle {
+	color: $purple;
+	text-shadow: 2px 1px 0px darken($purple, 20%);
 }
 .Intro {
 	font-size: 1.2rem;
 }
-.SiteTitle {
-	margin-top: 1em;
-	margin-bottom: 0;
-	a {
-		color: $sand;
-	}
-}
-.SiteSubTitle {
-	color: $lightblue;
-}
-
 .l-Primary {
     margin-right: 1em;
     margin-left: 12em;
@@ -46,10 +42,22 @@ $sand: hsl(41,18,87);
 }
 .Section {
     margin-bottom: 6em;
-    > h2:first-child {
-		padding-top: 2em; // to accomodate scrolling anchors
-    	text-transform: uppercase;
+
+    &:last-child {
+    	margin-bottom: 18em; // enough for scroll nav
     }
+}
+.Title {
+	width: 100%;
+	background-color: #eee;
+	// font-size: 2rem;
+	
+	// // to accomodate scrolling anchors
+	// &:before {
+	// 	content: ">";
+	// 	display: inline;
+	// 	color: $red;
+	// }
 }
 
 
