@@ -1,0 +1,10 @@
+block vars
+	- var active = 'Teasers'
+	- var bodyClass = ''
+	- var description = ''
+
+extends views/layout/layout.jade
+
+block content
+	.js-masonry
+		include views/modules/teasers.jade

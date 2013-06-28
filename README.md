@@ -1,5 +1,5 @@
 # Rough boilerplate
-Structure for new projects. Opinionated.
+Structure for new projects. Opinionated. The Grunt setup is from the Yeoman generator-webapp.
 
 ## Dependencies
 - Bower (`npm install -g bower` and be sure to run `bower install` in the directory after pulling)
@@ -12,7 +12,7 @@ Structure for new projects. Opinionated.
 - css (compiled CSS goes here and is not committed to Git)
 - images
 - scripts (our own scripts go here)
-- scripts/vendor (third party scripts that are not in bower go here)
+- scripts/vendor (third party scripts that are not available with bower go here)
 - styles (sass styles go here)
 
 ## Naming convention

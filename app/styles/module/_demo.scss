@@ -4,6 +4,19 @@
 
 // These styles are purely for the demo and should NOT be used in a new project.
 
+
+body {
+	font-family: 'nimbus-sans';
+}
+.SiteTitle,
+.SiteSubTitle {
+	font-family: 'silkscreen';
+}
+pre,
+code {
+	font-family: 'source-code-pro';
+}
+
 $blue: hsl(207,53,52);
 $lightblue: hsl(145,7,70);
 $sand: hsl(41,18,87);
@@ -20,14 +33,18 @@ $purple: rgb(184, 0, 255);
 	text-shadow: 3px 2px 0px darken($red, 25%);
 	a {
 		color: $red;
+		text-decoration: none;
 	}
 }
 .SiteSubTitle {
+	margin-top: 0;
+	margin-left: 1em;
 	color: $purple;
 	text-shadow: 2px 1px 0px darken($purple, 20%);
 }
 .Intro {
 	font-size: 1.2rem;
+	font-weight: 700;
 }
 .l-Primary {
     margin-right: 1em;
@@ -72,6 +89,7 @@ $purple: rgb(184, 0, 255);
 		background-color: #fff;
 		color: blue;
 		transition: color 200ms, margin 200ms;
+		text-decoration: none;
 	}
 	a.is-active {
 		margin-left: 5px;

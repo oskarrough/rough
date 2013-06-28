@@ -1,24 +1,7 @@
-# Numerous always-ignore extensions
-*.diff
-*.err
-*.orig
-*.log
-*.rej
-*.swo
-*.swp
-*.vi
-*~
-*.sass-cache
-
-# OS or Editor folders
-.DS_Store
-Thumbs.db
-.cache
-.settings
-.tmproj
+node_modules
+dist
+.tmp
+.sass-cache
+app/bower_components
 *.sublime-project
 *.sublime-workspace
-
-# Folders to ignore
-bower_components
-css

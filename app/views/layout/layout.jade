@@ -1,0 +1,36 @@
+//- global vars
+- var description = ''
+
+//- local vars
+block vars	
+	- var bodyClass = ''
+	- var active = active || ''
+
+doctype
+//if lt IE 7
+	html.no-js.lt-ie9.lt-ie8.lt-ie7
+//if IE 7
+	html.no-js.lt-ie9.lt-ie8
+//if IE 8
+	html.no-js.lt-ie9
+// [if gt IE 8] <!
+html.no-js
+	// <![endif]
+	
+	head
+		include layout-header
+		
+	body(class="#{bodyClass}")
+
+		//-_header.l-Header
+			include ../modules/header
+
+		//-.l-Main
+		block content
+
+		//-.l-Footer
+			.l-Inner
+				//-include ../modules/footer
+		
+		include layout-footer
+	

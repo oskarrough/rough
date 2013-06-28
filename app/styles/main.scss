@@ -5,10 +5,10 @@
 
 
 // Config
-@import "_config.scss";
+@import "base/_config.scss";
 
 // Custom mixins
-@import "_mixins.scss";
+@import "base/_mixins.scss";
 
 // Susy (for robust layout math)
 // also applies * { box-sizing: border-box; }
@@ -23,8 +23,8 @@
 
 // Base styles
 // ------------------------------------
-@import "../bower_components/normalize-scss/_normalize.scss";
-@import "base/_base.scss";
+@import "../bower_components/normalize.scss/_normalize.scss";
+//@import "base/_base.scss";
 //@import "base/_forms.scss";
 //@import "base/_icons.scss";
 
@@ -36,19 +36,21 @@
 
 // Plugin styles
 // ------------------------------------
-@import "../bower_components/rough-navtoggle/rough-navtoggle.scss";
+//@import "../bower_components/rough-navtoggle/rough-navtoggle.scss";
 
 
 // Module styles
 // ------------------------------------
-@import "module/_module.scss";
+@import "module/_modules.scss";
 //@import "module/_animation.scss";
 //@import "module/_article.scss";
-//@import "module/_dynamic-grid.scss";
+@import "module/_masonry.scss";
 //@import "module/_logo.scss";
 //@import "module/_mediablock.scss";
-//@import "module/_nav.scss";
+@import "module/_nav.scss";
 //@import "module/_nav-primary.scss";
 //@import "module/_royalslider.scss";
+
+@import "module/_demo.scss";
 
 

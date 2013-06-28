@@ -1,0 +1,265 @@
+block vars
+	- var active = 'Demo'
+	- var bodyClass = 'page-demo'
+	- var description = ''
+
+extends views/layout/layout
+
+block content
+	div.
+		<article class="l-Primary">		
+			<header class="l-Header">
+				<h1 class="SiteTitle">
+					<a href="/">THE ROUGH GUIDE TO THE WEB</a>
+				</h1>
+				<h2 class="SiteSubTitle">by Oskar Rough</h2>
+			</header>
+			<p class="Intro">This page is a reference of modules. An overview to ensure consistensy in the design and code.</p>
+			
+			<section id="typography" class="Section">
+				<h2 class="Title">Typography</h2>
+				<h1>This is an h1 Heading</h1>
+				<p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+				<p>This is some body copy. Donec id elit non mi porta gravida at eget metus. <a href="#">This is a hyperlink</a>. Donec ullamcorper nulla non metus auctor fringilla. <strong>This is some bold text</strong>. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. <em>This is some italicised text</em>. Sed posuere consectetur est at lobortis.</p>
+				
+				<h2>Heading 2</h2>
+				<h3>Heading 3</h3>
+				<h4>Heading 4</h4>
+				<h5>Heading 5</h5>
+				<h6>Heading 6</h6>
+
+				<pre>Preformatted text</pre>
+
+				<blockquote>This is a blockquote. Donec id elit non mi porta gravida at eget metus. Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</blockquote>
+
+				<dl>
+					<dt>Description name</dt>
+					<dd>Description value</dd>
+				</dl>
+
+				<ol>
+					<li>ol item 1</li>
+					<li>ol item 2</li>
+					<li>ol item 3</li>
+				</ol>
+
+				<ul>
+					<li>ul item 1</li>
+					<li>ul item 2</li>
+					<li>ul item 3</li>
+				</ul>
+			</section>
+
+			<section id="forms" class="Section">
+				<h2 class="Title">Forms</h2>
+				<form>
+					<fieldset>
+						<legend>Form Legend</legend>
+						<div class="search-query">
+							<input type="text" placeholder="Search...">
+						</div>
+						<div class="field">
+							<label>Label for text box</label>
+							<input type="text" placeholder="Type something...">
+						</div>
+						<div class="field">
+							<input class=" required" type="text" placeholder="Type something...">
+							<label class="required"><i class="icon-warning-sign"></i> This is an error message</label>
+						</div>
+						<div class="field">
+							<textarea rows="3"></textarea>
+						</div>
+						<div class="field">
+							<input id="disabledInput" type="text" placeholder="Disabled input" disabled>
+						</div>
+						<div class="field">
+							<select>
+								<option>Please choose something...</option>
+								<option>1</option>
+								<option>2</option>
+								<option>3</option>
+							</select>
+						</div>
+						<div class="field">
+							<label class="checkbox">
+								<input type="checkbox"> Tick me
+							</label>
+						</div>
+						<div class="form-actions">
+							<button type="submit" class="Button Button--primary">Save changes</button>
+							<button type="button" class="Button">Cancel</button>
+						</div>
+					</fieldset>
+				</form>
+			</section>
+
+			<section id="buttons" class="Section">
+				<h2 class="Title">Buttons</h2>
+				<p>
+					<a href="#" class="Button">Default Button</a>
+					<a href="#" class="Button Button--primary">Primary Button</a>
+					<a href="#" class="Button Button--inverse">Inverse Button</a>
+					<a href="#" class="Button disabled">Disabled Button</a>
+				</p>
+			</section>
+
+			<section id="tables" class="Section">
+				<h2 class="Title">Tables</h2>
+				<table class="Table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Column One</th>
+							<th>Column Two</th>
+							<th>Column Three</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td>Dapibus</td>
+							<td>Nullam</td>
+							<td>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>Euismod</td>
+							<td>Vestibulum</td>
+							<td>Maecenas sed diam eget risus varius blandit sit amet non magna.</td>
+						</tr>
+						<tr>
+							<td>3</td>
+							<td>Elit</td>
+							<td>Purus</td>
+							<td>Nullam id dolor id nibh ultricies vehicula ut id elit.</td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+
+			<section id="video" class="Section">
+				<h2 class="Title">Video</h2>
+				<div class="Embed">
+					<iframe width="420" height="315" src="http://www.youtube.com/embed/iIUbhjBKE58?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</section>
+
+			<section id="navigation" class="Section">
+				<h2 class="Title">Navigation</h2>
+				<p>horizontal &amp; vertical</p>
+			</section>
+
+			<section id="rough-dropdown" class="Section">
+				<h2 class="Title">Rough Dropdown</h2>
+				<p>More on <a href="https://github.com/oskarrough/rough-dropdown" target="_blank">Rough Dropdown on GitHub</a>.
+			</section>
+
+			<section id="rough-navtoggle" class="Section">
+				<h2 class="Title">Rough NavToggle</h2>
+				<p>More on <a href="https://github.com/oskarrough/rough-navtoggle" target="_blank">Rough NavToggle on GitHub</a>.
+			</section>
+
+			<section id="breadcrumbs" class="Section">
+				<h2 class="Title">Breadcrumbs</h2>
+				<ul class="Nav Nav--Breadcrumb">
+					<li><a href="#">Page 1</a></li>
+					<li><a href="#">Page 2</a></li>
+					<li><a href="#">Page 3</a></li>
+					<li><a href="#">Page 4</a></li>
+					<li class="is-active">Page 5</li>
+				</ul>
+			</section>
+
+			<section id="pagination" class="Section">
+				<h2 class="Title">Pagination</h2>
+				<ul class="Pagination">
+					<li class="prev disabled">
+						<a class="Pagination-left disabled"><i class="icon-arrow-left"></i> Previous</a>
+					</li>
+					<li class="is-active"><a class="disabled">1</a></li>
+					<li><a href="#" class="">2</a></li>
+					<li><a href="#" class="">3</a></li>
+					<li><a href="#" class="">4</a></li>
+					<li><a href="#" class="">5</a></li>
+					<li class="next">
+						<a title="View the next page" href="#" class="next Pagination-right"><i class="icon-arrow-right"></i> Next</a>
+					</li>
+				</ul>
+			</section>
+
+			<section id="teasers" class="Section">
+				<h2 class="Title">Teasers</h2>
+				<div class="Teaser">
+					<a href="#">
+						<figure class="media">
+							<img src="http://dummyimage.com/300x200&text=placeholder" alt="Sample Pic 3">
+						</figure>
+						<div class="body">
+							<h3>Teaser title</h3>
+							<p>Teaser text. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+						</div>
+					</a>
+				</div>
+				<div class="Teaser">
+					<a href="#">
+						<figure class="media">
+							<img src="http://dummyimage.com/300x200&text=placeholder" alt="Sample Pic 3">
+						</figure>
+						<div class="body">
+							<h3>Teaser title</h3>
+							<p>Teaser text. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+						</div>
+					</a>
+				</div>
+				<div class="Teaser">
+					<a href="#">
+						<figure class="media">
+							<img src="http://dummyimage.com/300x200&text=placeholder" alt="Sample Pic 3">
+						</figure>
+						<div class="body">
+							<h3>Teaser title</h3>
+							<p>Teaser text. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+						</div>
+					</a>
+				</div>
+			</section>
+
+			<section id="gallery" class="Section">
+				<h2 class="Title">Gallery</h2>
+				<div class="Gallery">
+					<div class="royalSlider rsDefault">
+						<img src="http://dummyimage.com/300x200&text=placeholder" alt="">
+						<img src="http://dummyimage.com/300x200&text=placeholder" alt="">
+						<img src="http://dummyimage.com/300x200&text=placeholder" alt="">
+					</div>
+				</div>
+			</section>
+
+			<section id="layout-grid" class="Section">
+				<h2 class="Title">Grid</h2>
+				<p>Susy, markup, classes, fluid and responsive etc.</p>
+			</section>
+			
+			<section id="layout-masonry" class="Section">
+				<h2 class="Title">todo: Masonry layout</h2>
+				<p>Explain how to use packery/masonry etc</p>
+			</section>
+
+			<section id="rough-collapse" class="Section">
+				<h2 class="Title">Rough Collapse</h2>
+				<p>More on <a href="https://github.com/oskarrough/rough-collapse" target="_blank">Rough Collapse on GitHub</a>.
+			</section>
+			
+			<section id="rough-cover" class="Section">
+				<h2 class="Title">Rough Cover</h2>
+				<p>More on <a href="https://github.com/oskarrough/rough-cover" target="_blank">Rough Cover on GitHub</a>.
+			</section>
+
+		</article>
+
+		<aside class="l-Secondary">
+			<h4>Components</h4>
+			<ul class="Nav js-genenav">
+				<li><a href="index.html">&larr; Home</a></li>
+			</ul>
+		</aside>
