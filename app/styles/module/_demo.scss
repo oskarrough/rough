@@ -5,6 +5,15 @@
 // These styles are purely for the demo and should NOT be used in a new project.
 
 
+$blue: hsl(207,53,52);
+$lightblue: hsl(145,7,70);
+$sand: hsl(41,18,87);
+$red: rgb(255, 41, 0);
+$purple: rgb(184, 0, 255);
+
+//
+// Typography
+//
 body {
 	font-family: 'nimbus-sans';
 }
@@ -16,17 +25,10 @@ pre,
 code {
 	font-family: 'source-code-pro';
 }
-
-$blue: hsl(207,53,52);
-$lightblue: hsl(145,7,70);
-$sand: hsl(41,18,87);
-$red: rgb(255, 41, 0);
-$purple: rgb(184, 0, 255);
-
-
 .SiteTitle {
 	font-size: 4rem;
 	letter-spacing: -3px;
+	word-spacing: -10px;
 	line-height: 0.8;
 	margin-top: 1em;
 	margin-bottom: 0;
@@ -46,6 +48,22 @@ $purple: rgb(184, 0, 255);
 	font-size: 1.2rem;
 	font-weight: 700;
 }
+.Title {
+	width: 100%;
+	background-color: #eee;
+	padding-left: 0.3em;
+	// // to accomodate scrolling anchors
+	// &:before {
+	// 	content: ">";
+	// 	display: inline;
+	// 	color: $red;
+	// }
+}
+
+
+//
+// Layout
+//
 .l-Primary {
     margin-right: 1em;
     margin-left: 12em;
@@ -64,22 +82,8 @@ $purple: rgb(184, 0, 255);
     	margin-bottom: 18em; // enough for scroll nav
     }
 }
-.Title {
-	width: 100%;
-	background-color: #eee;
-	// font-size: 2rem;
-	
-	// // to accomodate scrolling anchors
-	// &:before {
-	// 	content: ">";
-	// 	display: inline;
-	// 	color: $red;
-	// }
-}
-
-
 // Primary navigation
-.Nav {
+.js-genenav {
 	background-color: red;
 	
 	a {

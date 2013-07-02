@@ -6,15 +6,9 @@
 	padding: 0;
 	list-style: none;
 	
-	// horizontal
-	// li {
-	// 	display: inline-block;
-	// }
-	
 	// links
 	a {
 		display: block;
-		//padding: em(1) em(4);
 		color: blue;
 	}
 	
@@ -22,5 +16,15 @@
 	a:hover,
 	.is-active {
 		color: red;
+	}
+}
+
+
+//
+// Horizontal nav
+//
+.Nav--horizontal {
+	li {
+		display: inline-block;
 	}
 }
