@@ -235,7 +235,7 @@ module.exports = function (grunt) {
             }
         },
         cssmin: {
-            // By default, your `index.html` <!-- Usemin Block --> will take
+            // This task is pre-configured if you do not wish to use Usemin
             // care of minification. This option is pre-configured if you do not
             // wish to use Usemin blocks.
             // dist: {
@@ -263,7 +263,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,
                     //cwd: '<%= yeoman.app %>',
-                    cwd: '.tmp',
+                    cwd: '.tmp', // because we are using jade
                     src: '*.html',
                     dest: '<%= yeoman.dist %>'
                 }]
@@ -296,7 +296,7 @@ module.exports = function (grunt) {
         },
         concurrent: {
             server: [
-                'compass',
+                'compass'
             ],
             test: [
             ],

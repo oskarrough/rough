@@ -1,3 +1,12 @@
+function jump(event) {
+	var $active = $(event.currentTarget);
+	var offset = $( $active.attr('href') ).offset().top;
+	$('html, body').animate({
+		scrollTop: offset
+	}, 150, function() {
+	});
+}
+
 $(function() {
 
 	/* Nav highlighting */
@@ -19,15 +28,14 @@ $(function() {
 			return -$(this).height();
 		}
 	});
-  	// make sure waypoints are correct
-  	$.waypoints('refresh');
+	// make sure waypoints are correct
+	$.waypoints('refresh');
 
 
 	/* Generate a menu from the content on the page */
 	var $nav = $('.js-genenav');
-	$('.Section').each(function(element){
-		myID = $(this).attr('id');
-
+	$('.Section').each(function(){
+		var myID = $(this).attr('id');
 		if (myID) {
 			$nav.append('<li><a href="#'+myID+'"> '+myID+' </a></li>');
 		}
@@ -35,13 +43,5 @@ $(function() {
 
 	/* Smooth scrolling instead of jumping */
 	$nav.find('a').on('click', jump);
-	function jump(event) {
-		var $active = $(event.currentTarget);
-		var offset = $( $active.attr('href') ).offset().top;
-		$('html, body').animate({
-			scrollTop: offset
-		}, 150, function() {
-		});
-	}
-
 });
+
