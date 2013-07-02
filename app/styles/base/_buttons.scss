@@ -1,0 +1,61 @@
+//
+// Buttons
+//
+
+/**
+ * Button template
+ *
+ * Build on this component using rulesets in your application-level CSS.
+ *
+ * 1. Corrects inability to style clickable `input` types in iOS
+ * 2. Normalize `box-sizing` across all elements that this component could be
+ *    applied to.
+ * 3. Inherit text color from ancestor.
+ * 4. Inherit font styles from ancestor.
+ * 5. Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+.
+ * 6. Prevent button text from being selectable.
+ * 7. Prevent wrapping across multiple lines.
+ */
+
+.Button {
+	-webkit-appearance: none; /* 1 */
+	background: transparent;
+	border: 1px solid;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box; /* 2 */
+	color: inherit; /* 3 */
+	cursor: pointer;
+	display: inline-block;
+	font: inherit; /* 4 */
+	line-height: normal; /* 5 */
+	margin: 0;
+	padding: 0.4em 0.75em;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-webkit-user-select: none;
+	user-select: none; /* 6 */
+	vertical-align: middle;
+	white-space: nowrap; /* 7 */
+}
+
+/**
+ * UI states
+ */
+
+.Button:hover,
+.Button:focus,
+.Button:active {
+	text-decoration: none;
+}
+
+/**
+ * Modifier: full-width buttons
+ */
+
+.Button--full {
+    display: block;
+    width: 100%;
+}
