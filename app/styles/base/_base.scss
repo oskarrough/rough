@@ -12,15 +12,32 @@ html {
 }
 
 // Headers
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
 	font-family: $font-header;
 	font-weight: bold;
-	//text-transform: uppercase;
+}
+h1, .h1 {
+	@include rem(font-size, 36px);
+}
+h2, .h2 {
+	@include rem(font-size, 25px);
+}
+h3, .h3 {
+	@include rem(font-size, 16px);
+}
+h4, .h4 {
+	@include rem(font-size, 12px);
+}
+h5, .h5 {
+	@include rem(font-size, 12px);
+}
+h6, .h6 {
+	@include rem(font-size, 12px);
 }
 
 // Make sure (many) elements have the same margin
