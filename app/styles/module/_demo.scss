@@ -15,21 +15,25 @@ $purple: rgb(184, 0, 255);
 // Typography
 //
 body {
-	font-family: 'nimbus-sans';
+	font-family: 'nimbus-sans', sans-serif;
 }
 .SiteTitle,
 .SiteSubTitle {
-	font-family: 'silkscreen';
+	font-family: 'silkscreen', sans-serif;
 }
 pre,
 code {
-	font-family: 'source-code-pro';
+	font-family: 'source-code-pro', monospace;
 }
 .SiteTitle {
 	font-size: 4rem;
-	letter-spacing: -3px;
-	word-spacing: -10px;
-	line-height: 0.8;
+	
+	.wf-active & {
+		letter-spacing: -3px;
+		word-spacing: -10px;
+		line-height: 0.8;
+	}
+
 	margin-top: 1em;
 	margin-bottom: 0;
 	text-shadow: 3px 2px 0px darken($red, 25%);
