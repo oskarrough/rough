@@ -95,9 +95,14 @@ code {
 		padding: 1px 0 1px 5px;
 		text-transform: capitalize;
 		background-color: #fff;
-		color: blue;
-		transition: color 200ms, margin 200ms;
+		color: #000;
+		transition: margin 200ms;
 		text-decoration: none;
+	}
+	a:hover,
+	a.is-active {
+		background-color: blue;
+		color: #fff;
 	}
 	a.is-active {
 		margin-left: 5px;
