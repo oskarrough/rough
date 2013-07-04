@@ -1,3 +1,7 @@
+//
+// Scroll navigation
+//
+
 function jump(event) {
 	var $active = $(event.currentTarget);
 	var offset = $( $active.attr('href') ).offset().top;
@@ -9,7 +13,7 @@ function jump(event) {
 
 $(function() {
 
-	/* Nav highlighting */
+	// Nav highlighting
 	$('.Section')
 	.waypoint(function(direction) {
 		var $links = $('a[href="#' + this.id + '"]');
@@ -44,4 +48,3 @@ $(function() {
 	/* Smooth scrolling instead of jumping */
 	$nav.find('a').on('click', jump);
 });
-
