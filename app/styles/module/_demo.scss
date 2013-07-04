@@ -3,8 +3,6 @@
 //
 
 // These styles are purely for the demo and should NOT be used in a new project.
-
-
 $blue: hsl(207,53,52);
 $lightblue: hsl(145,7,70);
 $sand: hsl(41,18,87);
@@ -107,4 +105,10 @@ code {
 	a.is-active {
 		margin-left: 5px;
 	}
+}
+
+.Button,
+a.Button {
+	background-color: blue;
+	color: #fff;
 }
