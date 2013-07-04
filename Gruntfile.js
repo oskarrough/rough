@@ -104,6 +104,18 @@ module.exports = function (grunt) {
             },
             server: '.tmp'
         },
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: [
+                'index.html',
+                'demo.html',
+                'images/**/*',
+                'scripts/**/*',
+                'styles/**/*'
+            ]
+        },
         jshint: {
             options: {
                 jshintrc: '.jshintrc'
