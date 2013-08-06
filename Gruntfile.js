@@ -1,4 +1,3 @@
-// Generated on 2013-06-24 using generator-webapp 0.2.4
 'use strict';
 var LIVERELOAD_PORT = 35729;
 var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
@@ -156,7 +155,7 @@ module.exports = function (grunt) {
         },
         compass: {
             options: {
-                require: 'susy',
+                require: ['susy', 'sass-css-importer'],
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
                 generatedImagesDir: '.tmp/images/generated',
@@ -248,13 +247,16 @@ module.exports = function (grunt) {
         },
         cssmin: {
             // This task is pre-configured if you do not wish to use Usemin
-            // care of minification. This option is pre-configured if you do not
-            // wish to use Usemin blocks.
+            // blocks for your CSS. By default, the Usemin block from your
+            // `index.html` will take care of minification, e.g.
+            //
+            //     <!-- build:css({.tmp,app}) styles/main.css -->
+            //
             // dist: {
             //     files: {
-            //         '<%%= yeoman.dist %>/styles/main.css': [
+            //         '<%= yeoman.dist %>/styles/main.css': [
             //             '.tmp/styles/{,*/}*.css',
-            //             '<%%= yeoman.app %>/styles/{,*/}*.css'
+            //             '<%= yeoman.app %>/styles/{,*/}*.css'
             //         ]
             //     }
             // }

@@ -1,16 +1,16 @@
 {
-  "name": "webapp",
+  "name": "rough",
   "version": "0.0.0",
   "dependencies": {
     "modernizr": "latest",
-    "normalize.scss": "latest",
     "rough-navtoggle": "~0.3.0",
     "jquery-waypoints": "latest",
     "jquery": "~1.10.1",
     "requirejs": "~2.1.4",
     "sticky-titles": "desandro/sticky-titles",
     "masonry": "~3.0.1",
-    "imagesloaded": "~3.0.1"
+    "imagesloaded": "~3.0.1",
+    "normalize-css": "~2.1.2"
   },
   "devDependencies": {}
 }

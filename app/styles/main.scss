@@ -23,7 +23,10 @@
 
 // Base styles
 // ------------------------------------
-@import "../bower_components/normalize.scss/_normalize.scss";
+
+// We are using the gem 'sass-css-importer' to import regular CSS files
+@import "CSS:../bower_components/normalize-css/normalize";
+
 //@import "base/_base.scss";
 //@import "base/_forms.scss";
 //@import "base/_icons.scss";
