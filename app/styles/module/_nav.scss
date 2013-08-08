@@ -5,23 +5,28 @@
 .Nav {
 	padding: 0;
 	list-style: none;
-	
+
 	// links
 	a {
 		display: block;
-		color: blue;
+		color: $link-color;
 	}
-	
-	// active styling
-	a:hover,
+
+	// hover
+	a:hover {
+		color: $link-color-hover;
+	}
+
+	// active
+	li.is-active > a,
 	.is-active {
-		color: red;
+		color: $link-color-active;
 	}
 }
 
 
 //
-// Horizontal nav
+// Modifier: horizontal
 //
 .Nav--horizontal {
 	li {
