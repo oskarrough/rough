@@ -1,13 +1,10 @@
-//
-// Boilerplate
-// by: Oskar Rough Mosumgaard
-//
+/*!
+	ROUGHPLATE
+	by Oskar Rough Mosumgaard @ oskarrough.com
+*/
 
-
-// Config
+// Config and mixins
 @import "base/_config.scss";
-
-// Custom mixins
 @import "base/_mixins.scss";
 
 // Susy (for robust layout math)
@@ -20,13 +17,18 @@
 @import "compass/css3"; // CSS3 mixins
 
 
+// Third party
+// we are using the 'sass-css-importer' gem
+// do NOT specify the .css file extension
+// ------------------------------------
+@import "CSS:../bower_components/normalize-css/normalize";
+//@import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
+//@import "CSS:../scripts/vendor/royalslider/royalslider";
+//@import "CSS:../scripts/vendor/royalslider/skins/default/rs-default";
+
 
 // Base styles
 // ------------------------------------
-
-// We are using the gem 'sass-css-importer' to import regular CSS files
-@import "CSS:../bower_components/normalize-css/normalize";
-
 //@import "base/_base.scss";
 //@import "base/_forms.scss";
 //@import "base/_icons.scss";
@@ -53,7 +55,4 @@
 @import "module/_nav.scss";
 //@import "module/_nav-primary.scss";
 //@import "module/_royalslider.scss";
-
 @import "module/_demo.scss";
-
-
