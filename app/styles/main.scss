@@ -39,11 +39,6 @@
 @import "layout/_layout.scss";
 
 
-// Plugin styles
-// ------------------------------------
-//@import "../bower_components/rough-navtoggle/rough-navtoggle.scss";
-
-
 // Module styles
 // ------------------------------------
 @import "module/_modules.scss";
@@ -55,4 +50,6 @@
 @import "module/_nav.scss";
 //@import "module/_nav-primary.scss";
 //@import "module/_royalslider.scss";
-@import "module/_demo.scss";
+
+
+@import "module/_styleguide.scss";

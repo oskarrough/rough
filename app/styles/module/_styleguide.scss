@@ -1,5 +1,5 @@
 //
-// Demo
+// Styleguide
 //
 
 // These styles are purely for the demo and should NOT be used in a new project.
@@ -25,7 +25,7 @@ code {
 }
 .SiteTitle {
 	font-size: 4rem;
-	
+
 	.wf-active & {
 		letter-spacing: -3px;
 		word-spacing: -10px;
@@ -54,12 +54,6 @@ code {
 	width: 100%;
 	background-color: #eee;
 	padding-left: 0.3em;
-	// // to accomodate scrolling anchors
-	// &:before {
-	// 	content: ">";
-	// 	display: inline;
-	// 	color: $red;
-	// }
 }
 
 
@@ -87,7 +81,7 @@ code {
 // Primary navigation
 .js-genenav {
 	background-color: red;
-	
+
 	a {
 		display: block;
 		padding: 1px 0 1px 5px;

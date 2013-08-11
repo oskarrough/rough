@@ -21,12 +21,6 @@ $large-from: 1000px;
 */
 
 
-
-// Mixin to calculate the width
-@mixin calcWidth($columns, $gutter: $gutter) {
-	width: (100% - ($gutter * ($columns - 1))) / $columns;
-}
-
 .grid-sizer {
 	//@include calcWidth($small-columns, $small-gutter);
 	width: columns(1,4);
@@ -59,9 +53,6 @@ $large-from: 1000px;
 	}
 }
 */
-
-
-
 
 .js-masonry {
 	@include pie-clearfix;

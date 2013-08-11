@@ -8,6 +8,7 @@ function jump(event) {
 	$('html, body').animate({
 		scrollTop: offset
 	}, 150, function() {
+		// callback
 	});
 }
 
