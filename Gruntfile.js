@@ -33,24 +33,23 @@ module.exports = function (grunt) {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
                 tasks: ['copy:styles', 'autoprefixer']
             },
+            jade: {
+                files: [
+                    '<%= yeoman.app %>/*.jade',
+                    '<%= yeoman.app %>/views/{,*/}*.jade'
+                ],
+                tasks: ['jade:dist']
+            },
             livereload: {
                 options: {
                     livereload: LIVERELOAD_PORT
                 },
                 files: [
-                    '<%= yeoman.app %>/*.html',
+                    '{.tmp,<%= yeoman.app %>}/*.html',
                     '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
-            },
-            jade: {
-                files: [
-                    '<%= yeoman.app %>/*.jade',
-                    '<%= yeoman.app %>/views/{,*/}*.jade'
-                    //,'<%= yeoman.app %>/views/{,*/}*.jade'
-                ],
-                tasks: ['jade']
             }
         },
 
