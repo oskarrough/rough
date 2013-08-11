@@ -25,10 +25,6 @@ module.exports = function (grunt) {
         yeoman: yeomanConfig,
 
         watch: {
-            options: {
-                nospawn: true,
-                livereload: true
-            },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
@@ -62,13 +58,12 @@ module.exports = function (grunt) {
             options: {
                 port: 9000,
                 // change this to '0.0.0.0' to access the server from outside
-                hostname: '0.0.0.0'
+                hostname: 'localhost'
             },
             livereload: {
                 options: {
                     middleware: function (connect) {
                         return [
-                            pushStateHook('http://localhost:9000'),
                             lrSnippet,
                             mountFolder(connect, '.tmp'),
                             mountFolder(connect, yeomanConfig.app)
@@ -141,7 +136,7 @@ module.exports = function (grunt) {
 
         compass: {
             options: {
-                require: ['susy','sass-css-importer'],
+                require: ['susy', 'sass-css-importer'],
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
                 generatedImagesDir: '.tmp/images/generated',
@@ -151,7 +146,6 @@ module.exports = function (grunt) {
                 importPath: '<%= yeoman.app %>/bower_components',
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
-                //httpGeneratedImagesPath: '/images',
                 httpFontsPath: '/styles/fonts',
                 relativeAssets: false
             },
@@ -338,7 +332,7 @@ module.exports = function (grunt) {
                     cwd: '<%= yeoman.app %>',
                     dest: '<%= yeoman.dist %>',
                     src: [
-                        '*.{ico,txt}',
+                        '*.{ico,png,txt}',
                         '.htaccess',
                         'images/**/*.{webp,gif}',
                         'styles/fonts/*',
