@@ -180,7 +180,7 @@ module.exports = function (grunt) {
             },
             src: [
                 'index.html',
-                'demo.html',
+                'styleguide.html',
                 'images/**/*',
                 'scripts/**/*',
                 'styles/**/*'
@@ -405,7 +405,7 @@ module.exports = function (grunt) {
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
-        'requirejs',
+        //'requirejs',
         'concat',
         'cssmin',
         'uglify',

@@ -1,20 +1,17 @@
 {
   "name": "rough",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "dependencies": {
     "modernizr": "latest",
     "normalize-css": "latest",
-    "rough-navtoggle": "~0.3.0",
     "jquery-waypoints": "latest",
-    "requirejs": "~2.1.4",
     "sticky-titles": "desandro/sticky-titles",
-    "masonry": "latest",
-    "imagesloaded": "latest",
-    "jquery": "~1.10.1"
+    "jquery": "~1.10.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "masonry": "~3.1.1"
+  },
   "resolutions": {
-    "jquery": "~1.10.1",
     "get-size": ">=1.1.4 <2.0"
   }
 }

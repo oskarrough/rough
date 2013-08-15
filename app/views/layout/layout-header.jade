@@ -3,17 +3,17 @@ block header
 	meta(http-equiv='X-UA-Compatible', content='IE=edge')
 	meta(name='viewport', content='width=device-width')
 	meta(name='description', content='#{description}')
-	
+
 	if active == 'Index'
-		title Project name
+		title Rough
 	else
-		title #{active} | Project name
+		title #{active} | Rough
 
 	// build:css({.tmp,app}) styles/main.css
 	link(href='styles/main.css', rel='stylesheet')
 	// endbuild
-	
+
 	script(src='scripts/vendor/modernizr-custom.js')
 
 	| <script src="//use.typekit.net/mst8xhr.js"></script>
-	| <script>try{Typekit.load();}catch(e){}</script>		
+	| <script>try{Typekit.load();}catch(e){}</script>
