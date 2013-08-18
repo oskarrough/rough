@@ -52,16 +52,12 @@ h5,
 h6,
 p,
 pre,
-fieldset {
+fieldset,
+input {
     margin: 0 0 rem($space);
 }
 fieldset {
     border: 0;
-    padding: 0;
-}
-ol,
-ul {
-    list-style: none;
     padding: 0;
 }
 
@@ -69,11 +65,10 @@ ul {
 a {
 	text-decoration: none;
 	color: blue;
+	&:hover {
+		color: red;
+	}
 }
-a:hover {
-	color: red;
-}
-
 // responsive
 iframe,
 img {
@@ -87,6 +82,12 @@ a img {
 figure {
 	margin: 0;
 }
+// default blockquote styling
+blockquote {
+	padding-left: rem($space);
+	font-style: italic;
+}
+
 
 //
 // Alignment helpers

@@ -33,3 +33,14 @@
 		display: inline-block;
 	}
 }
+
+
+//
+// Modifier: breadcrumbs
+//
+.Nav--breadcrumbs {
+	@extend .Nav--horizontal;
+	a:after {
+		content: ' > '
+	}
+}
