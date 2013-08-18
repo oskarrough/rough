@@ -29,8 +29,8 @@
 
 // Base styles
 // ------------------------------------
-//@import "base/_base.scss";
-//@import "base/_forms.scss";
+@import "base/_base.scss";
+
 //@import "base/_icons.scss";
 
 
@@ -42,14 +42,14 @@
 // Module styles
 // ------------------------------------
 @import "module/_modules.scss";
+@import "module/_nav.scss";
+@import "module/_buttons.scss";
+//@import "module/_forms.scss";
+@import "module/_masonry.scss";
 //@import "module/_animation.scss";
 //@import "module/_article.scss";
-@import "module/_masonry.scss";
 //@import "module/_logo.scss";
 //@import "module/_mediablock.scss";
-@import "module/_nav.scss";
 //@import "module/_nav-primary.scss";
 //@import "module/_royalslider.scss";
-
-
 @import "module/_styleguide.scss";
