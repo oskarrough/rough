@@ -61,16 +61,26 @@ code {
 //
 // Layout
 //
+.l-Primary,
+.l-Secondary {
+	margin: 1em;
+	max-width: 42em;
+}
 .l-Primary {
-    margin-right: 1em;
-    margin-left: 12em; // for the sidebar
-    max-width: 42em;
+    @media (min-width: 36em) {
+    	margin-left: 12em; // for the sidebar
+    }
 }
 .l-Secondary {
-    position: fixed;
-    top: 1.1em;
-    left: 1em;
-    width: 10em;
+    border: 1px solid #eee;
+    @media (min-width: 36em) {
+    	position: fixed;
+    	top: 1.1em;
+    	left: 1em;
+    	width: 10em;
+    	margin: 0;
+    	border: 0;
+    }
 }
 .Section {
     margin-bottom: 6em;
@@ -79,9 +89,12 @@ code {
     	margin-bottom: 18em; // enough for scroll nav
     }
 }
+
+//
 // Primary navigation
+//
 .js-genenav {
-	background-color: red;
+	background-color: #eee;
 
 	a {
 		display: block;
@@ -98,6 +111,7 @@ code {
 		color: #fff;
 	}
 	a.is-active {
-		margin-left: 5px;
+		margin-right: 5px;
 	}
 }
+
