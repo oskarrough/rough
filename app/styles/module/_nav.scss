@@ -18,8 +18,8 @@
 	}
 
 	// active
-	li.is-active > a,
-	.is-active {
+	.is-selected > a,
+	.is-selected {
 		color: $link-color-active;
 	}
 }
@@ -39,8 +39,31 @@
 // Modifier: breadcrumbs
 //
 .Nav--breadcrumbs {
+	@include pie-clearfix;
+
+	li {
+		float: left;
+	}
+	li:after {
+		content: ' →  ';
+	}
+	li:last-child:after {
+		display: none;
+	}
+	a {
+		display: inline;
+	}
+}
+
+
+//
+// Paination
+//
+.Pagination {
 	@extend .Nav--horizontal;
-	a:after {
-		content: ' > '
+	text-align: center;
+	a {
+		display: block;
+		padding: 0.2em 0.4em; // bigger tap area
 	}
 }
