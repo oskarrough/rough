@@ -21,9 +21,11 @@ h6, .h6 {
 }
 h1, .h1 {
 	@include rem(font-size, 36px);
+	line-height: 1.1;
 }
 h2, .h2 {
 	@include rem(font-size, 25px);
+	line-height: 1.1;
 }
 h3, .h3 {
 	@include rem(font-size, 16px);
@@ -41,7 +43,7 @@ h6, .h6 {
 // Make sure (many) elements have the same margin
 blockquote,
 ol,
-ul
+ul,
 dl,
 dd,
 h1,
@@ -64,9 +66,9 @@ fieldset {
 // Links
 a {
 	text-decoration: none;
-	color: blue;
+	color: $link-color;
 	&:hover {
-		color: red;
+		color: $link-color-hover;
 	}
 }
 // responsive
@@ -86,6 +88,9 @@ figure {
 blockquote {
 	padding-left: rem($space);
 	font-style: italic;
+}
+address {
+	font-style: normal;
 }
 
 
