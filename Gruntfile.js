@@ -12,15 +12,15 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
-    // configurable paths
-    var yeomanConfig = {
-        app: 'app',
-        dist: 'dist'
-    };
+    // loads automatically?
+    //grunt.loadNpmTasks('grunt-ftp-deploy');
 
     grunt.initConfig({
-        yeoman: yeomanConfig,
-
+        // configurable paths
+        yeoman: {
+            app: 'app',
+            dist: 'dist'
+        },
         watch: {
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -62,7 +62,7 @@ module.exports = function (grunt) {
                     open: true,
                     base: [
                         '.tmp',
-                        yeomanConfig.app
+                        '<%= yeoman.app %>'
                     ]
                 }
             },
@@ -71,14 +71,14 @@ module.exports = function (grunt) {
                     base: [
                         '.tmp',
                         'test',
-                        yeomanConfig.app,
+                        '<%= yeoman.app %>',
                     ]
                 }
             },
             dist: {
                 options: {
                     open: true,
-                    base: yeomanConfig.dist
+                    base: '<%= yeoman.dist %>'
                 }
             }
         },
@@ -131,7 +131,8 @@ module.exports = function (grunt) {
                 httpImagesPath: '/images',
                 httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
-                relativeAssets: false
+                relativeAssets: false,
+                assetCacheBuster: false
             },
             dist: {
                 options: {
@@ -318,6 +319,13 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
+            jade: {
+                expand: true,
+                dot: true,
+                cwd: '.tmp/',
+                dest: '<%= yeoman.dist %>/',
+                src: '{,*/}*.html'
+            },
             styles: {
                 expand: true,
                 dot: true,
@@ -380,6 +388,7 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'copy:dist',
+        'copy:jade',
         //'rev',
         'usemin'
     ]);
