@@ -3,27 +3,5 @@ mixin menu-item(url, title)
 		a(href=url, class=active == title ? 'is-active' : '')= title
 
 ul.Nav.Nav--primary
-	+menu-item('index.html', 'Features')
-	+menu-item('pulse.html', 'Pulse')
-
-
-ul.Nav.Nav--categories.Nav--togglable
-	+menu-item('#', 'All')
-	+menu-item('#', 'Music')
-	+menu-item('#', 'Film')
-	+menu-item('#', 'Art')
-	+menu-item('#', 'Acrobatics')
-	+menu-item('#', 'Product')
-	+menu-item('#', 'Reviews')
-	+menu-item('#', 'Happenings')
-
-ul.Nav.Nav--meta.Nav--togglable
-	+menu-item('#', 'Search')
-	+menu-item('#', 'Archive')
-	+menu-item('#', 'Subscribe print')
-	+menu-item('#', 'Newsletter')
-	+menu-item('#', 'Shop')
-	+menu-item('#', 'Lodown for iPad')
-	+menu-item('#', 'Imprint')
-	+menu-item('#', 'Facebook')
-	+menu-item('#', 'Twitter')
+	+menu-item('index.html', 'Home')
+	+menu-item('about.html', 'About')

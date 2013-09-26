@@ -17,9 +17,11 @@
 @import "compass/css3"; // CSS3 mixins
 
 
-// Third party
-// we are using the 'sass-css-importer' gem
-// do NOT specify the .css file extension
+/**
+ * Third party
+ */
+
+// note: we are using the 'sass-css-importer' gem. Do not specify the .css file extension
 // ------------------------------------
 @import "CSS:../bower_components/normalize-css/normalize";
 //@import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
@@ -27,20 +29,25 @@
 //@import "CSS:../scripts/vendor/royalslider/skins/default/rs-default";
 
 
-// Base styles
-// ------------------------------------
-@import "base/_base.scss";
+/**
+ * Base
+ */
 
+@import "base/_base.scss";
 //@import "base/_icons.scss";
 
 
-// Layout styles
-// ------------------------------------
+/**
+ * Layout
+ */
+
 @import "layout/_layout.scss";
 
 
-// Module styles
-// ------------------------------------
+/**
+ * Modules
+ */
+
 @import "module/_modules.scss";
 @import "module/_nav.scss";
 @import "module/_buttons.scss";

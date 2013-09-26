@@ -1,10 +1,11 @@
-//
-// Config
-//
+/**
+ * Config
+ */
 
-//
-// Compass settings
-//
+
+/**
+ * Compass
+ */
 
 $support-for-original-webkit-gradients: false;
 $legacy-support-for-ie6: false; // IE6
@@ -12,9 +13,9 @@ $legacy-support-for-ie7: false; // IE7
 $experimental-support-for-opera: false; // because they've switched to Webkit
 
 
-//
-// Typography
-//
+/**
+ * Typography
+ */
 
 $base-font-size-unitless: 16;
 $base-font-size: $base-font-size-unitless * 1px;
@@ -24,9 +25,9 @@ $font-body: 'Helvetica Neue', Helvetica, sans-serif;
 $font-header: $font-body;
 
 
-//
-// Colors
-//
+/**
+ * Colors
+ */
 
 $blue: #1a70ff;
 $red: #f00;
@@ -52,10 +53,8 @@ $gutter-width: 1.25em;
 $grid-padding: 1.25em;
 
 
-//
-// Breakpoints
+// Media queries
 // - use like this: @include at-breakpoint($l-large) {}
-//
 
 $breakpoint-small: 580;
 $breakpoint-medium: 720;

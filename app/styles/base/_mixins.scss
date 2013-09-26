@@ -1,6 +1,6 @@
-//
-// EM function
-//
+/**
+ * EM function
+ */
 
 @function em($target, $context: $base-font-size-unitless, $desired-unit: 1em) {
 	// Make sure units are unitless
@@ -18,9 +18,9 @@
 }
 
 
-//
-// REM function
-//
+/**
+ * REM function
+ */
 
 @function rem($target, $context: $base-font-size-unitless, $desired-unit: 1rem) {
 	// Make sure units are unitless

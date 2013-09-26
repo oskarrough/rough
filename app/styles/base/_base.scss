@@ -1,6 +1,6 @@
-//
-// Base
-//
+/**
+ * Base
+ */
 
 html {
 	font-size: $base-font-size;
@@ -9,7 +9,9 @@ html {
 	color: #000;
 }
 
-// Headers
+/**
+ * Headers
+ */
 h1, .h1,
 h2, .h2,
 h3, .h3,
@@ -40,7 +42,9 @@ h6, .h6 {
 	@include rem(font-size, 12px);
 }
 
-// Make sure (many) elements have the same margin
+/**
+ * Elements
+ */
 blockquote,
 ol,
 ul,
@@ -56,14 +60,12 @@ p,
 pre,
 fieldset,
 input {
-    margin: 0 0 rem($space);
+    margin: 0 0 1em;
 }
 fieldset {
     border: 0;
     padding: 0;
 }
-
-// Links
 a {
 	text-decoration: none;
 	color: $link-color;
@@ -71,22 +73,15 @@ a {
 		color: $link-color-hover;
 	}
 }
-// responsive
 iframe,
 img {
 	max-width: 100%;
 }
-// remove border in old ie
-a img {
-	border: 0;
-}
-// remove default margin
 figure {
-	margin: 0;
+	margin: 0; // remove default margin
 }
-// default blockquote styling
 blockquote {
-	padding-left: rem($space);
+	padding-left: 1em;
 	font-style: italic;
 }
 address {
@@ -99,13 +94,13 @@ address {
 //
 .align-left {
 	float: left;
-	margin-right: rem($space);
-	margin-bottom: rem($space);
+	margin-right: 1em;
+	margin-bottom: 1em;
 }
 .align-right {
 	float: right;
-	margin-left: rem($space);
-	margin-bottom: rem($space);
+	margin-left: 1em;
+	margin-bottom: 1em;
 }
 .align-center {
 	margin-left: auto;

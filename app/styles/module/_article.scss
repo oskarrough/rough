@@ -3,15 +3,11 @@
 //
 
 
-//
 // Default for all articles
-//
 .Article {}
 
 
-//
 // Teaser modifier
-//
 .Article--teaser {
 	// Make sure the link contains everything
 	> a {
@@ -20,7 +16,5 @@
 }
 
 
-//
 // Detail modifier
-//
 .Article--detail {}
