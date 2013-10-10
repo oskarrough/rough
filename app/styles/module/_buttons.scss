@@ -21,8 +21,6 @@
 
 .Button {
 	-webkit-appearance: none; /* 1 */
-	background: transparent;
-	border: 1px solid;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box; /* 2 */
 	color: inherit; /* 3 */
@@ -31,8 +29,6 @@
 	font: inherit; /* 4 */
 	line-height: normal; /* 5 */
 	margin: 0;
-	padding: 0.4em 0.75em;
-	position: relative;
 	text-align: center;
 	text-decoration: none;
 	-moz-user-select: none;
@@ -41,6 +37,10 @@
 	user-select: none; /* 6 */
 	vertical-align: middle;
 	white-space: nowrap; /* 7 */
+
+	background: transparent;
+	border: 1px solid;
+	padding: 0.4em 0.75em 0.3em;
 }
 
 /**
