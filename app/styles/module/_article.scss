@@ -1,11 +1,9 @@
-//
-// Article
-//
-
+/**
+ * Article
+ */
 
 // Default for all articles
 .Article {}
-
 
 // Teaser modifier
 .Article--teaser {
@@ -14,7 +12,6 @@
 		display: block;
 	}
 }
-
 
 // Detail modifier
 .Article--detail {}

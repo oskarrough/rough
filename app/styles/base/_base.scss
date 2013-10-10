@@ -6,41 +6,10 @@ html {
 	font-size: $base-font-size;
 	font-family: $font-body;
 	line-height: $base-line-height-unitless;
+	text-rendering: optimizeLegibility; // enables kerning and ligatures
 	color: #000;
 }
 
-/**
- * Headers
- */
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4,
-h5, .h5,
-h6, .h6 {
-	font-family: $font-header;
-	font-weight: bold;
-}
-h1, .h1 {
-	@include rem(font-size, 36px);
-	line-height: 1.1;
-}
-h2, .h2 {
-	@include rem(font-size, 25px);
-	line-height: 1.1;
-}
-h3, .h3 {
-	@include rem(font-size, 16px);
-}
-h4, .h4 {
-	@include rem(font-size, 12px);
-}
-h5, .h5 {
-	@include rem(font-size, 12px);
-}
-h6, .h6 {
-	@include rem(font-size, 12px);
-}
 
 /**
  * Elements
@@ -89,9 +58,43 @@ address {
 }
 
 
-//
-// Alignment helpers
-//
+/**
+ * Headers
+ */
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	font-family: $font-header;
+	font-weight: bold;
+}
+h1, .h1 {
+	@include rem(font-size, 36px);
+	line-height: 1.1;
+}
+h2, .h2 {
+	@include rem(font-size, 25px);
+	line-height: 1.1;
+}
+h3, .h3 {
+	@include rem(font-size, 16px);
+}
+h4, .h4 {
+	@include rem(font-size, 12px);
+}
+h5, .h5 {
+	@include rem(font-size, 12px);
+}
+h6, .h6 {
+	@include rem(font-size, 12px);
+}
+
+
+/**
+ * Alignment helpers
+ */
 .align-left {
 	float: left;
 	margin-right: 1em;

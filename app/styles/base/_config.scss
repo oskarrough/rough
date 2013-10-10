@@ -40,9 +40,9 @@ $link-color-hover: $red !default;
 $link-color-active: $link-color-hover !default;
 
 
-//
-// Layout
-//
+/**
+ * Layout
+ */
 
 $space: 20px;
 
@@ -52,13 +52,8 @@ $column-width: 4em;
 $gutter-width: 1.25em;
 $grid-padding: 1.25em;
 
-
 // Media queries
-// - use like this: @include at-breakpoint($l-large) {}
-
-$breakpoint-small: 580;
-$breakpoint-medium: 720;
-$breakpoint-large: 1000;
-$l-small: em($breakpoint-small);
-$l-medium: em($breakpoint-medium) lt-ie9;
-$l-large: em($breakpoint-large) lt-ie9;
+// use like this: @include at-breakpoint($l-large) {}
+$l-small: em(580);
+$l-medium: em(720) lt-ie9;
+$l-large: em(1000) lt-ie9;

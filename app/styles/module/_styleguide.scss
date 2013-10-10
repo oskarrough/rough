@@ -9,9 +9,11 @@ $sand: hsl(41,18,87);
 $red: rgb(255, 41, 0);
 $purple: rgb(184, 0, 255);
 
-//
-// Typography
-//
+
+/**
+ * Typography
+ */
+
 body {
 	font-family: 'nimbus-sans', sans-serif;
 }
@@ -58,9 +60,10 @@ code {
 }
 
 
-//
-// Layout
-//
+/**
+ * Layout
+ */
+
 .l-Primary,
 .l-Secondary {
 	margin: 1em;
@@ -90,9 +93,11 @@ code {
     }
 }
 
-//
-// Primary navigation
-//
+
+/**
+ * Primary navigation
+ */
+
 .js-genenav {
 	background-color: #eee;
 
@@ -114,4 +119,3 @@ code {
 		margin-right: 5px;
 	}
 }
-

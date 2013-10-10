@@ -1,6 +1,6 @@
-//
-// Masonry grid (masonry.desandro.com)
-//
+/**
+ * Masonry grid
+ */
 
 // Two elements are inserted with JavaScript: .grid-sizer and .gutter-sizer
 // they are there to reduce rounding errors for fluid widths
@@ -86,5 +86,5 @@ $m-from: 1100px;
 	// }
 }
 .Masonry > .Article {
-	margin-bottom: 20px;
+	margin-bottom: 1em;
 }

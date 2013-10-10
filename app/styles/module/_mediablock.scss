@@ -4,19 +4,19 @@
 
 .MediaBlock {
     position: relative;
-    zoom:1;
+    zoom: 1;
 }
 .MediaBlock-media {
     float: left;
     margin-right: rem($space);
 }
 .MediaBlock-body {
-    display:table-cell;
-    width:10000px;
-    *width:auto;
+    display: table-cell;
+    width: 10000px;
+    *width: auto;
 }
 
-// Right aligned
+// Modifier: Right aligned
 .MediaBlock--right > .MediaBlock-media {
 	float: right;
 	margin-right: 0;
