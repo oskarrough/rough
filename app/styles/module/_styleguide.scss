@@ -44,10 +44,11 @@ code {
 	}
 }
 .SiteSubTitle {
-	margin-top: 0;
-	margin-left: 1em;
+	margin-left: 1.5em;
 	color: $purple;
+	letter-spacing: 1px;
 	text-shadow: 2px 1px 0px darken($purple, 20%);
+	margin-bottom: em(26,25);
 }
 .Intro {
 	font-size: 1.2rem;
@@ -55,7 +56,8 @@ code {
 }
 .Title {
 	font-size: $base-font-size;
-	padding: em(2,14) em(5,14);
+	margin-bottom: em(13,$base-font-size);
+	padding: em(2,$base-font-size) em(5,$base-font-size);
 	font-weight: 400;
 	letter-spacing: 1px;
 	background-color: blue;
