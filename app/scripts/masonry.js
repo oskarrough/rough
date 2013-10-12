@@ -2,17 +2,19 @@
  * Dynamic grid with Masonry
  */
 
-var DynamicGrid = function() {};
+var Masonry = function() {};
 
-DynamicGrid.prototype = {
+Masonry.prototype = {
 
 	$container: $('#Masonry'),
 
 	init: function() {
+
+		// add els needed by masonry for better fluid calculations
 		this.$container.prepend('<div class="Masonry-gridSizer"></div><div class="Masonry-gutterSizer"></div>');
 
 		// enable masonry after images are loaded
-		this.$container.imagesLoaded(this.runMasonry());
+		this.$container.imagesLoaded( this.runMasonry() );
 	},
 
 	runMasonry: function() {
@@ -24,7 +26,4 @@ DynamicGrid.prototype = {
 	}
 };
 
-var dynamicGrid = new DynamicGrid();
-
-// DO IT
-dynamicGrid.init();
+var masonry = new Masonry();
