@@ -3,21 +3,21 @@
  */
 
 .MediaBlock {
-    position: relative;
-    zoom: 1;
+	position: relative;
+	zoom: 1;
 }
 .MediaBlock-media {
-    float: left;
-    margin-right: rem($space);
+	float: left;
+	margin-right: rem($space);
 }
 .MediaBlock-body {
-    display: table-cell;
-    width: 10000px;
-    *width: auto;
+	display: table-cell;
+	width: 10000px;
+	*width: auto;
 }
 
 // Modifier: Right aligned
-.MediaBlock--right > .MediaBlock-media {
+.MediaBlock-media--right {
 	float: right;
 	margin-right: 0;
 	margin-left: rem($space);
