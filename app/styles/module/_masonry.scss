@@ -2,16 +2,16 @@
  * Masonry grid
  */
 
-// Two elements are inserted with JavaScript: .grid-sizer and .gutter-sizer
-// they are there to reduce rounding errors for fluid widths
+// ONLY use this when your grid items have variable height and you want to
+// eliminate the gaps.
 
-// The horizontal gutter in the grid comes from the .gutter-sizer only - not from margin
-// Do not use any margin-left or right on the .grid-sizer nor on the items in the masonry grid
-// The vertical gutter you can put on the items in the grid.
+// In order to solve fluid roundings, two elements are inserted with JavaScript: .Masonry-gridSizer and .gutter-sizer
 
-// I've defined some variables for easier configuration.
+// The horizontal gutter comes from the .gutter-sizer element only
+// so do not use any margin-left or right on the .Masonry-gridSizer or grid items
+
+// The grid here is responsive.
 // The grid goes from 1 -> 2 -> 3 -> 4 items in each row.
-// The small/medium and medium/large are corrently outcommented but could be used if you need more.
 
 // Small version
 $s-columns: 2;
@@ -25,21 +25,31 @@ $sm-from: 730px;
 $m-columns: 4;
 $m-from: 1100px;
 
-// // Medium/Large version
-// $ml-columns: 5;
-// $ml-from: 1200px;
+// Medium/Large version
+$ml-columns: 5;
+$ml-from: 1200px;
 
-// // Large version
-// $large-columns: 6;
-// $large-from: 1500px;
+// Large version
+$large-columns: 6;
+$large-from: 1500px;
 
 
-.Masonry > .Article, // this selector can change
-.Masonry > .grid-sizer {
+// Fade in masonry when it is ready. Class is added with js.
+.Masonry {
+	opacity: 0;
+	transition: opacity 100ms;
+	&.is-active {
+		opacity: 1;
+	}
+}
+
+.Masonry-item, // this selector can change
+.Masonry-gridSizer {
 
 	// Default layout
 	float: left;
 	width: 100%;
+	margin-bottom: rem($space);
 
 	// Make sure images scale
 	img {
@@ -48,27 +58,27 @@ $m-from: 1100px;
 	}
 
 	@media (min-width: em($s-from)) {
-		width: columns(1,$s-columns);
+		width: columns(1, $s-columns);
 		// &:nth-of-type(3) { width: columns(2,$s-columns); }
 	}
 	@media (min-width: em($sm-from)) {
-		width: columns(1,$sm-columns);
+		width: columns(1, $sm-columns);
 		// different size for the first item
 		// &:nth-of-type(3) { width: columns(2,$sm-columns); }
 	}
 	@media (min-width: em($m-from)) {
-		width: columns(1,$m-columns);
+		width: columns(1, $m-columns);
 		// different size for the first item
 		// &:nth-of-type(3) { width: columns(2,$m-columns); }
 	}
-	// @media (min-width: em($ml-from)) {
-	// 	width: columns(1,$ml-columns);
-	// }
-	// @media (min-width: em($large-from)) {
-	// 	width: columns(1,$large-columns);
-	// }
+	@media (min-width: em($ml-from)) {
+		width: columns(1, $ml-columns);
+	}
+	@media (min-width: em($large-from)) {
+		width: columns(1, $large-columns);
+	}
 }
-.Masonry > .gutter-sizer {
+.Masonry-gutterSizer {
 	@media (min-width: em($s-from)) {
 		width: gutter($s-columns);
 	}
@@ -78,13 +88,10 @@ $m-from: 1100px;
 	@media (min-width: em($m-from)) {
 		width: gutter($m-columns);
 	}
-	// @media (min-width: em($ml-from)) {
-	// 	width: gutter($ml-columns);
-	// }
-	// @media (min-width: em($large-from)) {
-	// 	width: gutter($large-columns);
-	// }
-}
-.Masonry > .Article {
-	margin-bottom: 1em;
+	@media (min-width: em($ml-from)) {
+		width: gutter($ml-columns);
+	}
+	@media (min-width: em($large-from)) {
+		width: gutter($large-columns);
+	}
 }
