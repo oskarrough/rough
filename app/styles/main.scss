@@ -1,13 +1,19 @@
-/*!
+	/*!
 	ROUGHPLATE
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
+
 
 // Config and mixins
 @import "base/_config.scss";
 @import "base/_mixins.scss";
 
-// Susy (for robust layout math)
+
+/**
+ * Third party
+ */
+
+ // Susy (for robust layout math)
 // also applies * { box-sizing: border-box; }
 @import "susy";
 @include border-box-sizing;
@@ -15,11 +21,6 @@
 // Compass (we need the 0.13 alpha - because of rem mixins and other goodies)
 @import "compass/typography"; // REM fallback
 @import "compass/css3"; // CSS3 mixins
-
-
-/**
- * Third party
- */
 
 // note: we are using the 'sass-css-importer' gem. Do not specify the .css file extension
 
@@ -56,7 +57,6 @@
 //@import "module/_animation.scss";
 //@import "module/_article.scss";
 //@import "module/_logo.scss";
-//@import "module/_mediablock.scss";
-//@import "module/_nav-primary.scss";
+@import "module/_mediablock.scss";
 //@import "module/_royalslider.scss";
 @import "module/_styleguide.scss";
