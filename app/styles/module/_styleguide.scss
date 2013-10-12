@@ -18,16 +18,19 @@ html,
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'nimbus-sans', sans-serif;
 }
-.SiteTitle,
-.SiteSubTitle {
-	font-family: 'silkscreen', sans-serif;
-}
 pre,
 code {
 	font-family: 'source-code-pro', monospace;
 }
+.SiteTitle,
+.SiteSubTitle {
+	font-family: 'silkscreen', sans-serif;
+}
 .SiteTitle {
-	font-size: 4rem;
+	font-size: 2.2rem;
+	@media (min-width: 30em) {
+		font-size: 4rem;
+	}
 
 	.wf-active & {
 		letter-spacing: -3px;
@@ -44,11 +47,17 @@ code {
 	}
 }
 .SiteSubTitle {
+	@media (max-width: 30em) {
+		font-size: 18px;
+		margin-left: 0;
+		letter-spacing: 0;
+	}
+
 	margin-left: 1.5em;
 	color: $purple;
 	letter-spacing: 1px;
 	text-shadow: 2px 1px 0px darken($purple, 20%);
-	margin-bottom: em(26,25);
+	margin-bottom: em(26,22);
 }
 .Intro {
 	font-size: 1.2rem;
@@ -101,11 +110,33 @@ code {
 
 
 /**
+ * Modify default nav toggles
+ */
+.Nav--togglable {
+	transition: none;
+}
+.NavToggle {
+	letter-spacing: 1px;
+	padding: 0.3em 0.4em;
+	text-transform: uppercase;
+	user-select: none;
+}
+.NavToggle-text {
+	font-size: rem(13);
+	font-weight: bold;
+	top: 0;
+}
+.NavToggle-box {
+	display: none;
+}
+
+
+/**
  * Primary navigation
  */
 
 .js-genenav {
-	//background-color: #eee;
+	margin-bottom: 0;
 
 	a {
 		display: block;
@@ -124,4 +155,9 @@ code {
 	a.is-active {
 		//margin-right: 5px;
 	}
+
+	&.is-active {
+		padding-top: 4px;
+	}
 }
+

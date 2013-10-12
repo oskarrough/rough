@@ -72,7 +72,7 @@ h4, .h4 {
 h1, .h1 {
 	@include rem(font-size, 36px);
 	margin-bottom: em(5,36);
-	line-height: 1.1;
+	line-height: 1;
 }
 h2, .h2 {
 	@include rem(font-size, 22px);
