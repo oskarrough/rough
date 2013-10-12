@@ -2,10 +2,8 @@
   "name": "rough",
   "version": "0.0.0",
   "dependencies": {
-    "modernizr": "latest",
     "normalize-css": "latest",
     "jquery-waypoints": "latest",
-    "sticky-titles": "desandro/sticky-titles",
     "jquery": "~1.10.2"
   }
 }

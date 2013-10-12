@@ -2,7 +2,7 @@
 - var description = ''
 
 //- local vars
-block vars	
+block vars
 	- var bodyClass = ''
 	- var active = active || ''
 
@@ -16,21 +16,48 @@ doctype
 // [if gt IE 8] <!
 html.no-js
 	// <![endif]
-	
+
 	head
-		include layout-header
-		
+		block header
+			meta(charset='utf-8')
+			meta(http-equiv='X-UA-Compatible', content='IE=edge')
+			meta(name='viewport', content='width=device-width')
+			meta(name='description', content='#{description}')
+
+			if active == 'Index'
+				title Rough
+			else
+				title #{active} | Rough
+
+			// build:css({.tmp,app}) styles/main.css
+			link(href='styles/main.css', rel='stylesheet')
+			// endbuild
+
+			script(src='scripts/vendor/modernizr-custom.js')
+
+			| <script src="//use.typekit.net/mst8xhr.js"></script>
+			| <script>try{Typekit.load();}catch(e){}</script>
+
+
 	body(class="#{bodyClass}")
 
-		//-_header.l-Header
+		header#SiteHeader.SiteHeader
 			include ../modules/header
 
-		//-.l-Main
-		block content
+		main#SiteMain.SiteMain
+			block content
 
-		//-.l-Footer
-			.l-Inner
-				//-include ../modules/footer
-		
-		include layout-footer
-	
+		.Scripts
+			// build:js(app) scripts/main.js
+			block scripts
+				script(src='bower_components/jquery/jquery.js')
+				script(src='bower_components/jquery/jquery-migrate.min.js')
+				script(src='scripts/vendor/masonry.pkgd.min.js')
+				script(src='scripts/vendor/imagesloaded.pkgd.min.js')
+				script(src='bower_components/jquery-waypoints/waypoints.js')
+				//- script(src='bower_components/rough-navtoggle/rough-navtoggle.js')
+				script(src='scripts/app.js')
+				script(src='scripts/demo-nav.js')
+				script(src='scripts/demo-navtoggle.js')
+				script(src='scripts/masonry.js')
+			// endbuild
