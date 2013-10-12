@@ -43,6 +43,7 @@
 	padding: 0.4em 0.75em 0.3em;
 }
 
+
 /**
  * UI states
  */
@@ -53,6 +54,16 @@
 	text-decoration: none;
 }
 
+
+/**
+ * Modifier: primary button
+ */
+
+ .Button--primary {
+ 	font-weight: 600;
+ }
+
+
 /**
  * Modifier: full-width buttons
  */
@@ -61,3 +72,13 @@
     display: block;
     width: 100%;
 }
+
+
+/**
+ * Modifier: disabled buttons
+ */
+
+ .Button.disabled {
+ 	color: #ccc;
+ 	pointer-events: none;
+ }
