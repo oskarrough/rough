@@ -7,8 +7,6 @@ block vars
 	- var active = active || ''
 
 doctype
-//if lt IE 7
-	html.no-js.lt-ie9.lt-ie8.lt-ie7
 //if IE 7
 	html.no-js.lt-ie9.lt-ie8
 //if IE 8
@@ -21,13 +19,12 @@ html.no-js
 		block header
 			meta(charset='utf-8')
 			meta(http-equiv='X-UA-Compatible', content='IE=edge')
-			meta(name='viewport', content='width=device-width')
-			meta(name='description', content='#{description}')
-
 			if active == 'Index'
 				title Rough
 			else
 				title #{active} | Rough
+			meta(name='description', content='#{description}')
+			meta(name='viewport', content='width=device-width')
 
 			// build:css({.tmp,app}) styles/main.css
 			link(href='styles/main.css', rel='stylesheet')
