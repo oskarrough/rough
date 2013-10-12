@@ -14,7 +14,8 @@ $purple: rgb(184, 0, 255);
  * Typography
  */
 
-body {
+html,
+h1,h2,h3,h4,h5,h6 {
 	font-family: 'nimbus-sans', sans-serif;
 }
 .SiteTitle,
@@ -53,10 +54,13 @@ code {
 	font-weight: 700;
 }
 .Title {
-	width: 100%;
-	padding: 0.3em;
-	margin-top: 0;
-	background-color: #eee;
+	font-size: $base-font-size;
+	padding: em(2,14) em(5,14);
+	font-weight: 400;
+	letter-spacing: 1px;
+	background-color: blue;
+	@include background(linear-gradient(left, blue, white));
+	color: #fff;
 }
 
 
@@ -99,13 +103,13 @@ code {
  */
 
 .js-genenav {
-	background-color: #eee;
+	//background-color: #eee;
 
 	a {
 		display: block;
 		padding: 1px 0 1px 5px;
 		text-transform: capitalize;
-		background-color: #fff;
+		//background-color: #fff;
 		color: #000;
 		transition: margin 200ms;
 		text-decoration: none;
@@ -116,6 +120,6 @@ code {
 		color: #fff;
 	}
 	a.is-active {
-		margin-right: 5px;
+		//margin-right: 5px;
 	}
 }
