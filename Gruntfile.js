@@ -12,11 +12,7 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('load-grunt-tasks')(grunt);
 
-    // loads automatically?
-    //grunt.loadNpmTasks('grunt-ftp-deploy');
-
     grunt.initConfig({
-        // configurable paths
         yeoman: {
             app: 'app',
             dist: 'dist'
