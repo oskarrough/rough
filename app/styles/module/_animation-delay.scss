@@ -1,0 +1,23 @@
+/**
+ * Animation delay
+ */
+
+@mixin iterative-delay($selector: unquote(".item"), $count: 2, $delay: 0.07s) {
+	@for $i from 1 through $count {
+		#{$selector}:nth-child(#{$i}) {
+			@include transition-delay($delay * $i);
+		}
+	}
+}
+@include iterative-delay('img', 10);
+
+img {
+	transition: transform 250ms ease-in-out;
+	transform: translateX(200%);
+
+	// show them when they are loaded or if we dont have js
+	.is-active &,
+	.no-js & {
+		transform: translateX(0);
+	}
+}
