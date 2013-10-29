@@ -12,19 +12,20 @@ Opinionated structure for new projects. Closely follows the Yeoman generator-web
 - Responsive and fluid Masonry setup
 - Jade templating (including 'active' navigation and pages)
 
-## Dependencies
+## Install
 
-- Bower (`npm install -g bower` and be sure to run `bower install` in the directory after pulling)
-- Compass (install with `gem install compass --pre` to get the 0.13.4 alpha)
-- Susy (install with `gem install susy`)
-- Sass (Compass/Susy will install it automatically)
+You need to install Bower, Compass (alpha), Sass (alpha) and Susy.
+`npm install -g bower`
+`gem install compass --pre`
+`gem install sass --pre`
+`gem install susy`
 
 ## Structure
 
 - bower_components
 - images
 - scripts (own scripts go here)
-- scripts/vendor (third party scripts that are not available through bower go here)
+- scripts/vendor (third party scripts that are not available through a package manager (e.g. bower) go here)
 - styles
 
 ## Naming convention

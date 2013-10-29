@@ -12,6 +12,14 @@ $legacy-support-for-ie6: false; // IE6
 $legacy-support-for-ie7: false; // IE7
 $experimental-support-for-opera: false; // because they've switched to Webkit
 
+// $browser-minimum-versions: (
+//   'chrome':  null,
+//   'firefox': null,
+//   'ie':      null,
+//   'safari':  null,
+//   'opera':   null
+// ) !default;
+
 
 /**
  * Typography

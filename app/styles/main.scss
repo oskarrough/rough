@@ -1,4 +1,4 @@
-	/*!
+/*!
 	ROUGHPLATE
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
@@ -8,56 +8,35 @@
 @import "base/_config.scss";
 @import "base/_mixins.scss";
 
-
-/**
- * Third party
- */
-
- // Susy (for robust layout math)
-// also applies * { box-sizing: border-box; }
+// Susy grids - also applies * { box-sizing: border-box; }
 @import "susy";
 @include border-box-sizing;
 
-// Compass (we need the 0.13 alpha - because of rem mixins and other goodies)
+// Compass (we need the 0.13 alpha)
 @import "compass/typography"; // REM fallback
 @import "compass/css3"; // CSS3 mixins
 
-// note: we are using the 'sass-css-importer' gem. Do not specify the .css file extension
-
+// Here we're using the 'sass-css-importer' gem. Do not specify the .css extension
 @import "CSS:../bower_components/normalize-css/normalize";
-@import "CSS:../bower_components/rough-navtoggle/rough-navtoggle";
+//@import "CSS:../bower_components/rough-navtoggle/rough-navtoggle";
 //@import "CSS:../scripts/vendor/royalslider/royalslider";
 //@import "CSS:../scripts/vendor/royalslider/skins/default/rs-default";
 //@import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
 
-
-/**
- * Base
- */
-
+// Base
 @import "base/_base.scss";
 //@import "base/_icons.scss";
 
-
-/**
- * Layout
- */
-
+// Modules
 @import "layout/_layout.scss";
-
-
-/**
- * Modules
- */
-
-@import "module/_modules.scss";
+@import "module/_mediablock.scss";
 @import "module/_nav.scss";
 @import "module/_buttons.scss";
-//@import "module/_forms.scss";
 @import "module/_masonry.scss";
+@import "module/_styleguide.scss";
+@import "module/_modules.scss";
+//@import "module/_forms.scss";
 //@import "module/_animation.scss";
 //@import "module/_article.scss";
 //@import "module/_logo.scss";
-@import "module/_mediablock.scss";
 //@import "module/_royalslider.scss";
-@import "module/_styleguide.scss";

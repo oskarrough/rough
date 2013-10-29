@@ -4,6 +4,8 @@
   "dependencies": {
     "normalize-css": "latest",
     "jquery-waypoints": "latest",
-    "jquery": "~1.10.2"
+    "jquery": "~1.10.2",
+    "suit": "~0.2.0",
+    "html-inspector": "~0.5.1"
   }
 }
