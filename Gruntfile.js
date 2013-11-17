@@ -18,6 +18,9 @@ module.exports = function (grunt) {
             dist: 'dist'
         },
         watch: {
+            gruntfile: {
+                files: ['Gruntfile.js']
+            },
             compass: {
                 files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
                 tasks: ['compass:server', 'autoprefixer']
@@ -39,13 +42,12 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '{.tmp,<%= yeoman.app %>}/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
+                    '.tmp/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
                 ]
             }
         },
-
         connect: {
             options: {
                 port: 9000,
@@ -67,18 +69,18 @@ module.exports = function (grunt) {
                     base: [
                         '.tmp',
                         'test',
-                        '<%= yeoman.app %>',
+                        '<%= yeoman.app %>'
                     ]
                 }
             },
             dist: {
                 options: {
                     open: true,
-                    base: '<%= yeoman.dist %>'
+                    base: '<%= yeoman.dist %>',
+                    livereload: false
                 }
             }
         },
-
         clean: {
             dist: {
                 files: [{
@@ -92,10 +94,10 @@ module.exports = function (grunt) {
             },
             server: '.tmp'
         },
-
         jshint: {
             options: {
-                jshintrc: '.jshintrc'
+                jshintrc: '.jshintrc',
+                reporter: require('jshint-stylish')
             },
             all: [
                 'Gruntfile.js',
@@ -104,7 +106,6 @@ module.exports = function (grunt) {
                 'test/spec/{,*/}*.js'
             ]
         },
-
         mocha: {
             all: {
                 options: {
@@ -113,7 +114,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-
         compass: {
             options: {
                 require: ['susy', 'sass-css-importer'],
@@ -141,7 +141,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-
         autoprefixer: {
             options: {
                 browsers: ['last 2 versions']
@@ -155,43 +154,15 @@ module.exports = function (grunt) {
                 }]
             }
         },
-
-        'gh-pages': {
-            options: {
-                base: 'dist'
-            },
-            src: [
-                'index.html',
-                'styleguide.html',
-                'images/**/*',
-                'scripts/**/*',
-                'styles/**/*'
-            ]
-        },
-
-        jade: {
-            dist: {
-                options: {
-                    pretty: true
-                },
-                files: [{
-                    expand: true,
-                    // all src are relative to this path:
-                    cwd: '<%= yeoman.app %>',
-                    // choose all jade files except ones in includes or mixins dir
-                    src: [
-                        '*.jade'
-                        //'!**/includes/*.jade',
-                    ],
-                    dest: '.tmp',
-                    ext: '.html'
-                }]
-            }
-        },
-
         // not used since Uglify task does concat,
         // but still available if needed
         /*concat: {
+            dist: {}
+        },*/
+        // not enabled since usemin task does concat and uglify
+        // check index.html to edit your build targets
+        // enable this task if you prefer defining your build targets here
+        /*uglify: {
             dist: {}
         },*/
         'bower-install': {
@@ -200,14 +171,6 @@ module.exports = function (grunt) {
                 ignorePath: '<%= yeoman.app %>/'
             }
         },
-
-        // not enabled since usemin task does concat and uglify
-        // check index.html to edit your build targets
-        // enable this task if you prefer defining your build targets here
-        /*uglify: {
-            dist: {}
-        },*/
-
         rev: {
             dist: {
                 files: {
@@ -220,7 +183,6 @@ module.exports = function (grunt) {
                 }
             }
         },
-
         useminPrepare: {
             options: {
                 dest: '<%= yeoman.dist %>'
@@ -228,26 +190,23 @@ module.exports = function (grunt) {
             //html: '<%= yeoman.app %>/index.html'
             html: '.tmp/index.html' // because of jade compile
         },
-
         usemin: {
             options: {
-                dirs: ['<%= yeoman.dist %>']
+                assetsDirs: ['<%= yeoman.dist %>']
             },
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
         },
-
         imagemin: {
             dist: {
                 files: [{
                     expand: true,
                     cwd: '<%= yeoman.app %>/images',
-                    src: '**/*.{gif,jpg,jpeg,png}',
+                    src: '**/*.{gif,jpeg,jpg,png}',
                     dest: '<%= yeoman.dist %>/images'
                 }]
             }
         },
-
         svgmin: {
             dist: {
                 files: [{
@@ -258,7 +217,6 @@ module.exports = function (grunt) {
                 }]
             }
         },
-
         cssmin: {
             // This task is pre-configured if you do not wish to use Usemin
             // blocks for your CSS. By default, the Usemin block from your
@@ -275,7 +233,6 @@ module.exports = function (grunt) {
             //     }
             // }
         },
-
         htmlmin: {
             dist: {
                 options: {
@@ -297,7 +254,6 @@ module.exports = function (grunt) {
                 }]
             }
         },
-
         // Put files not handled in other tasks here
         copy: {
             dist: {
@@ -315,22 +271,21 @@ module.exports = function (grunt) {
                     ]
                 }]
             },
-            jade: {
-                expand: true,
-                dot: true,
-                cwd: '.tmp/',
-                dest: '<%= yeoman.dist %>/',
-                src: '{,*/}*.html'
-            },
             styles: {
                 expand: true,
                 dot: true,
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            jade: {
+                expand: true,
+                dot: true,
+                cwd: '.tmp/',
+                dest: '<%= yeoman.dist %>/',
+                src: '{,*/}*.html'
             }
         },
-
         concurrent: {
             server: [
                 'compass',
@@ -346,8 +301,38 @@ module.exports = function (grunt) {
                 'svgmin',
                 'htmlmin'
             ]
+        },
+        'gh-pages': {
+            options: {
+                base: 'dist'
+            },
+            src: [
+                'index.html',
+                'styleguide.html',
+                'images/**/*',
+                'scripts/**/*',
+                'styles/**/*'
+            ]
+        },
+        jade: {
+            dist: {
+                options: {
+                    pretty: true
+                },
+                files: [{
+                    expand: true,
+                    // all src are relative to this path:
+                    cwd: '<%= yeoman.app %>',
+                    // choose all jade files except ones in includes or mixins dir
+                    src: [
+                        '*.jade'
+                        //'!**/includes/*.jade',
+                    ],
+                    dest: '.tmp',
+                    ext: '.html'
+                }]
+            }
         }
-
     });
 
     grunt.registerTask('serve', function (target) {
@@ -366,8 +351,8 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('server', function () {
-        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
-        grunt.task.run(['serve']);
+      grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+      grunt.task.run(['serve']);
     });
 
     grunt.registerTask('test', [
@@ -390,7 +375,7 @@ module.exports = function (grunt) {
         'uglify',
         'copy:dist',
         'copy:jade',
-        //'rev',
+        'rev',
         'usemin'
     ]);
 

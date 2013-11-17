@@ -23,11 +23,13 @@ html.no-js
 			meta(name='description', content='')
 			meta(name='viewport', content='width=device-width')
 
-			// build:css({.tmp}) styles/main.css
-			link(href='styles/main.css', rel='stylesheet')
+			// build:css(.tmp) styles/main.css
+			link(rel='stylesheet', href='styles/main.css')
 			// endbuild
 
+			// build:js scripts/vendor/modernizr-custom.js
 			script(src='scripts/vendor/modernizr-custom.js')
+			// endbuild
 
 			| <script src="//use.typekit.net/mst8xhr.js"></script>
 			| <script>try{Typekit.load();}catch(e){}</script>
@@ -42,13 +44,11 @@ html.no-js
 			block outlet
 
 		.Scripts
-			// build:js scripts/main.js
+			// build:js(app) scripts/main.js
 			script(src='bower_components/jquery/jquery.js')
-			script(src='bower_components/jquery/jquery-migrate.min.js')
 			script(src='scripts/vendor/masonry.pkgd.min.js')
 			script(src='scripts/vendor/imagesloaded.pkgd.min.js')
 			script(src='bower_components/jquery-waypoints/waypoints.js')
-			//-script(src='bower_components/rough-navtoggle/rough-navtoggle.js')
 			script(src='scripts/nav.js')
 			script(src='scripts/masonry.js')
 			script(src='scripts/app.js')
@@ -59,6 +59,6 @@ html.no-js
 				(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
 				function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
 				e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-				e.src='//www.google-analytics.com/analytics.js';
+				e.src='https://www.google-analytics.com/analytics.js';
 				r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 				ga('create','UA-XXXXX-X');ga('send','pageview');
