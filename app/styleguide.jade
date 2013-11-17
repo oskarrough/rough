@@ -56,27 +56,27 @@ block outlet
 
 			<section id="forms" class="Section">
 				<h2 class="Title">Forms</h2>
-				<form>
+				<form class="Form">
 					<fieldset>
 						<legend>Form Legend</legend>
 						<div class="search-query">
 							<input type="text" placeholder="Search...">
 						</div>
-						<div class="field">
+						<div class="Form-item">
 							<label>Label for text box</label>
 							<input type="text" placeholder="Type something...">
 						</div>
-						<div class="field">
-							<input class=" required" type="text" placeholder="Type something...">
-							<label class="required"><i class="icon-warning-sign"></i> This is an error message</label>
+						<div class="Form-item">
+							<input class="required" type="text" placeholder="Type something...">
+							<label class="required">This is an error message</label>
 						</div>
-						<div class="field">
+						<div class="Form-item">
 							<textarea rows="3"></textarea>
 						</div>
-						<div class="field">
-							<input id="disabledInput" type="text" placeholder="Disabled input" disabled>
+						<div class="Form-item">
+							<input type="text" placeholder="Disabled input" disabled>
 						</div>
-						<div class="field">
+						<div class="Form-item">
 							<select>
 								<option>Please choose something...</option>
 								<option>1</option>
@@ -84,40 +84,16 @@ block outlet
 								<option>3</option>
 							</select>
 						</div>
-						<div class="field">
+						<div class="Form-item">
 							<label class="checkbox">
 								<input type="checkbox"> Tick me
 							</label>
 						</div>
-						<div class="form-actions">
-							<button type="submit" class="Button Button--primary">Save</button>
-							<button type="button" class="Button">Cancel</button>
+						<div class="Form-item">
+							<button class="Button Button--primary">Save</button>
 						</div>
 					</fieldset>
 				</form>
-			</section>
-
-			<section id="media-block" class="Section">
-				<h2 class="Title">The media block</h2>
-				<p>Left- or right-aligned media next to text.</p>
-
-				<div class="MediaBlock">
-					<div class="MediaBlock-media">
-						<img src="http://dummyimage.com/60x60" alt="">
-					</div>
-					<div class="MediaBlock-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus debitis eveniet vel minus voluptatem praesentium suscipit assumenda dolorum voluptatum labore. Illo, laborum voluptas animi accusamus rerum praesentium dignissimos quisquam vero!</p>
-					</div>
-				</div>
-				<div class="MediaBlock">
-					<div class="MediaBlock-media--right">
-						<img src="http://dummyimage.com/60x60" alt="">
-					</div>
-					<div class="MediaBlock-body">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus debitis eveniet vel minus voluptatem praesentium suscipit assumenda dolorum voluptatum labore. Illo, laborum voluptas animi accusamus rerum praesentium dignissimos quisquam vero!</p>
-					</div>
-				</div>
-
 			</section>
 
 			<section id="buttons" class="Section">
@@ -125,7 +101,7 @@ block outlet
 				<p>
 					<a href="#" class="Button">Default Button</a>
 					<a href="#" class="Button Button--primary">Primary Button</a>
-					<a href="#" class="Button disabled">Disabled Button</a>
+					<a href="#" class="Button is-disabled" disabled>Disabled Button</a>
 				</p>
 			</section>
 
@@ -234,6 +210,29 @@ block outlet
 				</ul>
 			</section>
 
+			<section id="media-block" class="Section">
+				<h2 class="Title">The media block</h2>
+				<p>Left- or right-aligned media next to text.</p>
+
+				<div class="MediaBlock">
+					<div class="MediaBlock-media">
+						<img src="http://dummyimage.com/60x60" alt="">
+					</div>
+					<div class="MediaBlock-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus debitis eveniet vel minus voluptatem praesentium suscipit assumenda dolorum voluptatum labore. Illo, laborum voluptas animi accusamus rerum praesentium dignissimos quisquam vero!</p>
+					</div>
+				</div>
+				<div class="MediaBlock">
+					<div class="MediaBlock-media--right">
+						<img src="http://dummyimage.com/60x60" alt="">
+					</div>
+					<div class="MediaBlock-body">
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus debitis eveniet vel minus voluptatem praesentium suscipit assumenda dolorum voluptatum labore. Illo, laborum voluptas animi accusamus rerum praesentium dignissimos quisquam vero!</p>
+					</div>
+				</div>
+
+			</section>
+
 			<section id="grid" class="Section">
 				<h2 class="Title">Grid</h2>
 				<p>Susy, markup, classes, fluid and responsive etc.</p>
@@ -244,9 +243,9 @@ block outlet
 				<h2 class="Title">Gallery</h2>
 				<div class="Gallery">
 					<div class="royalSlider rsDefault">
-						<img src="http://dummyimage.com/300x200&amp;text=placeholder" alt="">
-						<img src="http://dummyimage.com/300x200&amp;text=placeholder" alt="">
-						<img src="http://dummyimage.com/300x200&amp;text=placeholder" alt="">
+						<img src="http://dummyimage.com/960x600&amp;text=hej" alt="">
+						<img src="http://dummyimage.com/960x600&amp;text=hej" alt="">
+						<img src="http://dummyimage.com/960x600&amp;text=hej" alt="">
 					</div>
 				</div>
 			</section>

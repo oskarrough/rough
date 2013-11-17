@@ -1,0 +1,22 @@
+/**
+ * Forms
+ */
+
+
+// Align better
+.Form label,
+.Form input,
+.Form textarea,
+.Form select {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+// Expand to full-width
+input[type='text'],
+input[type='email']
+input[type='password'],
+textarea {
+	width: 100%;
+	padding: 0.25em 0.3em 0.2em
+}

@@ -44,7 +44,7 @@
     font: inherit; /* 5 */
     line-height: normal; /* 6 */
     margin: 0;
-    padding: 0.4em 0.75em;
+    padding: 0.3em 0.6em 0.25em;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -69,4 +69,8 @@
 .Button:disabled,
 .Button.is-disabled {
     cursor: default;
+    color: gray;
+    &:hover {
+        color: inherit;
+    }
 }
