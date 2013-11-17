@@ -4,7 +4,9 @@
  */
 
 $(function(){
-	masonry.init();
+
+	var masonry = new Masonry();
+
 	nav.init();
 	//$('.Nav--togglable').roughNavToggle();
 });

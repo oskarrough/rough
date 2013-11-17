@@ -14,39 +14,40 @@
 // The grid goes from 1 -> 2 -> 3 -> 4 items in each row.
 
 // Small version
-$s-columns: 2;
-$s-from: 560px;
+$small-mq: 560px;
+$small-columns: 2;
 
 // Small/Medium version
-$sm-columns: 3;
-$sm-from: 730px;
+$smallmedium-mq: 730px;
+$smallmedium-columns: 3;
 
 // Medium version
-$m-columns: 4;
-$m-from: 1100px;
+$medium-mq: 1100px;
+$medium-columns: 4;
 
 // Medium/Large version
-$ml-columns: 5;
-$ml-from: 1200px;
+$mediumlarge-mq: 1200px;
+$mediumlarge-columns: 5;
 
 // Large version
+$large-mq: 1500px;
 $large-columns: 6;
-$large-from: 1500px;
 
 
 // Fade in masonry when it is ready. Class is added with js.
 .Masonry {
+	visibility: hidden;
 	opacity: 0;
 	transition: opacity 100ms;
 	&.is-active {
+		visibility: visible;
 		opacity: 1;
 	}
 }
 
-.Masonry-item, // this selector can change
+// Defaults
+.Masonry-item,
 .Masonry-gridSizer {
-
-	// Default layout
 	float: left;
 	width: 100%;
 	margin-bottom: rem($space);
@@ -55,43 +56,66 @@ $large-from: 1500px;
 	img {
 		width: 100%;
 		max-width: 100%;
-	}
-
-	@media (min-width: em($s-from)) {
-		width: columns(1, $s-columns);
-		// &:nth-of-type(3) { width: columns(2,$s-columns); }
-	}
-	@media (min-width: em($sm-from)) {
-		width: columns(1, $sm-columns);
-		// different size for the first item
-		// &:nth-of-type(3) { width: columns(2,$sm-columns); }
-	}
-	@media (min-width: em($m-from)) {
-		width: columns(1, $m-columns);
-		// different size for the first item
-		// &:nth-of-type(3) { width: columns(2,$m-columns); }
-	}
-	@media (min-width: em($ml-from)) {
-		width: columns(1, $ml-columns);
-	}
-	@media (min-width: em($large-from)) {
-		width: columns(1, $large-columns);
+		height: auto;
 	}
 }
-.Masonry-gutterSizer {
-	@media (min-width: em($s-from)) {
-		width: gutter($s-columns);
+
+// SMALL
+@media (min-width: em($small-mq)) {
+	.Masonry-item,
+	.Masonry-gridSizer {
+		width: columns(1, $small-columns);
+		// &.is-featured { width: columns(2,$small-columns); }
 	}
-	@media (min-width: em($sm-from)) {
-		width: gutter($sm-columns);
+	.Masonry-gutterSizer {
+		width: gutter($small-columns);
 	}
-	@media (min-width: em($m-from)) {
-		width: gutter($m-columns);
+}
+
+// SMALLMEDIUM
+@media (min-width: em($smallmedium-mq)) {
+	.Masonry-item,
+	.Masonry-gridSizer {
+		width: columns(1, $smallmedium-columns);
+		// &.is-featured { width: columns(2,$smallmedium-columns); }
 	}
-	@media (min-width: em($ml-from)) {
-		width: gutter($ml-columns);
+	.Masonry-gutterSizer {
+		width: gutter($smallmedium-columns);
 	}
-	@media (min-width: em($large-from)) {
+}
+
+// MEDIUM
+@media (min-width: em($medium-mq)) {
+	.Masonry-item,
+	.Masonry-gridSizer {
+		width: columns(1, $medium-columns);
+		// &.is-featured { width: columns(2,$medium-columns); }
+	}
+	.Masonry-gutterSizer {
+		width: gutter($medium-columns);
+	}
+}
+
+// MEDIUMLARGE
+@media (min-width: em($mediumlarge-mq)) {
+	.Masonry-item,
+	.Masonry-gridSizer {
+		width: columns(1, $mediumlarge-columns);
+		// &.is-featured { width: columns(2,$mediumlarge-columns); }
+	}
+	.Masonry-gutterSizer {
+		width: gutter($mediumlarge-columns);
+	}
+}
+
+// LARGE
+@media (min-width: em($large-mq)) {
+	.Masonry-item,
+	.Masonry-gridSizer {
+		width: columns(1, $large-columns);
+		// &.is-featured { width: columns(2,$large-columns); }
+	}
+	.Masonry-gutterSizer {
 		width: gutter($large-columns);
 	}
 }
