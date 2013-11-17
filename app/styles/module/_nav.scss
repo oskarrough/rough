@@ -63,8 +63,10 @@
  */
 
 .Pagination {
+	@extend .Nav;
 	@extend .Nav--horizontal;
 	text-align: center;
+
 	a {
 		display: block;
 		padding: 0.2em 0.4em; // bigger tap area
