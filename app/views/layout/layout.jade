@@ -1,6 +1,3 @@
-//- global vars
-- var description = ''
-
 //- local vars
 block vars
 	- var bodyClass = ''
@@ -23,7 +20,7 @@ html.no-js
 				title Rough
 			else
 				title #{active} | Rough
-			meta(name='description', content='#{description}')
+			meta(name='description', content='')
 			meta(name='viewport', content='width=device-width')
 
 			// build:css({.tmp,app}) styles/main.css
@@ -42,7 +39,7 @@ html.no-js
 			include ../modules/header
 
 		main#SiteMain.SiteMain
-			block content
+			block outlet
 
 		.Scripts
 			// build:js(app) scripts/main.js

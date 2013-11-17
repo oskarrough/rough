@@ -1,10 +1,9 @@
 block vars
 	- var active = 'Slideshow'
 	- var bodyClass = ''
-	- var description = ''
 
 extends views/layout/layout.jade
 
-block content
+block outlet
 	.royalSlider.js-royalslider
 		include views/modules/teasers.jade
