@@ -128,7 +128,10 @@ module.exports = function (grunt) {
         },
         compass: {
             options: {
-                require: ['susy', 'sass-css-importer'],
+                // Makes use of the local Gemfile
+                bundleExec: true,
+                // … where we have defined the following:
+                require: ['breakpoint', 'susy', 'sass-css-importer'],
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
                 generatedImagesDir: '.tmp/images/generated',

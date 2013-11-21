@@ -8,13 +8,14 @@
 @import "base/_config.scss";
 @import "base/_mixins.scss";
 
-// Susy grids - also applies * { box-sizing: border-box; }
+// Susy grids
 @import "susy";
-@include border-box-sizing;
+// Easier media queries
+@import "breakpoint";
 
-// Compass (we need the 0.13 alpha)
+// Compass
 @import "compass/typography"; // REM fallback
-@import "compass/css3"; // CSS3 mixins
+//@import "compass/css3"; // CSS3 mixins
 
 // Import CSS into Sass with the 'sass-css-importer' gem.
 // Do not specify the .css extension
@@ -30,14 +31,16 @@
 @import "base/_forms.scss";
 //@import "base/_icons.scss";
 
-// Modules
-@import "layout/_layout.scss";
+// Patterns
 @import "module/_mediablock.scss";
-@import "module/_nav.scss";
 @import "module/_masonry.scss";
 //@import "module/_animation.scss";
-//@import "module/_article.scss";
-//@import "module/_logo.scss";
-//@import "module/_royalslider.scss";
 
+// Modules
+@import "module/_nav.scss";
+// @import "module/_article.scss";
+// @import "module/_logo.scss";
+// @import "module/_royalslider.scss";
 @import "module/_styleguide.scss";
+
+@import "layout/_layout.scss";

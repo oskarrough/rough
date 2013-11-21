@@ -1,3 +1,20 @@
 /**
  * Layout
  */
+
+* {
+	box-sizing: border-box;
+}
+
+.Grid {
+	@include container(show);
+	margin-top: 1em;
+}
+.Grid-unit {
+	min-height: 2em;
+	background: green;
+
+	@include breakpoint(40em) {
+		@include gallery(2 isolate);
+	}
+}
