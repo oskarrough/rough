@@ -1,5 +1,5 @@
 /**
- * Animation design
+ * Animations
  */
 
 // Fade-in
@@ -7,22 +7,49 @@
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
-
 // Fade-in and down
-@include keyframes(fadeDown) {
+@include keyframes(fadeInDown) {
 	0% {
 		opacity: 0.75;
-		@include translateY(-5px);
+		transform: translateY(-5px);
 	}
 	100% {
 		opacity: 1;
-		@include translateY(0);
+		transform: translateY(0);
+	}
+}
+// Fade-in and down
+@include keyframes(fadeInUp) {
+	0% {
+		opacity: 0.75;
+		transform: translateY(5px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
-// Example
-.a-fadeDown {
-	@include animation(fadeDown 200ms ease-in); // include the keyframe
-	@include animation-delay(1000ms); // when to start it
-	@include animation-fill-mode(both); // make sure it keeps the start/end values of the keyframe
+
+/**
+ * Animation delay
+ */
+@mixin iterative-delay($selector: unquote(".item"), $count: 2, $delay: 0.07s) {
+	@for $i from 1 through $count {
+		#{$selector}:nth-child(#{$i}) {
+			transition-delay: $delay * $i;
+		}
+	}
 }
+// @include iterative-delay('img', 10);
+
+// img {
+// 	transition: transform 250ms ease-in-out;
+// 	transform: translateX(200%);
+
+// 	// show them when they are loaded or if we dont have js
+// 	.is-active &,
+// 	.no-js & {
+// 		transform: translateX(0);
+// 	}
+// }
