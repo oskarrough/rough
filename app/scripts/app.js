@@ -1,12 +1,12 @@
-/*global masonry,nav*/
-/**
- * Call everything from here
- */
+/*global Masonry,Nav*/
 
+/**
+ * Call everything from this file
+ */
 $(function(){
 
 	var masonry = new Masonry();
-
-	nav.init();
+	var nav = new Nav();
 	//$('.Nav--togglable').roughNavToggle();
+
 });

@@ -3,7 +3,9 @@
  * Scroll navigation
  */
 
-var Nav = function() {};
+var Nav = function() {
+	this.init();
+};
 
 Nav.prototype = {
 
@@ -76,5 +78,3 @@ Nav.prototype = {
 	}
 
 };
-
-var nav = new Nav();

@@ -1,8 +1,8 @@
 /*jshint unused:false */
+
 /**
  * Dynamic grid with Masonry
  */
-
 var Masonry = function(el, options) {
 
 	// Defaults:
