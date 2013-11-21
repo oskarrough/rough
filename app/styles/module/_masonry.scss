@@ -50,7 +50,7 @@ $large-columns: 6;
 .Masonry-gridSizer {
 	float: left;
 	width: 100%;
-	margin-bottom: rem($space);
+	margin-bottom: rem($u-space);
 
 	// Make sure images scale
 	img {

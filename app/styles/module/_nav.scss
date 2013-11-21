@@ -6,17 +6,15 @@
 	padding: 0;
 	list-style: none;
 
-	// links
-	a {
-		display: block;
-		color: $link-color;
-	}
-
-	// hover
-	a:hover {
-		color: $link-color-hover;
-	}
-
+	// // links
+	// a {
+	// 	display: block;
+	// 	color: $link-color;
+	// }
+	// // hover
+	// a:hover {
+	// 	color: $link-color-hover;
+	// }
 	// active
 	.is-selected > a,
 	.is-selected {
@@ -45,12 +43,12 @@
 
 	li {
 		float: left;
-	}
-	li:after {
-		content: ' →  ';
-	}
-	li:last-child:after {
-		display: none;
+		&::after {
+			content: ' →  ';
+		}
+		&:last-child::after {
+			display: none;
+		}
 	}
 	a {
 		display: inline;

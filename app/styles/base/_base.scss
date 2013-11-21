@@ -1,19 +1,17 @@
 /**
  * Base
  */
-
 html {
 	font-size: $base-font-size;
 	font-family: $font-body;
 	line-height: $base-line-height-unitless;
-	text-rendering: optimizeLegibility; // enables kerning and ligatures
 	color: #000;
+	// Enable kerning and ligatures
+	text-rendering: optimizeLegibility;
 }
 
 
-/**
- * Elements
- */
+// Set a default margin between elements
 blockquote,
 ol,
 ul,
@@ -33,9 +31,19 @@ textarea {
     margin: 0 0 1em;
 }
 fieldset {
-    border: 0;
-    padding: 0;
+	border: 0;
+	padding: 0;
 }
+figure {
+	margin: 0;
+}
+blockquote {
+	font-style: italic;
+}
+address {
+	font-style: normal;
+}
+// Link styles
 a {
 	text-decoration: none;
 	color: $link-color;
@@ -43,19 +51,10 @@ a {
 		color: $link-color-hover;
 	}
 }
+// Responsive media
 iframe,
 img {
 	max-width: 100%;
-}
-figure {
-	margin: 0; // remove default margin
-}
-blockquote {
-	padding-left: 1em;
-	font-style: italic;
-}
-address {
-	font-style: normal;
 }
 
 
@@ -66,7 +65,6 @@ h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4 {
-	//font-family: $font-header;
 	font-weight: bold;
 }
 h1, .h1 {
@@ -92,13 +90,13 @@ h4, .h4 {
  */
 .align-left {
 	float: left;
-	margin-right: 1em;
-	margin-bottom: 1em;
+	margin-right: rem($u-space);
+	margin-bottom: rem($u-space);
 }
 .align-right {
 	float: right;
-	margin-left: 1em;
-	margin-bottom: 1em;
+	margin-left: rem($u-space);
+	margin-bottom: rem($u-space);
 }
 .align-center {
 	margin-left: auto;
