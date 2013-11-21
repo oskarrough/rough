@@ -12,10 +12,11 @@ $purple: rgb(184, 0, 255);
 body {
 	background-color: #fafafa;
 }
+
+
 /**
  * Typography
  */
-
 html,
 h1,h2,h3,h4,h5,h6 {
 	font-family: 'nimbus-sans', sans-serif;
@@ -33,13 +34,11 @@ code {
 	@media (min-width: 30em) {
 		font-size: 4rem;
 	}
-
 	.wf-active & {
 		letter-spacing: -3px;
 		word-spacing: -10px;
 		line-height: 0.8;
 	}
-
 	margin-top: 1em;
 	margin-bottom: 0;
 	text-shadow: 3px 2px 0px darken($red, 25%);
@@ -106,7 +105,8 @@ code {
     margin-bottom: 6em;
 
     &:last-child {
-    	margin-bottom: 18em; // enough for scroll nav
+    	// enough for scroll nav
+    	margin-bottom: 18em;
     }
 }
 
@@ -154,10 +154,6 @@ code {
 		background-color: blue;
 		color: #fff;
 	}
-	a.is-active {
-		//margin-right: 5px;
-	}
-
 	&.is-active {
 		padding-top: 4px;
 	}

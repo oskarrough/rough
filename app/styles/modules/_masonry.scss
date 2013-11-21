@@ -7,11 +7,42 @@
 
 // In order to solve fluid roundings, two elements are inserted with JavaScript: .Masonry-gridSizer and .gutter-sizer
 
-// The horizontal gutter comes from the .gutter-sizer element only
+// The horizontal gutter comes from the .Masonry-gutterSizer element only
 // so do not use any margin-left or right on the .Masonry-gridSizer or grid items
 
-// The grid here is responsive.
-// The grid goes from 1 -> 2 -> 3 -> 4 items in each row.
+/**
+ * Default styles
+ */
+
+// Make sure items have layout
+.Masonry-item,
+.Masonry-gridSizer {
+	float: left;
+	width: 100%;
+
+	// Make sure images scale
+	img {
+		width: 100%;
+		max-width: 100%;
+		height: auto;
+	}
+}
+
+// Fade in masonry when it is ready. Class is added with js.
+.Masonry {
+	visibility: hidden;
+	opacity: 0;
+	transition: opacity 100ms;
+	&.is-active {
+		visibility: visible;
+		opacity: 1;
+	}
+}
+
+
+/**
+ * Responsive layout
+ */
 
 // Small version
 $small-mq: 560px;
@@ -34,31 +65,7 @@ $large-mq: 1500px;
 $large-columns: 6;
 
 
-// Fade in masonry when it is ready. Class is added with js.
-.Masonry {
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 100ms;
-	&.is-active {
-		visibility: visible;
-		opacity: 1;
-	}
-}
 
-// Defaults
-.Masonry-item,
-.Masonry-gridSizer {
-	float: left;
-	width: 100%;
-	margin-bottom: rem($u-space);
-
-	// Make sure images scale
-	img {
-		width: 100%;
-		max-width: 100%;
-		height: auto;
-	}
-}
 
 // SMALL
 @media (min-width: em($small-mq)) {

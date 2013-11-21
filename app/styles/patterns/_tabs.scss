@@ -1,0 +1,18 @@
+/**
+ * Equal width tabs, no matter how many children and no widths declared
+ */
+
+.Tabs {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: table;
+	table-layout: fixed;
+	width: 100%;
+}
+.Tabs-item {
+	display: table-cell;
+}
+.Tabs-link {
+	display: block;
+}
