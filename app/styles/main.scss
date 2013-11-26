@@ -3,18 +3,20 @@
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
 
+
+// Use Susy to make layouts easier by abstracting the math
+@import "susy";
+
+// Use breakpoint to simplify media-queries
+@import "breakpoint";
+
+// Use Compass?
+//@import "compass/typography"; // REM fallback
+//@import "compass/css3"; // CSS3 mixins
+
 // Config and mixins
 @import "base/_config.scss";
 @import "base/_mixins.scss";
-
-// Layout with Susy
-@import "susy";
-// Easier media queries with breakpoint
-@import "breakpoint";
-
-// Shortcuts with Compass
-@import "compass/typography"; // REM fallback
-//@import "compass/css3"; // CSS3 mixins
 
 
 /**
@@ -41,7 +43,8 @@
  */
 @import "patterns/_mediablock.scss";
 @import "patterns/_tabs.scss";
-//@import "modules/_animation.scss";
+// @import "modules/_animation.scss";
+// @import "modules/_text-truncate.scss";
 
 
 /**
@@ -64,3 +67,4 @@
  * Theme
  */
 @import "modules/_styleguide.scss";
+@import "modules/_nature.scss";

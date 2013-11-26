@@ -3,19 +3,16 @@
  */
 
 @function em($target, $context: $base-font-size-unitless, $desired-unit: 1em) {
-	// Make sure units are unitless
-	@if not unitless($target) {
-		//@warn "Target isn't unitless -> #{$target}";
-		$target: $target / 1px;
-	}
-	@if not unitless($context) {
-		//@warn "Context isn't unitless -> #{$context}";
-		$context: $context / 1px;
-		//@warn "Context isn't unitless -> #{$context}";
-	}
-
+	@if not unitless($target) { $target: $target / 1px; }
+	@if not unitless($context) { $context: $context / 1px; }
 	@return ($target / $context) * $desired-unit;
 }
+
+// @function em2($target, $context: $base-font-size) {
+// 	$px: $px/ ($px * 0 + 1);
+// 	$context: $px/ ($px * 0 + 1);
+// 	@return $px / $context * 1em;
+// }
 
 
 /**

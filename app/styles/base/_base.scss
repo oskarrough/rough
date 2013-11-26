@@ -6,10 +6,14 @@ html {
 	font-family: $font-body;
 	line-height: $base-line-height-unitless;
 	color: #000;
+
 	// Enable kerning and ligatures
 	text-rendering: optimizeLegibility;
-}
 
+	// enable this on element basis
+	-webkit-font-smoothing: antialiased;
+
+}
 
 // Set a default margin between elements
 blockquote,
@@ -56,32 +60,27 @@ iframe,
 img {
 	max-width: 100%;
 }
-
-
-/**
- * Headers
- */
-h1, .h1,
-h2, .h2,
-h3, .h3,
-h4, .h4 {
-	font-weight: bold;
-}
-h1, .h1 {
-	@include rem(font-size, 36px);
-	margin-bottom: em(5,36);
-	line-height: 1;
-}
-h2, .h2 {
-	@include rem(font-size, 22px);
-	margin-bottom: em(7,22);
+// Headers
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0;
 	line-height: 1.1;
 }
-h3, .h3 {
-	@include rem(font-size, 16px);
+h1 {
+	font-size: rem(36);
+	margin-bottom: em(5,36);
 }
-h4, .h4 {
-	@include rem(font-size, 12px);
+h2 {
+	font-size: rem(22);
+	margin-bottom: em(7,22);
+}
+h3 {
+	font-size: rem(16);
+}
+h4 {
+	font-size: rem(12);
 }
 
 

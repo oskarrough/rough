@@ -3,6 +3,8 @@
 /**
  * Call everything from this file
  */
+
+
 $(function(){
 
 	var masonry = new Masonry();
