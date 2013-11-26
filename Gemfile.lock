@@ -1,11 +1,11 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    breakpoint (2.2.0.alpha.1)
+    breakpoint (2.2.0)
       compass (~> 0.13.alpha.7)
       sass (~> 3.3.0.rc.1)
     chunky_png (1.2.9)
-    compass (0.13.alpha.10)
+    compass (0.13.alpha.12)
       chunky_png (~> 1.2)
       json
       listen (~> 1.1.0)
@@ -21,7 +21,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
-    sass (3.3.0.rc.1)
+    sass (3.3.0.rc.2)
       listen (~> 1.1.0)
     sass-css-importer (1.0.0.beta.0)
       sass (>= 3.1)
@@ -33,8 +33,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  breakpoint (~> 2.2.0.alpha.1)
-  compass (~> 0.13.alpha.10)
+  breakpoint (~> 2.2.0)
+  compass (~> 0.13.alpha.12)
   sass (~> 3.3.0.rc.1)
   sass-css-importer (~> 1.0.0.beta.0)
   susy (~> 2.0.0.alpha.4)
