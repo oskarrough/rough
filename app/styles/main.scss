@@ -13,6 +13,8 @@
 // Use Compass?
 //@import "compass/typography"; // REM fallback
 //@import "compass/css3"; // CSS3 mixins
+// @import "compass/utilities/general/clearfix"; // clearfix
+// @import "compass/utilities/text/replacement"; // @hide-text
 
 // Config and mixins
 @import "base/_config.scss";
