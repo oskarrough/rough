@@ -404,7 +404,7 @@ module.exports = function (grunt) {
         'uglify',
         'copy:dist',
         'copy:jade',
-        //'rev',
+        'rev',
         'usemin'
     ]);
 

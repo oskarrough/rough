@@ -13,7 +13,6 @@ body {
 	background-color: #fafafa;
 }
 
-
 /**
  * Typography
  */
@@ -71,7 +70,7 @@ code {
 	font-weight: 400;
 	letter-spacing: 1px;
 	background-color: blue;
-	@include background(linear-gradient(left, blue, white));
+	//@include background(linear-gradient(left, blue, white));
 	color: #fff;
 }
 

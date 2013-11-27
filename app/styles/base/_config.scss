@@ -4,18 +4,6 @@
 
 
 /**
- * Compass
- */
-// $browser-minimum-versions: (
-//   'chrome':  null,
-//   'firefox': null,
-//   'ie':      null,
-//   'safari':  null,
-//   'opera':   null
-// ) !default;
-
-
-/**
  * Typography
  */
 $base-font-size-unitless: 16;
@@ -53,18 +41,14 @@ $zGroup-1: 1;
  * Layout: Susy
  */
 
-// Let Susy know we are using border-box
-$box-sizing: 'border-box';
-// Hide grid-backgrounds by default
-$show-grids: 'hide';
-// Set a max-width for containers. Could also be a fixed width
-$container: 80%;
-// Set the default number of columns
-$columns: 12;
-// Set gutters. You have to declare them as a ratio
-$gutters: 1/10;
-// This doesn't seem to do anything right now
-$gutter-placement: after;
+$susy: (
+	box-sizing: border-box,
+	container: 80%,
+	columns: 12,
+	gutters: 0.25,
+	show-grids: hide,
+	gutter-placement: after
+);
 
 $easing: cubic-bezier(0.770, 0, 0.175, 1);
 $easing2: cubic-bezier(0.165,.84,.44,1);
