@@ -11,10 +11,10 @@
 @import "breakpoint";
 
 // Compass
+// @import "compass/css3";
 // @import "compass/typography"; // REM fallback
-// @import "compass/css3"; // CSS3 mixins
-// @import "compass/utilities/general/clearfix"; // clearfix
-// @import "compass/utilities/text/replacement"; // @hide-text
+// @import "compass/utilities/general/clearfix";
+// @import "compass/utilities/text/replacement";
 
 // Config and mixins
 @import "base/_config.scss";
