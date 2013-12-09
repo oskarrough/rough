@@ -2,7 +2,6 @@
 
 Opinionated structure for new projects. Closely follows the Yeoman generator-webapp which builds on Grunt.
 
-
 Base
 - sass
 - grids (susy)
@@ -16,6 +15,31 @@ Components/modules/patterns
 
 The purpose of this HTML is to help determine what default settings are with Bitters and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.
 
+## Getting started
+
+### 1. Clone the project
+
+`git clone https://github.com/kopfwelt/ninja.git`
+
+### 2. Install dependencies:
+
+**First install these as they are used to install the rest.**
+
+- Bundler --> `sudo gem install bundler` (for ruby/gem packages)
+- Node --> `brew install node` (for node/js packages)
+- Bower --> `npm install -g bower` (for front-end packages)
+- Grunt --> `npm install -g grunt-cli` (for development)
+
+In one command: `brew install node && sudo gem install bundler && npm install -g bower grunt-cli`
+
+**Install the rest of the dependencies using the tools you just installed**
+
+- `bundle install` --> installs everything from Gemfile
+- `npm install` -->  installs everything from package.json
+- `bower install` --> installs everything from bower.json
+
+In one command: `bundle install && npm install && bower install`
+
 
 ## Features
 
@@ -27,14 +51,6 @@ The purpose of this HTML is to help determine what default settings are with Bit
 - Responsive and fluid Masonry setup
 - Jade templating (including 'active' navigation and pages)
 
-## Install
-
-You need to install Bower, Compass (alpha), Sass (alpha) and Susy.
-`npm install -g bower`
-`gem install compass --pre`
-`gem install sass --pre`
-`gem install susy`
-
 ## Structure
 
 - bower_components
@@ -45,10 +61,5 @@ You need to install Bower, Compass (alpha), Sass (alpha) and Susy.
 
 ## Naming convention
 
-The naming convention is the same found in [Suit CSS](https://github.com/suitcss/suit/blob/master/doc/components.md#naming-conventions).
-```
-[<ns>-]<ComponentName>[--modifierName|-childName]
-.ComponentName
-.ComponentName--modifierName
-.ComponentName-childName
-.is-stateOfComponent```
+https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
+
