@@ -8,11 +8,8 @@
 @import "base/_config.scss";
 @import "base/_mixins.scss";
 
-// Use Susy to make layouts easier by abstracting the math
-@import "susy";
-
-// Use breakpoint to simplify media-queries
-@import "breakpoint";
+@import "susy"; // Use Susy to make layouts easier by abstracting the math
+@import "breakpoint"; // Use breakpoint to simplify media-queries
 
 // Compass
 // @import "compass/css3";
@@ -23,10 +20,10 @@
 
 // Imports using 'sass-css-importer'.
 @import "CSS:../bower_components/normalize-css/normalize";
-//@import "CSS:../bower_components/rough-navtoggle/rough-navtoggle";
-//@import "CSS:../scripts/vendor/royalslider/royalslider";
-//@import "CSS:../scripts/vendor/royalslider/skins/default/rs-default";
-//@import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
+// @import "CSS:../bower_components/rough-navtoggle/rough-navtoggle";
+// @import "CSS:../scripts/vendor/royalslider/royalslider";
+// @import "CSS:../scripts/vendor/royalslider/skins/default/rs-default";
+// @import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
 
 
 /**
@@ -36,21 +33,16 @@
 @import "base/_buttons.scss";
 @import "base/_forms.scss";
 @import "base/_fonts.scss";
-//@import "base/_icons.scss";
-
-
-/**
- * Patterns
- */
-@import "patterns/_mediablock.scss";
-@import "patterns/_tabs.scss";
-// @import "modules/_animation.scss";
-// @import "modules/_text-truncate.scss";
+// @import "base/_icons.scss";
 
 
 /**
  * Modules
  */
+// @import "patterns/_mediablock.scss";
+// @import "patterns/_tabs.scss";
+// @import "patterns/_text-truncate.scss";
+// @import "modules/_animation.scss";
 @import "modules/_nav.scss";
 @import "modules/_masonry.scss";
 // @import "modules/_article.scss";
