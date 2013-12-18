@@ -46,7 +46,7 @@ module.exports = function (grunt) {
                     livereload: '<%= connect.options.livereload %>'
                 },
                 files: [
-                    '{.tmp,<%= yeoman.app %>}/*.html',
+                    '{.tmp,<%= yeoman.app %>}/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
                     '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
                     '<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
@@ -118,6 +118,7 @@ module.exports = function (grunt) {
                 'test/spec/{,*/}*.js'
             ]
         },
+
         mocha: {
             all: {
                 options: {
@@ -126,6 +127,7 @@ module.exports = function (grunt) {
                 }
             }
         },
+
         compass: {
             options: {
                 // Makes use of the local Gemfile
@@ -238,20 +240,19 @@ module.exports = function (grunt) {
         htmlmin: {
             dist: {
                 options: {
-                    // removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    // collapseWhitespace: true,
-                    // collapseBooleanAttributes: true,
-                    // removeAttributeQuotes: true,
-                    // removeRedundantAttributes: true,
-                    // useShortDoctype: true,
-                    // removeEmptyAttributes: true,
-                    // removeOptionalTags: true
+                    collapseBooleanAttributes: true,
+                    collapseWhitespace: true,
+                    removeAttributeQuotes: true,
+                    removeCommentsFromCDATA: true,
+                    removeEmptyAttributes: true,
+                    removeOptionalTags: true,
+                    removeRedundantAttributes: true,
+                    useShortDoctype: true
                 },
                 files: [{
                     expand: true,
-                    cwd: '<%= yeoman.app %>',
-                    src: '*.html',
+                    cwd: '<%= yeoman.dist %>',
+                    src: '{,*/}*.html',
                     dest: '<%= yeoman.dist %>'
                 }]
             }
@@ -295,6 +296,7 @@ module.exports = function (grunt) {
                         '*.{ico,png,txt}',
                         '.htaccess',
                         'images/**/*.{webp}',
+                        '{*./}*.html',
                         'styles/fonts/**/*',
                         'scripts/vendor/**/*'
                     ]
@@ -399,7 +401,8 @@ module.exports = function (grunt) {
         'copy:dist',
         'copy:jade',
         'rev',
-        'usemin'
+        'usemin',
+        'htmlmin'
     ]);
 
     grunt.registerTask('default', [
