@@ -4,6 +4,10 @@
 */
 
 
+// Config and mixins
+@import "base/_config.scss";
+@import "base/_mixins.scss";
+
 // Use Susy to make layouts easier by abstracting the math
 @import "susy";
 
@@ -16,14 +20,8 @@
 @import "compass/utilities/general/clearfix";
 // @import "compass/utilities/text/replacement";
 
-// Config and mixins
-@import "base/_config.scss";
-@import "base/_mixins.scss";
 
-
-/**
- * Imports using 'sass-css-importer'.
- */
+// Imports using 'sass-css-importer'.
 @import "CSS:../bower_components/normalize-css/normalize";
 //@import "CSS:../bower_components/rough-navtoggle/rough-navtoggle";
 //@import "CSS:../scripts/vendor/royalslider/royalslider";
