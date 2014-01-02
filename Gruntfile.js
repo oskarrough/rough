@@ -136,14 +136,15 @@ module.exports = function (grunt) {
                 require: ['breakpoint', 'susy', 'sass-css-importer'],
                 sassDir: '<%= yeoman.app %>/styles',
                 cssDir: '.tmp/styles',
-                generatedImagesDir: '.tmp/images/generated',
-                imagesDir: '<%= yeoman.app %>/images',
                 javascriptsDir: '<%= yeoman.app %>/scripts',
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
-                importPath: '<%= yeoman.app %>/bower_components',
-                httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
                 httpFontsPath: '/styles/fonts',
+                importPath: '<%= yeoman.app %>/bower_components',
+
+                imagesDir: '<%= yeoman.app %>/images',
+                generatedImagesDir: '.tmp/images/generated',
+                httpImagesPath: '../images',
+                httpGeneratedImagesPath: '../images/generated',
                 relativeAssets: false,
                 assetCacheBuster: false
             },
@@ -210,7 +211,7 @@ module.exports = function (grunt) {
         // Performs rewrites based on rev and the useminPrepare configuration
         usemin: {
             options: {
-                assetsDirs: ['<%= yeoman.dist %>']
+                assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
             },
             html: ['<%= yeoman.dist %>/{,*/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
