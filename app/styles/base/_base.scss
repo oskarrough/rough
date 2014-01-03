@@ -11,8 +11,8 @@ html {
 	// Enable kerning and ligatures
 	text-rendering: optimizeLegibility;
 
-	// enable this on element basis
-	-webkit-font-smoothing: antialiased;
+	// Check this for each typeface. Sometimes it makes it worse
+	// -webkit-font-smoothing: antialiased;
 }
 
 // Set a default margin between elements
