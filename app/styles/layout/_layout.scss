@@ -5,22 +5,3 @@
 * {
 	box-sizing: border-box;
 }
-
-.Grid {
-	@include container(show);
-	margin-top: 1em;
-}
-.Grid-col {
-	min-height: 2em;
-	margin-bottom: 1em;
-	background: green;
-
-	@include breakpoint(40em) {
-		@include gallery(4);
-	}
-
-	&:nth-child(2) {
-		@include span(4 at 2 of 12 isolate);
-		background-color: rgba(50,100,150,0.5);
-	}
-}

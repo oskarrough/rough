@@ -1,8 +1,8 @@
 /**
- * Styleguide
+ * Demo
+ * These styles are purely for demo purposes
  */
 
-// These styles are purely for the demo and should NOT be used in a new project.
 $blue: hsl(207,53,52);
 $lightblue: hsl(145,7,70);
 $sand: hsl(41,18,87);
@@ -12,6 +12,28 @@ $purple: rgb(184, 0, 255);
 body {
 	background-color: #fafafa;
 }
+
+
+/**
+ * Test grid
+ */
+.Grid {
+	@include container(show);
+	margin-top: 1em;
+}
+.Grid-col {
+	min-height: 2em;
+	margin-bottom: 1em;
+	background: green;
+	@include breakpoint(40em) {
+		@include gallery(4);
+	}
+	&:nth-child(2) {
+		@include span(4 at 2 of 12 isolate);
+		background-color: rgba(50,100,150,0.5);
+	}
+}
+
 
 /**
  * Typography

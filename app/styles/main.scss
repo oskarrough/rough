@@ -12,9 +12,9 @@
 @import "breakpoint"; // Use breakpoint to simplify media-queries
 
 // Compass
+@import "compass/utilities/general/clearfix";
 // @import "compass/css3";
 // @import "compass/typography"; // REM fallback
-@import "compass/utilities/general/clearfix";
 // @import "compass/utilities/text/replacement";
 
 
@@ -57,6 +57,6 @@
 
 
 /**
- * Theme
+ * Demo styles
  */
-@import "modules/_styleguide.scss";
+@import "modules/_demo.scss";

@@ -1,6 +1,7 @@
 /**
  * Base
  */
+
 html {
 	font-size: $base-font-size;
 	font-family: $font-body;
@@ -33,6 +34,29 @@ input,
 textarea {
     margin: 0 0 1em;
 }
+// Headers
+h1,
+h2,
+h3,
+h4 {
+	margin-top: 0;
+	line-height: 1.1;
+}
+h1 {
+	font-size: rem(36);
+	margin-bottom: em(5,36);
+}
+h2 {
+	font-size: rem(22);
+	margin-bottom: em(7,22);
+}
+h3 {
+	font-size: rem(16);
+}
+h4 {
+	font-size: rem(12);
+}
+// Misc elements
 fieldset {
 	border: 0;
 	padding: 0;
@@ -56,28 +80,7 @@ iframe,
 img {
 	max-width: 100%;
 }
-// Headers
-h1,
-h2,
-h3,
-h4 {
-	margin-top: 0;
-	line-height: 1.1;
-}
-h1 {
-	font-size: rem(36);
-	margin-bottom: em(5,36);
-}
-h2 {
-	font-size: rem(22);
-	margin-bottom: em(7,22);
-}
-h3 {
-	font-size: rem(16);
-}
-h4 {
-	font-size: rem(12);
-}
+
 
 
 /**
