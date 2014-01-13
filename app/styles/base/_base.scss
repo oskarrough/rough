@@ -88,13 +88,13 @@ img {
  */
 .align-left {
 	float: left;
-	margin-right: rem($u-space);
-	margin-bottom: rem($u-space);
+	margin-right: rem($space);
+	margin-bottom: rem($space);
 }
 .align-right {
 	float: right;
-	margin-left: rem($u-space);
-	margin-bottom: rem($u-space);
+	margin-left: rem($space);
+	margin-bottom: rem($space);
 }
 .align-center {
 	margin-left: auto;
