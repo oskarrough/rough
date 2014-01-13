@@ -31,30 +31,29 @@ p,
 pre,
 fieldset,
 input,
+table,
+address
 textarea {
-    margin: 0 0 1em;
+    margin: 0 0 1rem;
 }
 // Headers
 h1,
 h2,
 h3,
 h4 {
-	margin-top: 0;
 	line-height: 1.1;
 }
 h1 {
-	font-size: rem(36);
-	margin-bottom: em(5,36);
+	font-size: rem(30);
 }
 h2 {
 	font-size: rem(22);
-	margin-bottom: em(7,22);
 }
 h3 {
-	font-size: rem(16);
+	font-size: 1rem;
 }
 h4 {
-	font-size: rem(12);
+	font-size: rem(13);
 }
 // Misc elements
 fieldset {
