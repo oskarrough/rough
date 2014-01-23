@@ -64,64 +64,64 @@ $large-columns: 6;
 // SMALL
 @media (min-width: em($small-mq)) {
 	.Masonry-item, .Masonry-gridSizer {
-		width: span(1 of  $small-columns);
+		width: span(1 of $small-columns);
 	}
 	.is-featured {
 		width: span(2 of $small-columns);
 	}
 	.Masonry-gutterSizer {
-		width: gutter(1 of $small-columns);
+		width: gutter($small-columns);
 	}
 }
 
 // SMALLMEDIUM
 @media (min-width: em($smallmedium-mq)) {
 	.Masonry-item, .Masonry-gridSizer {
-		width: span(1 of  $smallmedium-columns);
+		width: span(1 of $smallmedium-columns);
 	}
 	.is-featured {
 		width: span(2 of $smallmedium-columns);
 	}
 	.Masonry-gutterSizer {
-		width: gutter(1 of $smallmedium-columns);
+		width: gutter($smallmedium-columns);
 	}
 }
 
 // MEDIUM
 @media (min-width: em($medium-mq)) {
 	.Masonry-item, .Masonry-gridSizer {
-		width: span(1 of  $medium-columns);
+		width: span(1 of $medium-columns);
 	}
 	.is-featured {
 		width: span(2 of $medium-columns);
 	}
 	.Masonry-gutterSizer {
-		width: gutter(1 of $medium-columns);
+		width: gutter($medium-columns);
 	}
 }
 
 // MEDIUMLARGE
 @media (min-width: em($mediumlarge-mq)) {
 	.Masonry-item, .Masonry-gridSizer {
-		width: span(1 of  $mediumlarge-columns);
+		width: span(1 of $mediumlarge-columns);
 	}
 	.is-featured {
 		width: span(2 of $mediumlarge-columns);
 	}
 	.Masonry-gutterSizer {
-		width: gutter(1 of $mediumlarge-columns);
+		width: gutter($mediumlarge-columns);
 	}
 }
 
 // LARGE
 @media (min-width: em($large-mq)) {
 	.Masonry-item, .Masonry-gridSizer {
-		width: span(1 of  $large-columns);
+		width: span(1 of $large-columns);
 	}
 	.is-featured {
 		width: span(2 of $large-columns);
 	}
 	.Masonry-gutterSizer {
-		width: gutter(1 of $large-columns);
+		width: gutter($large-columns);
 	}
 }
