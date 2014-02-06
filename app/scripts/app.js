@@ -6,7 +6,7 @@
  */
 $(function(){
 
-	var masonry = new Masonry();
+	// var masonry = new Masonry();
 	var nav = new Nav();
 
 });

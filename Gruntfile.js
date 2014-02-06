@@ -71,15 +71,6 @@ module.exports = function (grunt) {
                     ]
                 }
             },
-            test: {
-                options: {
-                    base: [
-                        '.tmp',
-                        'test',
-                        '<%= yeoman.app %>'
-                    ]
-                }
-            },
             dist: {
                 options: {
                     open: true,
@@ -114,20 +105,9 @@ module.exports = function (grunt) {
             all: [
                 'Gruntfile.js',
                 '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
+                '!<%= yeoman.app %>/scripts/vendor/*'
             ]
         },
-
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html']
-                }
-            }
-        },
-
         compass: {
             options: {
                 // Makes use of the local Gemfile
@@ -140,7 +120,6 @@ module.exports = function (grunt) {
                 fontsDir: '<%= yeoman.app %>/styles/fonts',
                 httpFontsPath: '/styles/fonts',
                 importPath: '<%= yeoman.app %>/bower_components',
-
                 imagesDir: '<%= yeoman.app %>/images',
                 generatedImagesDir: '.tmp/images/generated',
                 httpImagesPath: '../images',
@@ -323,9 +302,6 @@ module.exports = function (grunt) {
                 'compass:server',
                 'copy:styles'
             ],
-            test: [
-                'copy:styles'
-            ],
             dist: [
                 'compass',
                 'copy:styles',
@@ -381,14 +357,6 @@ module.exports = function (grunt) {
             'watch'
         ]);
     });
-    grunt.registerTask('test', [
-        'clean:server',
-        'jade',
-        'concurrent:test',
-        'autoprefixer',
-        'connect:test',
-        'mocha'
-    ]);
 
     grunt.registerTask('build', [
         'clean:dist',
@@ -408,7 +376,6 @@ module.exports = function (grunt) {
 
     grunt.registerTask('default', [
         'newer:jshint',
-        'test',
         'build'
     ]);
 };
