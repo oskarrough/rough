@@ -4,8 +4,8 @@
 
 html {
 	font-size: $base-font-size;
-	font-family: $font-body;
 	line-height: $base-line-height-unitless;
+	font-family: $font-body;
 	color: #000;
 
 	// Enable kerning and ligatures
@@ -54,49 +54,4 @@ h3 {
 }
 h4 {
 	font-size: rem(13);
-}
-// Misc elements
-fieldset {
-	border: 0;
-	padding: 0;
-}
-blockquote {
-	font-style: italic;
-}
-address {
-	font-style: normal;
-}
-// Link styles
-a {
-	text-decoration: none;
-	color: $link-color;
-	&:hover {
-		color: $link-color-hover;
-	}
-}
-// Responsive media
-iframe,
-img {
-	max-width: 100%;
-}
-
-
-
-/**
- * Alignment helpers
- */
-.align-left {
-	float: left;
-	margin-right: rem($space);
-	margin-bottom: rem($space);
-}
-.align-right {
-	float: right;
-	margin-left: rem($space);
-	margin-bottom: rem($space);
-}
-.align-center {
-	margin-left: auto;
-	margin-right: auto;
-	text-align: center;
 }

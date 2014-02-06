@@ -19,7 +19,7 @@ The purpose of this HTML is to help determine what default settings are with Bit
 
 ### 1. Clone the project
 
-`git clone https://github.com/kopfwelt/ninja.git`
+`git clone https://github.com/oskarrough/rough.git`
 
 ### 2. Install dependencies:
 
