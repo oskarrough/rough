@@ -2,33 +2,64 @@
  * Icons
  */
 
-// "icon" is the name of the folder where the images are and is used to prefix all Compass variables related to this sprite.
 
-// space between each icon in the sprite
-$icon-spacing: 30px;
+// Compass can generate a sprite .png image from a folder of icons. The name of the folder is used in all Compass variables and functions related to this sprite image. In our example, the folder is in /images/icon which means our vars are always prefixed with $icon-. This is a Compass convention.
 
-// include dimensions for each sprite
+
+/**
+ * If you want more spacing between the icons, use this
+ */
+
+// $icon-spacing: 30px;
+
+
+/**
+ * If you want Compass to write width and height properties in every sprite class, use this
+ */
+
 $icon-sprite-dimensions: true;
 
-// if an icon should be right aligned with 100%, include these to move the sprite to the right in the compiled image
-//$icon-iconname-position: 100%;
 
-// import the compass function that handles the sprites
+/**
+ * If a sprite should be aligned to the right, use this. Remember to change the nameofmyicon.
+ */
+
+//$icon-nameofmyicon-position: 100%;
+
+
+/**
+ * After all the settings, we import the Compass files related to sprites
+ */
+
 @import "compass/utilities/sprites";
 
-// locate the folders with the icons in
+
+/**
+ * Import all icons. Path is relative to your image folder which is defined in either config.rb or Gruntfile.js
+ */
+
 @import "icon/*.png";
 
-// compass, make icons plizz
+
+/**
+ * Tell Compass to generate a class for every icon
+ */
 @include all-icon-sprites;
 
-// assign the icon's width and height to the <i> element
-// .icon-name { height: icons-sprite-height(name); width: icons-sprite-width(name);}
 
-/*
-	<i class="Icon icon-arrow"></i>
-	<button><i class="Icon icon-arrow"></i> Button text</button>
-*/
+/**
+ * If you want to get the height or width of a sprite, use this
+ */
+
+// height: icon-sprite-height(name);
+// width: icon-sprite-width(name);
+
+
+/**
+ * To get the background-position of a specific sprite, use this
+ */
+
+// background-position: sprite-position($icon-sprites, arrowSelect);
 
 [class^="icon-"] {
 	display: inline-block;
