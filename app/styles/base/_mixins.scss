@@ -1,5 +1,5 @@
 /**
- * EM function
+ * Convert value to EM
  */
 
 @function em($target, $context: $base-font-size-unitless, $desired-unit: 1em) {
@@ -8,15 +8,9 @@
 	@return ($target / $context) * $desired-unit;
 }
 
-// @function em2($target, $context: $base-font-size) {
-// 	$px: $px/ ($px * 0 + 1);
-// 	$context: $px/ ($px * 0 + 1);
-// 	@return $px / $context * 1em;
-// }
-
 
 /**
- * REM function
+ * Convert value to REM
  */
 
 @function rem($target, $context: $base-font-size-unitless, $desired-unit: 1rem) {

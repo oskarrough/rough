@@ -36,21 +36,24 @@ html.no-js
 	body(class="#{bodyClass}")
 
 		header#SiteHeader.SiteHeader
-			include ../modules/header
+			include ../components/header
+			include ../components/navigation
 
 		main#SiteMain.SiteMain
 			block outlet
 
+		footer#SiteFooter.SiteFooter
+			include ../components/footer
+
 		.Scripts
 			// build:js(app) scripts/main.js
-			script(src='bower_components/jquery/jquery.js')
-			script(src='scripts/vendor/masonry.pkgd.min.js')
-			script(src='scripts/vendor/imagesloaded.pkgd.min.js')
-			//- script(src='scripts/vendor/royalslider/jquery.royalslider.min.js')
+			script(src='bower_components/jquery/dist/jquery.js')
+			//- script(src='scripts/vendor/masonry.pkgd.min.js')
+			//- script(src='scripts/vendor/imagesloaded.pkgd.min.js')
 			//- script(src='bower_components/rough-cover/rough-cover.js')
-			script(src='bower_components/jquery-waypoints/waypoints.js')
-			script(src='scripts/nav.js')
-			script(src='scripts/masonry.js')
+			//- script(src='bower_components/jquery-waypoints/waypoints.js')
+			//- script(src='scripts/nav.js')
+			//- script(src='scripts/masonry.js')
 			script(src='scripts/app.js')
 			// endbuild
 

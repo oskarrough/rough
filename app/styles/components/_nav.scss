@@ -6,18 +6,7 @@
 	padding: 0;
 	list-style: none;
 
-	// // links
-	// a {
-	// 	display: block;
-	// 	color: $link-color;
-	// }
-	// // hover
-	// a:hover {
-	// 	color: $link-color-hover;
-	// }
-	// active
-	.is-selected > a,
-	.is-selected {
+	a.is-active {
 		color: $link-color-active;
 	}
 }

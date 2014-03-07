@@ -13,16 +13,10 @@
 
 // Compass
 @import "compass/utilities/general/clearfix";
-// @import "compass/css3";
-// @import "compass/typography"; // REM fallback
-// @import "compass/utilities/text/replacement";
-
 
 // Imports using 'sass-css-importer'.
 @import "CSS:../bower_components/normalize-css/normalize";
 // @import "CSS:../bower_components/rough-navtoggle/rough-navtoggle";
-// @import "CSS:../scripts/vendor/royalslider/royalslider";
-// @import "CSS:../scripts/vendor/royalslider/skins/default/rs-default";
 // @import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
 
 
@@ -42,12 +36,10 @@
 // @import "patterns/_mediablock.scss";
 // @import "patterns/_tabs.scss";
 // @import "patterns/_text-truncate.scss";
-// @import "modules/_animation.scss";
-@import "modules/_nav.scss";
-@import "modules/_masonry.scss";
-// @import "modules/_article.scss";
-// @import "modules/_logo.scss";
-// @import "modules/_royalslider.scss";
+// @import "components/_animation.scss";
+// @import "components/_nav.scss";
+// @import "components/_masonry.scss";
+// @import "components/_logo.scss";
 
 
 /**
@@ -59,4 +51,4 @@
 /**
  * Demo styles
  */
-@import "modules/_demo.scss";
+// @import "components/_demo.scss";
