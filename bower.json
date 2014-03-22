@@ -1,9 +1,10 @@
 {
   "name": "rough",
   "version": "1.0.0",
+  "private": true,
   "dependencies": {
-    "normalize-css": "~3.0.0",
+    "jquery": "~2.1.0",
     "jquery-waypoints": "~2.0.4",
-    "jquery": "~2.1.0"
+    "normalize-css": "~3.0.0"
   }
 }
