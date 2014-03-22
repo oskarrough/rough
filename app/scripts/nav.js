@@ -15,7 +15,7 @@ Nav.prototype = {
 	init: function() {
 		this.generateNav();
 		this.waypoints();
-		this.bindEvents();
+		this.actions();
 	},
 
 
@@ -73,7 +73,7 @@ Nav.prototype = {
 		});
 	},
 
-	bindEvents: function() {
+	actions: function() {
 		this.$nav.find('a').on('click', this.jump);
 	}
 
