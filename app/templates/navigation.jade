@@ -1,7 +1,9 @@
-mixin menu-item(url, title)
+//- Adds an active class to the nav item when the active variable matches the nav item title.
+mixin nav-item(url, title)
 	li
 		a(href=url, class=active == title ? 'is-active' : '')= title
 
 ul.Nav.Nav--primary
-	+menu-item('index.html', 'Home')
-	+menu-item('about.html', 'About')
+	+nav-item('index.html', 'Index')
+	//- li: a(href='index.html', class=active == 'Index'?'is-active':'') Index
+
