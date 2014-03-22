@@ -6,7 +6,8 @@ html {
 	font-size: $base-font-size;
 	line-height: $base-line-height-unitless;
 	font-family: $font-body;
-	color: #000;
+	color: $text-color;
+	background-color: $bg-color;
 
 	// Enable kerning and ligatures
 	text-rendering: optimizeLegibility;
@@ -36,6 +37,7 @@ address
 textarea {
     margin: 0 0 1rem;
 }
+
 // Headers
 h1,
 h2,
@@ -53,5 +55,23 @@ h3 {
 	font-size: 1rem;
 }
 h4 {
-	font-size: rem(13);
+	font-size: rem(14);
+}
+
+// Responsive media
+iframe,
+img,
+canvas,
+video,
+embed {
+	max-width: 100%;
+}
+
+// Normalize styles
+fieldset {
+	border: 0;
+	padding: 0;
+}
+figure {
+	margin: 0;
 }

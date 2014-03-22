@@ -20,10 +20,7 @@ $blue: #1a70ff;
 $red: #f00;
 $bg-color: #fff !default;
 $text-color: #111 !default;
-$header-color: #000 !default;
-$link-color: $blue !default;
-$link-color-hover: $red !default;
-$link-color-active: $link-color-hover !default;
+$header-color: $text-color !default;
 
 
 /**
@@ -33,25 +30,22 @@ $space: 20px;
 
 
 /**
- * z-index groups
- */
-$zGroup-1: 1;
-
-
-/**
  * Layout: Susy
  */
 
+// gutters are defined in a ratio to the column width
 $susy: (
 	box-sizing: border-box,
 	container: 80%,
-	columns: 12,
-	gutters: 0.25,
+	columns: 5,
+	gutters: 20/200
 );
 
-$easing: cubic-bezier(0.770, 0, 0.175, 1);
-$easing2: cubic-bezier(0.165,.84,.44,1);
-$easing3: cubic-bezier(1,.01,.3,1);
+// Good looking easings for animation
+$easing: cubic-bezier(0.165, 0.84, 0.44, 1);
+$easing2: cubic-bezier(0.770, 0, 0.175, 1);
+$easing3: cubic-bezier(0.165,.84,.44,1);
+$easing4: cubic-bezier(1,.01,.3,1);
 
 
 /**

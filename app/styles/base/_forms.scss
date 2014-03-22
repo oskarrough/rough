@@ -2,11 +2,11 @@
  * Forms
  */
 
-// Align better
-.Form label,
-.Form input,
-.Form textarea,
-.Form select {
+// Consistent alignment
+label,
+input,
+textarea,
+select {
     display: inline-block;
     vertical-align: middle;
 }
@@ -17,5 +17,6 @@ input[type='email']
 input[type='password'],
 textarea {
 	width: 100%;
+	max-width: 100%;
 	padding: 0.3em 0.5em 0.25em
 }
