@@ -5,6 +5,8 @@
   "dependencies": {
     "jquery": "~2.1.0",
     "jquery-waypoints": "~2.0.4",
-    "normalize-css": "~3.0.0"
+    "normalize-css": "~3.0.0",
+    "masonry": "~3.1.5",
+    "imagesloaded": "~3.1.4"
   }
 }

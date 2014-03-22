@@ -49,16 +49,26 @@ html.no-js
 			// build:js(app) scripts/main.js
 			script(src='bower_components/jquery/dist/jquery.js')
 
-			//- script(src='bower_components/rough-cover/rough-cover.js')
-			//- script(src='bower_components/jquery-waypoints/waypoints.js')
+			//- masonry + imagesloaded
+			script(src="bower_components/eventEmitter/EventEmitter.js")
+			script(src="bower_components/eventie/eventie.js")
+			script(src="bower_components/doc-ready/doc-ready.js")
+			script(src="bower_components/get-style-property/get-style-property.js")
+			script(src="bower_components/get-size/get-size.js")
+			script(src="bower_components/jquery-bridget/jquery.bridget.js")
+			script(src="bower_components/matches-selector/matches-selector.js")
+			script(src="bower_components/outlayer/item.js")
+			script(src="bower_components/outlayer/outlayer.js")
+			script(src='bower_components/masonry/masonry.js')
+			script(src='bower_components/imagesloaded/imagesloaded.js')
 
 			//- script(src='scripts/nav.js')
 			//- script(src='scripts/masonry.js')
 			script(src='scripts/app.js')
 			// endbuild
 
-			<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-			script.
+			//- Google Analytics: change UA-XXXXX-X to be your site's ID.
+			//- script.
 				(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
 				function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
 				e=o.createElement(i);r=o.getElementsByTagName(i)[0];
