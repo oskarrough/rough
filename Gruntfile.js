@@ -141,9 +141,6 @@ module.exports = function (grunt) {
 
 		// Add vendor prefixed styles
 		autoprefixer: {
-			options: {
-				browsers: ['last 2 versions']
-			},
 			dist: {
 				files: [{
 					expand: true,
@@ -151,14 +148,6 @@ module.exports = function (grunt) {
 					src: '{,*/}*.css',
 					dest: '.tmp/styles/'
 				}]
-			}
-		},
-
-		// Automatically inject Bower components into the HTML file
-		'bower-install': {
-			app: {
-				html: '<%= yeoman.app %>/index.html',
-				ignorePath: '<%= yeoman.app %>/'
 			}
 		},
 
@@ -310,18 +299,6 @@ module.exports = function (grunt) {
 				'htmlmin'
 			]
 		},
-		'gh-pages': {
-			options: {
-				base: 'dist'
-			},
-			src: [
-				'index.html',
-				'styleguide.html',
-				'images/**/*',
-				'scripts/**/*',
-				'styles/**/*'
-			]
-		},
 		jade: {
 			dist: {
 				options: {
@@ -369,7 +346,7 @@ module.exports = function (grunt) {
 		'uglify',
 		'copy:dist',
 		'copy:jade',
-		'rev',
+		// 'rev',
 		'usemin',
 		'htmlmin'
 	]);
