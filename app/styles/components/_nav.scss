@@ -31,7 +31,7 @@
  */
 
 .Nav--breadcrumbs {
-	@include pie-clearfix;
+	@include clearfix;
 
 	li {
 		float: left;
