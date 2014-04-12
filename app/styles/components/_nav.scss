@@ -11,6 +11,9 @@
 	}
 	a.is-active {
 		color: $color-active;
+		&:hover {
+			color: $color-hover;
+		}
 	}
 }
 
