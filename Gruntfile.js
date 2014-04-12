@@ -14,30 +14,40 @@ module.exports = function (grunt) {
 	// Time how long tasks take. Can help when optimizing build times
 	require('time-grunt')(grunt);
 
+	// Configurable paths
+	var config = {
+		app: 'app',
+		dist: 'dist'
+	};
+
 	// Define the configuration for all the tasks
 	grunt.initConfig({
-		yeoman: {
-			app: 'app',
-			dist: 'dist'
-		},
+
+		// Project esttings
+		config: config,
 
 		// Watches files for changes and runs tasks based on the changed files
 		watch: {
 			gruntfile: {
 				files: ['Gruntfile.js']
 			},
-			compass: {
-				files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-				tasks: ['compass:server', 'autoprefixer']
+
+			// compass: {
+			// 	files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+			// 	tasks: ['compass:server', 'autoprefixer']
+			// },
+			sass: {
+				files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+				tasks: ['sass:server', 'autoprefixer']
 			},
-			styles: {
-				files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-				tasks: ['newer:copy:styles', 'autoprefixer']
-			},
+			// nodesass: {
+			// 	files: ['app/styles/{,*/}*.scss'],
+			// 	tasks: ['nodesass:dist', 'autoprefixer']
+			// },
 			jade: {
 				files: [
-					'<%= yeoman.app %>/*.jade',
-					'<%= yeoman.app %>/templates/{,*/}*.jade'
+					'<%= config.app %>/*.jade',
+					'<%= config.app %>/templates/{,*/}*.jade'
 				],
 				tasks: ['jade:dist']
 			},
@@ -46,10 +56,10 @@ module.exports = function (grunt) {
 					livereload: '<%= connect.options.livereload %>'
 				},
 				files: [
-					'{.tmp,<%= yeoman.app %>}/{,*/}*.html',
+					'{.tmp,<%= config.app %>}/{,*/}*.html',
 					'.tmp/styles/{,*/}*.css',
-					'{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-					'<%= yeoman.app %>/images/{,*/}*.{gif,jpeg,jpg,png,svg,webp}'
+					'<%= config.app %>}/scripts/{,*/}*.js',
+					'<%= config.app %>/images/{,*/}*.'
 				]
 			}
 		},
@@ -58,23 +68,25 @@ module.exports = function (grunt) {
 		connect: {
 			options: {
 				port: 9000,
+				open: true,
 				livereload: 35729,
 				// Change this to '0.0.0.0' to access the server from outside
 				hostname: 'localhost'
 			},
 			livereload: {
 				options: {
-					open: true,
-					base: [
-						'.tmp',
-						'<%= yeoman.app %>'
-					]
+					middleware: function(connect) {
+						return [
+							connect.static('.tmp'),
+							connect().use('/bower_components', connect.static('./bower_components')),
+							connect.static(config.app)
+						];
+					}
 				}
 			},
 			dist: {
 				options: {
-					open: true,
-					base: '<%= yeoman.dist %>',
+					base: '<%= config.dist %>',
 					livereload: false
 				}
 			}
@@ -87,13 +99,12 @@ module.exports = function (grunt) {
 					dot: true,
 					src: [
 						'.tmp',
-						'<%= yeoman.dist %>/*',
-						'!<%= yeoman.dist %>/.git*'
+						'<%= config.dist %>/*',
+						'!<%= config.dist %>/.git*'
 					]
 				}]
 			},
-			server: '.tmp',
-			'gh-pages': '.grunt'
+			server: '.tmp'
 		},
 
 		// Make sure code styles are up to par and there are no obvious mistakes
@@ -104,23 +115,56 @@ module.exports = function (grunt) {
 			},
 			all: [
 				'Gruntfile.js',
-				'<%= yeoman.app %>/scripts/{,*/}*.js',
-				'!<%= yeoman.app %>/scripts/vendor/*'
+				'<%= config.app %>/scripts/{,*/}*.js',
+				'!<%= config.app %>/scripts/vendor/*'
 			]
 		},
+
+		// Compiles Sass to CSS
+		sass: {
+			options: {
+				bundleExec: true,
+				require: 'susy',
+				// loadPath: [
+				// 	'app/bower_components'
+				// ],
+				compass: true,
+				precision: 5,
+				style: 'nested'
+			},
+			dist: {
+				files: [{
+					expand: true,
+					cwd: 'app/styles',
+					src: ['*.scss'],
+					dest: '.tmp/styles',
+					ext: '.css'
+				}]
+			},
+			server: {
+				files: [{
+					expand: true,
+					cwd: 'app/styles',
+					src: ['*.scss'],
+					dest: '.tmp/styles',
+					ext: '.css'
+				}]
+			}
+		},
+
 		compass: {
 			options: {
 				// Makes use of the local Gemfile
 				bundleExec: true,
 				// … where we have defined the following:
-				require: ['breakpoint', 'susy', 'sass-css-importer'],
-				sassDir: '<%= yeoman.app %>/styles',
+				require: ['susy', 'sass-css-importer'],
+				sassDir: '<%= config.app %>/styles',
 				cssDir: '.tmp/styles',
-				javascriptsDir: '<%= yeoman.app %>/scripts',
-				fontsDir: '<%= yeoman.app %>/styles/fonts',
+				javascriptsDir: '<%= config.app %>/scripts',
+				fontsDir: '<%= config.app %>/styles/fonts',
 				httpFontsPath: '/styles/fonts',
-				importPath: '<%= yeoman.app %>/bower_components',
-				imagesDir: '<%= yeoman.app %>/images',
+				importPath: '<%= config.app %>/bower_components',
+				imagesDir: '<%= config.app %>/images',
 				generatedImagesDir: '.tmp/images/generated',
 				httpImagesPath: '../images',
 				httpGeneratedImagesPath: '../images/generated',
@@ -129,12 +173,24 @@ module.exports = function (grunt) {
 			},
 			dist: {
 				options: {
-					generatedImagesDir: '<%= yeoman.dist %>/images/generated'
+					generatedImagesDir: '<%= config.dist %>/images/generated'
 				}
 			},
 			server: {
 				options: {
 					debugInfo: true
+				}
+			}
+		},
+
+		// Compile sass using node which is way faster but it doesnt support Sass 3.3 (which Susy needs, for instance)
+		nodesass: {
+			dist: {
+				options: {
+					outputStyle: 'nested'
+				},
+				files: {
+					'dist/styles/main.css': 'app/styles/main.scss' // 'destination': 'source'
 				}
 			}
 		},
@@ -156,10 +212,10 @@ module.exports = function (grunt) {
 			dist: {
 				files: {
 					src: [
-						'<%= yeoman.dist %>/scripts/{,*/}*.js',
-						'<%= yeoman.dist %>/styles/{,*/}*.css',
-						'<%= yeoman.dist %>/images/{,*/}*.{gif,jpeg,jpg,png,webp}',
-						'<%= yeoman.dist %>/styles/fonts/{,*/}*.*'
+						'<%= config.dist %>/scripts/{,*/}*.js',
+						'<%= config.dist %>/styles/{,*/}*.css',
+						'<%= config.dist %>/images/{,*/}*.*',
+						'<%= config.dist %>/styles/fonts/{,*/}*.*'
 					]
 				}
 			}
@@ -170,19 +226,19 @@ module.exports = function (grunt) {
 		// additional tasks can operate on them
 		useminPrepare: {
 			options: {
-				dest: '<%= yeoman.dist %>'
+				dest: '<%= config.dist %>'
 			},
-			//html: '<%= yeoman.app %>/index.html'
+			//html: '<%= config.app %>/index.html'
 			html: '.tmp/index.html' // because of jade compile
 		},
 
 		// Performs rewrites based on rev and the useminPrepare configuration
 		usemin: {
 			options: {
-				assetsDirs: ['<%= yeoman.dist %>', '<%= yeoman.dist %>/images']
+				assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
 			},
-			html: ['<%= yeoman.dist %>/{,*/}*.html'],
-			css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
+			html: ['<%= config.dist %>/{,*/}*.html'],
+			css: ['<%= config.dist %>/styles/{,*/}*.css']
 		},
 
 		// The following *-min tasks produce minified files in the dist folder
@@ -190,9 +246,9 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: '<%= yeoman.app %>/images',
+					cwd: '<%= config.app %>/images',
 					src: '**/*.{gif,jpeg,jpg,png}',
-					dest: '<%= yeoman.dist %>/images'
+					dest: '<%= config.dist %>/images'
 				}]
 			}
 		},
@@ -200,29 +256,30 @@ module.exports = function (grunt) {
 			dist: {
 				files: [{
 					expand: true,
-					cwd: '<%= yeoman.app %>/images',
+					cwd: '<%= config.app %>/images',
 					src: '{,*/}*.svg',
-					dest: '<%= yeoman.dist %>/images'
+					dest: '<%= config.dist %>/images'
 				}]
 			}
 		},
+
 		htmlmin: {
 			dist: {
 				options: {
 					collapseBooleanAttributes: true,
-					collapseWhitespace: true,
+					collapseWhitespace: false,
 					removeAttributeQuotes: true,
 					removeCommentsFromCDATA: true,
-					removeEmptyAttributes: true,
-					removeOptionalTags: true,
-					removeRedundantAttributes: true,
+					removeEmptyAttributes: false,
+					removeOptionalTags: false,
+					removeRedundantAttributes: false,
 					useShortDoctype: true
 				},
 				files: [{
 					expand: true,
-					cwd: '<%= yeoman.dist %>',
+					cwd: '<%= config.dist %>',
 					src: '{,*/}*.html',
-					dest: '<%= yeoman.dist %>'
+					dest: '<%= config.dist %>'
 				}]
 			}
 		},
@@ -259,8 +316,8 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					dot: true,
-					cwd: '<%= yeoman.app %>',
-					dest: '<%= yeoman.dist %>',
+					cwd: '<%= config.app %>',
+					dest: '<%= config.dist %>',
 					src: [
 						'*.{ico,png,txt}',
 						'.htaccess',
@@ -274,7 +331,7 @@ module.exports = function (grunt) {
 			styles: {
 				expand: true,
 				dot: true,
-				cwd: '<%= yeoman.app %>/styles',
+				cwd: '<%= config.app %>/styles',
 				dest: '.tmp/styles/',
 				src: '{,*/}*.css'
 			},
@@ -282,23 +339,26 @@ module.exports = function (grunt) {
 				expand: true,
 				dot: true,
 				cwd: '.tmp/',
-				dest: '<%= yeoman.dist %>/',
+				dest: '<%= config.dist %>/',
 				src: '{,*/}*.html'
 			}
 		},
+
+		// Run some tasks in parallel to speed up build process
 		concurrent: {
 			server: [
-				'compass:server',
+				'sass:server',
 				'copy:styles'
 			],
 			dist: [
-				'compass',
+				'sass',
 				'copy:styles',
 				'imagemin',
-				'svgmin',
-				'htmlmin'
+				'svgmin'
 			]
 		},
+
+		// Compiles jade to HTML (remember to change grunt tasks that affect HTML)
 		jade: {
 			dist: {
 				options: {
@@ -307,7 +367,7 @@ module.exports = function (grunt) {
 				files: [{
 					expand: true,
 					// all src are relative to this path:
-					cwd: '<%= yeoman.app %>',
+					cwd: '<%= config.app %>',
 					// choose all jade files except ones in includes or mixins dir
 					src: [
 						'*.jade'

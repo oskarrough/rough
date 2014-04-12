@@ -40,6 +40,17 @@ In one command: `brew install node && sudo gem install bundler && npm install -g
 
 In one command: `bundle install && npm install && bower install`
 
+## Compiling HTML with Jade
+
+@todo: explain why and how
+
+## Compiling CSS with Sass
+
+This project uses Sass and includes three different methods of compiling:
+
+- grunt-contrib-sass: the default method, just sass
+- grunt-compass: can generate sprites
+- grunt-sass: much faster using node-sass (which uses libsass) but less features
 
 ## Features
 
