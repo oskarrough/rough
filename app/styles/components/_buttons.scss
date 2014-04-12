@@ -17,6 +17,9 @@
     text-decoration: none;
     user-select: none; /* 6 */
     white-space: normal; /* 7 */
+
+    // Button needs this directly on the element. Inheritance is not enough
+    // -webkit-font-smoothing: antialiased;
 }
 
 /**

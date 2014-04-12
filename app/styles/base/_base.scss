@@ -9,19 +9,14 @@ html {
 	color: $text-color;
 	background-color: $bg-color;
 
-	// Enable kerning and ligatures
+	// Enable kerning and ligatures everywhere
 	text-rendering: optimizeLegibility;
 
 	// Check this for each typeface. Sometimes it makes it worse
 	// -webkit-font-smoothing: antialiased;
 }
 
-// Set a default margin between elements
-blockquote,
-ol,
-ul,
-dl,
-dd,
+// Set a consistent margin between elements
 h1,
 h2,
 h3,
@@ -29,6 +24,11 @@ h4,
 h5,
 h6,
 p,
+blockquote,
+ol,
+ul,
+dl,
+dd,
 pre,
 fieldset,
 input,
@@ -65,17 +65,4 @@ canvas,
 video,
 embed {
 	max-width: 100%;
-}
-
-// Normalize styles
-fieldset {
-	border: 0;
-	padding: 0;
-}
-figure {
-	margin: 0;
-}
-
-button {
-	-webkit-font-smoothing: antialiased;
 }
