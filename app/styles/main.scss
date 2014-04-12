@@ -3,13 +3,11 @@
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
 
-
-// Config and mixins
 @import "base/_config.scss";
 @import "base/_mixins.scss";
 
 @import "susy"; // Use Susy to make layouts easier by abstracting the math
-@import "breakpoint"; // Use breakpoint to simplify media-queries
+// @import "breakpoint"; // Use breakpoint to simplify media-queries
 
 // Compass
 @import "compass/utilities/general/clearfix";

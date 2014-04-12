@@ -51,11 +51,13 @@ $easing4: cubic-bezier(1,.01,.3,1);
 /**
  * Layout: Breakpoints
  */
-$breakpoint-no-query-fallbacks: true;
+
+$layout-s: 30em;
+$layout-m: 50em;
+$layout-l: 70em;
 
 // - use like this: @include breakpoint($layout-l) {}
-$layout-s: 30em, 'no-query' '.lt-ie9';
-$layout-sm: 40em, 'no-query' '.lt-ie9';
-$layout-m: 50em, 'no-query' '.lt-ie9';
-$layout-ml: 60em, 'no-query' '.lt-ie9';
-$layout-l: 70em, 'no-query' '.lt-ie9';
+// $breakpoint-no-query-fallbacks: true;
+// $layout-s: 30em, 'no-query' '.lt-ie9';
+// $layout-m: 50em, 'no-query' '.lt-ie9';
+// $layout-l: 70em, 'no-query' '.lt-ie9';
