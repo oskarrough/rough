@@ -13,7 +13,8 @@ select {
 
 // Expand to full-width
 input[type='text'],
-input[type='email']
+input[type='email'],
+input[type='tel'],
 input[type='password'],
 textarea {
 	width: 100%;

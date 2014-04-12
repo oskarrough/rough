@@ -23,31 +23,33 @@
  * Base
  */
 @import "base/_base.scss";
-@import "base/_buttons.scss";
-@import "base/_forms.scss";
-// @import "base/_fonts.scss";
 @import "base/_icons.scss";
+@import "base/_fonts.scss";
+
+
+/**
+ * Utilities (abstract patterns to be reused in components)
+ */
+
+@import "utilities/_mediablock.scss";
+@import "utilities/_tabs.scss";
+@import "utilities/_text-truncate.scss";
 
 
 /**
  * Components
  */
-// @import "patterns/_mediablock.scss";
-// @import "patterns/_tabs.scss";
-// @import "patterns/_text-truncate.scss";
-// @import "components/_animation.scss";
-// @import "components/_nav.scss";
-// @import "components/_masonry.scss";
-// @import "components/_logo.scss";
+
+@import "components/_buttons.scss";
+@import "components/_forms.scss";
+@import "components/_logo.scss";
+@import "components/_masonry.scss";
+@import "components/_nav.scss";
+@import "components/_animation.scss";
 
 
 /**
- * Layout
+ * Layout (lays out the components to form a page layout)
  */
+
 @import "layout/_layout.scss";
-
-
-/**
- * Demo styles
- */
-// @import "components/_demo.scss";
