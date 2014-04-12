@@ -6,8 +6,11 @@
 	padding: 0;
 	list-style: none;
 
+	a:hover {
+		color: $color-hover;
+	}
 	a.is-active {
-		color: $link-color-active;
+		color: $color-active;
 	}
 }
 
