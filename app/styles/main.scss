@@ -3,13 +3,23 @@
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
 
-@import "base/_config.scss";
-@import "base/_mixins.scss";
+@import "base/_config";
+@import "base/_mixins";
 
-@import "susy"; // Use Susy to make layouts easier by abstracting the math
-// @import "breakpoint"; // Use breakpoint to simplify media-queries
+
+/**
+ * Third party
+ */
+
+// Use Susy to make layouts easier by abstracting the math
+@import "susy";
+
+// Use breakpoint to simplify media-queries
+// only needed if we want to support IE8
+// @import "breakpoint";
 
 // Compass
+// not really needed anymore?
 // @import "compass/utilities/general/clearfix";
 
 // Imports using 'sass-css-importer'.
@@ -18,39 +28,40 @@
 
 
 /**
- * Base
- */
-
-@import "base/_normalize-custom.scss";
-@import "base/_base.scss";
-@import "base/_icons.scss";
-@import "base/_fonts.scss";
-
-
-/**
  * Utilities (abstract patterns to be reused in components)
  */
 
-@import "utilities/_mediablock.scss";
-@import "utilities/_tabs.scss";
-@import "utilities/_text-truncate.scss";
 @import "utilities/_align";
+@import "utilities/_clearfix";
+@import "utilities/_mediablock";
+@import "utilities/_tabs";
+@import "utilities/_text-truncate";
+
+
+/**
+ * Base
+ */
+
+@import "base/_normalize-custom";
+@import "base/_base";
+@import "base/_icons";
+@import "base/_fonts";
 
 
 /**
  * Components
  */
 
-@import "components/_buttons.scss";
-@import "components/_forms.scss";
-@import "components/_logo.scss";
-@import "components/_masonry.scss";
-@import "components/_nav.scss";
-@import "components/_animation.scss";
+@import "components/_buttons";
+@import "components/_forms";
+@import "components/_logo";
+@import "components/_masonry";
+@import "components/_nav";
+@import "components/_animation";
 
 
 /**
  * Layout (lays out the components to form a page layout)
  */
 
-@import "layout/_layout.scss";
+@import "layout/_layout";
