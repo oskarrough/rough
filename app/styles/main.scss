@@ -10,16 +10,18 @@
 // @import "breakpoint"; // Use breakpoint to simplify media-queries
 
 // Compass
-@import "compass/utilities/general/clearfix";
+// @import "compass/utilities/general/clearfix";
 
 // Imports using 'sass-css-importer'.
-@import "CSS:../bower_components/normalize-css/normalize";
+// @import "CSS:../bower_components/normalize-css/normalize";
 // @import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
 
 
 /**
  * Base
  */
+
+@import "base/_normalize-custom.scss";
 @import "base/_base.scss";
 @import "base/_icons.scss";
 @import "base/_fonts.scss";
