@@ -1,14 +1,14 @@
 /**
- * Animations
+ * Example animations with keyframes
  */
 
 // Fade-in
-@include keyframes(fadeIn) {
+@keyframes fadeIn {
 	0% { opacity: 0; }
 	100% { opacity: 1; }
 }
 // Fade-in and down
-@include keyframes(fadeInDown) {
+@keyframes fadeInDown {
 	0% {
 		opacity: 0.75;
 		transform: translateY(-5px);
@@ -19,7 +19,7 @@
 	}
 }
 // Fade-in and down
-@include keyframes(fadeInUp) {
+@keyframes fadeInUp {
 	0% {
 		opacity: 0.75;
 		transform: translateY(5px);
@@ -32,24 +32,30 @@
 
 
 /**
- * Animation delay
+ * Iterative delay or the 'rolling piano effect'
+ * puts a higher and higher transition-delay on items so they appear one after another
  */
-@mixin iterative-delay($selector: unquote(".item"), $count: 2, $delay: 0.07s) {
+
+@mixin iterative-delay($count: 2, $delay: 0.07s) {
 	@for $i from 1 through $count {
-		#{$selector}:nth-child(#{$i}) {
+		&:nth-child(#{$i}) {
 			transition-delay: $delay * $i;
 		}
 	}
 }
-// @include iterative-delay('img', 10);
 
-// img {
-// 	transition: transform 250ms ease-in-out;
-// 	transform: translateX(200%);
+// Example:
 
-// 	// show them when they are loaded or if we dont have js
-// 	.is-active &,
-// 	.no-js & {
-// 		transform: translateX(0);
-// 	}
-// }
+/*
+img {
+	@include iterative-delay(10);
+	transition: opacity 250ms ease-in-out;
+	opacity: 0;
+
+	// show them when they are loaded or if we dont have js
+	.is-active &,
+	.no-js & {
+		opacity: 1;
+	}
+}
+*/
