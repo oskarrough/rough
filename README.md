@@ -64,11 +64,11 @@ This project uses Sass and includes three different methods of compiling:
 
 ## Structure
 
-- bower_components
-- images
-- scripts (own scripts go here)
-- scripts/vendor (third party scripts that are not available through a package manager (e.g. bower) go here)
-- styles
+- app/bower_components
+- app/images
+- app/scripts (own scripts go here)
+- app/scripts/vendor (third party scripts that are not available through a package manager (e.g. bower) go here)
+- app/styles
 
 ## Naming convention
 
