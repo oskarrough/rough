@@ -17,18 +17,23 @@ The purpose of this HTML is to help determine what default settings are with Bit
 
 ## Getting started
 
-### 1. Clone the project
+1. Clone the project
 
 `git clone https://github.com/oskarrough/rough.git`
 
-### 2. Install dependencies:
+2. Remove the git history to start fresh
+
+`rm -rf .git`
+`git init`
+
+3. Install dependencies:
 
 **First install these as they are used to install the rest.**
 
-- Bundler --> `sudo gem install bundler` (for ruby/gem packages)
 - Node --> `brew install node` (for node/js packages)
-- Bower --> `npm install -g bower` (for front-end packages)
 - Grunt --> `npm install -g grunt-cli` (for development)
+- Bower --> `npm install -g bower` (for front-end packages)
+- Bundler --> `sudo gem install bundler` (for ruby/gem packages)
 
 In one command: `brew install node && sudo gem install bundler && npm install -g bower grunt-cli`
 
