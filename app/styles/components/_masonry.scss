@@ -30,15 +30,21 @@
 
 // Fade in masonry when it is ready. Class is added with js.
 .Masonry {
-	visibility: hidden;
-	opacity: 0;
-	transition: opacity 100ms;
-	&.is-active {
-		visibility: visible;
-		opacity: 1;
+	// transition: opacity 100ms;
+	// visibility: hidden;
+	// opacity: 0;
+	// &.is-active {
+	// 	visibility: visible;
+	// 	opacity: 1;
+	// }
+
+	// clearfix
+	&:after {
+		content: '';
+		display: block;
+		clear: both;
 	}
 }
-
 
 /**
  * Responsive layout
@@ -79,7 +85,7 @@ $large-columns: 6;
 	.Masonry-item, .Masonry-gridSizer {
 		width: span(1 of $smallmedium-columns);
 	}
-	.is-featured {
+	.Masonry-item.is-featured {
 		width: span(2 of $smallmedium-columns);
 	}
 	.Masonry-gutterSizer {
@@ -92,7 +98,7 @@ $large-columns: 6;
 	.Masonry-item, .Masonry-gridSizer {
 		width: span(1 of $medium-columns);
 	}
-	.is-featured {
+	.Masonry-item.is-featured {
 		width: span(2 of $medium-columns);
 	}
 	.Masonry-gutterSizer {
@@ -105,7 +111,7 @@ $large-columns: 6;
 	.Masonry-item, .Masonry-gridSizer {
 		width: span(1 of $mediumlarge-columns);
 	}
-	.is-featured {
+	.Masonry-item.is-featured {
 		width: span(2 of $mediumlarge-columns);
 	}
 	.Masonry-gutterSizer {
@@ -118,7 +124,7 @@ $large-columns: 6;
 	.Masonry-item, .Masonry-gridSizer {
 		width: span(1 of $large-columns);
 	}
-	.is-featured {
+	.Masonry-item.is-featured {
 		width: span(2 of $large-columns);
 	}
 	.Masonry-gutterSizer {

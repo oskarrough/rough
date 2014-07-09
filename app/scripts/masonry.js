@@ -13,39 +13,41 @@ var Masonry = function(el, options) {
 	// Extending options:
 	this.opts = $.extend({}, this.defaults, options);
 
-	// Check if an element has been sent as argument
-	// and if not, use the default
-	if (!this.$el) {
-		this.$el = $(this.defaults.container);
-	} else {
+	// If an element was passed, use it, otherwise use a default el
+	if (el) {
 		this.$el = $(el);
+	} else {
+		this.$el = $(this.defaults.container);
 	}
 
 	this.init();
 };
 
 Masonry.prototype = {
+	isFirstRun: true,
 
 	init: function() {
 
+		// Only run if the container exists
 		if (this.$el.length < 1 ) {
 			console.log('Did not find a Masonry container');
 			return false;
 		}
 
+		// Make sure we don't get duplicate markup
+		if (this.isFirstRun) {
+			this.prepareMarkup();
+		}
 
-		this.prepareMarkup();
-		this.imagesLoaded();
-	},
-
-	prepareMarkup: function() {
-		// add els needed by masonry for better fluid calculations
-		this.$el.prepend('<div class="Masonry-gridSizer"></div><div class="Masonry-gutterSizer"></div>');
-	},
-
-	imagesLoaded: function() {
-		// enable masonry after images are loaded (in the callback)
+		// First run after images are loaded
 		this.$el.imagesLoaded( $.proxy(this.runMasonry, this) );
+		// this.runMasonry();
+	},
+
+	// Add els needed by masonry for better fluid calculations
+	prepareMarkup: function() {
+		this.$el.prepend('<div class="Masonry-gridSizer"></div><div class="Masonry-gutterSizer"></div>');
+		this.isFirstRun = false;
 	},
 
 	runMasonry: function() {
@@ -54,5 +56,7 @@ Masonry.prototype = {
 			gutter: '.Masonry-gutterSizer',
 			itemSelector: '.Masonry-item'
 		}).addClass('is-active');
+
+		this.$el.masonry();
 	}
 };
