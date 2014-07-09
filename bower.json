@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.0",
-    "jquery-waypoints": "~2.0.4",
-    "normalize-css": "~3.0.0",
+    "imagesloaded": "~3.1.8",
+    "jquery": "~2.1.1",
+    "jquery-waypoints": "~2.0.5",
     "masonry": "~3.1.5",
-    "imagesloaded": "~3.1.4"
+    "normalize-css": "~3.0.1"
   }
 }
