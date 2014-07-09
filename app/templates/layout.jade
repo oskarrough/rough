@@ -4,12 +4,7 @@ block vars
 	- var active = active || ''
 
 doctype
-//if IE 8
-	html.no-js.lt-ie9
-// [if gt IE 8] <!
 html.no-js
-	// <![endif]
-
 	head
 		block header
 			meta(charset='utf-8')
@@ -55,6 +50,7 @@ html.no-js
 			script(src="bower_components/outlayer/outlayer.js")
 			script(src='bower_components/masonry/masonry.js')
 
+			//- Our scripts
 			//- script(src='scripts/component.js')
 			//- script(src='scripts/masonry.js')
 			script(src='scripts/app.js')
