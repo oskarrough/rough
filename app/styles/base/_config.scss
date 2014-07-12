@@ -30,7 +30,6 @@ $color-active: red;
  */
 $space: 20px;
 
-
 // Susy
 // gutters are defined in a ratio to the column width
 $susy: (
@@ -41,12 +40,10 @@ $susy: (
 );
 
 // Good looking easings for animation
-$easing:  cubic-bezier(0.165,  0.84,  0.44,   1);
-$easing2: cubic-bezier(0.165,  0.84,  0.44,   1);
-$easing3: cubic-bezier(1,      0.01,  0.3,    1);
-$easing4: cubic-bezier(0.770,  0,     0.175,  1);
-
-
+$easing:  cubic-bezier(0.165,  0.84,  0.4,   1); // fast, good looking
+$easing2: cubic-bezier(0.145,  1.05,  0.4,   1.1); // + spring physics
+$easing3: cubic-bezier(1,      0.01,  0.4,    1); // ?
+$easing4: cubic-bezier(0.770,  0,     0.175,  1); ??
 
 /**
  * Layout: Breakpoints
