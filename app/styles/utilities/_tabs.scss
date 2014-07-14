@@ -9,10 +9,59 @@
 	display: table;
 	table-layout: fixed;
 	width: 100%;
+	background: lightgrey;
 }
+
+.Tabs-content {
+
+	// laters
+	// &.is-loaded {
+	// 	.Tabs-item { display: none; }
+	// }
+}
+
 .Tabs-item {
-	display: table-cell;
+	display: none;
+	&.Tabs-is-active { display: table-cell; }
+
+	&:first-child {
+		background: blue;
+	}
+	&:nth-child(2) {
+		background: green;
+	}
+	&:nth-child(3) {
+		background: yellow;
+	}
+	&:nth-child(4) {
+		background: purple;
+	}
 }
-.Tabs-nav li {
-	display: block;
+
+.Tabs-nav {
+	
+	li {
+		//display: block;
+		display: inline-block;
+		&:first-child {
+			&.Tabs-is-active {
+				background: blue;
+			}
+		}
+		&:nth-child(2) {
+			&.Tabs-is-active {
+				background: green;
+			}
+		}
+		&:nth-child(3) {
+			&.Tabs-is-active {
+				background: yellow;
+			}
+		}
+		&:nth-child(4) {
+			&.Tabs-is-active {
+				background: purple;
+			}
+		}
+	}
 }
