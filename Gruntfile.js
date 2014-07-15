@@ -31,14 +31,14 @@ module.exports = function (grunt) {
 			gruntfile: {
 				files: ['Gruntfile.js']
 			},
-			// compass: {
-			// 	files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-			// 	tasks: ['compass:server', 'autoprefixer']
-			// },
-			sass: {
+			compass: {
 				files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-				tasks: ['sass:server', 'autoprefixer']
+				tasks: ['compass:server', 'autoprefixer']
 			},
+			// sass: {
+			// 	files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+			// 	tasks: ['sass:server', 'autoprefixer']
+			// },
 			// nodesass: {
 			// 	files: ['app/styles/{,*/}*.scss'],
 			// 	tasks: ['nodesass:dist', 'autoprefixer']
@@ -261,7 +261,6 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
-
 		htmlmin: {
 			dist: {
 				options: {
@@ -320,11 +319,11 @@ module.exports = function (grunt) {
 		// Run some tasks in parallel to speed up build process
 		concurrent: {
 			server: [
-				'sass:server',
+				'compass:server',
 				'copy:styles'
 			],
 			dist: [
-				'sass',
+				'compass',
 				'copy:styles',
 				'imagemin',
 				'svgmin'
