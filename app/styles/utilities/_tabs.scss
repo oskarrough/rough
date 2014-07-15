@@ -3,65 +3,63 @@
  */
 
 .Tabs {
+	position: relative;
 	margin: 0;
 	padding: 0;
-	list-style: none;
-	display: table;
-	table-layout: fixed;
 	width: 100%;
-	background: lightgrey;
-}
 
-.Tabs-content {
-
-	// laters
-	// &.is-loaded {
-	// 	.Tabs-item { display: none; }
-	// }
-}
-
-.Tabs-item {
-	display: none;
-	&.Tabs-is-active { display: table-cell; }
-
-	&:first-child {
-		background: blue;
+	&:after {
+		content: "☰";
+		position: absolute;
+		top: 0;
+		right: .5em;
+		z-index: .5em;
+		pointer-events: none;
+		color: white;
+		font-size: 20px;
 	}
-	&:nth-child(2) {
-		background: green;
-	}
-	&:nth-child(3) {
-		background: yellow;
-	}
-	&:nth-child(4) {
-		background: purple;
+
+	@media (min-width: $layout-m) {
+		&:after {
+			content: "";
+		}
 	}
 }
 
 .Tabs-nav {
-	
+
+	padding: 0;
+	cursor: pointer;
+
+	a { display: block }
+
 	li {
-		//display: block;
-		display: inline-block;
-		&:first-child {
-			&.Tabs-is-active {
-				background: blue;
-			}
+		list-style-type: none;
+		display: none;
+		&.Tabs-is-active { background: grey; }
+		&.Tabs-is-active { display: block; }
+	}
+
+	&.Tabs-is-open {
+		li { display: block; }
+	}
+
+	@media (min-width: $layout-m) {
+
+		cursor: default;
+
+		li {
+			display: inline-block;
+			&.Tabs-is-active { display: inline-block; }
 		}
-		&:nth-child(2) {
-			&.Tabs-is-active {
-				background: green;
-			}
-		}
-		&:nth-child(3) {
-			&.Tabs-is-active {
-				background: yellow;
-			}
-		}
-		&:nth-child(4) {
-			&.Tabs-is-active {
-				background: purple;
-			}
+
+		&.Tabs-is-open {
+			li { display: inline-block; }
 		}
 	}
+}
+
+.Tabs-item {
+	display: none;
+	&.Tabs-is-active { display: block; }
 }

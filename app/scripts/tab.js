@@ -25,7 +25,10 @@ Tab.prototype = {
 	activateFirst: function() {
 		if($('.Tabs-nav .Tabs-is-active').length === 0) {
 			$('.Tabs-nav li').eq(0).addClass('Tabs-is-active');
-			$('.Tabs-item').eq(0).addClass('Tabs-is-active');
+		}
+		if($('.Tabs-item.Tabs-is-active').length === 0) {
+			var pane = $('.Tabs-nav .Tabs-is-active a').attr('href');
+			$(pane).addClass('Tabs-is-active');
 		}
 	},
 	/*
@@ -34,6 +37,8 @@ Tab.prototype = {
 	toggleActive: function(e) {
 		var $target = $(e.target);
 		var pane = $target.attr('href');
+
+		$('.Tabs-nav').toggleClass('Tabs-is-open');
 
 		$('.Tabs-is-active').removeClass('Tabs-is-active');
 		$target.parent('li').addClass('Tabs-is-active');
