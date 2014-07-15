@@ -2,12 +2,14 @@
  * Responsive tabs
  */
 
+// Tab container
 .Tabs {
 	position: relative;
 	margin: 0;
 	padding: 0;
 	width: 100%;
 
+	// Tab toggle button for accordion/small version
 	&:after {
 		content: "☰";
 		position: absolute;
@@ -19,7 +21,7 @@
 		font-size: 20px;
 	}
 
-	@media (min-width: $layout-m) {
+	@media (min-width: $layout-s) {
 		&:after {
 			content: "";
 		}
@@ -27,39 +29,35 @@
 }
 
 .Tabs-nav {
-
 	padding: 0;
-	cursor: pointer;
-
-	a { display: block }
+	list-style: none;
 
 	li {
-		list-style-type: none;
-		display: none;
-		&.Tabs-is-active { background: grey; }
-		&.Tabs-is-active { display: block; }
+		display: none; // initially hide all nav items
+		&.is-active { background: gray; }
+		&.is-active { display: block; }
+	}
+	a {
+		display: block; // expand anchors to full size
 	}
 
-	&.Tabs-is-open {
-		li { display: block; }
-	}
+	// accordion/small version
+	cursor: pointer;
+	li { display: none; } // initially hide all nav items
+	&.is-open li { display: block; } // show nav items below each other when visible
 
-	@media (min-width: $layout-m) {
-
+	// tabs version
+	@media (min-width: $layout-s) {
 		cursor: default;
-
+		&.is-open li { display: inline-block; } // show nav items next to eacher when visible
 		li {
 			display: inline-block;
-			&.Tabs-is-active { display: inline-block; }
-		}
-
-		&.Tabs-is-open {
-			li { display: inline-block; }
+			&.is-active { display: inline-block; }
 		}
 	}
 }
 
 .Tabs-item {
 	display: none;
-	&.Tabs-is-active { display: block; }
+	&.is-active { display: block; }
 }
