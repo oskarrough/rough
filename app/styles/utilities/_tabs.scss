@@ -3,16 +3,63 @@
  */
 
 .Tabs {
+	position: relative;
 	margin: 0;
 	padding: 0;
-	list-style: none;
-	display: table;
-	table-layout: fixed;
 	width: 100%;
+
+	&:after {
+		content: "☰";
+		position: absolute;
+		top: 0;
+		right: .5em;
+		z-index: .5em;
+		pointer-events: none;
+		color: white;
+		font-size: 20px;
+	}
+
+	@media (min-width: $layout-m) {
+		&:after {
+			content: "";
+		}
+	}
 }
+
+.Tabs-nav {
+
+	padding: 0;
+	cursor: pointer;
+
+	a { display: block }
+
+	li {
+		list-style-type: none;
+		display: none;
+		&.Tabs-is-active { background: grey; }
+		&.Tabs-is-active { display: block; }
+	}
+
+	&.Tabs-is-open {
+		li { display: block; }
+	}
+
+	@media (min-width: $layout-m) {
+
+		cursor: default;
+
+		li {
+			display: inline-block;
+			&.Tabs-is-active { display: inline-block; }
+		}
+
+		&.Tabs-is-open {
+			li { display: inline-block; }
+		}
+	}
+}
+
 .Tabs-item {
-	display: table-cell;
-}
-.Tabs-link {
-	display: block;
+	display: none;
+	&.Tabs-is-active { display: block; }
 }
