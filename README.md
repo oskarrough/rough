@@ -1,19 +1,32 @@
 # Rough boilerplate
 
-Opinionated structure for new projects. Closely follows the Yeoman generator-webapp which builds on Grunt.
+Structure for new projects with a few useful extras. If you only want the server/building you'd be better of with the default Yeoman gulp/grunt webapps. This project adds extra markup, styles and scripts for commonly used features so it's super fast to use them - and they're tested and being used in many sites. Please delete everything you don't need.
 
-Base
-- sass
-- grids (susy)
-- breakpoints
-- autoprefixer
-- compass (why?)
-- normalize
+## Features
 
-Styled base
-Components/modules/patterns
+- Everything from generator-webapp (server, testing, build etc)
+- Navigation toggles
+- jQuery waypoints integration
+- Scroll nav
 
-The purpose of this HTML is to help determine what default settings are with Bitters and to make sure that all possible HTML Elements are included in this HTML so as to not miss any possible Elements when designing a site.
+- Grunt setup (closely follows Yeoman webapps)
+-- Livereload, autoprefixer, image optimization, minification and everything else
+-- Jade templating with blocks, layout and includes for easier templating
+
+- Base Sass styles
+-- Proper structure
+-- Naming convention (from suit)
+-- Useful mixins and patterns
+-- Susy for layout math
+-- Vertical alignment
+-- Equal tabs
+-- Media block
+-- Vertical alignment
+
+- Components
+-- Responsive tabs
+-- Masonry (ready with imagesLoaded and responsive, fluid grid styles)
+-- Scrolling one-pager with sticky navigation and smooth scrolling between sections
 
 ## Getting started
 
@@ -55,17 +68,7 @@ This project uses Sass and includes three different methods of compiling:
 
 - grunt-contrib-sass: the default method, just sass
 - grunt-compass: can generate sprites
-- grunt-sass: much faster using node-sass (which uses libsass) but less features
-
-## Features
-
-- Everything from generator-webapp (server, testing, build etc)
-- Navigation toggles
-- jQuery waypoints integration
-- Scroll nav
-- Manual styleguide
-- Responsive and fluid Masonry setup
-- Jade templating (including 'active' navigation and pages)
+- grunt-sass: much faster using node-sass (which uses libsass) but less features (does't work with Susy yet)
 
 ## Structure
 
