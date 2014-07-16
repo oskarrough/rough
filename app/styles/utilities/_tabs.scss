@@ -33,7 +33,7 @@
 	list-style: none;
 
 	li {
-		display: none; // initially hide all nav items
+		.Tabs--loaded & { display: none; } // hide all nav items once js is loaded
 		&.is-active { background: gray; }
 		&.is-active { display: block; }
 	}
@@ -43,21 +43,16 @@
 
 	// accordion/small version
 	cursor: pointer;
-	li { display: none; } // initially hide all nav items
 	&.is-open li { display: block; } // show nav items below each other when visible
 
 	// tabs version
 	@media (min-width: $layout-s) {
 		cursor: default;
-		&.is-open li { display: inline-block; } // show nav items next to eacher when visible
-		li {
-			display: inline-block;
-			&.is-active { display: inline-block; }
-		}
+		.Tabs--loaded & li { display: inline-block; } // show nav items next to eacher when visible
 	}
 }
 
 .Tabs-item {
-	display: none;
+	.Tabs--loaded & { display: none; } // hide content once js is loaded
 	&.is-active { display: block; }
 }

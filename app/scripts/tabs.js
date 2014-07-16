@@ -12,8 +12,16 @@ var Tab = function() {
 
 Tab.prototype = {
 	init: function() {
+		this.addClasses();
 		this.activateFirst();
 		this.actions();
+	},
+
+	/*
+	 * On init, add loaded classes
+	 */
+	addClasses: function() {
+		$('.Tabs').addClass('Tabs--loaded');
 	},
 
 	/**
