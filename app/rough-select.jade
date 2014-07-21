@@ -1,0 +1,39 @@
+block vars
+	- var active = 'Rough Select'
+	- var bodyClass = ''
+
+extends templates/layout
+
+block outlet
+	h1 Rough Selects
+	p In order to style select elements we need to hide the native select and style an wrapper instead + write some hacks for the different browsers. This is what rough selects does.
+
+	form.Form
+		.Form-group
+			label Native select
+			select
+				option Apples
+				option Bananas
+				option Grapes
+				option Oranges
+				option(selected) A very long option name to test wrapping
+
+		.Form-group
+			label.wrapper This label wraps the select
+				.RoughSelect
+					select
+						option Apples
+						option Bananas
+						option Grapes
+						option Oranges
+						option A very long option name to test wrapping
+
+		.Form-group(style="width:50%; min-width:10em;")
+			label.wrapper In a container set to 50% width
+				.RoughSelect
+					select
+						option Apples
+						option Bananas
+						option Grapes
+						option Oranges
+						option A very long option name to test wrapping and visual collisions

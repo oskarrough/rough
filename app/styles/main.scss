@@ -14,10 +14,6 @@
 // Use Susy to make layouts easier by abstracting the math
 @import "susy";
 
-// Compass
-// not really needed anymore?
-// @import "compass/utilities/general/clearfix";
-
 // Imports using 'sass-css-importer'.
 // @import "CSS:../bower_components/normalize-css/normalize";
 // @import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
@@ -27,37 +23,38 @@
  * Utilities (abstract patterns to be reused in components)
  */
 
-@import "utilities/_align";
-@import "utilities/_clearfix";
-@import "utilities/_mediablock";
-@import "utilities/_equal-tabs";
-@import "utilities/_tabs";
-@import "utilities/_truncate";
+@import "utilities/align";
+@import "utilities/clearfix";
+@import "utilities/mediablock";
+@import "utilities/equal-tabs";
+@import "utilities/tabs";
+@import "utilities/truncate";
 
 
 /**
  * Base
  */
 
-@import "base/_normalize-custom";
-@import "base/_base";
-// @import "base/_icons";
+@import "base/normalize-custom";
+@import "base/base";
+// @import "base/icons";
 
 
 /**
  * Components
  */
 
-@import "components/_buttons";
-@import "components/_forms";
-@import "components/_logo";
-@import "components/_rough-masonry";
-@import "components/_nav";
-@import "components/_animation";
+@import "components/buttons";
+@import "components/forms";
+@import "components/rough-select";
+@import "components/logo";
+@import "components/rough-masonry";
+@import "components/nav";
+@import "components/animation";
 
 
 /**
  * Layout (lays out the components to form a page layout)
  */
 
-@import "layout/_layout";
+@import "layout/layout";
