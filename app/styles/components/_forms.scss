@@ -21,3 +21,10 @@ textarea {
 	max-width: 100%;
 	padding: 0.3em 0.5em 0.25em
 }
+
+// Form layout
+// For easier styling, wrap all form groups like this
+.Form {}
+.Form-group {
+	margin-bottom: 1em;
+}
