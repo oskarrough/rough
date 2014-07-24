@@ -7,8 +7,8 @@ label,
 input,
 textarea,
 select {
-    display: inline-block;
-    vertical-align: middle;
+	display: inline-block;
+	vertical-align: middle;
 }
 
 // Expand to full-width
@@ -19,12 +19,12 @@ input[type='password'],
 textarea {
 	width: 100%;
 	max-width: 100%;
-	padding: 0.3em 0.5em 0.25em
+	padding: 0.3em 0.5em 0.25em;
 }
 
 // Form layout
 // For easier styling, wrap all form groups like this
-.Form {}
+// .Form {}
 .Form-group {
 	margin-bottom: 1em;
 }

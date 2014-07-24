@@ -9,6 +9,7 @@
 	a:hover {
 		color: $color-hover;
 	}
+
 	a.is-active {
 		color: $color-active;
 		&:hover {
@@ -16,18 +17,6 @@
 		}
 	}
 }
-
-
-/**
- * Modifier: horizontal
- */
-
-.Nav--horizontal {
-	li {
-		display: inline-block;
-	}
-}
-
 
 /**
  * Modifier: breadcrumbs
@@ -45,32 +34,25 @@
 			display: none;
 		}
 	}
+
 	a {
 		display: inline;
 	}
 }
 
-
 /**
- * Pagination
+ * Pagination (use together with .Nav class)
  */
 
 .Pagination {
-	@extend .Nav;
-	@extend .Nav--horizontal;
 	text-align: center;
+
+	li {
+		display: inline-block;
+	}
 
 	a {
 		display: block;
 		padding: 0.2em 0.4em; // bigger tap area
 	}
-}
-
-
-/**
- * Primary navigation
- */
-
-.Nav--primary {
-	a {}
 }

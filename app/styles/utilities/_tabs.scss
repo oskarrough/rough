@@ -11,19 +11,19 @@
 
 	// Tab toggle button for accordion/small version
 	&:after {
-		content: "☰";
+		content: '☰';
+		font-size: 20px;
 		position: absolute;
 		top: 0;
 		right: .5em;
 		z-index: .5em;
 		pointer-events: none;
-		color: white;
-		font-size: 20px;
+		color: #fff;
 	}
 
 	@media (min-width: $layout-s) {
 		&:after {
-			content: "";
+			content: '';
 		}
 	}
 }
@@ -34,9 +34,9 @@
 
 	li {
 		.Tabs--loaded & { display: none; } // hide all nav items once js is loaded
-		&.is-active { background: gray; }
-		&.is-active { display: block; }
+		&.is-active { background: gray; display: block; }
 	}
+
 	a {
 		display: block; // expand anchors to full size
 	}

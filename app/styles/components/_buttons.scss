@@ -1,25 +1,25 @@
 .Button {
-    -webkit-appearance: none; /* 1 */
-    background: transparent;
-    border-color: gray;
-    border-style: solid;
-    border-width: 2px;
-    box-sizing: border-box; /* 2 */
-    color: black; /* 3 */
-    cursor: pointer;
-    display: inline-block;
-    font: inherit; /* 4 */
-    line-height: normal; /* 6 */
-    margin: 0;
-    padding: 0.3em 0.5em 0.25em;
-    position: relative;
-    text-align: center;
-    text-decoration: none;
-    user-select: none; /* 6 */
-    white-space: normal; /* 7 */
+	-webkit-appearance: none; /* 1 */
+	background: transparent;
+	border-color: gray;
+	border-style: solid;
+	border-width: 2px;
+	box-sizing: border-box; /* 2 */
+	color: black; /* 3 */
+	cursor: pointer;
+	display: inline-block;
+	font: inherit; /* 4 */
+	line-height: normal; /* 6 */
+	margin: 0;
+	padding: 0.3em 0.5em 0.25em;
+	position: relative;
+	text-align: center;
+	text-decoration: none;
+	user-select: none; /* 6 */
+	white-space: normal; /* 7 */
 
-    // Button needs this directly on the element. Inheritance is not enough
-    // -webkit-font-smoothing: antialiased;
+	// Button needs this directly on the element. Inheritance is not enough
+	// -webkit-font-smoothing: antialiased;
 }
 
 /**
@@ -29,13 +29,13 @@
 .Button:hover,
 .Button:focus,
 .Button:active {
-    text-decoration: none;
+	text-decoration: none;
 }
 
 .Button:disabled,
 .Button.is-disabled {
-    cursor: default;
-    opacity: 0.75;
+	cursor: default;
+	opacity: 0.75;
 }
 
 
@@ -44,6 +44,6 @@
  */
 
 .Button::-moz-focus-inner {
-  border: 0;
-  padding: 0;
+	border: 0;
+	padding: 0;
 }

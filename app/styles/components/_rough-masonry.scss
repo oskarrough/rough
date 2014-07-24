@@ -88,14 +88,17 @@ $masonry-l-columns: 6;
 	@media (min-width: $masonry-ml) { width: gutter($masonry-ml-columns); }
 	@media (min-width: $masonry-l) { width: gutter($masonry-l-columns); }
 }
+
 // Adjust item width according to column count
-.Masonry-item, .Masonry-gridSizer {
+.Masonry-item,
+.Masonry-gridSizer {
 	@media (min-width: $masonry-s) { width: span(1 of $masonry-s-columns); }
 	@media (min-width: $masonry-sm) { width: span(1 of $masonry-sm-columns); }
 	@media (min-width: $masonry-m) { width: span(1 of $masonry-m-columns); }
 	@media (min-width: $masonry-ml) { width: span(1 of $masonry-ml-columns); }
 	@media (min-width: $masonry-l) { width: span(1 of $masonry-l-columns); }
 }
+
 // Adjust featured width according to column count
 .Masonry-item.is-featured {
 	@media (min-width: $masonry-s) { width: span(2 of $masonry-s-columns); }

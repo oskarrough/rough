@@ -4,51 +4,58 @@
 
 // Label styles: style as needed
 label {
-	display:block;
+	display: block;
 }
 
 // Container used for styling the custom select, the buttom class adds the bg gradient, corners, etc.
 .RoughSelect {
-	position: relative;
 	display: block;
+	position: relative;
 
 	// Custom arrow sits on top of the select
 	// could be an image, SVG, icon font, etc. or the arrow could just baked into the bg image on the select
 	&:after {
 		background: none;
 		color: #bbb;
-		content: "\25BC";
+		content: '\25BC';
 		font-size: .7em;
-		padding:0;
+		padding: 0;
 		position: absolute;
 		right: 1.2em;
 		top: 0.8em;
 		bottom: .3em;
 		z-index: 2;
 		// These hacks make the select behind the arrow clickable in some browsers
-		pointer-events:none;
-		background: url(#);
+		pointer-events: none;
+		background: url('#');
 	}
+
+	// Styles (not necessary to make it work)
+	border: 1px solid #bbb;
+	border-radius: .3em;
+	box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+	background: #f3f3f3; // Old browsers
+	background: linear-gradient(to bottom, #fff 0%, #e5e5e5 100%); // W3C
 
 	// Hover style
 	&:hover {
-		border:1px solid #888;
+		border: 1px solid #888;
 	}
 
 	// This is the native select, we're making everything the text invisible so we can see the button styles in the wrapper
 	select {
-		width:100%;
-		max-width:100%;
-		min-width:100%;
-		margin:0;
-		background:none;
+		width: 100%;
+		max-width: 100%;
+		min-width: 100%;
+		margin: 0;
+		background: none;
 		border: 1px solid transparent;
 		outline: none;
 		// Remove select styling
 		appearance: none;
 		-webkit-appearance: none;
 		// Magic font size number to prevent iOS text zoom
-		font-size:14px;
+		font-size: 14px;
 		// General select styles: change as needed
 		font-family: helvetica, sans-serif;
 		font-weight: bold;
@@ -58,11 +65,11 @@ label {
 
 		// Focus style - TODO: Fix in FF
 		&:focus {
-			outline:none;
-			box-shadow: 0 0 1px 3px rgba(180,222,250, 1);
-			background-color:transparent;
+			outline: none;
+			box-shadow: 0 0 1px 3px rgba(180, 222, 250, 1);
+			background-color: transparent;
 			color: #222;
-			border:1px solid #aaa;
+			border: 1px solid #aaa;
 		}
 
 		// Removes the odd blue bg color behind the text in IE 10/11 and sets the text to match the focus style text
@@ -79,7 +86,7 @@ label {
 	}
 
 	option {
-		font-weight:normal;
+		font-weight: normal;
 	}
 }
 
@@ -94,28 +101,20 @@ label {
 .RoughSelect,
 x:-moz-any-link,
 x:default {
-	overflow:hidden;
-	width:100%;
+	overflow: hidden;
+	width: 100%;
 }
+
 .RoughSelect select,
 x:-moz-any-link,
 x:default {
-	width:110%;
-	max-width:110%;
-	min-width:110%;
+	width: 110%;
+	max-width: 110%;
+	min-width: 110%;
 	// A zero right padding is needed or the native arrow can show up. Downside is the text will run over the arrow
-	padding: .6em 0 .5em .8em;
+	padding: 0.6em 0 0.5em 0.8em;
 	// Window is a Firefox way of hiding the arrow, sometimes works
 	-moz-appearance: window;
 	text-indent: 0.01px;
-	text-overflow: "";
-}
-
- // These are just demo button-y styles, style as you like
-.RoughSelect {
-	border: 1px solid #bbb;
-	border-radius: .3em;
-	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
-	background: #f3f3f3; // Old browsers
-	background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); // W3C
+	text-overflow: '';
 }

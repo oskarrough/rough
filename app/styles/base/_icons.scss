@@ -31,14 +31,14 @@ $icon-sprite-dimensions: true;
  * After all the settings, we import the Compass files related to sprites
  */
 
-@import "compass/utilities/sprites";
+@import 'compass/utilities/sprites';
 
 
 /**
  * Import all icons. Path is relative to your image folder which is defined in either config.rb or Gruntfile.js
  */
 
-@import "icon/*.png";
+@import 'icon/*.png';
 
 
 /**
@@ -61,6 +61,6 @@ $icon-sprite-dimensions: true;
 
 // background-position: sprite-position($icon-sprites, arrowSelect);
 
-[class^="icon-"] {
+[class^='icon-'] {
 	display: inline-block;
 }

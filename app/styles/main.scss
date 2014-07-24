@@ -3,8 +3,8 @@
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
 
-@import "base/_config";
-@import "base/_mixins";
+@import 'base/_config';
+@import 'base/_mixins';
 
 
 /**
@@ -12,49 +12,49 @@
  */
 
 // Use Susy to make layouts easier by abstracting the math
-@import "susy";
+@import 'susy';
 
 // Imports using 'sass-css-importer'.
-// @import "CSS:../bower_components/normalize-css/normalize";
-// @import "CSS:../bower_components/magnific-popup/dist/magnific-popup";
+// @import 'CSS:../bower_components/normalize-css/normalize';
+// @import 'CSS:../bower_components/magnific-popup/dist/magnific-popup';
 
 
 /**
  * Utilities (abstract patterns to be reused in components)
  */
 
-@import "utilities/align";
-@import "utilities/clearfix";
-@import "utilities/mediablock";
-@import "utilities/equal-tabs";
-@import "utilities/tabs";
-@import "utilities/truncate";
+@import 'utilities/align';
+@import 'utilities/clearfix';
+@import 'utilities/mediablock';
+@import 'utilities/equal-tabs';
+@import 'utilities/tabs';
+@import 'utilities/truncate';
 
 
 /**
  * Base
  */
 
-@import "base/normalize-custom";
-@import "base/base";
-// @import "base/icons";
+@import 'base/normalize-custom';
+@import 'base/base';
+// @import 'base/icons';
 
 
 /**
  * Components
  */
 
-@import "components/buttons";
-@import "components/forms";
-@import "components/rough-select";
-@import "components/logo";
-@import "components/rough-masonry";
-@import "components/nav";
-@import "components/animation";
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/rough-select';
+@import 'components/logo';
+@import 'components/rough-masonry';
+@import 'components/nav';
+@import 'components/animation';
 
 
 /**
  * Layout (lays out the components to form a page layout)
  */
 
-@import "layout/layout";
+@import 'layout/layout';
