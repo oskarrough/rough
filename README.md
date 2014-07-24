@@ -82,3 +82,8 @@ This project uses Sass and includes three different methods of compiling:
 
 https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
 
+## Style linting
+
+We provide a way to check your .scss styles for errors and consistency using the scss-lint gem. You already have it, if you ran `bundle install` in this dir previously. To run, open Terminal: `scss-lint app/styles`
+
+We've defined default settings in the .scss-lint.yml file which you can safely change to match your project preferences.
