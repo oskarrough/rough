@@ -31,18 +31,10 @@ module.exports = function (grunt) {
 			gruntfile: {
 				files: ['Gruntfile.js']
 			},
-			compass: {
+			sass: {
 				files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-				tasks: ['compass:server', 'autoprefixer']
+				tasks: ['sass:server', 'autoprefixer']
 			},
-			// sass: {
-			// 	files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-			// 	tasks: ['sass:server', 'autoprefixer']
-			// },
-			// nodesass: {
-			// 	files: ['app/styles/{,*/}*.scss'],
-			// 	tasks: ['nodesass:dist', 'autoprefixer']
-			// },
 			jade: {
 				files: [
 					'<%= config.app %>/*.jade',
@@ -56,7 +48,7 @@ module.exports = function (grunt) {
 				},
 				files: [
 					'{.tmp,<%= config.app %>}/{,*/}*.html',
-					'.tmp/styles/{,*/}*.css',
+					'{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
 					'<%= config.app %>/scripts/{,*/}*.js',
 					'<%= config.app %>/images/{,*/}*.'
 				]
@@ -122,80 +114,38 @@ module.exports = function (grunt) {
 		// Compiles Sass to CSS
 		sass: {
 			options: {
+				sourcemap: true,
 				bundleExec: true,
-				require: 'susy',
-				// loadPath: [
-				// 	'app/bower_components'
-				// ],
-				compass: true,
 				precision: 5,
-				style: 'nested'
+				require: 'susy'
+				// ,
+				// loadPath: 'app/bower_components'
 			},
 			dist: {
 				files: [{
 					expand: true,
 					cwd: 'app/styles',
-					src: ['*.scss'],
+					src: ['*.{scss,sass}'],
 					dest: '.tmp/styles',
 					ext: '.css'
 				}]
-			},
-			server: {
+			}
+			,server: {
 				files: [{
 					expand: true,
 					cwd: 'app/styles',
-					src: ['*.scss'],
+					src: ['*.{scss,sass}'],
 					dest: '.tmp/styles',
 					ext: '.css'
 				}]
-			}
-		},
-
-		compass: {
-			options: {
-				// Makes use of the local Gemfile
-				bundleExec: true,
-				// … where we have defined the following:
-				require: ['susy', 'sass-css-importer'],
-				sassDir: '<%= config.app %>/styles',
-				cssDir: '.tmp/styles',
-				javascriptsDir: '<%= config.app %>/scripts',
-				fontsDir: '<%= config.app %>/styles/fonts',
-				httpFontsPath: '/styles/fonts',
-				importPath: '<%= config.app %>/bower_components',
-				imagesDir: '<%= config.app %>/images',
-				generatedImagesDir: '.tmp/images/generated',
-				httpImagesPath: '../images',
-				httpGeneratedImagesPath: '../images/generated',
-				relativeAssets: false,
-				assetCacheBuster: false
-			},
-			dist: {
-				options: {
-					generatedImagesDir: '<%= config.dist %>/images/generated'
-				}
-			},
-			server: {
-				options: {
-					debugInfo: true
-				}
-			}
-		},
-
-		// Compile sass using node which is way faster but it doesnt support Sass 3.3 (which Susy needs, for instance)
-		nodesass: {
-			dist: {
-				options: {
-					outputStyle: 'nested'
-				},
-				files: {
-					'dist/styles/main.css': 'app/styles/main.scss' // 'destination': 'source'
-				}
 			}
 		},
 
 		// Add vendor prefixed styles
 		autoprefixer: {
+			options: {
+				browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+			},
 			dist: {
 				files: [{
 					expand: true,
@@ -319,11 +269,11 @@ module.exports = function (grunt) {
 		// Run some tasks in parallel to speed up build process
 		concurrent: {
 			server: [
-				'compass:server',
+				'sass:server',
 				'copy:styles'
 			],
 			dist: [
-				'compass',
+				'sass',
 				'copy:styles',
 				'imagemin',
 				'svgmin'
