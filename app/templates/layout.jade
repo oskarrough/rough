@@ -17,7 +17,9 @@ html.no-js
 			link(rel='stylesheet', href='styles/main.css')
 			// endbuild
 
+			// build:js scripts/vendor/modernizr.js
 			script(src='scripts/vendor/modernizr-custom.js')
+			// endbuild
 
 	body(class="#{bodyClass}")
 
@@ -54,11 +56,10 @@ html.no-js
 			//- script(src='../bower_components/jquery-waypoints/shortcuts/sticky-elements/waypoints-sticky.js')
 			// endbuild
 
-			//- Our scripts
-			// build:js(app) scripts/main.js
+			// build:js scripts/main.js
 			//- script(src='scripts/component.js')
-			script(src='scripts/tabs.js')
-			script(src='scripts/rough-masonry.js')
+			//- script(src='scripts/tabs.js')
+			//- script(src='scripts/rough-masonry.js')
 			script(src='scripts/app.js')
 			// endbuild
 

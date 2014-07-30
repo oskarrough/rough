@@ -7,11 +7,11 @@ root = true
 
 [*]
 
-# Change these settings to your own preference
+# change these settings to your own preference
 indent_style = tabs
 indent_size = 4
 
-# We recommend you to keep these unchanged
+# we recommend you to keep these unchanged
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
