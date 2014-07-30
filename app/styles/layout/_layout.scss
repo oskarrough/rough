@@ -11,3 +11,17 @@ html {
 body {
 	margin: 1rem;
 }
+
+
+/**
+ * Grid tests using Susy
+ */
+.Grid {
+	background-color: #ffc;
+}
+.Grid-u {
+	@include gallery(1 of 5);
+	margin-bottom: 1em;
+	outline: 1px solid red;
+	height: 2em;
+}
