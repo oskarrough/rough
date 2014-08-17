@@ -1,4 +1,4 @@
-/* global Tab, Masonry, Video, Nav */
+/* global Tab, Masonry, Video, Nav, Rough */
 
 // on dom ready
 $(function(){
@@ -8,4 +8,5 @@ $(function(){
 	// var nav = new Nav();
 	// var video = new Video();
 	// var tab = new Tab();
+	var rough = new Rough();
 });
