@@ -78,12 +78,37 @@ This project uses Sass and includes three different methods of compiling:
 - app/scripts/vendor (third party scripts that are not available through a package manager (e.g. bower) go here)
 - app/styles
 
+## Styles
+
+We use the Sass preprocessor written in .scss - all tabs, no spaces. All selectors and properties should be on their own lines.
+
+Styles are divided into:
+
+- Base
+- Layout
+- Utilities
+- Components
+
+Base styles can not contain any classes. This is the default elements and configuration as colors, layout measures etc.
+
+Layout is your main site layout and grid systems.
+
+Utilities are helpers to build your project. Could be for alignment, spacing or clearfixing etc.
+
+Components are the parts that make up your project. They are based on the 'base', build with 'utilities' and placed into 'layout'. Components can also contain layout. Most components are unique to a project.
+
 ## Naming convention
 
-https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md
+We closely follow [SUIT's naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
 
 ## Style linting
 
-We provide a way to check your .scss styles for errors and consistency using the scss-lint gem. You already have it, if you ran `bundle install` in this dir previously. To run, open Terminal: `scss-lint app/styles`
+We provide a way to check your sass styles for errors and consistency using the scss-lint gem. You already have it, if you previously ran `bundle install`. To run, do `scss-lint app/styles`.
 
-We've defined default settings in the .scss-lint.yml file which you can safely change to match your project preferences.
+We've defined default settings in the `.scss-lint.yml` file which you can safely change to your project preferences.
+
+## Icons
+
+We are using Grunticon to handle icons and svg sprites. There's a `grunticon` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/icons.data.svg.css` that contains all icons as inline images, referenced with a CSS class. For instance, `social-facebook.png` is used with the `.icon-social-facebook`. The CSS file is referenced in the head of index.html.
+
+**Tip**: Add the class to your element, add `display: block` or `display: inline-block`, give it dimensions and set background-size: cover/contain.

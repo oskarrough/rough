@@ -32,7 +32,6 @@ gulp.task('jade', function () {
 gulp.task('html', ['jade', 'styles'], function () {
 	var assets = $.useref.assets({searchPath: '{.tmp,app}'});
 
-	// return gulp.src('app/*.html')
 	return gulp.src('.tmp/*.html')
 		.pipe(assets)
 		.pipe($.if('*.js', $.uglify()))
@@ -42,24 +41,12 @@ gulp.task('html', ['jade', 'styles'], function () {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('html2', function () {
-	return gulp.src('.tmp/*.html')
-
-		.pipe($.useref.assets())
-		.pipe($.if('*.js', $.uglify()))
-		.pipe($.if('*.css', $.csso()))
-		.pipe($.useref.restore())
-
-		.pipe($.useref())
-		.pipe(gulp.dest('dist'));
-});
-
 gulp.task('images', function () {
 	return gulp.src('app/images/**/*')
-		.pipe($.cache($.imagemin({
-			progressive: true,
-			interlaced: true
-		})))
+		// .pipe($.cache($.imagemin({
+		// 	progressive: true,
+		// 	interlaced: true
+		// })))
 		.pipe(gulp.dest('dist/images'));
 });
 
@@ -103,7 +90,7 @@ gulp.task('serve', ['connect', 'jade', 'styles'], function () {
 gulp.task('watch', ['connect', 'serve'], function () {
 	$.livereload.listen();
 
-	// watch for changes
+	// Notify livereload when these files change
 	gulp.watch([
 		'app/*.html',
 		'.tmp/*.html',
@@ -113,6 +100,7 @@ gulp.task('watch', ['connect', 'serve'], function () {
 		'app/images/**/*'
 	]).on('change', $.livereload.changed);
 
+	// Run these tasks when these files change
 	gulp.watch('app/*.jade', ['jade']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 });
@@ -122,5 +110,5 @@ gulp.task('build', ['jshint', 'html', 'images', 'extras'], function () {
 });
 
 gulp.task('default', ['clean'], function () {
-		gulp.start('build');
+	gulp.start('build');
 });

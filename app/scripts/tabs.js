@@ -1,9 +1,7 @@
 /*jshint unused:false */
-
 /**
  * Responsive Tabs
- * based on Bootstrap's tabs
- * and Chris Coyer's pen http://codepen.io/chriscoyier/pen/gHnGD
+ * inspired by Chris Coyer and Bootstrap
  */
 
 var Tab = function() {
