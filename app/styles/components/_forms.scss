@@ -11,20 +11,25 @@ select {
 	vertical-align: middle;
 }
 
-// Expand to full-width
-input[type='text'],
-input[type='email'],
-input[type='tel'],
-input[type='password'],
-textarea {
-	width: 100%;
-	max-width: 100%;
+// Common styles for text inputs and buttons
+input,
+textarea,
+.Button {
 	padding: 0.3em 0.5em 0.25em;
 }
 
+// Expand to full-width
+input,
+textarea {
+	width: 100%;
+	max-width: 100%;
+}
+
 // Form layout
-// For easier styling, wrap all form groups like this
-// .Form {}
+// <div class="Form">
+//   <div class="Form-input"></div>
+//   <div class="Form-input"></div>
+// </div>
 .Form-group {
 	margin-bottom: 1em;
 }
