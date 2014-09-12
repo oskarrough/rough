@@ -30,7 +30,7 @@ Tab.prototype = {
 			$('.Tabs-nav li').eq(0).addClass('is-active');
 		}
 		if ($('.Tabs-item.is-active').length === 0) {
-			var pane = $('.Tabs-nav .is-active a').attr('href');
+			var pane = this.anker($('.Tabs-nav .is-active a').attr('href'));
 			$(pane).addClass('is-active');
 		}
 	},
@@ -38,15 +38,20 @@ Tab.prototype = {
 	/**
 	 * Toggle the tab items
 	 */
-	toggleActive: function(e) {
-		var $target = $(e.target);
-		var pane = $target.attr('href');
+	toggleActive: function(event) {
+		event.preventDefault();
+		var $target = $(event.target);
+		var pane = this.anker($target.attr('href'));
 
 		$('.Tabs-nav').toggleClass('is-open');
 
 		$('.is-active').removeClass('is-active');
 		$target.parent('li').addClass('is-active');
 		$(pane).addClass('is-active');
+	},
+
+	anker: function(url) {
+		return '#' + url.split('#')[1];
 	},
 
 	/**
