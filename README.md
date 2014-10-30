@@ -112,3 +112,15 @@ We've defined default settings in the `.scss-lint.yml` file which you can safely
 We are using Grunticon to handle icons and svg sprites. There's a `grunticon` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/icons.data.svg.css` that contains all icons as inline images, referenced with a CSS class. For instance, `social-facebook.png` is used with the `.icon-social-facebook`. The CSS file is referenced in the head of index.html.
 
 **Tip**: Add the class to your element, add `display: block` or `display: inline-block`, give it dimensions and set background-size: cover/contain.
+
+## Trouble in paradise?
+
+Here's the nuclear method:
+
+```rm -rf node_modules
+npm cache clean
+npm install
+
+rm -rf bower_components
+bower cache clean
+bower install```
