@@ -1,7 +1,3 @@
-/*jshint unused:false */
-/* global L */
-
-
 var Rough = function() {
 	this.init();
 };

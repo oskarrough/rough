@@ -7,13 +7,12 @@
 	list-style: none;
 
 	a:hover {
-		color: $color-hover;
+		// hover styles
 	}
-
 	a.is-active {
-		color: $color-active;
+		// active styles
 		&:hover {
-			color: $color-hover;
+			// active hover styles
 		}
 	}
 }

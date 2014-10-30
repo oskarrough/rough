@@ -1,4 +1,3 @@
-/*jshint unused:false */
 /**
  * Scroll navigation
  */
@@ -8,7 +7,6 @@ var Nav = function() {
 };
 
 Nav.prototype = {
-
 	$nav: $('.js-genenav'),
 	$sections: $('.Section'),
 
@@ -18,11 +16,9 @@ Nav.prototype = {
 		this.actions();
 	},
 
-
 	/**
 	 * Generate a link from every .Section with an ID on the page
 	 */
-
 	generateNav: function(){
 		var self = this;
 
@@ -34,11 +30,9 @@ Nav.prototype = {
 		});
 	},
 
-
 	/**
 	 * Change active link depending on scroll position
 	 */
-
 	waypoints: function(){
 		this.$sections.waypoint(function(direction) {
 			var $links = $('a[href="#' + this.id + '"]');
@@ -58,11 +52,9 @@ Nav.prototype = {
 		//$.waypoints('refresh');
 	},
 
-
 	/**
 	 * Smooth scrolling instead of jumping
 	 */
-
 	jump: function(event) {
 		var $active = $(event.currentTarget);
 		var offset = $( $active.attr('href') ).offset();
@@ -76,5 +68,4 @@ Nav.prototype = {
 	actions: function() {
 		this.$nav.find('a').on('click', this.jump);
 	}
-
 };

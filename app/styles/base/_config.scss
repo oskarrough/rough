@@ -19,9 +19,6 @@ $red: #f00;
 $bg-color: #fff !default;
 $text-color: #111 !default;
 $header-color: $text-color !default;
-$link-color: blue;
-$color-hover: darkblue;
-$color-active: red;
 
 /**
  * Layout
@@ -32,7 +29,6 @@ $space: 20px;
 // gutters are defined in a ratio to the column width
 $susy: (
 	box-sizing: border-box,
-	container: 80%,
 	columns: 5,
 	gutters: 20/200
 );

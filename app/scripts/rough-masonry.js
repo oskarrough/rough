@@ -1,5 +1,3 @@
-/*jshint unused:false */
-
 /**
  * Dynamic grid with Masonry
  */

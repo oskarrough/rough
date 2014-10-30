@@ -1,5 +1,4 @@
 /*jshint unused:false */
-/* global L */
 
 /**
  * Sample markup:
@@ -15,7 +14,6 @@ var Video = function() {
 };
 
 Video.prototype = {
-
 	$player: $('#fullscreenVideo'),
 
 	init: function() {
@@ -24,7 +22,6 @@ Video.prototype = {
 		$(window).resize(function() {
 			that.resizeVideo();
 		});
-
 	},
 
 	resizeVideo: function() {
@@ -37,5 +34,4 @@ Video.prototype = {
 			$('#fullscreenVideo').height(viewportWidth / videoWidth * videoHeight);
 		}
 	}
-
 };
