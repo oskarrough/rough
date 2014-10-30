@@ -64,7 +64,7 @@ gulp.task('extras', function () {
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
-gulp.task('connect', function () {
+gulp.task('connect', ['styles'], function () {
 	var serveStatic = require('serve-static');
 	var serveIndex = require('serve-index');
 	var app = require('connect')()
@@ -83,11 +83,11 @@ gulp.task('connect', function () {
 		});
 });
 
-gulp.task('serve', ['connect', 'jade', 'styles'], function () {
+gulp.task('serve', ['connect', 'watch'], function () {
 	require('opn')('http://0.0.0.0:9000');
 });
 
-gulp.task('watch', ['connect', 'serve'], function () {
+gulp.task('watch', ['connect'], function () {
 	$.livereload.listen();
 
 	// Notify livereload when these files change
