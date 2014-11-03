@@ -57,7 +57,7 @@ Nav.prototype = {
 	 */
 	jump: function(event) {
 		var $active = $(event.currentTarget);
-		var offset = $( $active.attr('href') ).offset();
+		var offset = $($active.attr('href')).offset();
 		$('html, body').animate({
 			scrollTop: offset.top
 		}, 200, function() {

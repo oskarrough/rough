@@ -17,11 +17,25 @@ body {
  * Grid tests using Susy
  */
 .Grid {
+	@include clearfix;
+	margin-bottom: 1rem;
 	background-color: #ffc;
 }
-.Grid-u {
-	@include gallery(1 of 5);
-	margin-bottom: 1em;
+.Grid-cell {
+	// example 3 column layout
+	@include span(1 of 3);
+	&:nth-child(3n+1) {
+		@include last;
+	}
+	// example styles to see the cells
+	margin-bottom: 1rem;
 	outline: 1px solid red;
-	height: 2em;
+	height: 2rem;
+}
+
+// If all cells in a grid have the same width you can use this one instead.
+.Grid--gallery .Grid-cell {
+	@media (min-width: $layout-s) {
+		@include gallery(1 of 5);
+	}
 }

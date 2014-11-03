@@ -5,27 +5,40 @@ block vars
 extends templates/layout
 
 block outlet
+	p: a(href="/") &larr; back
 	h1 Grid
 	p Right now, you can't see the grid below because it isn't configured.
 	p To use:
 	ul
 		li Setup the susy config in _config.scss
-		li Write some styles for the .Grid and .Grid-u classes for testing
+		li Write some styles for the .Grid and .Grid-cell classes for testing
 
+	h2 Example three column layout
 	.Grid
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
-		.Grid-u
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+
+	h2 Example "gallery" style layout
+	.Grid.Grid--gallery
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
+		.Grid-cell
