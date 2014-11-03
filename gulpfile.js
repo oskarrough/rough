@@ -1,3 +1,4 @@
+/* jshint node:true */
 'use strict';
 
 var gulp = require('gulp');
@@ -8,21 +9,23 @@ gulp.task('styles', function () {
 		.pipe($.plumber())
 		.pipe($.rubySass({
 			style: 'expanded',
-			precision: 5,
+			precision: 10,
 			require: 'susy',
 			bundleExec: true
 		}))
-		.pipe($.autoprefixer('last 1 version'))
+		.pipe($.autoprefixer({browsers: ['last 1 version']}))
 		.pipe(gulp.dest('.tmp/styles'));
 });
 
+// Lint all scripts except those inside scripts/vendor
 gulp.task('jshint', function () {
 	return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
 		.pipe($.jshint())
-		.pipe($.jshint.reporter('jshint-stylish'));
-		// .pipe($.jshint.reporter('fail'));
+		.pipe($.jshint.reporter('jshint-stylish'))
+		.pipe($.jshint.reporter('fail'));
 });
 
+// Compile jade into HMTL
 gulp.task('jade', function () {
 	return gulp.src(['app/*.jade'])
 		.pipe($.jade({pretty: true}))
@@ -58,8 +61,13 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('extras', function () {
-	return gulp.src(['app/*.*', '!app/*.html', '!app/**/*.jade'], { dot: true })
-		.pipe(gulp.dest('dist'));
+	return gulp.src([
+		'app/*.*',
+		'!app/*.html',
+		'!app/**/*.jade'
+	], {
+		dot: true
+	}).pipe(gulp.dest('dist'));
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
