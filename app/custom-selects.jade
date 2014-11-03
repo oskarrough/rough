@@ -1,5 +1,5 @@
 block vars
-	- var active = 'Rough Select'
+	- var active = 'Custom Selects'
 	- var bodyClass = ''
 
 extends templates/layout
@@ -21,7 +21,7 @@ block outlet
 
 		.Form-group
 			label.wrapper This label wraps the select
-				.RoughSelect
+				.CustomSelect
 					select
 						option Apples
 						option Bananas
@@ -31,7 +31,7 @@ block outlet
 
 		.Form-group(style="width:50%; min-width:10em;")
 			label.wrapper In a container set to 50% width
-				.RoughSelect
+				.CustomSelect
 					select
 						option Apples
 						option Bananas
