@@ -1,0 +1,20 @@
+block vars
+	- var active = 'Lazyload'
+	- var bodyClass = ''
+
+extends templates/layout
+
+block outlet
+	p: a(href="/") &larr; back
+	h1 Lazyload
+	p To lazyload images, backgrounds and videos, we use <a href="https://github.com/aFarkas/lazysizes">lazysizes</a>. Be sure to read the documentation.
+
+	h2 How to use
+	ul
+		li Make sure the script is included
+		li Read the documentation
+		li Change your markup to <code>img.lazyload(data-src="image.jpg", alt="")</code>
+		li Change your markup to <code>div.lazyload(data-bg="image.jpg")</code>
+		li Read the documentation
+
+	p Lazysizes also supports responsive images, but again, just read the documentation.
