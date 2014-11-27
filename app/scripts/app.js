@@ -4,8 +4,7 @@
 $(function() {
 
 	// run these modules
-
-	// var masonry = new Masonry();
+	var masonry = new Masonry();
 	// var nav = new Nav();
 	// var video = new Video();
 	var tab = new Tab();
