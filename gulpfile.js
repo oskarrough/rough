@@ -70,6 +70,12 @@ gulp.task('extras', function () {
 	}).pipe(gulp.dest('dist'));
 });
 
+// Copy the grunticon-generated 'icons' folder to dist
+gulp.task('icons', function () {
+	return gulp.src(['.tmp/images/icons/**/*'])
+		.pipe(gulp.dest('dist/images/icons'));
+});
+
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
 
 gulp.task('connect', ['styles'], function () {
@@ -113,7 +119,7 @@ gulp.task('watch', ['connect'], function () {
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'extras'], function () {
+gulp.task('build', ['jshint', 'html', 'images', 'extras', 'icons'], function () {
 	return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 

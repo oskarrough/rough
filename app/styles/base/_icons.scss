@@ -2,65 +2,22 @@
  * Icons
  */
 
+$icon-size: 20px;
 
-// Compass can generate a sprite .png image from a folder of icons. The name of the folder is used in all Compass variables and functions related to this sprite image. In our example, the folder is in /images/icon which means our vars are always prefixed with $icon-. This is a Compass convention.
+// targets all classes that include "icon-"
+[class^="icon-"],
+[class*=" icon-"] {
 
-
-/**
- * If you want more spacing between the icons, use this
- */
-
-// $icon-spacing: 30px;
-
-
-/**
- * If you want Compass to write width and height properties in every sprite class, use this
- */
-
-$icon-sprite-dimensions: true;
-
-
-/**
- * If a sprite should be aligned to the right, use this. Remember to change the nameofmyicon.
- */
-
-//$icon-nameofmyicon-position: 100%;
-
-
-/**
- * After all the settings, we import the Compass files related to sprites
- */
-
-@import 'compass/utilities/sprites';
-
-
-/**
- * Import all icons. Path is relative to your image folder which is defined in either config.rb or Gruntfile.js
- */
-
-@import 'icon/*.png';
-
-
-/**
- * Tell Compass to generate a class for every icon
- */
-// @include all-icon-sprites;
-
-
-/**
- * If you want to get the height or width of a sprite, use this
- */
-
-// height: icon-sprite-height(name);
-// width: icon-sprite-width(name);
-
-
-/**
- * To get the background-position of a specific sprite, use this
- */
-
-// background-position: sprite-position($icon-sprites, arrowSelect);
-
-[class^='icon-'] {
+	// give the icons a dimension
 	display: inline-block;
+	font-size: $icon-size;
+	height: 1em;
+	width: 1em;
+
+	// scale the background svg/png to fit
+	background-size: 100%;
+
+	// inherit any colors
+	fill: currentColor;
 }
+
