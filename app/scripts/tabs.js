@@ -10,6 +10,9 @@ var Tab = function() {
 
 Tab.prototype = {
 	init: function() {
+
+		if (!$('.Tabs').length) { return false; }
+
 		this.addClasses();
 		this.activateFirst();
 		this.actions();
