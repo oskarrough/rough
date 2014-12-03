@@ -25,6 +25,12 @@ textarea {
 	max-width: 100%;
 }
 
+// style placeholder
+input:-moz-placeholder,
+input::-moz-placeholder,
+input:-ms-input-placeholder,
+input::-webkit-input-placeholder { color: $bg1; }
+
 // Form layout
 // <div class="Form">
 //   <div class="Form-input"></div>
