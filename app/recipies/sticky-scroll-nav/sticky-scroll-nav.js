@@ -1,4 +1,6 @@
+/*global _*/
 /*jshint unused:false */
+
 /**
  * Scroll navigation
  */

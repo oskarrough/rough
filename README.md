@@ -28,15 +28,19 @@ Structure for new projects with a few useful extras. If you only want the server
 -- Masonry (ready with imagesLoaded and responsive, fluid grid styles)
 -- Scrolling one-pager with sticky navigation and smooth scrolling between sections
 
+- Recipies
+-- Common featured ready to be copy/pasted
+
 ## Getting started
 
-1. Clone the project
+1. Clone or download the project
 
 `git clone https://github.com/oskarrough/rough.git`
 
-2. Remove the git history to start fresh
+2. Remove the git history to start fresh for your new project (unless you're looking to contribue to this project, of course)
 
-`rm -rf .git`
+`cd rough`
+`rm -rf .git` (delete the .git folder inside the folder you just)
 `git init`
 
 3. Install dependencies:
@@ -48,7 +52,7 @@ Structure for new projects with a few useful extras. If you only want the server
 - Bower --> `npm install -g bower` (for front-end packages)
 - Bundler --> `sudo gem install bundler` (for ruby/gem packages)
 
-In one command: `brew install node && sudo gem install bundler && npm install -g bower grunt-cli`
+Or in one command: `brew install node; sudo gem install bundler; npm install -g bower grunt-cli`
 
 **Install the rest of the dependencies using the tools you just installed**
 
@@ -56,24 +60,13 @@ In one command: `brew install node && sudo gem install bundler && npm install -g
 - `npm install` -->  installs everything from package.json
 - `bower install` --> installs everything from bower.json
 
-In one command: `bundle install && npm install && bower install`
-
-## Compiling HTML with Jade
-
-@todo: explain why and how
-
-## Compiling CSS with Sass
-
-This project uses Sass and includes three different methods of compiling:
-
-- grunt-contrib-sass: the default method, just sass
-- grunt-compass: can generate sprites
-- grunt-sass: much faster using node-sass (which uses libsass) but less features (does't work with Susy yet)
+In one command: `bundle install; npm install; bower install`
 
 ## Structure
 
-- app/bower_components
+- bower_components
 - app/images
+- app/images/icons
 - app/scripts (own scripts go here)
 - app/scripts/vendor (third party scripts that are not available through a package manager (e.g. bower) go here)
 - app/styles

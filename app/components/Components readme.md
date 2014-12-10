@@ -1,1 +1,0 @@
-Part of the rough repo, this folder contains common component patterns you can copy/paste, tweak a bit and get working faster.
