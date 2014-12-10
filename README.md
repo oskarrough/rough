@@ -109,9 +109,13 @@ We've defined default settings in the `.scss-lint.yml` file which you can safely
 
 ## Icons
 
-We are using Grunticon to handle icons and svg sprites. There's a `grunticon` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/icons.data.svg.css` that contains all icons as inline images, referenced with a CSS class. For instance, `social-facebook.png` is used with the `.icon-social-facebook`. The CSS file is referenced in the head of index.html.
+We are using Grunticon to handle icons and svg sprites. There's a `grunt icons` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/` that contains all icons as inline images, referenced with a CSS class.
 
-**Tip**: Add the class to your element, add `display: block` or `display: inline-block`, give it dimensions and set background-size: cover/contain.
+For example, to use a `social-facebook.svg` icon you add an element like this `<i class="icon icon-social-facebook"></i>`.
+
+Grunticon includes a `grunticon.loader.js` which is in the head of your `index.html`. It will load the appropriate sprite method depending on your browser. Don't worry, it works.
+
+The `app/styles/base/_icons.scss` file contains a few base styles to make styling icons easier.
 
 ## Trouble in paradise?
 
