@@ -1,24 +1,23 @@
-/**
- * Vertical align elements with an unknown height
- * works in IE9+
- */
+// Vertical alignment using flexbox (IE10+)
+@mixin valignCenter() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 
-.u-alignMiddle {
+	// you might want to change this
+	flex-flow: column nowrap; // or row
+}
+.u-valignCenter {
+	@include valignCenter;
+}
+
+
+// Vertical alignment using transform (IE9+)
+@mixin valignCenter--old {
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
 }
-
-// For reference here is the original way of doing it:
-
-/*
 .u-alignMiddle {
-	display: table;
-	table-layout: fixed;
-	width: 100%;
-
-	> .u-alignMiddle-child {
-		display: table-cell;
-	}
+	@include valignCenter--old;
 }
-*/
