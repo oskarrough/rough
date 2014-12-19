@@ -10,10 +10,8 @@ html {
 	background-color: $bg-color;
 
 	// Enable kerning and ligatures everywhere
+	// to use open-type features, bower install normalize-opentype
 	text-rendering: optimizeLegibility;
-
-	// Check this for each typeface. Sometimes it makes it worse
-	// -webkit-font-smoothing: antialiased;
 }
 
 // Set a consistent margin between elements
@@ -34,7 +32,8 @@ fieldset,
 input,
 table,
 address,
-textarea {
+textarea,
+figure {
 	margin: 0 0 1rem;
 }
 
@@ -46,7 +45,7 @@ h4 {
 	line-height: 1.1;
 }
 h1 {
-	font-size: rem(32);
+	font-size: rem(36);
 }
 h2 {
 	font-size: rem(24);
@@ -66,6 +65,10 @@ video,
 audio,
 embed {
 	max-width: 100%;
+}
+img {
+	height: auto;
+	vertical-align: bottom;
 }
 
 // Links
