@@ -1,24 +1,22 @@
 .Button {
-	-webkit-appearance: none; /* 1 */
+	-webkit-appearance: none;
 	background: transparent;
-	border-color: gray;
-	border-style: solid;
-	border-width: 2px;
-	box-sizing: border-box; /* 2 */
-	color: black; /* 3 */
+	border: 1px solid gray;
+	box-sizing: border-box;
+	color: black;
 	cursor: pointer;
 	display: inline-block;
-	font: inherit; /* 4 */
-	line-height: normal; /* 6 */
+	font: inherit;
+	line-height: normal;
 	margin: 0;
 	position: relative;
 	text-align: center;
 	text-decoration: none;
-	user-select: none; /* 6 */
-	white-space: normal; /* 7 */
+	user-select: none;
+	white-space: normal;
 
 	// Button needs this directly on the element. Inheritance is not enough
-	// -webkit-font-smoothing: antialiased;
+	// @include negative-text;
 }
 
 /**

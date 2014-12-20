@@ -8,10 +8,10 @@
 
 .CustomSelect {
 	border: 1px solid #bbb;
-	border-radius: .3em;
+	border-radius: 0.3em;
 	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
 	background: #f3f3f3; // Old browsers
-	background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); // W3C
+	background: linear-gradient(to bottom, #fff 0%,#e5e5e5 100%); // W3C
 
 	&:hover {
 		border: 1px solid #888;
@@ -96,7 +96,8 @@
 /* ----------------------------------  */
 
 /* OPERA - Pre-Blink nix the custom arrow, go with a native select button to keep it simple. Targeted via this hack http://browserhacks.com/#hack-a3f166304aafed524566bc6814e1d5c7 */
-x:-o-prefocus, .CustomSelect::after {
+x:-o-prefocus,
+.CustomSelect::after {
 	display:none;
 }
 

@@ -25,17 +25,20 @@ textarea {
 	max-width: 100%;
 }
 
-// style placeholder
-input:-moz-placeholder,
-input::-moz-placeholder,
-input:-ms-input-placeholder,
-input::-webkit-input-placeholder { color: red; }
+// Placeholder styles
+// input:-moz-placeholder,
+// input::-moz-placeholder,
+// input:-ms-input-placeholder,
+// input::-webkit-input-placeholder {
+// 	color: red;
+// }
 
 // Form layout
-// <div class="Form">
+// <form class="Form">
 //   <div class="Form-input"></div>
 //   <div class="Form-input"></div>
-// </div>
+// </form>
+.Form {}
 .Form-group {
-	margin-bottom: 1em;
+	margin-bottom: 1rem;
 }
