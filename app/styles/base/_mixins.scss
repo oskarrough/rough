@@ -1,29 +1,23 @@
 /**
- * Convert value to EM
+ * Strips units from a number
  */
 
-@function em($target, $context: $base-font-size-unitless, $desired-unit: 1em) {
-	@if not unitless($target) { $target: $target / 1px; }
-	@if not unitless($context) { $context: $context / 1px; }
-	@return ($target / $context) * $desired-unit;
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
 }
-
 
 /**
  * Convert value to REM
  */
 
-@function rem($target, $context: $base-font-size-unitless, $desired-unit: 1rem) {
-	// Make sure units are unitless
-	@if not unitless($target) {
-		//@warn "Target isn't unitless -> #{$target}";
-		$target: $target / 1px;
-	}
-	@if not unitless($context) {
-		//@warn "Context isn't unitless -> #{$context}";
-		$context: $context / 1px;
-		//@warn "Context isn't unitless -> #{$context}";
-	}
+@function rem($target, $context: $base-font-size) {
+	@return (strip-unit($target) / strip-unit($context)) * 1rem;
+}
 
-	@return ($target / $context) * $desired-unit;
+/**
+ * Convert value to EM
+ */
+
+@function em($target, $context: $base-font-size) {
+	@return (strip-unit($target) / strip-unit($context)) * 1em;
 }
