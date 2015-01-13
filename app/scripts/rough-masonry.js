@@ -27,8 +27,7 @@ Masonry.prototype = {
 	init: function() {
 
 		// Only run if the container exists
-		if (this.$el.length < 1 ) {
-			console.log('Didn\'t find a Masonry container');
+		if (!this.$el.length) {
 			return false;
 		}
 
@@ -40,9 +39,6 @@ Masonry.prototype = {
 
 		// Run after images are loaded
 		this.$el.imagesLoaded( $.proxy(this.runMasonry, this) );
-
-		// Just run
-		// this.runMasonry();
 	},
 
 	runMasonry: function() {
