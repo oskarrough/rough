@@ -61,7 +61,7 @@ gulp.task('fonts', function () {
 		.pipe(gulp.dest('dist/fonts'));
 });
 
-gulp.task('extras', function () {
+gulp.task('extras', ['move-icons'], function () {
 	return gulp.src([
 		'app/*.*',
 		'!app/*.html',
@@ -72,8 +72,9 @@ gulp.task('extras', function () {
 	}).pipe(gulp.dest('dist'));
 });
 
-// Copy the grunticon-generated 'icons' folder to dist
-gulp.task('icons', function () {
+gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+
+gulp.task('move-icons', function () {
 	return gulp.src(['.tmp/images/icons/**/*'])
 		.pipe(gulp.dest('dist/images/icons'));
 });
@@ -97,6 +98,13 @@ gulp.task('connect', ['views', 'styles'], function () {
 		.on('listening', function () {
 			console.log('Started connect web server on http://localhost:9000');
 		});
+// Runs grunticon directly from grunt
+gulp.task('icons', function (cb) {
+	exec('grunt grunticon', function (err, stdout, stderr) {
+		console.log(stdout);
+		console.log(stderr);
+		cb(err);
+	});
 });
 
 gulp.task('serve', ['connect', 'watch'], function () {
@@ -134,10 +142,10 @@ gulp.task('watch', ['connect'], function () {
 	gulp.watch('bower.json', ['wiredep']);
 });
 
-gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras', 'icons'], function () {
+gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
 	return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
 
-gulp.task('default', ['clean'], function () {
+gulp.task('default', ['clean', 'icons'], function () {
 	gulp.start('build');
 });

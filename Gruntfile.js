@@ -20,7 +20,6 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-grunticon');
 
 	// Register tasks
-	grunt.registerTask('icons', ['grunticon:myIcons']);
-	grunt.registerTask('default', ['icons']);
+	grunt.registerTask('default', ['grunticon']);
 };
 
