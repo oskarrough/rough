@@ -1,35 +1,30 @@
 # Rough boilerplate
 
-Structure for new projects with a few useful extras. If you only want the server/building you'd be better of with the default Yeoman gulp/grunt webapps. This project adds extra markup, styles and scripts for commonly used features so it's super fast to use them - and they're tested and being used in many sites. Please delete everything you don't need.
+This is a gulp-based setup that allows you to easily:
 
-## Features
+- Use Sass
+- Use Jade templating
+- Use Grunticon for easy svg icons
+- Minify and concatenate all scripts and styles
+- Autoprefixer, so you don't have to write prefixes yourself
+- Image optimization runs automatically on build
+- Refresh the browser when files change
 
-- Everything from generator-webapp (server, testing, build etc)
-- Navigation toggles
-- jQuery waypoints integration
-- Scroll nav
+It also contains a few useful recipies:
 
-- Grunt setup (closely follows Yeoman webapps)
--- Livereload, autoprefixer, image optimization, minification and everything else
--- Jade templating with blocks, layout and includes for easier templating
+- Custom <select> styles
+- Grids using Susy for the math
+- Lazy loading of (responsive) images using lazysizes
+- Wrapper for robust fluid Masonry layouts with imagesLoaded
+- Responsive Tabs
 
-- Base Sass styles
--- Proper structure
--- Naming convention (from suit)
--- Useful mixins and patterns
--- Susy for layout math
--- Vertical alignment
--- Equal tabs
--- Media block
--- Vertical alignment
+And base styles to cover many edge-cases:
 
-- Components
--- Responsive tabs
--- Masonry (ready with imagesLoaded and responsive, fluid grid styles)
--- Scrolling one-pager with sticky navigation and smooth scrolling between sections
+- Component based scss structure
+- Normalize and base
+- A few useful mixins/utilities
 
-- Recipies
--- Common featured ready to be copy/pasted
+This project leans heavily on the great Yeoman Gulp and Grunt webapps. If you're not interested in the extra baked-in recipies here, you're probably be better of with the default Yeoman apps.
 
 ## Getting started
 
@@ -37,15 +32,15 @@ Structure for new projects with a few useful extras. If you only want the server
 
 `git clone https://github.com/oskarrough/rough.git`
 
-2. Remove the git history to start fresh for your new project (unless you're looking to contribue to this project, of course)
+2. Remove the git history to start fresh for your new project (unless you're looking to contribute, of course)
 
 `cd rough`
-`rm -rf .git` (delete the .git folder inside the folder you just)
+`rm -rf .git`
 `git init`
 
 3. Install dependencies:
 
-**First install these as they are used to install the rest.**
+**If you haven't already, first install these as they are necessary to install the rest.**
 
 - Node --> `brew install node` (for node/js packages)
 - Grunt --> `npm install -g grunt-cli` (for development)
@@ -60,7 +55,7 @@ Or in one command: `brew install node; sudo gem install bundler; npm install -g 
 - `npm install` -->  installs everything from package.json
 - `bower install` --> installs everything from bower.json
 
-In one command: `bundle install; npm install; bower install`
+Or in one command: `bundle install; npm install; bower install`
 
 ## Structure
 
@@ -102,11 +97,11 @@ We've defined default settings in the `.scss-lint.yml` file which you can safely
 
 ## Icons
 
-We are using Grunticon to handle icons and svg sprites. There's a `grunt icons` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/` that contains all icons as inline images, referenced with a CSS class.
+We are using Grunticon to handle icons and svg sprites. There's a `gulp icons` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/` that contains all icons as inline images, referenced with a CSS class. It automatically runs when you `gulp serve` or `gulp build`.
 
-For example, to use a `social-facebook.svg` icon you add an element like this `<i class="icon icon-social-facebook"></i>`.
+For example, to use a `example-icon.svg` icon, you could add an element `<i class="icon icon-example-icon"></i>`.
 
-Grunticon includes a `grunticon.loader.js` which is in the head of your `index.html`. It will load the appropriate sprite method depending on your browser. Don't worry, it works.
+Grunticon includes a `grunticon.loader.js` which is referenced in the head of your `index.html`. It will load the appropriate sprite method depending on your browser. Don't worry, it works.
 
 The `app/styles/base/_icons.scss` file contains a few base styles to make styling icons easier.
 
@@ -114,10 +109,4 @@ The `app/styles/base/_icons.scss` file contains a few base styles to make stylin
 
 Here's the nuclear method:
 
-```rm -rf node_modules
-npm cache clean
-npm install
-
-rm -rf bower_components
-bower cache clean
-bower install```
+`rm -rf bower_components node_modules; npm cache clean; bower cache clean; npm install; bower i; bundle install`
