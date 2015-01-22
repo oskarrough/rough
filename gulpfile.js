@@ -1,28 +1,35 @@
-/* jshint node:true */
+/*global -$ */
 'use strict';
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+var exec = require('child_process').exec;
+var browserSync = require('browser-sync');
+var reload = browserSync.reload;
 
-gulp.task('styles', function () {
-	return gulp.src('app/styles/main.scss')
-		.pipe($.plumber())
-		.pipe($.rubySass({
-			style: 'expanded',
+// Inline sourcemaps
+gulp.task('styles', function() {
+	return $.rubySass('app/styles/main.scss', {
+			// sourcemap: true,
 			precision: 10,
 			require: 'susy',
 			bundleExec: true
-		}))
-		.pipe($.autoprefixer({browsers: ['last 1 version']}))
+		})
+		.on('error', function (err) {
+			console.error('Error', err.message);
+		})
+		.pipe($.sourcemaps.write())
+		.pipe($.autoprefixer(['last 2 versions']))
 		.pipe(gulp.dest('.tmp/styles'));
 });
 
 // Lint all scripts except those inside scripts/vendor
 gulp.task('jshint', function () {
 	return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
+		.pipe(reload({stream: true, once: true}))
 		.pipe($.jshint())
 		.pipe($.jshint.reporter('jshint-stylish'))
-		.pipe($.jshint.reporter('fail'));
+		.pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
 });
 
 // Compile .jade into .html in the .tmp dir
@@ -33,15 +40,16 @@ gulp.task('views', function () {
 });
 
 gulp.task('html', ['views', 'styles'], function () {
-	var assets = $.useref.assets({searchPath: '{.tmp,app}'});
+	var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
 	return gulp.src(['app/*.html', '.tmp/*.html'])
 		.pipe(assets)
 		.pipe($.if('*.js', $.uglify()))
 		.pipe($.if('*.css', $.csso()))
+		.pipe($.rev())
 		.pipe(assets.restore())
 		.pipe($.useref())
-		// .pipe($.if('*.html', $.minifyHtml({conditionals: true, loose: true})))
+		.pipe($.revReplace())
 		.pipe(gulp.dest('dist'));
 });
 
@@ -58,6 +66,7 @@ gulp.task('fonts', function () {
 	return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
 		.pipe($.filter('**/*.{eot,svg,ttf,woff}'))
 		.pipe($.flatten())
+		.pipe(gulp.dest('.tmp/fonts'))
 		.pipe(gulp.dest('dist/fonts'));
 });
 
@@ -79,25 +88,6 @@ gulp.task('move-icons', function () {
 		.pipe(gulp.dest('dist/images/icons'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
-
-gulp.task('connect', ['views', 'styles'], function () {
-	var serveStatic = require('serve-static');
-	var serveIndex = require('serve-index');
-	var app = require('connect')()
-		.use(require('connect-livereload')({port: 35729}))
-		.use(serveStatic('.tmp'))
-		.use(serveStatic('app'))
-		// paths to bower_components should be relative to the current file
-		// e.g. in app/index.html you should use ../bower_components
-		.use('/bower_components', serveStatic('bower_components'))
-		.use(serveIndex('app'));
-
-	require('http').createServer(app)
-		.listen(9000)
-		.on('listening', function () {
-			console.log('Started connect web server on http://localhost:9000');
-		});
 // Runs grunticon directly from grunt
 gulp.task('icons', function (cb) {
 	exec('grunt grunticon', function (err, stdout, stderr) {
@@ -107,25 +97,17 @@ gulp.task('icons', function (cb) {
 	});
 });
 
-gulp.task('serve', ['connect', 'watch'], function () {
-	require('opn')('http://localhost:9000');
-});
-
-// inject bower components
-gulp.task('wiredep', function () {
-	var wiredep = require('wiredep').stream;
-
-	gulp.src('app/styles/*.scss')
-		.pipe(wiredep())
-		.pipe(gulp.dest('app/styles'));
-
-	gulp.src('app/templates/layout.jade')
-		.pipe(wiredep())
-		.pipe(gulp.dest('app/templates'));
-});
-
-gulp.task('watch', ['connect'], function () {
-	$.livereload.listen();
+gulp.task('serve', ['views', 'styles', 'icons'], function () {
+	browserSync({
+		notify: false,
+		port: 9000,
+		server: {
+		baseDir: ['.tmp', 'app'],
+		routes: {
+			'/bower_components': 'bower_components'
+		}
+	}
+  });
 
 	// watch for changes
 	gulp.watch([
@@ -134,12 +116,28 @@ gulp.task('watch', ['connect'], function () {
 		'.tmp/styles/**/*.css',
 		'app/scripts/**/*.js',
 		'app/images/**/*'
-	]).on('change', $.livereload.changed);
+	]).on('change', reload);
 
-	// Run these tasks when these files change
-	gulp.watch('app/**/*.jade', ['views']);
-	gulp.watch('app/styles/**/*.scss', ['styles']);
-	gulp.watch('bower.json', ['wiredep']);
+	gulp.watch('app/**/*.jade', ['views', reload]);
+	gulp.watch('app/styles/**/*.scss', ['styles', reload]);
+	gulp.watch('bower.json', ['wiredep', 'fonts', reload]);
+});
+
+// inject bower components
+gulp.task('wiredep', function () {
+	var wiredep = require('wiredep').stream;
+
+	gulp.src('app/styles/*.scss')
+		.pipe(wiredep({
+			ignorePath: /^(\.\.\/)+/
+		}))
+		.pipe(gulp.dest('app/styles'));
+
+	gulp.src('app/templates/layout.jade')
+		.pipe(wiredep({
+			ignorePath: /^(\.\.\/)*\.\./
+		}))
+		.pipe(gulp.dest('app/templates'));
 });
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
