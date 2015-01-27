@@ -97,7 +97,7 @@ gulp.task('icons', function (cb) {
 	});
 });
 
-gulp.task('serve', ['views', 'styles', 'icons'], function () {
+gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 	browserSync({
 		notify: false,
 		port: 9000,
