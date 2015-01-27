@@ -125,6 +125,7 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 
 	gulp.watch('app/**/*.jade', ['views', reload]);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
+	gulp.watch('app/images/icons/*.{svg,png}', ['icons', reload]);
 	gulp.watch('bower.json', ['wiredep', 'fonts', reload]);
 });
 
