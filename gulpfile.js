@@ -9,18 +9,20 @@ var reload = browserSync.reload;
 
 // Inline sourcemaps
 gulp.task('styles', function() {
+	// gulp-ruby-sass doesn't support "gulp.src"
 	return $.rubySass('app/styles/main.scss', {
-			// sourcemap: true,
+			sourcemap: true,
 			precision: 10,
 			require: 'susy',
 			bundleExec: true
 		})
-		.on('error', function (err) {
+		.on('error', function(err) {
 			console.error('Error', err.message);
 		})
-		.pipe($.sourcemaps.write())
 		.pipe($.autoprefixer(['last 2 versions']))
-		.pipe(gulp.dest('.tmp/styles'));
+		.pipe($.sourcemaps.write())
+		.pipe(gulp.dest('.tmp/styles'))
+		.pipe(reload({stream:true}));
 });
 
 // Lint all scripts except those inside scripts/vendor
@@ -81,8 +83,6 @@ gulp.task('extras', ['move-icons'], function () {
 	}).pipe(gulp.dest('dist'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
-
 gulp.task('move-icons', function () {
 	return gulp.src(['.tmp/images/icons/**/*'])
 		.pipe(gulp.dest('dist/images/icons'));
@@ -97,29 +97,32 @@ gulp.task('icons', function (cb) {
 	});
 });
 
+gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
+
 gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 	browserSync({
 		notify: false,
 		port: 9000,
 		server: {
-		baseDir: ['.tmp', 'app'],
-		routes: {
-			'/bower_components': 'bower_components'
+			baseDir: ['.tmp', 'app'],
+			routes: {
+				'/bower_components': 'bower_components'
+			}
 		}
-	}
-  });
+	});
 
 	// watch for changes
 	gulp.watch([
 		'app/*.html',
 		'.tmp/*.html',
-		'.tmp/styles/**/*.css',
+		// '.tmp/styles/**/*.css',
 		'app/scripts/**/*.js',
 		'app/images/**/*'
 	]).on('change', reload);
 
 	gulp.watch('app/**/*.jade', ['views', reload]);
-	gulp.watch('app/styles/**/*.scss', ['styles', reload]);
+	// gulp.watch('app/styles/**/*.scss', ['styles']);
+	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('bower.json', ['wiredep', 'fonts', reload]);
 });
 
