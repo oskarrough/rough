@@ -14,6 +14,11 @@
 	@return (strip-unit($target) / strip-unit($context)) * 1rem;
 }
 
+// just a rule of 3 opeartion for convertion. 1.3333? http://www.endmemo.com/sconvert/pixelpoint.php
+@function ptrem($target, $context: $base-font-size) {
+	@return rem(strip-unit($target) * 1.3333 * 1px);
+}
+
 /**
  * Convert value to EM
  */
