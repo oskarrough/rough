@@ -12,7 +12,6 @@ html.no-js(lang='en')
 			title Rough
 			meta(name='description', content='')
 			meta(name='viewport', content='width=device-width, initial-scale=1')
-
 			// build:css styles/vendor.css
 			// bower:css
 			// endbower
@@ -24,8 +23,11 @@ html.no-js(lang='en')
 
 			// build:js scripts/vendor/vendor-header.js
 			script(src='/scripts/vendor/modernizr-custom.js')
-			script(src='/scripts/vendor/grunticon.loader.js')
+			script(src='/images/icons/grunticon.loader.js')
 			// endbuild
+
+			script.
+				grunticon(['images/icons/icons.data.svg.css', 'images/icons/icons.data.png.css', 'images/icons/icons.fallback.css'], grunticon.svgLoadedCallback );
 
 	body(class="#{bodyClass}")
 
