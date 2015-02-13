@@ -19,7 +19,10 @@ gulp.task('styles', function() {
 		.on('error', function(err) {
 			console.error('Error', err.message);
 		})
-		.pipe($.autoprefixer(['last 2 versions', 'android 4', 'ios 7', 'ie10']))
+		.pipe($.sourcemaps.init())
+		.pipe($.postcss([
+			require('autoprefixer-core')({browsers: ['last 2 versions', 'android 4', 'ios 7', 'ie 10']})
+		]))
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'))
 		.pipe(reload({stream:true}));
