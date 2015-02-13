@@ -10,20 +10,20 @@
  * Third party
  */
 @import 'susy';
-// @import 'CSS:../bower_components/magnific-popup/dist/magnific-popup';
 
 /**
  * Utilities (abstract patterns to be reused in components)
  */
 // @import 'utilities/align';
 @import 'utilities/clearfix';
-// @import 'utilities/negative-text';
 // @import 'utilities/mediablock';
+// @import 'utilities/negative-text';
 // @import 'utilities/truncate';
 
 /**
  * Base
  */
+@import 'base/fonts';
 @import 'base/normalize-custom';
 @import 'base/base';
 @import 'base/icons';
@@ -31,19 +31,19 @@
 /**
  * Components
  */
+// @import 'components/animation';
 @import 'components/forms';
 @import 'components/buttons';
 @import 'components/custom-select';
 @import 'components/loader';
 @import 'components/logo';
-@import 'components/ratio';
-@import 'components/rough-masonry';
 @import 'components/nav';
+// @import 'components/ratio';
+@import 'components/rough-masonry';
 @import 'components/tabs';
-// @import 'components/animation';
 
 /**
  * Layout (lays out the components to form a page layout)
  */
-@import 'layout/layout';
 @import 'layout/grid';
+@import 'layout/layout';
