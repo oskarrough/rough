@@ -19,7 +19,7 @@ gulp.task('styles', function() {
 		.on('error', function(err) {
 			console.error('Error', err.message);
 		})
-		.pipe($.autoprefixer(['last 2 versions']))
+		.pipe($.autoprefixer(['last 2 versions', 'android 4', 'ios 7', 'ie10']))
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'))
 		.pipe(reload({stream:true}));
@@ -101,7 +101,7 @@ gulp.task('icons', function (cb) {
 });
 
 gulp.task('clean', require('del').bind(null, ['.tmp', 'dist']));
-
+gulp.task('s', ['serve']);
 gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 	browserSync({
 		notify: false,
@@ -116,15 +116,14 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 
 	// watch for changes
 	gulp.watch([
-		'app/*.html',
-		'.tmp/*.html',
+		// 'app/*.html',
+		// '.tmp/*.html',
 		// '.tmp/styles/**/*.css',
 		'app/scripts/**/*.js',
 		'app/images/**/*'
 	]).on('change', reload);
 
 	gulp.watch('app/**/*.jade', ['views', reload]);
-	// gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('bower.json', ['wiredep', 'fonts', reload]);
 });
