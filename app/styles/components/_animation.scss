@@ -1,6 +1,31 @@
 /**
- * Example animations with keyframes
+ * Iterative delay or the 'rolling piano effect'
+ * puts a higher and higher transition-delay on items so they appear one after another
  */
+
+@mixin iterative-delay($count: 2, $delay: 0.07s) {
+	@for $i from 1 through $count {
+		&:nth-child(#{$i}) {
+			transition-delay: $delay * $i;
+		}
+	}
+}
+
+// Example:
+
+/*
+img {
+	@include iterative-delay(10);
+	transition: opacity 250ms ease-in-out;
+	opacity: 0;
+
+	// show them when they are loaded or if we dont have js
+	.is-active &,
+	.no-js & {
+		opacity: 1;
+	}
+}
+*/
 
 // Fade-in
 @keyframes fadeIn {
@@ -33,33 +58,3 @@
 		transform: translateY(0);
 	}
 }
-
-
-/**
- * Iterative delay or the 'rolling piano effect'
- * puts a higher and higher transition-delay on items so they appear one after another
- */
-
-@mixin iterative-delay($count: 2, $delay: 0.07s) {
-	@for $i from 1 through $count {
-		&:nth-child(#{$i}) {
-			transition-delay: $delay * $i;
-		}
-	}
-}
-
-// Example:
-
-/*
-img {
-	@include iterative-delay(10);
-	transition: opacity 250ms ease-in-out;
-	opacity: 0;
-
-	// show them when they are loaded or if we dont have js
-	.is-active &,
-	.no-js & {
-		opacity: 1;
-	}
-}
-*/

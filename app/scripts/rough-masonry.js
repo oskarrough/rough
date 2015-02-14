@@ -48,6 +48,8 @@ Masonry.prototype = {
 			columnWidth: '.Masonry-gridSizer' // replace with a number if you have fixed widths
 		}).addClass('is-active');
 
+		this.fadeInItems();
+
 		// layout again
 		// this.$el.masonry();
 

@@ -28,10 +28,9 @@ Also see masonry.js
 	}
 
 	// Fade in masonry when it is ready. Class is added with js.
-
-	// transition: opacity 100ms;
-	// visibility: hidden;
 	// opacity: 0;
+	// transition: 400ms;
+	// visibility: hidden;
 	// &.is-active {
 	// 	visibility: visible;
 	// 	opacity: 1;
@@ -53,11 +52,17 @@ Also see masonry.js
 		max-width: 100%;
 		height: auto;
 	}
+
 }
 
 .Masonry-item {
 	outline: 1px solid;
 	margin-bottom: 1em;
+
+	// Just for testing
+	&:nth-child(4n+1) {
+		min-height: 3rem;
+	}
 }
 
 /**
@@ -114,16 +119,16 @@ $masonry-l-columns: 6;
  * 1. uncomment the relevant method in masonry.js
  * 2. use this css
  */
-// .Masonry-item {
-// 	transition: opacity 300ms ease-out;
-// 	opacity: 0;
-// 	&.is-loaded {
-// 		opacity: 1;
-// 	}
-// 	@for $i from 1 through 30 {
-// 		&:nth-child(#{$i}){
-// 			$delay: 1s * $i * 0.08;
-// 			transition-delay: $delay;
-// 		}
-// 	}
-// }
+.Masonry-item {
+	transition: opacity 300ms ease-out;
+	opacity: 0;
+	&.is-loaded {
+		opacity: 1;
+	}
+	@for $i from 1 through 30 {
+		&:nth-child(#{$i}){
+			$delay: 1s * $i * 0.08;
+			transition-delay: $delay;
+		}
+	}
+}
