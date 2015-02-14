@@ -36,15 +36,16 @@ html.no-js(lang='en')
 
 	body(class="#{bodyClass}")
 
-		//-header#SiteHeader.SiteHeader
-			include header
-			include navigation
+		.App
+			header#SiteHeader.SiteHeader
+				include header
 
-		main#SiteMain.SiteMain
-			block outlet
+			main#SiteMain.SiteMain
+				block outlet
 
-		//-footer#SiteFooter.SiteFooter
-			include footer
+			//-footer#SiteFooter.SiteFooter
+				include footer
+
 
 		.Scripts
 			// build:js scripts/vendor.js

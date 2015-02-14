@@ -32,27 +32,41 @@
 	padding: 0;
 	list-style: none;
 
-	li {
-		.Tabs--loaded & { display: none; } // hide all nav items once js is loaded
-		&.is-active { background: gray; display: block; }
+	// hide all nav items once js is loaded
+	.Tabs--loaded & li {
+		display: none;
 	}
 
 	a {
 		display: block; // expand anchors to full size
 	}
 
+	// active styles
+	li.is-active {
+		background: gray;
+	}
+
 	// accordion/small version
 	cursor: pointer;
-	&.is-open li { display: block; } // show nav items below each other when visible
+
+	// show nav items below each other when visible
+	&.is-open li {
+		display: block;
+	}
 
 	// tabs version
 	@media (min-width: $layout-s) {
 		cursor: default;
-		.Tabs--loaded & li { display: inline-block; } // show nav items next to eacher when visible
+
+		// show nav items next to eacher when visible
+		.Tabs--loaded & li {
+			display: inline-block;
+		}
 	}
 }
 
 .Tabs-item {
-	.Tabs--loaded & { display: none; } // hide content once js is loaded
+	// hide content once js is loaded
+	.Tabs--loaded & { display: none; }
 	&.is-active { display: block; }
 }

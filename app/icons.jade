@@ -5,16 +5,15 @@ block vars
 extends templates/layout
 
 block outlet
-	p: a(href="/") &larr; back
 	h1 How to use icons
 	p Icons should always be SVG. Place them in <pre>images/icons</pre> and once you start the server or build the project, <a href="https://github.com/filamentgroup/grunticon">grunticon</a> will take those images and generate an icon sprite.
 
 	p Please inspect the markup below.
 
 	h2 Normal icon:
-	.icon.icon-example-icon
+	i.icon.icon-example-icon
 
 	h2 Embedded icon:
-	.icon.icon-example-icon(data-grunticon-embed, style="color: red")
+	i.icon.icon-example-icon(data-grunticon-embed, style="color: red")
 
 	p In the HTML header there should be a grunticon.loader.js script and a one-liner below to load the appropriate icon file.

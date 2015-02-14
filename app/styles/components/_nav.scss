@@ -5,6 +5,7 @@
 .Nav {
 	padding: 0;
 	list-style: none;
+	margin-bottom: 1rem;
 
 	a:hover {
 		// hover styles
@@ -15,6 +16,9 @@
 			// active hover styles
 		}
 	}
+}
+.Nav-item {
+	margin-right: 1rem;
 }
 
 /**

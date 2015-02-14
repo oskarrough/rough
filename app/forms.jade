@@ -1,0 +1,46 @@
+block vars
+	- var active = 'Forms'
+	- var bodyClass = ''
+
+extends templates/layout
+
+block outlet
+	h1 Forms
+	p This boilerplate normalizes form styles across browsers. In order to style select elements, we hide the native select and style a wrapper instead. This is what the custom-select component does.
+
+	h2 How to use
+	ul
+		li Include <code>components/_custom-select.scss</code>
+		li Wrap your selects in a <code>.CustomSelect</code> wrapper
+
+	h2 Examples
+	hr
+	form.Form
+		.Form-group
+			label Native select
+			select
+				option Apples
+				option Bananas
+				option Grapes
+				option Oranges
+				option(selected) A very long option name to test wrapping
+
+		.Form-group
+			label.wrapper This label wraps the select
+				.CustomSelect
+					select
+						option Apples
+						option Bananas
+						option Grapes
+						option Oranges
+						option A very long option name to test wrapping
+
+		.Form-group(style="width:50%; min-width:10em;")
+			label.wrapper In a container set to 50% width
+				.CustomSelect
+					select
+						option Apples
+						option Bananas
+						option Grapes
+						option Oranges
+						option A very long option name to test wrapping and visual collisions
