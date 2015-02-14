@@ -1,0 +1,17 @@
+.Loader {
+	display: none;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	z-index: 1;
+
+	.is-loading & {
+		display: block;
+	}
+
+	// Set the color of the icon
+	path,
+	rect {
+	  fill: #FF6700;
+	}
+}

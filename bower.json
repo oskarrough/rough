@@ -5,6 +5,7 @@
     "imagesloaded": "~3.1.8",
     "jquery": "~2.1.1",
     "lazysizes": "~0.9.0",
-    "masonry": "~3.2.2"
+    "masonry": "~3.2.2",
+    "jquery-pjax": "~1.9.4"
   }
 }
