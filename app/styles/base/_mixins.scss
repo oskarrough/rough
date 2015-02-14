@@ -7,6 +7,14 @@
 }
 
 /**
+ * Convert value to EM
+ */
+
+@function em($target, $context: $base-font-size) {
+	@return (strip-unit($target) / strip-unit($context)) * 1em;
+}
+
+/**
  * Convert value to REM
  */
 
@@ -14,15 +22,11 @@
 	@return (strip-unit($target) / strip-unit($context)) * 1rem;
 }
 
-// just a rule of 3 opeartion for convertion. 1.3333? http://www.endmemo.com/sconvert/pixelpoint.php
-@function ptrem($target, $context: $base-font-size) {
-	@return rem(strip-unit($target) * 1.3333 * 1px);
-}
-
 /**
- * Convert value to EM
+ * Convert a PT value to REM
+ * A rule of 3 operation for convertion. 1.3333? See http://www.endmemo.com/sconvert/pixelpoint.php
  */
 
-@function em($target, $context: $base-font-size) {
-	@return (strip-unit($target) / strip-unit($context)) * 1em;
+@function ptrem($target, $context: $base-font-size) {
+	@return rem(strip-unit($target) * 1.3333 * 1px);
 }

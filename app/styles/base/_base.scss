@@ -6,8 +6,8 @@ html {
 	font-size: $base-font-size;
 	line-height: $base-line-height-unitless;
 	font-family: $font-body;
-	color: $text-color;
 	background-color: $bg-color;
+	color: $text-color;
 
 	// Enable kerning and ligatures everywhere
 	// to use open-type features, bower install normalize-opentype
