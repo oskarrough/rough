@@ -7,14 +7,6 @@
 }
 
 /**
- * Convert value to EM
- */
-
-@function em($target, $context: $base-font-size) {
-	@return (strip-unit($target) / strip-unit($context)) * 1em;
-}
-
-/**
  * Convert value to REM
  */
 
@@ -23,10 +15,25 @@
 }
 
 /**
- * Convert a PT value to REM
- * A rule of 3 operation for convertion. 1.3333? See http://www.endmemo.com/sconvert/pixelpoint.php
+ * Convert value to EM
  */
 
-@function ptrem($target, $context: $base-font-size) {
-	@return rem(strip-unit($target) * 1.3333 * 1px);
+@function em($target, $context: $base-font-size) {
+	@return (strip-unit($target) / strip-unit($context)) * 1em;
+}
+
+/**
+* Convert points to px
+* by making up for the difference in DPI.
+* you could also do $target& * 1.33333 and get the same result
+*/
+@function ptpx($target) {
+	@return (strip-unit($target) / 72) * 96;
+}
+
+/**
+* Convert points to REM
+*/
+@function ptrem($target) {
+	@return rem(ptpx($target));
 }
