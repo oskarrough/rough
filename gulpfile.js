@@ -19,13 +19,16 @@ gulp.task('styles', function() {
 		.on('error', function(err) {
 			console.error('Error', err.message);
 		})
-		.pipe($.sourcemaps.init())
+		// .pipe($.sourcemaps.init())
 		.pipe($.postcss([
-			require('autoprefixer-core')({browsers: ['last 2 versions', 'android 4', 'ios 7', 'ie 10']})
+			require('autoprefixer-core')({ browsers: [
+				'last 2 version', 'android 4', 'ios 7', 'ie 10'
+			]})
 		]))
-		.pipe($.sourcemaps.write())
+		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('.tmp/styles'))
-		.pipe(reload({stream:true}));
+		.pipe($.filter('**/*.css')) // Filtering stream to only css files. Needed for browser-sync css injection
+		.pipe(reload({stream: true}));
 });
 
 // Lint all scripts except those inside scripts/vendor
@@ -47,7 +50,7 @@ gulp.task('views', function () {
 gulp.task('html', ['views', 'styles'], function () {
 	var assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
-	return gulp.src(['app/*.html', '.tmp/*.html'])
+	return gulp.src(['.tmp/*.html'])
 		.pipe(assets)
 		.pipe($.if('*.js', $.uglify()))
 		.pipe($.if('*.css', $.csso()))
@@ -71,9 +74,9 @@ gulp.task('images', function () {
 });
 
 gulp.task('fonts', function () {
-	return gulp.src(require('main-bower-files')().concat('app/fonts/**/*'))
-		.pipe($.filter('**/*.{eot,svg,ttf,woff,woff2}'))
-		.pipe($.flatten())
+	return gulp.src(require('main-bower-files')({
+		filter: '**/*.{eot,svg,ttf,woff,woff2}'
+	}).concat('app/fonts/**/*'))
 		.pipe(gulp.dest('.tmp/fonts'))
 		.pipe(gulp.dest('dist/fonts'));
 });
@@ -82,8 +85,7 @@ gulp.task('extras', ['move-icons'], function () {
 	return gulp.src([
 		'app/*.*',
 		'!app/*.html',
-		'!app/*.jade',
-		'node_modules/apache-server-configs/dist/.htaccess'
+		'!app/*.jade'
 	], {
 		dot: true
 	}).pipe(gulp.dest('dist'));
@@ -120,16 +122,16 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 	// watch for changes
 	gulp.watch([
 		// 'app/*.html',
-		// '.tmp/*.html',
-		// '.tmp/styles/**/*.css',
 		'app/scripts/**/*.js',
-		'app/images/**/*'
+		'app/images/**/*',
+		'.tmp/fonts/**/*'
 	]).on('change', reload);
 
 	gulp.watch('app/**/*.jade', ['views', reload]);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons', reload]);
-	gulp.watch('bower.json', ['wiredep', 'fonts', reload]);
+	gulp.watch('app/fonts/**/*', ['fonts']);
+	gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
 // inject bower components
