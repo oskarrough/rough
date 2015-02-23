@@ -34,9 +34,9 @@ $susy: (
 );
 
 // Good looking easings for animation
-$easing:  cubic-bezier(0.165, 0.840, 0.400, 1.000); // fast, good looking
-$easing2: cubic-bezier(0.300, 0.000, 0.000, 1.300); // nice for things that pop up (dropdown etc)
-$easing3: cubic-bezier(0.860, 0.000, 0.070, 1.000); // nice again?.
+$easing:  cubic-bezier(0.165, 0.840, 0.400, 1.000);
+$easing2: cubic-bezier(0.300, 0.000, 0.000, 1.300);
+$easing3: cubic-bezier(0.860, 0.000, 0.070, 1.000);
 
 /**
  * Layout: Breakpoints
