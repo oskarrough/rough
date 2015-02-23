@@ -29,8 +29,8 @@ $space: 20px;
 // gutters are defined in a ratio to the column width
 $susy: (
 	box-sizing: border-box,
-	columns: 5,
-	gutters: 20/200
+	columns: 12,
+	gutters: (1/4)
 );
 
 // Good looking easings for animation

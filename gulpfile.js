@@ -7,9 +7,30 @@ var exec = require('child_process').exec;
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
-// Inline sourcemaps
+// Styles with Libsass (on its way in)
+gulp.task('styles-libsass', function () {
+	return gulp.src('app/styles/main.scss')
+		.pipe($.sourcemaps.init())
+		.pipe($.sass({
+			outputStyle: 'nested', // libsass doesn't support expanded yet
+			precision: 10,
+			includePaths: ['.'],
+			require: 'susy',
+			onError: console.error.bind(console, 'Sass error:')
+		}))
+		.pipe($.postcss([
+			require('autoprefixer-core')({ browsers: [
+				'last 2 version', 'android 4', 'ios 7', 'ie 10'
+			]})
+		]))
+		.pipe($.sourcemaps.write())
+		.pipe(gulp.dest('.tmp/styles'))
+		.pipe($.filter('**/*.css')) // Filtering stream to only css files. Needed for browser-sync css injection
+		.pipe(reload({stream: true}));
+});
+
+// Styles with Ruby Sass (on its way out)
 gulp.task('styles', function() {
-	// gulp-ruby-sass doesn't support "gulp.src"
 	return $.rubySass('app/styles/main.scss', {
 			sourcemap: true,
 			precision: 10,
@@ -19,7 +40,6 @@ gulp.task('styles', function() {
 		.on('error', function(err) {
 			console.error('Error', err.message);
 		})
-		// .pipe($.sourcemaps.init())
 		.pipe($.postcss([
 			require('autoprefixer-core')({ browsers: [
 				'last 2 version', 'android 4', 'ios 7', 'ie 10'
