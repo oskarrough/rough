@@ -3,12 +3,17 @@
 
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
+
 var exec = require('child_process').exec;
+
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
+var parallel = require('concurrent-transform');
+var os = require('os');
+
 // Styles with Libsass (on its way in)
-gulp.task('styles-libsass', function () {
+gulp.task('styles', function () {
 	return gulp.src('app/styles/main.scss')
 		.pipe($.sourcemaps.init())
 		.pipe($.sass({
@@ -30,7 +35,7 @@ gulp.task('styles-libsass', function () {
 });
 
 // Styles with Ruby Sass (on its way out)
-gulp.task('styles', function() {
+gulp.task('styles-ruby', function() {
 	return $.rubySass('app/styles/main.scss', {
 			sourcemap: true,
 			precision: 10,
@@ -91,6 +96,45 @@ gulp.task('images', function () {
 			svgoPlugins: [{cleanupIDs: false}]
 		})))
 		.pipe(gulp.dest('dist/images'));
+});
+
+// https://github.com/DevWorkflows/gulp-example-image-optimization/blob/master/gulpfile.js
+// https://docs.google.com/a/rough.dk/document/d/1QIVInc5U0svmQUEfb1sNTy8mY5vwIFZ32F9mfyB5ovc/edit#heading=h.u3oxm1f4og9w
+// https://github.com/sindresorhus/gulp-imagemin
+
+gulp.task('oskar', function () {
+	gulp.src('app/images/test.jpg')
+		.pipe($.imageResize({
+			width : 1440,
+			crop : true,
+			upscale : false,
+			quality: 1, //	Ranges from 0 (really bad) to 1 (almost lossless). Only applies to jpg images.
+			sharpen: true // slight unsharp mask after resizing
+		}))
+		.pipe(gulp.dest('dist'));
+});
+
+gulp.task('parallel', function () {
+	gulp.src('app/images/**/*.{jpg,png}')
+		.pipe(parallel(
+			$.imageResize({ width : 100 }),
+			os.cpus().length
+		))
+		.pipe(gulp.dest('dist'));
+});
+
+gulp.task('changed', function () {
+	gulp.src('app/images/**/*.{jpg,png}')
+		.pipe($.changed('dist'))
+		.pipe($.imageResize({ width : 100 }))
+		.pipe(gulp.dest('dist'));
+});
+
+gulp.task('suffix', function () {
+	gulp.src('app/images/**/*.{jpg,png}')
+		.pipe($.imageResize({ width : 100 }))
+		.pipe($.rename(function (path) { path.basename += '-thumbnail'; }))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('fonts', function () {
