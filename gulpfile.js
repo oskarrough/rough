@@ -9,7 +9,7 @@ var reload = browserSync.reload;
 var autoprefixer = require('autoprefixer-core');
 
 // Styles with Libsass (on its way in)
-gulp.task('styles-libsass', function () {
+gulp.task('styles', function () {
 	return gulp.src('app/styles/main.scss')
 		.pipe($.sourcemaps.init())
 		.pipe($.sass({
@@ -32,7 +32,7 @@ gulp.task('styles-libsass', function () {
 });
 
 // Styles with Ruby Sass (on its way out)
-gulp.task('styles', function() {
+gulp.task('styles-ruby', function() {
 	return $.rubySass('app/styles/main.scss', {
 			sourcemap: true,
 			precision: 10,
