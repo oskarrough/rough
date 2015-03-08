@@ -154,7 +154,7 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons', reload]);
 	gulp.watch('app/fonts/**/*', ['fonts']);
-	gulp.watch('bower.json', ['wiredep', 'fonts']);
+	// gulp.watch('bower.json', ['wiredep', 'fonts']);
 });
 
 // inject bower components
