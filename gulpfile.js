@@ -4,9 +4,10 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var exec = require('child_process').exec;
+var autoprefixer = require('autoprefixer-core');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var autoprefixer = require('autoprefixer-core');
+var compression = require('compression');
 
 // Styles with Libsass (on its way in)
 gulp.task('styles', function () {
@@ -140,7 +141,8 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 			baseDir: ['.tmp', 'app'],
 			routes: {
 				'/bower_components': 'bower_components'
-			}
+			},
+			middleware: compression()
 		}
 	});
 
