@@ -3,10 +3,6 @@
 	@media (min-width: $layout-s) {
 		margin: 2rem;
 	}
-
-	// this allows us to edit any text without developer tools
-	// which is nifty for development
-	// -webkit-user-modify: read-write;
 }
 .SiteHeader {
 	margin-bottom: 2rem;

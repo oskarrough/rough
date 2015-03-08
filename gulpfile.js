@@ -6,24 +6,26 @@ var $ = require('gulp-load-plugins')();
 var exec = require('child_process').exec;
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var autoprefixer = require('autoprefixer-core');
 
 // Styles with Libsass (on its way in)
 gulp.task('styles-libsass', function () {
 	return gulp.src('app/styles/main.scss')
 		.pipe($.sourcemaps.init())
 		.pipe($.sass({
-			outputStyle: 'nested', // libsass doesn't support expanded yet
+			outputStyle: 'nested',
 			precision: 10,
 			includePaths: ['.'],
 			require: 'susy',
-			onError: console.error.bind(console, 'Sass error:')
+			onError: function(err) {
+				$.notify().write(err);
+				// console.error.bind(console, 'Sass error:')
+			}
 		}))
 		.pipe($.postcss([
-			require('autoprefixer-core')({ browsers: [
-				'last 2 version', 'android 4', 'ios 7', 'ie 10'
-			]})
+			autoprefixer({ browsers: ['last 2 version', 'android 4', 'ios 7', 'ie 10']})
 		]))
-		.pipe($.sourcemaps.write())
+		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('.tmp/styles'))
 		.pipe($.filter('**/*.css')) // Filtering stream to only css files. Needed for browser-sync css injection
 		.pipe(reload({stream: true}));
