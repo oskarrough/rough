@@ -19,12 +19,21 @@
 	padding-top: calc(100% / (4/3));
 }
 
-// Stretch any media inside to fill the ratio container
-.Ratio iframe,
-.Ratio img {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
+// Stretch any child element to the ratio container
+.Ratio > * {
+	// @media (min-width: $layout-s) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	// }
 }
+
+// Fade in images
+// .Ratio img {
+// 	transition: 400ms opacity;
+// 	&.lazyload:not(iframe) {
+// 		opacity: 0;
+// 	}
+// }

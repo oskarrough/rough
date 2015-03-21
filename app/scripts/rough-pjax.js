@@ -49,6 +49,7 @@ RoughPjax.prototype = {
 
 		if (this.debug) { console.log('didAnimateOut'); }
 		// Because we first trigger pjax here in the callback
+		// https://github.com/defunkt/jquery-pjax#pjax-options
 		$.pjax({
 			url: url,
 			container: _this.container,
