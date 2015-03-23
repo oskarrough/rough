@@ -9,7 +9,7 @@ var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 var compression = require('compression');
 
-// Styles with Libsass (on its way in)
+// Styles with Libsass
 gulp.task('styles', function () {
 	return gulp.src('app/styles/main.scss')
 		.pipe($.sourcemaps.init())
@@ -25,28 +25,6 @@ gulp.task('styles', function () {
 		}))
 		.pipe($.postcss([
 			autoprefixer({ browsers: ['last 2 version', 'android 4', 'ios 7', 'ie 10']})
-		]))
-		.pipe($.sourcemaps.write('.'))
-		.pipe(gulp.dest('.tmp/styles'))
-		.pipe($.filter('**/*.css')) // Filtering stream to only css files. Needed for browser-sync css injection
-		.pipe(reload({stream: true}));
-});
-
-// Styles with Ruby Sass (on its way out)
-gulp.task('styles-ruby', function() {
-	return $.rubySass('app/styles/main.scss', {
-			sourcemap: true,
-			precision: 10,
-			require: 'susy',
-			bundleExec: true
-		})
-		.on('error', function(err) {
-			console.error('Error', err.message);
-		})
-		.pipe($.postcss([
-			require('autoprefixer-core')({ browsers: [
-				'last 2 version', 'android 4', 'ios 7', 'ie 10'
-			]})
 		]))
 		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('.tmp/styles'))
