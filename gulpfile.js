@@ -18,10 +18,10 @@ gulp.task('styles', function () {
 			precision: 10,
 			includePaths: ['.'],
 			require: 'susy',
-			onError: function(err) {
-				$.notify().write(err);
-				// console.error.bind(console, 'Sass error:')
-			}
+			onError: console.error.bind(console, 'Sass error:')
+			// onError: function(error) {
+			// 	$.notify().write(error);
+			// }
 		}))
 		.pipe($.postcss([
 			autoprefixer({ browsers: ['last 2 version', 'android 4', 'ios 7', 'ie 10']})
