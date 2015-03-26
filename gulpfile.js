@@ -136,24 +136,6 @@ gulp.task('serve', ['views', 'styles', 'fonts', 'icons'], function () {
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons', reload]);
 	gulp.watch('app/fonts/**/*', ['fonts']);
-	// gulp.watch('bower.json', ['wiredep', 'fonts']);
-});
-
-// inject bower components
-gulp.task('wiredep', function () {
-	var wiredep = require('wiredep').stream;
-
-	gulp.src('app/styles/*.scss')
-		.pipe(wiredep({
-			ignorePath: /^(\.\.\/)+/
-		}))
-		.pipe(gulp.dest('app/styles'));
-
-	gulp.src('app/templates/layout.jade')
-		.pipe(wiredep({
-			ignorePath: /^(\.\.\/)*\.\./
-		}))
-		.pipe(gulp.dest('app/templates'));
 });
 
 gulp.task('build', ['jshint', 'html', 'images', 'fonts', 'extras'], function () {
