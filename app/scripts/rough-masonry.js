@@ -1,6 +1,6 @@
-/**
- * Dynamic grid with Masonry
- */
+
+// Dynamic grid with Masonry
+
 var Masonry = function(el, options) {
 
 	// Defaults:
@@ -44,8 +44,12 @@ Masonry.prototype = {
 	runMasonry: function() {
 		this.$el.masonry({
 			itemSelector: '.Masonry-item',
-			gutter: '.Masonry-gutterSizer', // replace with a number if you have fixed widths
-			columnWidth: '.Masonry-gridSizer' // replace with a number if you have fixed widths
+
+			// replace with a number if you have fixed widths
+			gutter: '.Masonry-gutterSizer',
+
+			// replace with a number if you have fixed widths
+			columnWidth: '.Masonry-gridSizer'
 		}).addClass('is-active');
 
 		this.fadeInItems();
@@ -65,7 +69,7 @@ Masonry.prototype = {
 	 */
 	fadeInItems: function() {
 		var $items = this.$el.find('.Masonry-item');
-		$items.each(function(index, el){
+		$items.each(function(index, el) {
 			$(this).imagesLoaded( function() {
 				$(el).addClass('is-loaded');
 			});
