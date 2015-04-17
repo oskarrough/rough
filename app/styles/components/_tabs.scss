@@ -15,8 +15,8 @@
 		font-size: 20px;
 		position: absolute;
 		top: 0;
-		right: .5em;
-		z-index: .5em;
+		right: 0.5em;
+		z-index: 0.5em;
 		pointer-events: none;
 		color: #fff;
 	}
@@ -31,6 +31,7 @@
 .Tabs-nav {
 	padding: 0;
 	list-style: none;
+	cursor: pointer;
 
 	// hide all nav items once js is loaded
 	.Tabs--loaded & li {
@@ -45,9 +46,6 @@
 	li.is-active {
 		background: gray;
 	}
-
-	// accordion/small version
-	cursor: pointer;
 
 	// show nav items below each other when visible
 	&.is-open li {

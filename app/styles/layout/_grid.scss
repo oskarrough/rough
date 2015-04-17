@@ -10,13 +10,16 @@
 // example 3 column layout
 .Grid-cell {
 	@include span(1 of 3);
+
+	// example styles to see the cells
+	outline: 1px solid red;
+	height: 2rem;
+	margin-bottom: 1rem;
+
 	&:nth-child(3n+1) {
 		@include last;
 	}
-	// example styles to see the cells
-	margin-bottom: 1rem;
-	outline: 1px solid red;
-	height: 2rem;
+
 }
 
 // If all cells in a grid have the same width you can use this one instead.

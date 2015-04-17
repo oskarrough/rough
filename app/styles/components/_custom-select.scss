@@ -9,9 +9,9 @@
 .CustomSelect {
 	border: 1px solid #bbb;
 	border-radius: 0.3em;
-	box-shadow: 0 1px 0 1px rgba(0,0,0,.04);
+	box-shadow: 0 1px 0 1px rgba(0,0,0,0.04);
 	background: #f3f3f3; // Old browsers
-	background: linear-gradient(to bottom, #fff 0%,#e5e5e5 100%); // W3C
+	background: linear-gradient(to bottom, #fff 0%, #e5e5e5 100%); // W3C
 
 	&:hover {
 		border: 1px solid #888;
@@ -23,11 +23,11 @@
 		font-family: sans-serif;
 		color: #444;
 		padding: 0.4em 1.9em 0.3em 0.5em;
-		line-height:1.3;
+		line-height: 1.3;
 
 		&:focus {
 			outline: none;
-			box-shadow: 0 0 1px 3px rgba(180,222,250, 1);
+			box-shadow: 0 0 1px 3px rgba(180, 222, 250, 1);
 			background-color: transparent;
 			color: #222;
 			border: 1px solid #aaa;
@@ -36,18 +36,12 @@
 }
 
 
-
-
-
 /**
  * YOU SHOULD BE ABLE TO IGNORE EVERYTHING BELOW THIS
  */
 
 
-
-
-
- /* Container used for styling the custom select, the buttom class below adds the bg gradient, corners, etc. */
+// Container used for styling the custom select, the buttom class below adds the bg gradient, corners, etc.
 .CustomSelect {
 	position: relative;
 	display: block;
@@ -67,9 +61,7 @@
 	-webkit-appearance: none;
 }
 
-
 // Custom arrow sits on top of the select - could be an image, SVG, icon font, etc. or the arrow could just baked into the bg image on the select.
-
 .CustomSelect::after {
 	content: '\25BC';
 	position: absolute;
@@ -98,7 +90,7 @@
 /* OPERA - Pre-Blink nix the custom arrow, go with a native select button to keep it simple. Targeted via this hack http://browserhacks.com/#hack-a3f166304aafed524566bc6814e1d5c7 */
 x:-o-prefocus,
 .CustomSelect::after {
-	display:none;
+	display: none;
 }
 
 /* IE 10/11+ - This hides native dropdown button arrow so it will have the custom appearance, IE 9 and earlier get a native select - targeting media query hack via http://browserhacks.com/#hack-28f493d247a12ab654f6c3637f6978d5 - looking for better ways to achieve this targeting */
@@ -123,7 +115,7 @@ x:-o-prefocus,
 	.CustomSelect select {
 		width: 120%;
 		width: -moz-calc(100% + 3em);
-		width: calc(100% + em);
+		width: calc(100% + 3em);
 	}
 }
 

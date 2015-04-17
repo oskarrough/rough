@@ -103,31 +103,31 @@ $masonry-l-columns: 6;
 	@media (min-width: $masonry-l) { width: span(1 of $masonry-l-columns); }
 }
 
-// Adjust featured width according to column count
-.Masonry-item.is-featured {
-	@media (min-width: $masonry-s) { width: span(2 of $masonry-s-columns); }
-	@media (min-width: $masonry-sm) { width: span(2 of $masonry-sm-columns); }
-	@media (min-width: $masonry-m) { width: span(2 of $masonry-m-columns); }
-	@media (min-width: $masonry-ml) { width: span(2 of $masonry-ml-columns); }
-	@media (min-width: $masonry-l) { width: span(2 of $masonry-l-columns); }
-}
-
-
-/**
- * Fade in each masonry item as they load
- * 1. uncomment the relevant method in masonry.js
- * 2. use this css
- */
 .Masonry-item {
-	transition: opacity 300ms ease-out;
-	opacity: 0;
-	&.is-loaded {
-		opacity: 1;
-	}
-	@for $i from 1 through 30 {
-		&:nth-child(#{$i}){
-			$delay: 1s * $i * 0.08;
-			transition-delay: $delay;
-		}
+
+	// To fade in each masonry item as they load
+	// - Uncomment the relevant method in masonry.js
+	// - use this css
+	// transition: opacity 300ms ease-out;
+	// opacity: 0;
+
+	// &.is-loaded {
+	// 	opacity: 1;
+	// }
+
+	// @for $i from 1 through 30 {
+	// 	&:nth-child(#{$i}) {
+	// 		$delay: 1s * $i * 0.08;
+	// 		transition-delay: $delay;
+	// 	}
+	// }
+
+	// Adjust featured width according to column count
+	&.is-featured {
+		@media (min-width: $masonry-s) { width: span(2 of $masonry-s-columns); }
+		@media (min-width: $masonry-sm) { width: span(2 of $masonry-sm-columns); }
+		@media (min-width: $masonry-m) { width: span(2 of $masonry-m-columns); }
+		@media (min-width: $masonry-ml) { width: span(2 of $masonry-ml-columns); }
+		@media (min-width: $masonry-l) { width: span(2 of $masonry-l-columns); }
 	}
 }
