@@ -11,28 +11,20 @@ var compression = require('compression');
 
 // Styles with Libsass
 gulp.task('styles', function() {
-	return gulp.src('app/styles/main.scss')
+	return gulp.src('app/styles/*.scss')
 		.pipe($.sourcemaps.init())
 		.pipe($.sass({
-			outputStyle: 'nested',
+			outputStyle: 'expanded',
 			precision: 10,
-			includePaths: ['.'],
-			require: 'susy',
-			onError: console.error.bind(console, 'Sass error:')
-			// onError: function(error) {
-			// 	$.notify().write(error);
-			// }
-		}))
+			includePaths: ['.']
+		}).on('error', $.sass.logError))
 		.pipe($.postcss([
 			autoprefixer({ browsers: ['last 2 version', 'android 4', 'ios 7', 'ie 10'] })
 		]))
 		.pipe($.sourcemaps.write('.'))
 		.pipe(gulp.dest('.tmp/styles'))
-
-		// Filtering stream to only css files. Needed for browser-sync css injection
-		.pipe($.filter('**/*.css'))
-
-		.pipe(reload({stream: true}));
+		.pipe($.filter('**/*.css')) // Filtering stream to only css files. Needed for browser-sync css injection
+		.pipe(reload({ stream: true }));
 });
 
 // Lint all scripts except those inside scripts/vendor
