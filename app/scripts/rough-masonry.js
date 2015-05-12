@@ -1,4 +1,3 @@
-
 // Dynamic grid with Masonry
 
 var Masonry = function(el, options) {
