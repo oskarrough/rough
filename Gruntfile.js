@@ -1,5 +1,8 @@
 module.exports = function(grunt) {
 
+	// Load tasks
+	grunt.loadNpmTasks('grunt-grunticon');
+
 	grunt.initConfig({
 		grunticon: {
 			// 'files' is a set of icons. If needed we can define more sets
@@ -18,9 +21,6 @@ module.exports = function(grunt) {
 			}
 		}
 	});
-
-	// Load tasks
-	grunt.loadNpmTasks('grunt-grunticon');
 
 	// Register tasks
 	grunt.registerTask('icons', ['grunticon']);
