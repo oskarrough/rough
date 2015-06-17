@@ -28,13 +28,14 @@
 }
 
 .Ratio--16-9 {
-	padding-top: calc(100% / (16/9));
+	padding-top: 100% / (16/9);
+	// padding-top: calc(100% / (16/9));
 }
-
 .Ratio--3-2 {
-	padding-top: calc(100% / (3/2));
+	padding-top: 100% / (3/2);
+	// padding-top: calc(100% / (3/2));
 }
-
 .Ratio--4-3 {
-	padding-top: calc(100% / (4/3));
+	padding-top: 100% / (4/3);
+	// padding-top: calc(100% / (4/3));
 }

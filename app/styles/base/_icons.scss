@@ -15,9 +15,9 @@ $icon-size: 20px;
 	width: 1em;
 
 	// scale the background svg/png to fit
-	background-size: 100%;
 	background-position: 0 0;
 	background-repeat: no-repeat;
+	background-size: contain;
 
 	// inherit any colors
 	fill: currentColor;
