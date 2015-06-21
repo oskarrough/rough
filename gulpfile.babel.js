@@ -20,7 +20,7 @@ gulp.task('styles', () => {
     .pipe($.autoprefixer({browsers: ['last 2 version', 'android 4', 'ios 7', 'ie 10'] }))
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest('.tmp/styles'))
-    .pipe(reload({stream: true}));
+    .pipe(reload({ stream: true }));
 });
 
 function lint(files) {
@@ -36,6 +36,17 @@ function lint(files) {
 gulp.task('lint', lint(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js']));
 gulp.task('lint:test', lint('test/spec/**/*.js'));
 
+// Enable ES6+7 features with babel
+gulp.task('scripts', function () {
+	return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
+		.pipe($.sourcemaps.init())
+		.pipe($.babel())
+    .pipe($.concat('main.js'))
+		.pipe(gulp.dest('.tmp/scripts'))
+		.pipe($.sourcemaps.write('.'))
+		.pipe(reload({ stream: true }));
+});
+
 // Compile .jade into .html in the .tmp dir
 gulp.task('jade', function() {
 	return gulp.src('app/*.jade')
@@ -46,13 +57,13 @@ gulp.task('jade', function() {
 		.pipe(gulp.dest('.tmp'));
 });
 
-gulp.task('html', ['jade', 'styles'], () => {
+gulp.task('html', ['jade', 'styles', 'scripts'], () => {
   const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
 
   return gulp.src('.tmp/*.html')
     .pipe(assets)
     .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.minifyCss({compatibility: '*'})))
+    .pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
     .pipe($.rev())
     .pipe(assets.restore())
     .pipe($.useref())
@@ -125,12 +136,12 @@ gulp.task('serve', ['jade', 'styles', 'fonts', 'icons'], () => {
 
 	gulp.watch([
     'app/*.html',
-    'app/scripts/**/*.js',
     'app/images/**/*',
     '.tmp/fonts/**/*'
   ]).on('change', reload);
 
 	gulp.watch('app/**/*.jade', ['jade', reload]);
+	gulp.watch('app/scripts/**/*.js', ['scripts']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons', reload]);
 	gulp.watch('app/fonts/**/*', ['fonts']);

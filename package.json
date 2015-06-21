@@ -13,7 +13,9 @@
     "grunt-grunticon": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
+    "gulp-babel": "^5.1.0",
     "gulp-cache": "^0.2.10",
+    "gulp-concat": "^2.5.2",
     "gulp-eslint": "^0.14.0",
     "gulp-filter": "^2.0.2",
     "gulp-if": "^1.2.5",
@@ -37,16 +39,18 @@
   "eslintConfig": {
     "env": {
       "node": true,
-      "browser": true
+      "browser": true,
+      "es6": true,
+      "jquery": true
     },
     "rules": {
+      "strict": [
+        0
+      ],
       "quotes": [
-        2,
+        1,
         "single"
       ]
     }
-  },
-  "dependencies": {
-    "wiredep": "^2.2.2"
   }
 }

@@ -16,7 +16,7 @@ var Video = function() {
 Video.prototype = {
 	$player: $('#fullscreenVideo'),
 
-	init: function() {
+	init() {
 		var that = this;
 		that.resizeVideo();
 		$(window).resize(function() {
@@ -24,7 +24,7 @@ Video.prototype = {
 		});
 	},
 
-	resizeVideo: function() {
+	resizeVideo() {
 		if ($('#fullscreenVideo').length >= 1) {
 			var videoWidth = $('#fullscreenVideo').attr('width');
 			var videoHeight = $('#fullscreenVideo').attr('height');
