@@ -2,6 +2,7 @@ import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import browserSync from 'browser-sync';
 import del from 'del';
+import critical from 'critical';
 import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
@@ -183,6 +184,19 @@ gulp.task('minify', function() {
     .pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
     .pipe(gulp.dest('dist'));
 });
+
+// Extracts the necessary CSS to render the specified viewport,
+// inlines it in the header and loads the rest of the CSS async
+gulp.task('critical', function() {
+  critical.generateInline({
+    base: 'dist/',
+    src: 'index.html',
+    htmlTarget: 'index.html',
+    width: 1300,
+    height: 900
+  });
+});
+
 gulp.task('default', ['clean', 'icons'], () => {
 	gulp.start('build');
 });
