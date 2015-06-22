@@ -17,7 +17,8 @@ Nav.prototype = {
 	},
 
 	/**
-	 * Generate a link from every .Section with an ID on the page
+	 * Generates a link to the $nav from every .Section
+	 * It takes the title from the ID
 	 */
 	generateNav: function(){
 		var self = this;
@@ -25,7 +26,7 @@ Nav.prototype = {
 		this.$sections.each(function(){
 			var myID = $(this).attr('id');
 			if (myID) {
-				self.$nav.append('<li><a href="#'+myID+'"> '+myID+' </a></li>');
+				self.$nav.append('<li><a href="#' + myID + '"> ' + myID + ' </a></li>');
 			}
 		});
 	},

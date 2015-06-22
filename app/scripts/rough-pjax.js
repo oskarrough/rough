@@ -10,10 +10,10 @@ RoughPjax.prototype = {
 	speed: 100,
 	debug: true,
 
-	init: function() {
+	init() {
 		this.actions();
 	},
-	actions: function() {
+	actions() {
 		// user clicks link with pjax class
 		$(document).delegate('a.pjax', 'click', this.pjaxClick.bind(this));
 
@@ -26,7 +26,7 @@ RoughPjax.prototype = {
 			.on('pjax:complete', this.pjaxComplete.bind(this));
 	},
 
-	pjaxClick: function(event) {
+	pjaxClick(event) {
 		event.preventDefault();
 		var url = event.currentTarget.href;
 
@@ -36,7 +36,7 @@ RoughPjax.prototype = {
 		this.animateOut(url);
 	},
 
-	animateOut: function(url) {
+	animateOut(url) {
 		if (this.debug) { console.log('animateOut'); }
 		// Here you can animate out
 		this.$container.fadeOut(this.speed, function() {
@@ -44,39 +44,39 @@ RoughPjax.prototype = {
 		}.bind(this));
 	},
 
-	didAnimateOut: function(url) {
-		var _this = this;
+	didAnimateOut(url) {
+		var self = this;
 
 		if (this.debug) { console.log('didAnimateOut'); }
 		// Because we first trigger pjax here in the callback
 		// https://github.com/defunkt/jquery-pjax#pjax-options
 		$.pjax({
 			url: url,
-			container: _this.container,
-			fragment: _this.container
+			container: self.container,
+			fragment: self.container
 		});
 	},
 
-	pjaxStart: function() {
+	pjaxStart() {
 		if (this.debug) { console.log('start'); }
 	},
-	pjaxSend: function() {
+	pjaxSend() {
 		if (this.debug) { console.log('send'); }
 	},
-	pjaxBeforeReplace: function() {
+	pjaxBeforeReplace() {
 		if (this.debug) { console.log('beforeReplace'); }
 	},
-	pjaxComplete: function() {
+	pjaxComplete() {
 		if (this.debug) { console.log('complete'); }
 		$('html').removeClass('is-loading');
 	},
-	pjaxEnd: function() {
+	pjaxEnd() {
 		if (this.debug) { console.log('end'); }
 		// fade in the main content
 		this.animateIn();
 	},
 
-	animateIn: function() {
+	animateIn() {
 		if (this.debug) { console.log('animateIn'); }
 		// Here you can animate In
 		this.$container.fadeIn(this.speed, function() {
@@ -84,8 +84,8 @@ RoughPjax.prototype = {
 		}.bind(this));
 	},
 
-	didAnimateIn: function() {
+	didAnimateIn() {
 		if (this.debug) { console.log('didAnimateIn'); }
 		// functions loaded again after pjax ends go here
-	},
+	}
 };

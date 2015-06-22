@@ -29,7 +29,7 @@ Video.prototype = {
 			var videoWidth = $('#fullscreenVideo').attr('width');
 			var videoHeight = $('#fullscreenVideo').attr('height');
 			var viewportWidth = $(window).width();
-			var viewportHeight = $(window).height();
+			// var viewportHeight = $(window).height();
 			$('#fullscreenVideo').css('width', '100%');
 			$('#fullscreenVideo').height(viewportWidth / videoWidth * videoHeight);
 		}

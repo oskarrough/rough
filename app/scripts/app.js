@@ -1,10 +1,7 @@
-/*jshint unused:false */
 /* global Masonry, Nav, Video, Tab, Rough, RoughPjax */
+/*eslint no-unused-vars:0 */
 
 $(function() {
-
-	// run these modules
-
 	// var nav = new Nav();
 	// var video = new Video();
 	var masonry = new Masonry();
