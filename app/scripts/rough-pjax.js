@@ -10,10 +10,10 @@ RoughPjax.prototype = {
 	speed: 100,
 	debug: true,
 
-	init() {
+	init: function() {
 		this.actions();
 	},
-	actions() {
+	actions: function() {
 		// user clicks link with pjax class
 		$(document).delegate('a.pjax', 'click', this.pjaxClick.bind(this));
 
@@ -26,7 +26,7 @@ RoughPjax.prototype = {
 			.on('pjax:complete', this.pjaxComplete.bind(this));
 	},
 
-	pjaxClick(event) {
+	pjaxClick: function(event) {
 		event.preventDefault();
 		var url = event.currentTarget.href;
 
@@ -36,7 +36,7 @@ RoughPjax.prototype = {
 		this.animateOut(url);
 	},
 
-	animateOut(url) {
+	animateOut: function(url) {
 		if (this.debug) { console.log('animateOut'); }
 		// Here you can animate out
 		this.$container.fadeOut(this.speed, function() {
@@ -44,7 +44,7 @@ RoughPjax.prototype = {
 		}.bind(this));
 	},
 
-	didAnimateOut(url) {
+	didAnimateOut: function(url) {
 		var self = this;
 
 		if (this.debug) { console.log('didAnimateOut'); }
@@ -57,26 +57,26 @@ RoughPjax.prototype = {
 		});
 	},
 
-	pjaxStart() {
+	pjaxStart: function() {
 		if (this.debug) { console.log('start'); }
 	},
-	pjaxSend() {
+	pjaxSend: function() {
 		if (this.debug) { console.log('send'); }
 	},
-	pjaxBeforeReplace() {
+	pjaxBeforeReplace: function() {
 		if (this.debug) { console.log('beforeReplace'); }
 	},
-	pjaxComplete() {
+	pjaxComplete: function() {
 		if (this.debug) { console.log('complete'); }
 		$('html').removeClass('is-loading');
 	},
-	pjaxEnd() {
+	pjaxEnd: function() {
 		if (this.debug) { console.log('end'); }
 		// fade in the main content
 		this.animateIn();
 	},
 
-	animateIn() {
+	animateIn: function() {
 		if (this.debug) { console.log('animateIn'); }
 		// Here you can animate In
 		this.$container.fadeIn(this.speed, function() {
@@ -84,7 +84,7 @@ RoughPjax.prototype = {
 		}.bind(this));
 	},
 
-	didAnimateIn() {
+	didAnimateIn: function() {
 		if (this.debug) { console.log('didAnimateIn'); }
 		// functions loaded again after pjax ends go here
 	}
