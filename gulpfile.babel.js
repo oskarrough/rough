@@ -62,8 +62,8 @@ gulp.task('html', ['jade', 'styles', 'scripts'], () => {
 
   return gulp.src('.tmp/*.html')
     .pipe(assets)
-    .pipe($.if('*.js', $.uglify()))
-    .pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
+    // .pipe($.if('*.js', $.uglify()))
+    // .pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
     .pipe($.rev())
     .pipe(assets.restore())
     .pipe($.useref())
@@ -173,9 +173,16 @@ gulp.task('serve:test', () => {
 });
 
 gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], function() {
+  gulp.start('minify');
 	return gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
 });
 
+gulp.task('minify', function() {
+  return gulp.src(['dist/scripts/*.js', 'dist/styles/*.css'], { base: 'dist' })
+    .pipe($.if('*.js', $.uglify()))
+    .pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
+    .pipe(gulp.dest('dist'));
+});
 gulp.task('default', ['clean', 'icons'], () => {
 	gulp.start('build');
 });
