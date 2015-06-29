@@ -1,21 +1,19 @@
-# EditorConfig helps developers define and maintain consistent
-# coding styles between different editors and IDEs
 # editorconfig.org
 
 root = true
 
-
 [*]
-
-# change these settings to your own preference
-indent_style = tabs
-indent_size = 4
-
-# we recommend you to keep these unchanged
-end_of_line = lf
 charset = utf-8
-trim_trailing_whitespace = true
+indent_style = tabs
+#indent_size = 2 # no size specified because tabs
+end_of_line = lf
 insert_final_newline = true
+trim_trailing_whitespace = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[{.bower.json,package.json}]
+# The indent size used in the `package.json` file cannot be changed
+indent_size = 2
+indent_style = space
