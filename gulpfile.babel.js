@@ -1,11 +1,11 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
-import browserSync from 'browser-sync';
 import del from 'del';
 import critical from 'critical';
 import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
+const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
@@ -20,7 +20,7 @@ gulp.task('styles', () => {
 		.pipe($.autoprefixer({browsers: ['last 2 version', 'android 4', 'ios 7', 'ie 10'] }))
 		.pipe($.sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'))
-		.pipe(reload({ stream: true }));
+		.pipe(browserSync.stream({match: '**/*.css'}));
 });
 
 function lint(files) {
@@ -37,15 +37,15 @@ gulp.task('lint', lint(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js']));
 gulp.task('lint:test', lint('test/spec/**/*.js'));
 
 // Enable ES6+7 features with babel
-gulp.task('scripts', () => {
-	return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
-		.pipe($.sourcemaps.init())
-		.pipe($.babel())
-		.pipe($.concat('main.js'))
-		.pipe(gulp.dest('.tmp/scripts'))
-		.pipe($.sourcemaps.write('.'))
-		.pipe(reload({ stream: true }));
-});
+// gulp.task('scripts', () => {
+// 	return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
+// 		.pipe($.sourcemaps.init())
+// 		.pipe($.babel())
+// 		.pipe($.concat('main.js'))
+// 		.pipe(gulp.dest('.tmp/scripts'))
+// 		.pipe($.sourcemaps.write('.'))
+// 		.pipe(browserSync.stream({ match: '**/*.js' }));
+// });
 
 // Compile .jade into .html in the .tmp dir
 gulp.task('jade', () => {
@@ -118,7 +118,7 @@ gulp.task('icons', $.shell.task([
 
 gulp.task('s', ['serve']);
 gulp.task('serve', ['jade', 'styles', 'fonts', 'icons'], () => {
-	browserSync({
+	browserSync.init({
 		notify: false,
 		port: 9000,
 		server: {
@@ -132,20 +132,20 @@ gulp.task('serve', ['jade', 'styles', 'fonts', 'icons'], () => {
 	gulp.watch([
 		'app/*.html',
 		'app/images/**/*',
-		'app/scripts/**/*',
+		'app/scripts/**/*', // disable this line if you're using the 'scripts' task
 		'.tmp/fonts/**/*'
-	]).on('change', reload);
+	]).on('change', browserSync.reload);
 
-	gulp.watch('app/**/*.jade', ['jade', reload]);
+	gulp.watch('app/**/*.jade', ['jade', browserSync.reload]);
 	// gulp.watch('app/scripts/**/*.js', ['scripts']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
-	gulp.watch('app/images/icons/*.{svg,png}', ['icons', reload]);
+	gulp.watch('app/images/icons/*.{svg,png}', ['icons', browserSync.reload]);
 	gulp.watch('app/fonts/**/*', ['fonts']);
 });
 
 // use this to test after you build the project
 gulp.task('serve:dist', () => {
-	browserSync({
+	browserSync.init({
 		notify: false,
 		port: 9000,
 		server: {
