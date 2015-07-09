@@ -1,30 +1,31 @@
 # Rough boilerplate
 
-This is a gulp-based setup that allows you to easily:
+This is a solid, well-tested boilerplate for new web projects. It's based on on the great [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp) and exists because we're using a rather opinionated setup and this project offers more than the default generators.
 
-- Use Sass
-- Use Jade templating
-- Use Grunticon for easy svg icons
+See http://rough.surge.sh for a minimal demo.
+
+- Sass
+- Jade templating
+- Grunticon for easy svg icons
 - Minify and concatenate all scripts and styles
+- Inline critical-path CSS
 - Autoprefixer, so you don't have to write prefixes yourself
 - Image optimization runs automatically on build
-- Refresh the browser when files change
+- BrowserSync live-reloading and more
 
 It also contains a few useful recipies:
 
-- Custom <select> styles
+- Custom select styles
 - Grids using Susy for the math
-- Lazy loading of (responsive) images using lazysizes
-- Wrapper for robust fluid Masonry layouts with imagesLoaded
+- Lazy loading and responsive images using lazysizes
+- Wrapper for robust fluid grids using Masonry with imagesLoaded
 - Responsive Tabs
 
 And base styles to cover many edge-cases:
 
-- Component based scss structure
 - Normalize and base
-- A few useful mixins/utilities
-
-This project leans heavily on the great Yeoman Gulp and Grunt webapps. If you're not interested in the extra baked-in recipies here, you're probably be better of with the default Yeoman apps.
+- Component based scss structure
+- Useful mixins/utilities for calculating rem/em etc.
 
 ## Getting started
 
