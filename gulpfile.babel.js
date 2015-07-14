@@ -1,11 +1,11 @@
 import gulp from 'gulp';
 import gulpLoadPlugins from 'gulp-load-plugins';
 import del from 'del';
-import critical from 'critical';
 import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const browserSync = require('browser-sync').create();
+const critical = require('critical').stream;
 const reload = browserSync.reload;
 
 gulp.task('styles', () => {
@@ -174,19 +174,18 @@ gulp.task('minify', () => {
 		.pipe(gulp.dest('dist'));
 });
 
-// Extracts the necessary CSS to render the specified viewport,
-// inlines it in the header and loads the rest of the CSS async.
-// Run this after building.
+// Generate & inline critical-path CSS
 gulp.task('critical', () => {
-	critical.generateInline({
-		base: 'dist/',
-		src: 'index.html',
-		htmlTarget: 'index.html',
-		width: 1300,
-		height: 900
-	});
+	return gulp.src('dist/*.html')
+		.pipe(critical({
+			base: 'dist/',
+			inline: true
+		}))
+		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', () => {
 	gulp.start('build');
 });
+
+
