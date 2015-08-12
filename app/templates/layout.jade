@@ -30,11 +30,8 @@ html.no-js(lang='en')
 
 			script.
 				grunticon(['images/icons/icons.data.svg.css', 'images/icons/icons.data.png.css', 'images/icons/icons.fallback.css'], grunticon.svgLoadedCallback );
-
-				window.lazySizesConfig = {
-					// preload all lazy elements in a lazy loading queue after onload, if on desktop
-					preloadAfterLoad: !(/mobi/i.test(navigator.userAgent))
-				};
+			noscript.
+				<link href="images/icons/icons.fallback.css" rel="stylesheet">
 	body(class="#{bodyClass}")
 
 		.App
