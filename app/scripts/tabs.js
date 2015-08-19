@@ -11,7 +11,7 @@ module.exports = function() {
 
 var tabs = {
 	init: function() {
-		if (!$('.Tabs').length) { console.log('No tabs found'); return false; }
+		if (!$('.Tabs').length) { return false; }
 
 		console.log('tab init');
 
