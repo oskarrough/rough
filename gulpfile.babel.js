@@ -5,10 +5,16 @@ import {stream as wiredep} from 'wiredep';
 
 const $ = gulpLoadPlugins();
 const browserSync = require('browser-sync').create();
-const critical = require('critical').stream;
 const reload = browserSync.reload;
+const critical = require('critical').stream;
 
-gulp.task('styles', () => {
+const source = require('vinyl-source-stream');
+const browserify = require('browserify');
+// const watchify = require('watchify');
+
+gulp.task('styles', ['sass']);
+
+gulp.task('sass', () => {
 	return gulp.src('app/styles/*.scss')
 		.pipe($.plumber())
 		.pipe($.sourcemaps.init())
@@ -23,10 +29,25 @@ gulp.task('styles', () => {
 		.pipe(browserSync.stream({match: '**/*.css'}));
 });
 
+gulp.task('scripts', ['browserify']);
+
+// Runs browserify and babelify on our scripts
+gulp.task('browserify', () => {
+	return browserify('app/scripts/main.js', { debug: true })
+		.transform(require('babelify'))
+		.transform('browserify-css', {
+			global: true
+		})
+		.bundle()
+		.on('error', $.notify.onError((error) => { return 'Browserify error:' + error; }))
+		.pipe(source('bundle.js'))
+		.pipe(gulp.dest('.tmp/scripts'));
+});
+
 function lint(files) {
 	return () => {
 		return gulp.src(files)
-			.pipe(reload({stream: true, once: true}))
+			.pipe(reload({ stream: true, once: true }))
 			.pipe($.eslint())
 			.pipe($.eslint.format())
 			.pipe($.if(!browserSync.active, $.eslint.failAfterError()));
@@ -36,16 +57,7 @@ function lint(files) {
 gulp.task('lint', lint(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js']));
 gulp.task('lint:test', lint('test/spec/**/*.js'));
 
-// Enable ES6+7 features with babel
-// gulp.task('scripts', () => {
-// 	return gulp.src(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js'])
-// 		.pipe($.sourcemaps.init())
-// 		.pipe($.babel())
-// 		.pipe($.concat('main.js'))
-// 		.pipe(gulp.dest('.tmp/scripts'))
-// 		.pipe($.sourcemaps.write('.'))
-// 		.pipe(browserSync.stream({ match: '**/*.js' }));
-// });
+gulp.task('html', ['jade']);
 
 // Compile .jade into .html in the .tmp dir
 gulp.task('jade', () => {
@@ -55,18 +67,6 @@ gulp.task('jade', () => {
 			return 'An error occurred while compiling jade.\nLook in the console for details.\n' + error;
 		}))
 		.pipe(gulp.dest('.tmp'));
-});
-
-gulp.task('html', ['jade', 'styles'/*, 'scripts'*/], () => {
-	const assets = $.useref.assets({searchPath: ['.tmp', 'app', '.']});
-
-	return gulp.src('.tmp/*.html')
-		.pipe(assets)
-		.pipe($.rev())
-		.pipe(assets.restore())
-		.pipe($.useref())
-		.pipe($.revReplace())
-		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('images', () => {
@@ -106,18 +106,14 @@ gulp.task('extras', () => {
 
 gulp.task('clean', del.bind(null, ['.tmp', 'dist']));
 
-gulp.task('copy-icons', () => {
-	return gulp.src(['.tmp/images/icons/**/*'])
-		.pipe(gulp.dest('dist/images/icons'));
-});
-
 // Runs grunticon directly from grunt
 gulp.task('icons', $.shell.task([
 	'grunt grunticon'
 ]));
 
 gulp.task('s', ['serve']);
-gulp.task('serve', ['jade', 'styles', 'fonts', 'icons'], () => {
+
+gulp.task('serve', ['html', 'styles', 'scripts', 'fonts', 'icons'], () => {
 	browserSync.init({
 		notify: false,
 		port: 9000,
@@ -137,7 +133,7 @@ gulp.task('serve', ['jade', 'styles', 'fonts', 'icons'], () => {
 	]).on('change', browserSync.reload);
 
 	gulp.watch('app/**/*.jade', ['jade', browserSync.reload]);
-	// gulp.watch('app/scripts/**/*.js', ['scripts']);
+	gulp.watch('app/scripts/**/*.js', ['scripts']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons', browserSync.reload]);
 	gulp.watch('app/fonts/**/*', ['fonts']);
@@ -159,15 +155,16 @@ gulp.task('build', ['clean', 'lint'], () => {
 	gulp.start('build-assets');
 });
 
-gulp.task('build-assets', ['icons', 'html', 'images', 'fonts', 'extras'], () => {
-	gulp.start('after-build');
+gulp.task('build-assets', ['html', 'styles', 'scripts', 'icons', 'images', 'fonts', 'extras'], () => {
+	gulp.start('minify');
 });
 
-gulp.task('after-build', ['copy-icons', 'minify'], () => {
-	return gulp.src('dist/**/*').pipe($.size({ title: 'build', gzip: true }));
+gulp.task('copy-assets', () => {
+	return gulp.src(['.tmp/**/*'])
+		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('minify', () => {
+gulp.task('minify', ['copy-assets'], () => {
 	return gulp.src(['dist/scripts/*.js', 'dist/styles/*.css'], { base: 'dist' })
 		.pipe($.if('*.js', $.uglify()))
 		.pipe($.if('*.css', $.minifyCss({ compatibility: '*' })))
@@ -187,5 +184,3 @@ gulp.task('critical', () => {
 gulp.task('default', () => {
 	gulp.start('build');
 });
-
-

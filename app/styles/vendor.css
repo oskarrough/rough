@@ -1,0 +1,7 @@
+/* This file is required by scripts/main.js which is run through
+	browserify with the browserify-css transform.
+
+	This transform takes the below files, minifies and injects them into main.js
+	and finally injects the CSS async to whatever page main.js is on. */
+
+@import url('../../node_modules/magnific-popup/dist/magnific-popup.css');
