@@ -1,12 +1,5 @@
-var Rough = function() {
-	this.init();
-};
+var $ = require('jquery');
 
-Rough.prototype = {
-	init: function() {
-		this.method();
-	},
-	method: function() {
-		// do something
-	}
+module.exports = function(selector) {
+	return console.log($(selector));
 };

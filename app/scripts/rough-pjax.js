@@ -1,8 +1,13 @@
-var RoughPjax = function() {
-	if ($.support.pjax) {
-		this.init();
-	}
-};
+// require('jquery');
+
+var pjax = require('./../../bower_components/jquery-pjax/jquery.pjax.js');
+
+module.exports = function() {
+	console.log('hello');
+	// if ($.support.pjax) {
+	// 	RoughPjax.init();
+	// }
+}
 
 RoughPjax.prototype = {
 	container: '#SiteMain',

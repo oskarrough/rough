@@ -1,26 +1,10 @@
+var $ = require('jquery');
+var Masonry = require('masonry-layout');
+var imagesLoaded = require('imagesLoaded');
+
 // Dynamic grid with Masonry
 
-var Masonry = function(el, options) {
-
-	// Defaults:
-	this.defaults = {
-		container: '#Masonry'
-	};
-
-	// Extending options:
-	this.opts = $.extend({}, this.defaults, options);
-
-	// If an element was passed, use it, otherwise use a default el
-	if (el) {
-		this.$el = $(el);
-	} else {
-		this.$el = $(this.defaults.container);
-	}
-
-	this.init();
-};
-
-Masonry.prototype = {
+var RoughMasonry = {
 	isFirstRun: true,
 
 	init: function() {
@@ -37,20 +21,19 @@ Masonry.prototype = {
 		}
 
 		// Run after images are loaded
-		this.$el.imagesLoaded( $.proxy(this.runMasonry, this) );
+		imagesLoaded(this.$el, $.proxy(this.runMasonry, this));
 	},
 
 	runMasonry: function() {
-		this.$el.masonry({
+		// get the plain javascript element
+		var elem = this.$el[0];
+		var msnry = new Masonry(elem, {
 			itemSelector: '.Masonry-item',
-
-			// replace with a number if you have fixed widths
 			gutter: '.Masonry-gutterSizer',
-
-			// replace with a number if you have fixed widths
 			columnWidth: '.Masonry-gridSizer'
-		}).addClass('is-active');
+		});
 
+		this.$el.addClass('is-active');
 		this.fadeInItems();
 
 		// layout again
@@ -69,9 +52,29 @@ Masonry.prototype = {
 	fadeInItems: function() {
 		var $items = this.$el.find('.Masonry-item');
 		$items.each(function(index, el) {
-			$(this).imagesLoaded( function() {
+			imagesLoaded(el, function() {
 				$(el).addClass('is-loaded');
 			});
 		});
 	}
+};
+
+module.exports = function(el, options) {
+
+	// Defaults:
+	RoughMasonry.defaults = {
+		container: '#Masonry'
+	};
+
+	// Extending options:
+	RoughMasonry.opts = $.extend({}, RoughMasonry.defaults, options);
+
+	// If an element was passed, use it, otherwise use a default el
+	if (el) {
+		RoughMasonry.$el = $(el);
+	} else {
+		RoughMasonry.$el = $(RoughMasonry.defaults.container);
+	}
+
+	RoughMasonry.init();
 };

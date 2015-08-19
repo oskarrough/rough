@@ -1,17 +1,19 @@
-/*jshint unused:false */
+var $ = require('jquery')
+
 /**
  * Responsive Tabs
  * inspired by Chris Coyer and Bootstrap
  */
 
-var Tab = function() {
-	this.init();
+module.exports = function() {
+	tabs.init();
 };
 
-Tab.prototype = {
+var tabs = {
 	init: function() {
+		if (!$('.Tabs').length) { console.log('No tabs found'); return false; }
 
-		if (!$('.Tabs').length) { return false; }
+		console.log('tab init');
 
 		this.addClasses();
 		this.activateFirst();
