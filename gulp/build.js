@@ -12,15 +12,17 @@ gulp.task('build', ['clean', 'lint'], () => {
 gulp.task('extras', () => {
 	return gulp.src([
 		'app/*.*',
+		'app/scripts/vendor/**/*',
 		'!app/*.html',
 		'!app/*.jade',
 	], {
+		base: 'app', // keep folder structure
 		dot: true // include .dotfiles
 	}).pipe(gulp.dest('dist'));
 });
 
 // Build assets
-gulp.task('build-assets', ['html', 'styles', 'scripts', 'icons', 'images', 'fonts', 'extras'], () => {
+gulp.task('build-assets', ['templates', 'styles', 'scripts', 'icons', 'images', 'extras'], () => {
 	gulp.start('minify');
 });
 
