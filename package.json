@@ -27,6 +27,7 @@
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.0.0",
     "gulp-filter": "^3.0.0",
+    "gulp-hb": "^2.6.1",
     "gulp-if": "^1.2.5",
     "gulp-imagemin": "^2.2.1",
     "gulp-jade": "^1.0.1",
@@ -48,6 +49,7 @@
     "watchify": "^3.3.1"
   },
   "dependencies": {
+    "handlebars-layouts": "^3.1.0",
     "imagesloaded": "^3.1.8",
     "jquery": "^2.1.4",
     "lazysizes": "^1.1.5",
