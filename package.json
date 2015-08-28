@@ -5,6 +5,10 @@
   "engines": {
     "node": ">=0.12.0"
   },
+  "scripts": {
+    "development": "gulp server",
+    "production": "gulp build"
+  },
   "devDependencies": {
     "babel-core": "^5.6.15",
     "babelify": "^6.1.3",
@@ -19,7 +23,7 @@
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^2.3.1",
     "gulp-babel": "^5.1.0",
-    "gulp-cache": "^0.2.10",
+    "gulp-changed": "^1.3.0",
     "gulp-concat": "^2.6.0",
     "gulp-eslint": "^1.0.0",
     "gulp-filter": "^3.0.0",
@@ -38,6 +42,7 @@
     "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-useref": "^1.2.0",
+    "gulp-util": "^3.0.6",
     "require-dir": "^0.3.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.3.1"

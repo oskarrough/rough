@@ -1,3 +1,7 @@
+// @todo include critical in build process?
+// @todo this file is a bit (!) messy but the order of tasks is very important
+// @todo consider gulp-sequence ala gulp-starter v2
+
 const gulp = require('gulp');
 const gulpif = require('gulp-if');
 const uglify = require('gulp-uglify');
@@ -39,6 +43,3 @@ gulp.task('minify', ['copy-assets'], () => {
 		.pipe(gulpif('*.css', minifyCss({ compatibility: '*' })))
 		.pipe(gulp.dest('dist'));
 });
-
-// @todo include critical in build process?
-// @todo this file is a bit (!) messy but the order of tasks is very important

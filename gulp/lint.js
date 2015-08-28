@@ -1,6 +1,6 @@
 const gulp = require('gulp');
-const gulpif = require('gulp-if');
 const eslint = require('gulp-eslint');
+const gulpif = require('gulp-if');
 const browserSync = require('browser-sync').create();
 const reload = browserSync.reload;
 
@@ -15,6 +15,7 @@ function lint(files) {
 }
 
 // Lint everything but vendor files
-gulp.task('lint', lint(['app/scripts/**/*.js', '!app/scripts/vendor/**/*.js']));
-
-// gulp.task('lint:test', lint('test/spec/**/*.js'));
+gulp.task('lint', lint([
+	'app/scripts/**/*.js',
+	'!app/scripts/vendor/**/*.js'
+]));

@@ -1,27 +1,26 @@
 const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 
-// Export our instance of browserSync for other tasks
+// Export our instance of browserSync to other tasks
 module.exports = browserSync;
 
 // Development server
 gulp.task('serve', ['templates', 'styles', 'scripts', 'icons'], () => {
 	browserSync.init({
 		notify: false,
-		port: 9000,
+		port: 6666,
 		server: {
-			baseDir: ['.tmp', 'app'],
-			routes: {
-				'/bower_components': 'bower_components'
-			}
+			baseDir: ['.tmp', 'app']
 		}
 	});
 
+	// Reload the server when these files change
 	gulp.watch([
 		'app/*.html',
 		'app/images/**/*',
 	]).on('change', browserSync.reload);
 
+	// Run tasks (that might reload the server) when these files change
 	gulp.watch('app/**/*.jade', ['jade']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/scripts/**/*.js', ['scripts']);
@@ -32,12 +31,12 @@ gulp.task('serve', ['templates', 'styles', 'scripts', 'icons'], () => {
 gulp.task('serve:dist', () => {
 	browserSync.init({
 		notify: false,
-		port: 9000,
+		port: 6666,
 		server: {
 			baseDir: ['dist']
 		}
 	});
 });
 
-// shortcut
+// alias
 gulp.task('s', ['serve']);
