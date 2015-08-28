@@ -3,6 +3,5 @@
   "private": true,
   "dependencies": {
     "jquery-pjax": "~1.9.4",
-    "susy": "~2.2.2"
   }
 }
