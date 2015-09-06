@@ -7,7 +7,7 @@ var imagesLoaded = require('imagesLoaded');
 var RoughMasonry = {
 	isFirstRun: true,
 
-	init: function() {
+	init() {
 
 		// Only run if the container exists
 		if (!this.$el.length) {
@@ -24,7 +24,7 @@ var RoughMasonry = {
 		imagesLoaded(this.$el, $.proxy(this.runMasonry, this));
 	},
 
-	runMasonry: function() {
+	runMasonry() {
 		// get the plain javascript element
 		var elem = this.$el[0];
 		var msnry = new Masonry(elem, {
@@ -49,7 +49,7 @@ var RoughMasonry = {
 	 * Fade in items one after another as the images load
 	 * remember to add the corresponding css
 	 */
-	fadeInItems: function() {
+	fadeInItems() {
 		var $items = this.$el.find('.Masonry-item');
 		$items.each(function(index, el) {
 			imagesLoaded(el, function() {
