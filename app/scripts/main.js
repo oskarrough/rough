@@ -5,6 +5,6 @@ const masonry = require('./rough-masonry');
 
 // on document ready
 $(() => {
-	tabs();
+	tabs.init();
 	masonry();
 });
