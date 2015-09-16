@@ -21,10 +21,10 @@ gulp.task('images', ['favicons'], () => {
 	return gulp.src(['app/images/**/*', '!app/images/icons/**/*'])
 		.pipe(changed('dist/images'))
 		.pipe(imagemin({
-			progressive: true, /* 1 */
-			svgoPlugins: [{ cleanupIDs: false }] /* 2 */
+			progressive: true,
+			svgoPlugins: [{ cleanupIDs: false }]
 		}))
-		.on('error', (err) => {
+		.on('error', err => {
 			gutil.log(err);
 			this.end();
 		})

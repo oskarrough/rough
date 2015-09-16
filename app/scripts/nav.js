@@ -1,16 +1,14 @@
+const $ = require('jquery');
+
 /**
  * Scroll navigation
  */
 
-var Nav = function() {
-	this.init();
-};
-
-Nav.prototype = {
+const nav = {
 	$nav: $('.js-genenav'),
 	$sections: $('.Section'),
 
-	init: function() {
+	init() {
 		this.generateNav();
 		this.waypoints();
 		this.actions();
@@ -20,13 +18,11 @@ Nav.prototype = {
 	 * Generates a link to the $nav from every .Section
 	 * It takes the title from the ID
 	 */
-	generateNav: function(){
-		var self = this;
-
-		this.$sections.each(function(){
-			var myID = $(this).attr('id');
-			if (myID) {
-				self.$nav.append('<li><a href="#' + myID + '"> ' + myID + ' </a></li>');
+	generateNav() {
+		this.$sections.each((index, element) => {
+			const id = $(element).attr('id');
+			if (id) {
+				this.$nav.append(`<li><a href="#${id}">${id}</a></li>`);
 			}
 		});
 	},
@@ -34,39 +30,39 @@ Nav.prototype = {
 	/**
 	 * Change active link depending on scroll position
 	 */
-	waypoints: function(){
-		this.$sections.waypoint(function(direction) {
-			var $links = $('a[href="#' + this.id + '"]');
+	waypoints() {
+		this.$sections.waypoint(direction => {
+			const $links = $(`a[href="#${this.id}"]`);
 			$links.toggleClass('is-active', direction === 'down');
 		}, {
-			offset: '85%' // when to consider the section as 'in viewport'
-		}).waypoint(function(direction) {
-			var $links = $('a[href="#' + this.id + '"]');
+			// when to consider the section as 'in viewport'
+			offset: '85%'
+		}).waypoint(direction => {
+			const $links = $(`a[href="#${this.id}"]`);
 			$links.toggleClass('is-active', direction === 'up');
 		}, {
-			offset: function() {
+			offset() {
 				return -$(this).height();
 			}
 		});
-
-		// make sure waypoints are correct
-		//$.waypoints('refresh');
 	},
 
 	/**
 	 * Smooth scrolling instead of jumping
 	 */
-	jump: function(event) {
-		var $active = $(event.currentTarget);
-		var offset = $($active.attr('href')).offset();
+	jump(event) {
+		const $active = $(event.currentTarget);
+		const offset = $($active.attr('href')).offset();
 		$('html, body').animate({
 			scrollTop: offset.top
-		}, 200, function() {
-			// callback
+		}, 200, () => {
+			// done jumping
 		});
 	},
 
-	actions: function() {
+	actions() {
 		this.$nav.find('a').on('click', this.jump);
 	}
 };
+
+module.exports = nav;

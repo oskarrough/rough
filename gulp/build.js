@@ -8,7 +8,7 @@ const uglify = require('gulp-uglify');
 const minifyCss = require('gulp-minify-css');
 
 // 1. Start of the build process
-gulp.task('build', ['clean', 'lint'], () => {
+gulp.task('build', ['clean', 'test'], () => {
 	gulp.start('build-assets');
 });
 
@@ -18,10 +18,12 @@ gulp.task('extras', () => {
 		'app/*.*',
 		'app/scripts/vendor/**/*',
 		'!app/*.html',
-		'!app/*.jade',
+		'!app/*.jade'
 	], {
-		base: 'app', // keep folder structure
-		dot: true // include .dotfiles
+		// keep folder structure
+		base: 'app',
+		// include .dotfiles
+		dot: true
 	}).pipe(gulp.dest('dist'));
 });
 

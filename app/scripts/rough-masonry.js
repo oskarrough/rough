@@ -1,14 +1,13 @@
-var $ = require('jquery');
-var Masonry = require('masonry-layout');
-var imagesLoaded = require('imagesLoaded');
+const $ = require('jquery');
+const Masonry = require('masonry-layout');
+const imagesLoaded = require('imagesLoaded');
 
 // Dynamic grid with Masonry
 
-var RoughMasonry = {
+const RoughMasonry = {
 	isFirstRun: true,
 
 	init() {
-
 		// Only run if the container exists
 		if (!this.$el.length) {
 			return false;
@@ -25,9 +24,8 @@ var RoughMasonry = {
 	},
 
 	runMasonry() {
-		// get the plain javascript element
-		var elem = this.$el[0];
-		var msnry = new Masonry(elem, {
+		const elem = this.$el[0];
+		const msnry = new Masonry(elem, {
 			itemSelector: '.Masonry-item',
 			gutter: '.Masonry-gutterSizer',
 			columnWidth: '.Masonry-gridSizer'
@@ -50,18 +48,14 @@ var RoughMasonry = {
 	 * remember to add the corresponding css
 	 */
 	fadeInItems() {
-		var $items = this.$el.find('.Masonry-item');
-		$items.each(function(index, el) {
-			imagesLoaded(el, function() {
-				$(el).addClass('is-loaded');
-			});
+		const $items = this.$el.find('.Masonry-item');
+		$items.each((index, el) => {
+			imagesLoaded(el, () => $(el).addClass('is-loaded'));
 		});
 	}
 };
 
-module.exports = function(el, options) {
-
-	// Defaults:
+module.exports = function (el, options) {
 	RoughMasonry.defaults = {
 		container: '#Masonry'
 	};

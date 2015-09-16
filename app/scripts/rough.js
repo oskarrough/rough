@@ -1,5 +1,7 @@
-var $ = require('jquery');
+const $ = require('jquery');
 
-module.exports = function(selector) {
+function selector(selector) {
 	return console.log($(selector));
-};
+}
+
+module.exports = selector;

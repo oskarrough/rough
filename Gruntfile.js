@@ -1,6 +1,4 @@
-module.exports = function(grunt) {
-
-	// Load tasks
+module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-grunticon');
 
 	grunt.initConfig({

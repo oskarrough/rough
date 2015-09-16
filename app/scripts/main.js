@@ -1,8 +1,7 @@
-var $ = require('jquery');
-var lazysizes = require('lazysizes'); // this runs by itself
-var tabs = require('./tabs');
-var masonry = require('./rough-masonry');
-var css = require('./../styles/vendor.css');
+require('lazysizes');
+const $ = require('jquery');
+const tabs = require('./tabs');
+const masonry = require('./rough-masonry');
 
 // on document ready
 $(() => {

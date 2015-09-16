@@ -13,7 +13,7 @@ gulp.task('browserify', () => {
 		.transform(babelify)
 		.transform(browserifyCss, { global: true })
 		.bundle()
-		.on('error', notify.onError((error) => { return 'Browserify error:' + error; }))
+		.on('error', notify.onError(error => `Browserify error: ${error}`))
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('.tmp/scripts'))
 		.pipe(browserSync.stream({ once: true }));

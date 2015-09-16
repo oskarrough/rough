@@ -17,7 +17,7 @@ gulp.task('serve', ['templates', 'styles', 'scripts', 'icons'], () => {
 	// Reload the server when these files change
 	gulp.watch([
 		'app/*.html',
-		'app/images/**/*',
+		'app/images/**/*'
 	]).on('change', browserSync.reload);
 
 	// Run tasks (that might reload the server) when these files change
