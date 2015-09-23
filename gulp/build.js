@@ -16,6 +16,7 @@ gulp.task('build', ['clean', 'test'], () => {
 gulp.task('extras', () => {
 	return gulp.src([
 		'app/*.*',
+		'app/fonts/**/*',
 		'app/scripts/vendor/**/*',
 		'!app/*.html',
 		'!app/*.jade'
