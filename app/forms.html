@@ -1,0 +1,51 @@
+{{#extend "layout"}}{{#content "main"}}
+
+<h1>Forms</h1>
+<p>This boilerplate normalizes form styles across browsers. In order to style select elements, we hide the native select and style a wrapper instead. This is what the custom-select component does.</p>
+<h2>How to use</h2>
+<ul>
+	<li>Include <code>components/_custom-select.scss</code></li>
+	<li>Wrap your selects in a <code>.CustomSelect</code> wrapper</li>
+</ul>
+<h2>Examples</h2>
+<hr/>
+<form class="Form">
+	<div class="Form-group">
+		<label>Native select</label>
+		<select>
+			<option>Apples</option>
+			<option>Bananas</option>
+			<option>Grapes</option>
+			<option>Oranges</option>
+			<option selected="selected">A very long option name to test wrapping</option>
+		</select>
+	</div>
+	<div class="Form-group">
+		<label class="wrapper">This label wraps the select
+			<div class="CustomSelect">
+				<select>
+					<option>Apples</option>
+					<option>Bananas</option>
+					<option>Grapes</option>
+					<option>Oranges</option>
+					<option>A very long option name to test wrapping</option>
+				</select>
+			</div>
+		</label>
+	</div>
+	<div style="width:50%; min-width:10em;" class="Form-group">
+		<label class="wrapper">In a container set to 50% width
+			<div class="CustomSelect">
+				<select>
+					<option>Apples</option>
+					<option>Bananas</option>
+					<option>Grapes</option>
+					<option>Oranges</option>
+					<option>A very long option name to test wrapping and visual collisions</option>
+				</select>
+			</div>
+		</label>
+	</div>
+</form>
+
+{{/content}}{{/extend}}

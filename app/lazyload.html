@@ -1,0 +1,17 @@
+{{#extend "layout"}}{{#content "main"}}
+<h1>Lazyload</h1>
+<p>To lazyload images, backgrounds and videos, we use <a href="https://github.com/aFarkas/lazysizes">lazysizes</a>. Be sure to read the documentation.</p>
+<h2>How to use</h2>
+<ul>
+	<li>Make sure the script is included in layout.jade</li>
+	<li>Read the <a href="https://github.com/aFarkas/lazysizes">lazysizes documentation</a></li>
+	<li>For images, change your markup to <code>img.lazyload(data-src="image.jpg", alt="")</code></li>
+	<li>For backgrounds, change your markup to <code>div.lazyload(data-bg="image.jpg")</code></li>
+</ul>
+<p>Lazysizes also supports responsive images, but again, just read the documentation. If you need support for background-images, videos and what not see <a href="https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/unveilhooks">unveilhooks</a>.</p>
+<h2>A lazy-loaded image</h2>
+<figure><img data-src="images/test-image.jpg" class="lazyload"/></figure>
+<h2>A lazy-loaded responsive image</h2>
+<p>Resize your browser (a refresh is needed in some browsers). If you'd like to make it crossbrowser, consider including Picturefill 3 (in alpha as of this writing) or Respimage.</p>
+<figure><img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="" data-sizes="auto" srcset="http://placehold.it/300x225/11e87f/fff 400w,http://placehold.it/450x337/117fe8/fff 450w, http://placehold.it/600x450/e8117f/fff 600w, http://placehold.it/900x674/3208F5/fff 900w" class="lazyload"/></figure>
+{{/content}}{{/extend}}
