@@ -2,6 +2,7 @@ const gulp = require('gulp');
 const jade = require('gulp-jade');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
+const server = require('./serve');
 
 // Compiles jade into HTML
 // Plumber makes sure the "pipe doesn't break" causing the server to stop
@@ -12,5 +13,6 @@ gulp.task('jade', () => {
 		.pipe(plumber())
 		.pipe(jade({ pretty: true }))
 		.on('error', notify.onError(error => `Jade error: ${error}`))
-		.pipe(gulp.dest('.tmp'));
+		.pipe(gulp.dest('.tmp'))
+		.pipe(browserSync.stream());
 });
