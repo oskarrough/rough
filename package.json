@@ -6,8 +6,9 @@
     "node": ">=0.12.0"
   },
   "scripts": {
-    "development": "gulp serve",
-    "production": "gulp build",
+    "clean": "rm -rf dist .tmp",
+    "start": "gulp serve",
+    "build": "gulp build",
     "test": "xo"
   },
   "devDependencies": {
@@ -62,10 +63,7 @@
       "app/scripts/vendor/**"
     ],
     "rules": {
-      "babel/object-curly-spacing": [
-        2,
-        "always"
-      ]
+      "babel/object-curly-spacing": [ 2, "always" ]
     }
   }
 }

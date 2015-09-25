@@ -6,7 +6,6 @@
 	`gulp` it'll run the task defined in `gulp/default.js`
 */
 
-const requireDir = require('require-dir');
-
 // Require all tasks in gulp, including subfolders
+const requireDir = require('require-dir');
 requireDir('./gulp', { recurse: true });
