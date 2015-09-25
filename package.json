@@ -61,7 +61,8 @@
       "commonjs"
     ],
     "ignores": [
-      "app/scripts/vendor/**"
+      "app/scripts/vendor/**",
+      "dist/**"
     ],
     "rules": {
       "babel/object-curly-spacing": [

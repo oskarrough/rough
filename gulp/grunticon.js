@@ -12,7 +12,7 @@ const fs = require('fs');
 gulp.task('icons', () => {
 	const deferred = q.defer();
 	const iconDir = 'app/images/icons/';
-	const options = {enhanceSVG: true};
+	const options = { enhanceSVG: true };
 	const files = fs.readdirSync(iconDir).map(fileName => path.join(iconDir, fileName));
 	const grunticon = new Grunticon(files, '.tmp/images/icons', options);
 

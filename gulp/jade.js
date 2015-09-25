@@ -14,5 +14,5 @@ gulp.task('jade', () => {
 		.pipe(jade({ pretty: true }))
 		.on('error', notify.onError(error => `Jade error: ${error}`))
 		.pipe(gulp.dest('.tmp'))
-		.pipe(browserSync.stream());
+		.pipe(server.stream());
 });
