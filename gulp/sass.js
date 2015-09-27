@@ -7,7 +7,7 @@ const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
 
 // Compiles Sass with autoprefixer and sourcemaps
-const browsers = ['last 2 versions', 'android 4', 'ios 7', 'ie 10'];
+const browsers = ['ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10'];
 
 gulp.task('sass', () => {
 	return gulp.src('app/styles/*.scss')

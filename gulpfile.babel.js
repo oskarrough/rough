@@ -6,6 +6,31 @@
 	`gulp` it'll run the task defined in `gulp/default.js`
 */
 
-// Require all tasks in gulp, including subfolders
-const requireDir = require('require-dir');
-requireDir('./gulp', { recurse: true });
+import gulp from'gulp';
+import requireDir from'require-dir';
+import runSequence from 'run-sequence';
+
+// Require all tasks in gulp
+requireDir('./gulp');
+
+// And these abstract tasks
+gulp.task('templates', ['handlebars']); // or 'jade'
+gulp.task('styles', ['sass']);
+gulp.task('scripts', ['browserify']);
+gulp.task('build', (callback) => {
+	runSequence(
+		['clean'],
+		['templates', 'styles', 'scripts', 'icons', 'images'],
+		['copy-from-app', 'copy-from-tmp'],
+		['minify-styles', 'minify-scripts', 'minify-templates']
+	);
+	callback();
+});
+gulp.task('serve', (callback) => {
+	runSequence(
+		['templates', 'styles', 'scripts', 'icons'],
+		['serve:dev', 'watch']
+	);
+});
+gulp.task('default', ['serve']);
+gulp.task('s', ['serve']);

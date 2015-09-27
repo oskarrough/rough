@@ -7,7 +7,7 @@ module.exports = browserSync;
 /**
  * Development server
  */
-gulp.task('serve', ['templates', 'styles', 'scripts', 'icons'], () => {
+gulp.task('serve:dev', (cb) => {
 	browserSync.init({
 		notify: false,
 		port: 9000,
@@ -15,19 +15,8 @@ gulp.task('serve', ['templates', 'styles', 'scripts', 'icons'], () => {
 			baseDir: ['.tmp', 'app']
 		}
 	});
-
-	// Reload the server when these files change.
-	gulp.watch([
-		'app/images/**/*'
-	]).on('change', browserSync.reload);
-
-	// Run tasks (that might reload the server) when these files change.
-	gulp.watch(['app/*.html', 'app/templates/**/*.{hbs,js,json}'], ['handlebars']);
-	// gulp.watch('app/**/*.jade', ['jade']);
-	gulp.watch('app/styles/**/*.scss', ['styles']);
-	gulp.watch('app/scripts/**/*.js', ['scripts']);
-	gulp.watch('app/images/icons/*.{svg,png}', ['icons']);
-});
+	cb();
+})
 
 /**
  * Dist server (test your build)
@@ -42,5 +31,17 @@ gulp.task('serve:dist', () => {
 	});
 });
 
-// Alias
-gulp.task('s', ['serve']);
+gulp.task('watch', (cb) => {
+	// Reload the server when these files change.
+	gulp.watch([
+		'app/images/**/*'
+	]).on('change', browserSync.reload);
+
+	// Run tasks (that might reload the server) when these files change.
+	gulp.watch(['app/*.html', 'app/templates/**/*.{hbs,js,json}'], ['handlebars']);
+	// gulp.watch('app/*.jade', ['jade']);
+	gulp.watch('app/styles/**/*.scss', ['styles']);
+	gulp.watch('app/scripts/**/*.js', ['scripts']);
+	gulp.watch('app/images/icons/*.{svg,png}', ['icons']);
+	cb();
+});
