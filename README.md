@@ -1,30 +1,30 @@
 # Rough boilerplate
 
-This is a solid, well-tested boilerplate for new web projects. It's based on on the great [generator-gulp-webapp](https://github.com/yeoman/generator-gulp-webapp) and exists because we're using a rather opinionated setup and this project offers more than the default generators.
+This is a well-tested, modern boilerplate for new web projects and exists because it's rather an opinionated setup, with several default components ready to go.
 
-See http://rough.surge.sh for a minimal demo.
+See http://rough.surge.sh for a demo.
 
-- Sass
-- Jade templating
-- Grunticon for easy svg icons
-- Minify and concatenate all scripts and styles
-- Inline critical-path CSS
-- Autoprefixer, so you don't have to write prefixes yourself
-- Image optimization runs automatically on build
-- BrowserSync live-reloading and more
+- `templates` with Handlebars (and handlebars-layouts) or Jade
+- `styles` with Sass (and libsass, autoprefixer & sourcemaps)
+- `scripts` with Browserify and next-gen JavaScript with Babel
+- `icons` with Grunticon for SVG icons
+- `images` optimizes images and generates SVG icons with `icons`
+- `serve` BrowserSync live-reloading and more
+- `build` moves everything to `/dist`, compiled, minified and optimized
+- `critical` inlines critical-path CSS after you build (optional)
+- `serve:dist` starts a server to test your build
 
-It also contains a few useful recipies:
+It also contains a few, optional features:
 
 - Custom select styles
 - Grids using Susy for the math
 - Lazy loading and responsive images using lazysizes
 - Wrapper for robust fluid grids using Masonry with imagesLoaded
-- Responsive Tabs
 
 And base styles to cover many edge-cases:
 
 - Normalize and base
-- Component based scss structure
+- Component based styles structure
 - Useful mixins/utilities for calculating rem/em etc.
 
 ## Getting started
@@ -41,22 +41,10 @@ And base styles to cover many edge-cases:
 
 3. Install dependencies:
 
-**If you haven't already, first install these as they are necessary to install the rest.**
-
-- Node --> `brew install node` (for node/js packages)
-- Grunt --> `npm install -g grunt-cli` (for development)
-- Bower --> `npm install -g bower` (for front-end packages)
-- Bundler --> `sudo gem install bundler` (for ruby/gem packages)
-
-Or in one command: `brew install node; sudo gem install bundler; npm install -g bower grunt-cli`
-
-**Install the rest of the dependencies using the tools you just installed**
-
-- `bundle install` --> installs everything from Gemfile
-- `npm install` -->  installs everything from package.json
-- `bower install` --> installs everything from bower.json
-
-Or in one command: `bundle install; npm install; bower install`
+```
+brew install node; npm install -global bower gulp
+npm install; bower install
+```
 
 ## Structure
 
@@ -64,7 +52,7 @@ Or in one command: `bundle install; npm install; bower install`
 - app/images
 - app/images/icons
 - app/scripts (own scripts go here)
-- app/scripts/vendor (third party scripts that are not available through a package manager (e.g. bower) go here)
+- app/scripts/vendor (third party scripts that are not available through a package manager (e.g. npm/bower) go here)
 - app/styles
 
 ## Styles
@@ -90,15 +78,9 @@ Components are the parts that make up your project. They are based on the 'base'
 
 We closely follow [SUIT's naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
 
-## Style linting
-
-We provide a way to check your sass styles for errors and consistency using the scss-lint gem. You already have it, if you previously ran `bundle install`. To run, do `scss-lint app/styles`.
-
-We've defined default settings in the `.scss-lint.yml` file which you can safely change to your project preferences.
-
 ## Icons
 
-We are using Grunticon to handle icons and svg sprites. There's a `gulp icons` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/` that contains all icons as inline images, referenced with a CSS class. It automatically runs when you `gulp serve` or `gulp build`.
+We are using grunticon-cli to handle icons and svg sprites. There's a `gulp icons` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/` that contains all icons as inline images, referenced with a CSS class. It automatically runs when you `gulp serve` or `gulp build`.
 
 For example, to use a `example-icon.svg` icon, you could add an element `<i class="icon icon-example-icon"></i>`.
 
@@ -110,4 +92,4 @@ The `app/styles/base/_icons.scss` file contains a few base styles to make stylin
 
 Here's the nuclear method:
 
-`rm -rf bower_components node_modules; npm cache clean; bower cache clean; npm install; bower i; bundle install`
+`rm -rf bower_components node_modules; npm cache clean; bower cache clean; npm install; bower i`
