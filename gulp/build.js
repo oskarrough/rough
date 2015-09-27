@@ -6,7 +6,6 @@ import gulp from 'gulp';
 import uglify from 'gulp-uglify';
 import minifyCss from 'gulp-minify-css';
 import minifyHtml from 'gulp-minify-html';
-import gulpSize from 'gulp-size';
 
 gulp.task('copy-from-app', () => {
 	return gulp.src([
