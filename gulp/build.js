@@ -26,6 +26,12 @@ gulp.task('copy-from-tmp', () => {
 		.pipe(gulp.dest('dist'));
 });
 
+gulp.task('minify-templates', () => {
+	return gulp.src('dist/**/*.html', { base: 'dist' })
+		.pipe(minifyHtml({conditionals: true, empty: true, loose: true, spare: true}))
+		.pipe(gulp.dest('dist'));
+});
+
 gulp.task('minify-styles', () => {
 	return gulp.src('dist/styles/*.css', { base: 'dist' })
 		.pipe(minifyCss({ compatibility: '*' }))
@@ -38,8 +44,3 @@ gulp.task('minify-scripts', () => {
 		.pipe(gulp.dest('dist'));
 });
 
-gulp.task('minify-templates', () => {
-	return gulp.src('dist/**/*.html', { base: 'dist' })
-		.pipe(minifyHtml({conditionals: true, empty: true, loose: true, spare: true}))
-		.pipe(gulp.dest('dist'));
-});
