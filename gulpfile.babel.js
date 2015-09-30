@@ -17,15 +17,8 @@ requireDir('./gulp');
 gulp.task('templates', ['handlebars']); // or 'jade'
 gulp.task('styles', ['sass']);
 gulp.task('scripts', ['browserify']);
-gulp.task('build', (callback) => {
-	runSequence(
-		['clean'],
-		['templates', 'styles', 'scripts', 'icons', 'images'],
-		['copy-from-app', 'copy-from-tmp'],
-		['minify-styles', 'minify-scripts', 'minify-templates']
-	);
-	callback();
-});
+
+// Development server
 gulp.task('serve', (callback) => {
 	runSequence(
 		['templates', 'styles', 'scripts', 'icons'],
@@ -34,3 +27,15 @@ gulp.task('serve', (callback) => {
 });
 gulp.task('default', ['serve']);
 gulp.task('s', ['serve']);
+
+// Build everything
+gulp.task('build', (callback) => {
+	runSequence(
+		['clean'],
+		['templates', 'styles', 'scripts', 'icons', 'images'],
+		['copy-from-app', 'copy-from-tmp'],
+		['minify-styles', 'minify-scripts', 'minify-templates'],
+		'critical'
+	);
+	callback();
+});

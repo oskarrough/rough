@@ -1,6 +1,4 @@
 // @todo include critical in build process?
-// @todo this file is a bit (!) messy but the order of tasks is very important
-// @todo consider gulp-sequence ala gulp-starter v2
 
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
@@ -10,6 +8,7 @@ import minifyHtml from 'gulp-minify-html';
 gulp.task('copy-from-app', () => {
 	return gulp.src([
 		'app/*.*',
+		'app/fonts/**/*',
 		'app/scripts/vendor/**/*',
 		'!app/*.html',
 		'!app/*.jade'
