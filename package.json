@@ -1,6 +1,6 @@
 {
   "name": "rough",
-  "version": "3.0.0-beta.2",
+  "version": "3.0.0",
   "private": true,
   "engines": {
     "node": ">=0.12.0"
