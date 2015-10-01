@@ -2,13 +2,14 @@
  * Base
  */
 
+:root {
+	font-size: $root-font-size;
+	line-height: $root-line-height;
+	font-family: $root-font-family;
+}
 html {
-	font-size: $base-font-size;
-	line-height: $base-line-height-unitless;
-	font-family: $font-body;
-	background-color: $bg-color;
+	background-color: $background-color;
 	color: $text-color;
-
 	// Enable kerning and ligatures everywhere
 	// to use open-type features, bower install normalize-opentype
 	text-rendering: optimizeLegibility;
@@ -38,27 +39,26 @@ figure {
 }
 
 // Headers
-h1,
-h2,
-h3,
-h4 {
-	line-height: 1.1;
-}
-
 h1 {
-	font-size: rem(30);
+	// font-size: rem(30);
 }
 
 h2 {
-	font-size: rem(20);
+	// font-size: rem(20);
 }
 
 h3 {
-	font-size: rem(16);
+	// font-size: rem(16);
 }
 
 h4 {
-	font-size: rem(14);
+	// font-size: rem(14);
+}
+
+// Links
+a,
+a:visited {
+	color: #00f;
 }
 
 // Responsive media
@@ -74,10 +74,4 @@ embed {
 img {
 	height: auto;
 	vertical-align: bottom;
-}
-
-// Links
-a,
-a:visited {
-	color: #00f;
 }

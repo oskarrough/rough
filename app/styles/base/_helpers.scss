@@ -10,7 +10,7 @@
  * Convert value to REM
  */
 
-@function rem($target, $context: $base-font-size) {
+@function rem($target, $context: $root-font-size) {
 	@return (strip-unit($target) / strip-unit($context)) * 1rem;
 }
 
@@ -18,7 +18,7 @@
  * Convert value to EM
  */
 
-@function em($target, $context: $base-font-size) {
+@function em($target, $context: $root-font-size) {
 	@return (strip-unit($target) / strip-unit($context)) * 1em;
 }
 

@@ -1,16 +1,16 @@
 {{#extend "layout"}}
 
-    {{#content "header" mode="append"}}
-       <p>This is the index page.</p>
-    {{/content}}
+	{{#content "header" mode="append"}}
+		<p>This is appended to the header from the index page.</p>
+	{{/content}}
 
-    {{#content "main"}}
-        <p>Dolor sit {{lower "AMET"}}.</p>
+	{{#content "main"}}
+		<p>Using handlebars and handlebars-layouts we get some nifty extras for templating.<br>We have outlets, blocks, partials, extending. This page showcases that.
+		<p>See the <a href="https://github.com/oskarrough/rough">documentation</a> and dive into the source code to see more.</p>
+	{{/content}}
 
-    {{/content}}
-
-    {{#content "footer" mode="prepend"}}
-        <p>This text is prepended to the footer from the index template.</p>
-    {{/content}}
+	{{#content "footer" mode="prepend"}}
+		<p>This text is prepended to the {{lower "FOOTER"}} from the index template.</p>
+	{{/content}}
 
 {{/extend}}

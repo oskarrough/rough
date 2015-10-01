@@ -4,7 +4,7 @@
 */
 
 @import 'base/config';
-@import 'base/mixins';
+@import 'base/helpers';
 
 /**
  * Third party
@@ -26,16 +26,15 @@
 @import 'base/fonts';
 @import 'base/normalize-custom';
 @import 'base/base';
-@import 'base/icons';
 
 /**
  * Components
  */
 @import 'components/animation';
+@import 'components/icons';
 @import 'components/forms';
 @import 'components/buttons';
 @import 'components/custom-select';
-@import 'components/loader';
 @import 'components/logo';
 @import 'components/nav';
 @import 'components/ratio';
