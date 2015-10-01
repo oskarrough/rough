@@ -1,20 +1,23 @@
-# Rough boilerplate
+# Rough
 
 A well-tested, boilerplate for developing new internet projects.
 
 ## Features
 
-Rough at its core is a gulp build system. After installing you'll have the following tasks available:
+Rough at its core is a gulp workflow based on these three tasks:
+
+- `serve` starts a server, everything will compile and live-reload on changes
+- `build` moves everything to `/dist` — compiled, minified and optimized
+- `serve:dist` starts a server to test your build
+
+Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
 
 - `templates` with Handlebars (and handlebars-layouts) or Jade
 - `styles` with Sass (and libsass, autoprefixer & sourcemaps)
 - `scripts` with Browserify and next-gen JavaScript with Babel
 - `icons` with Grunticon for SVG icons
 - `images` optimizes images and generates SVG icons with `icons`
-- `build` moves everything to `/dist`, compiled, minified and optimized
 - `critical` is used by build to inline critical-path CSS
-- `serve` starts a server, everything will compile and live-reload
-- `serve:dist` starts a server to test your build
 
 See http://rough.surge.sh for a demo.
 
