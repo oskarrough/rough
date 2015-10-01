@@ -1,0 +1,8 @@
+{{#extend "layout"}}{{#content "main"}}
+<h1>How to use icons</h1>
+<p>Icons should always be SVG. Place them in <pre>images/icons</pre> and once you start the server or build the project, <a href="https://github.com/filamentgroup/grunticon">grunticon</a> will take those images and generate an icon sprite.</p>
+<p>Please inspect the markup below.</p>
+<h2>Normal icon:</h2><i class="icon icon-example-icon"></i>
+<h2>Embedded icon:</h2><i data-grunticon-embed="data-grunticon-embed" style="color: red" class="icon icon-example-icon"></i>
+<p>In the HTML header there should be a grunticon.loader.js script and a one-liner below to load the appropriate icon file.</p>
+{{/content}}{{/extend}}

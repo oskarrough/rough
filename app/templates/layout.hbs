@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{{model.title}}</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <link rel="stylesheet" href="styles/main.css">
+	 <script src="scripts/vendor/modernizr-custom.js"></script>
+	 <script src="images/icons/grunticon.loader.js"></script>
+	 <script>grunticon(['images/icons/icons.data.svg.css', 'images/icons/icons.data.png.css', 'images/icons/icons.fallback.css'], grunticon.svgLoadedCallback );</script>
+    <noscript><link href="images/icons/icons.fallback.css" rel="stylesheet"></noscript>
+  </head>
+  <body>
+
+	<div class="App">
+		<header id="SiteHeader" class="SiteHeader">
+			{{#block "header"}}
+				<h1 class="Logo"><a href="/" class="pjax">{{model.title}}</a></h1>
+
+				{{> "nav"}}
+			{{/block}}
+		</header>
+
+		<main id="SiteMain" class="SiteMain">
+			{{#block "main"}}
+			{{/block}}
+		</main>
+
+		<footer id="SiteFooter" class="SiteFooter">
+			{{#block "footer"}}
+			{{/block}}
+		</footer>
+
+	</div>
+
+	<script src="scripts/bundle.js"></script>
+
+</body>
+</html>

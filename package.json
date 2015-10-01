@@ -1,40 +1,77 @@
 {
   "name": "rough",
-  "version": "2.1.0",
+  "version": "3.0.0-beta.2",
   "private": true,
   "engines": {
     "node": ">=0.12.0"
   },
+  "scripts": {
+    "clean": "rm -rf dist .tmp",
+    "start": "gulp serve",
+    "build": "gulp build",
+    "test": "xo"
+  },
   "devDependencies": {
-    "babel-core": "^5.6.15",
-    "browser-sync": "^2.7.13",
+    "autoprefixer": "^6.0.3",
+    "babel-core": "^5.8.24",
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.3",
+    "browserify": "^11.1.0",
+    "browserify-css": "^0.7.1",
+    "browserify-shim": "^3.8.10",
     "critical": "^0.6.0",
-    "del": "^1.2.0",
-    "grunt": "^0.4.5",
-    "grunt-grunticon": "^2.2.0",
+    "del": "^2.0.2",
+    "fs": "0.0.2",
+    "grunticon-lib": "^1.0.3",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
-    "gulp-babel": "^5.1.0",
-    "gulp-cache": "^0.2.10",
-    "gulp-concat": "^2.6.0",
-    "gulp-eslint": "^0.15.0",
-    "gulp-filter": "^2.0.2",
-    "gulp-if": "^1.2.5",
-    "gulp-imagemin": "^2.2.1",
-    "gulp-jade": "^1.0.1",
-    "gulp-load-plugins": "^1.0.0-rc",
-    "gulp-minify-css": "^1.2.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-changed": "^1.3.0",
+    "gulp-hb": "^2.6.3",
+    "gulp-imagemin": "^2.3.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-minify-css": "^1.2.1",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.0.1",
-    "gulp-rev": "^5.1.0",
-    "gulp-rev-replace": "^0.4.2",
-    "gulp-sass": "^2.0.3",
-    "gulp-shell": "^0.4.2",
-    "gulp-size": "^1.2.1",
+    "gulp-postcss": "^6.0.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-shell": "^0.4.3",
     "gulp-sourcemaps": "^1.5.2",
-    "gulp-uglify": "^1.2.0",
-    "gulp-useref": "^1.2.0",
-    "main-bower-files": "^2.8.0",
-    "wiredep": "^2.2.2"
+    "gulp-uglify": "^1.4.1",
+    "gulp-util": "^3.0.6",
+    "handlebars-layouts": "3.1.2",
+    "path": "^0.12.7",
+    "postcss": "^5.0.5",
+    "q": "^1.4.1",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.4",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.4.0",
+    "xo": "^0.9.0"
+  },
+  "dependencies": {
+    "gulp-minify-html": "^1.0.4",
+    "imagesloaded": "^3.1.8",
+    "jquery": "^2.1.4",
+    "lazysizes": "^1.2.2",
+    "magnific-popup": "^1.0.0",
+    "masonry-layout": "^3.3.2",
+    "susy": "^2.2.6"
+  },
+  "xo": {
+    "esnext": true,
+    "envs": [
+      "browser",
+      "commonjs"
+    ],
+    "ignores": [
+      "app/scripts/vendor/**",
+      "dist/**"
+    ],
+    "rules": {
+      "babel/object-curly-spacing": [
+        2,
+        "always"
+      ]
+    }
   }
 }

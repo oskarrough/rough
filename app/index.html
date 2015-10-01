@@ -1,0 +1,16 @@
+{{#extend "layout"}}
+
+    {{#content "header" mode="append"}}
+       <p>This is the index page.</p>
+    {{/content}}
+
+    {{#content "main"}}
+        <p>Dolor sit {{lower "AMET"}}.</p>
+
+    {{/content}}
+
+    {{#content "footer" mode="prepend"}}
+        <p>This text is prepended to the footer from the index template.</p>
+    {{/content}}
+
+{{/extend}}

@@ -18,7 +18,7 @@ $space: 20px;
 // Susy
 // gutters are defined in a ratio to the column width
 $susy: (
-	box-sizing: border-box,
+	global-box-sizing: border-box,
 	columns: 12,
 	gutters: (1/4)
 );

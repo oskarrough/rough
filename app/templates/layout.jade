@@ -13,20 +13,10 @@ html.no-js(lang='en')
 			meta(name='description', content='')
 			meta(name='viewport', content='width=device-width, initial-scale=1')
 
-			// build:css styles/vendor.css
-			// bower:css
-			link(rel='stylesheet', href='/bower_components/magnific-popup/dist/magnific-popup.css')
-			// endbower
-			// endbuild
+			link(rel='stylesheet', href='styles/main.css')
 
-			// build:css styles/main.css
-			link(rel='stylesheet', href='/styles/main.css')
-			// endbuild
-
-			// build:js scripts/vendor-header.js
-			//- script(src='/scripts/vendor/modernizr-custom.js')
-			script(src='/images/icons/grunticon.loader.js')
-			// endbuild
+			script(src='scripts/vendor/modernizr-custom.js')
+			script(src='images/icons/grunticon.loader.js')
 
 			script.
 				grunticon(['images/icons/icons.data.svg.css', 'images/icons/icons.data.png.css', 'images/icons/icons.fallback.css'], grunticon.svgLoadedCallback );
@@ -47,23 +37,7 @@ html.no-js(lang='en')
 			include loader
 
 		.Scripts
-			// build:js scripts/vendor.js
-			script(src='/bower_components/jquery/dist/jquery.js')
-			script(src='/bower_components/jquery-pjax/jquery.pjax.js')
-			script(src='/bower_components/imagesloaded/imagesloaded.pkgd.js')
-			script(src='/bower_components/lazysizes/lazysizes.js')
-			script(src='/bower_components/magnific-popup/dist/jquery.magnific-popup.js')
-			script(src='/bower_components/masonry/dist/masonry.pkgd.js')
-			script(src='/scripts/vendor/lodash-custom.min.js')
-			// endbuild
-
-			// build:js scripts/main.js
-			script(src='/scripts/tabs.js')
-			script(src='/scripts/rough-masonry.js')
-			script(src='/scripts/rough.js')
-			script(src='/scripts/rough-pjax.js')
-			script(src='/scripts/app.js')
-			// endbuild
+			script(src='scripts/bundle.js')
 
 			//- Google Analytics: change UA-XXXXX-X to be your site's ID.
 			//- script.
