@@ -14,22 +14,23 @@ import runSequence from 'run-sequence';
 requireDir('./gulp');
 
 // And these abstract tasks
-gulp.task('templates', ['handlebars']); // or 'jade'
+gulp.task('templates', ['handlebars']);
 gulp.task('styles', ['sass']);
 gulp.task('scripts', ['browserify']);
 
 // Development server
-gulp.task('serve', (callback) => {
+gulp.task('serve', callback => {
 	runSequence(
 		['templates', 'styles', 'scripts', 'icons'],
 		['serve:dev', 'watch']
 	);
+	callback();
 });
 gulp.task('default', ['serve']);
 gulp.task('s', ['serve']);
 
 // Build everything
-gulp.task('build', (callback) => {
+gulp.task('build', callback => {
 	runSequence(
 		['clean'],
 		['templates', 'styles', 'scripts', 'icons', 'images'],
