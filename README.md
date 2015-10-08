@@ -1,4 +1,4 @@
-# Rough
+# Rough  🌴
 
 A well-tested, boilerplate for developing new internet projects.
 
