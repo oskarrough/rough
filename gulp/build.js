@@ -1,5 +1,3 @@
-// @todo include critical in build process?
-
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
 import minifyCss from 'gulp-minify-css';
@@ -13,9 +11,10 @@ gulp.task('copy-from-app', () => {
 		'!app/*.html',
 		'!app/*.jade'
 	], {
-		// keep folder structure
+		// Because we copy multiple dirs we have to:
+		// 1. keep folder structure
 		base: 'app',
-		// include .dotfiles
+		// 2. include .dotfiles
 		dot: true
 	}).pipe(gulp.dest('dist'));
 });
@@ -27,7 +26,7 @@ gulp.task('copy-from-tmp', () => {
 
 gulp.task('minify-templates', () => {
 	return gulp.src('dist/**/*.html', { base: 'dist' })
-		.pipe(minifyHtml({conditionals: true, empty: true, loose: true, spare: true}))
+		.pipe(minifyHtml({ conditionals: true, empty: true, loose: true, spare: true }))
 		.pipe(gulp.dest('dist'));
 });
 
@@ -42,4 +41,3 @@ gulp.task('minify-scripts', () => {
 		.pipe(uglify())
 		.pipe(gulp.dest('dist'));
 });
-

@@ -13,30 +13,30 @@ import runSequence from 'run-sequence';
 // Require all tasks in gulp
 requireDir('./gulp');
 
-// And these abstract tasks
+gulp.task('default', ['build']);
 gulp.task('templates', ['handlebars']);
 gulp.task('styles', ['sass']);
 gulp.task('scripts', ['browserify']);
 
 // Development server
-gulp.task('serve', callback => {
+gulp.task('serve', cb => {
 	runSequence(
 		['templates', 'styles', 'scripts', 'icons'],
 		['serve:dev', 'watch']
 	);
-	callback();
+	cb();
 });
-gulp.task('default', ['serve']);
 gulp.task('s', ['serve']);
 
+
 // Build everything
-gulp.task('build', callback => {
+gulp.task('build', cb => {
 	runSequence(
-		['clean'],
-		['templates', 'styles', 'scripts', 'icons', 'images'],
+		['clean',]
+		['icons', 'images', 'templates', 'styles', 'scripts'],
 		['copy-from-app', 'copy-from-tmp'],
 		['minify-styles', 'minify-scripts', 'minify-templates'],
-		'critical'
+		['critical']
 	);
-	callback();
+	cb();
 });
