@@ -40,7 +40,7 @@
     "gulp-util": "^3.0.7",
     "handlebars-layouts": "3.1.2",
     "path": "^0.12.7",
-    "postcss": "^5.0.9",
+    "postcss": "^5.0.10",
     "q": "^1.4.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
