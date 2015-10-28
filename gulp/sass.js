@@ -13,9 +13,9 @@ gulp.task('sass', () => {
 	return gulp.src('app/styles/*.scss')
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
-		.pipe(sass.sync({ precision: 10, includePaths: ['.'] })
+		.pipe(sass.sync({precision: 10, includePaths: ['.']})
 			.on('error', sass.logError))
-		.pipe(postcss([autoprefixer({ browsers })]))
+		.pipe(postcss([autoprefixer({browsers})]))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('.tmp/styles'))
 		.pipe(browserSync.stream());

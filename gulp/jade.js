@@ -11,7 +11,7 @@ const server = require('./serve');
 gulp.task('jade', () => {
 	return gulp.src(['app/*.jade'])
 		.pipe(plumber())
-		.pipe(jade({ pretty: true }))
+		.pipe(jade({pretty: true}))
 		.on('error', notify.onError(error => `Jade error: ${error}`))
 		.pipe(gulp.dest('.tmp'))
 		.pipe(server.stream());

@@ -25,7 +25,7 @@ gulp.task('images:optimize', () => {
 		.pipe(changed('dist/images'))
 		.pipe(imagemin({
 			progressive: true,
-			svgoPlugins: [{ cleanupIDs: false }]
+			svgoPlugins: [{cleanupIDs: false}]
 		}))
 		.on('error', err => {
 			gutil.log(err);
