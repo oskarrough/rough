@@ -12,7 +12,7 @@ Rough at its core is a gulp workflow based on these three tasks:
 
 Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
 
-- `templates` with Handlebars (and handlebars-layouts) or Jade
+- `templates` with Handlebars (and handlebars-layouts)
 - `styles` with Sass (and libsass, autoprefixer & sourcemaps)
 - `scripts` with Browserify and next-gen JavaScript with Babel
 - `icons` with Grunticon for SVG icons

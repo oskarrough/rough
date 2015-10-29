@@ -9,7 +9,6 @@ gulp.task('copy-from-app', () => {
 		'app/fonts/**/*',
 		'app/scripts/vendor/**/*',
 		'!app/*.html',
-		'!app/*.jade'
 	], {
 		// Because we copy multiple dirs we have to:
 		// 1. keep folder structure
