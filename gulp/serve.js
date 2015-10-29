@@ -35,7 +35,6 @@ gulp.task('watch', cb => {
 
 	// Run tasks (that might reload the server) when these files change.
 	gulp.watch(['app/*.html', 'app/templates/**/*.{hbs,js,json}'], ['handlebars']);
-	// gulp.watch('app/*.jade', ['jade']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/scripts/**/*.js', ['scripts']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons']);
