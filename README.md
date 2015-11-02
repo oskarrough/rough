@@ -2,6 +2,8 @@
 
 A well-tested, boilerplate for developing new internet projects.
 
+![Pablo Picasso, 1969 — Homme et femme- bustes](http://i.imgur.com/nSxXkO5.jpg)
+
 ## Features
 
 Rough at its core is a gulp workflow based on these three tasks:
