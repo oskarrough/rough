@@ -28,11 +28,10 @@ gulp.task('serve', cb => {
 });
 gulp.task('s', ['serve']);
 
-
 // Build everything
 gulp.task('build', cb => {
 	runSequence(
-		['clean',]
+		['clean'],
 		['icons', 'images', 'templates', 'styles', 'scripts'],
 		['copy-from-app', 'copy-from-tmp'],
 		['minify-styles', 'minify-scripts', 'minify-templates'],
