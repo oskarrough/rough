@@ -2,27 +2,28 @@
  * Forms
  */
 
-// Consistent alignment
-label,
-input,
-textarea,
-select {
-	display: inline-block;
-	vertical-align: middle;
-}
-
 // Common styles for text inputs and buttons
-input,
-textarea,
+#{$all-text-inputs},
 .Button {
 	padding: 0.3em 0.5em 0.25em;
 }
 
-// Expand to full-width
-input,
-textarea {
+// Text inputs
+#{$all-text-inputs} {
 	width: 100%;
 	max-width: 100%;
+	border: 1px solid #f00;
+}
+
+// Focus and hover styles for text inputs
+#{$all-text-inputs-focus},
+#{$all-text-inputs-hover} {
+	border: 1px solid #0f0;
+}
+
+// Active styles for text inputs
+#{$all-text-inputs-active} {
+	border: 1px solid #00f;
 }
 
 // Placeholder styles
@@ -38,6 +39,7 @@ textarea {
 //   <div class="Form-input"></div>
 //   <div class="Form-input"></div>
 // </form>
+
 .Form {}
 .Form-group {
 	margin-bottom: 1rem;
