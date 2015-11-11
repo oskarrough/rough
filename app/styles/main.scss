@@ -3,6 +3,7 @@
 	by Oskar Rough Mosumgaard @ oskarrough.com
 */
 
+
 @import 'base/config';
 @import 'base/helpers';
 
@@ -23,8 +24,8 @@
 /**
  * Base
  */
+@import '../../node_modules/suitcss-base/index';
 @import 'base/fonts';
-@import 'base/normalize-custom';
 @import 'base/base';
 
 /**
