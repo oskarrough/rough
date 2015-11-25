@@ -45,7 +45,7 @@
     "run-sequence": "^1.1.4",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.4.0",
-    "xo": "^0.10.0"
+    "xo": "^0.11.0"
   },
   "dependencies": {
     "gulp-minify-html": "^1.0.4",
