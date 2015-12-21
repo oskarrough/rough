@@ -15,7 +15,8 @@ gulp.task('serve:dev', cb => {
 });
 
 /**
- * Dist server (test your build)
+ * Starts a server from the `dist` folder, which is
+ * useful for testing `gulp build`.
  */
 gulp.task('serve:dist', cb => {
 	browserSync.init({
@@ -28,7 +29,6 @@ gulp.task('serve:dist', cb => {
 });
 
 gulp.task('watch', cb => {
-	// Reload the server when these files change.
 	gulp.watch([
 		'app/images/**/*'
 	]).on('change', browserSync.reload);
@@ -40,7 +40,6 @@ gulp.task('watch', cb => {
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons']);
 	cb();
 });
-
 
 // Export our instance of browserSync to other tasks.
 module.exports = browserSync;

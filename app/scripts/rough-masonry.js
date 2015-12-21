@@ -25,7 +25,7 @@ const RoughMasonry = {
 
 	runMasonry() {
 		const elem = this.$el[0];
-		const msnry = new Masonry(elem, {
+		this.msnry = new Masonry(elem, {
 			itemSelector: '.Masonry-item',
 			gutter: '.Masonry-gutterSizer',
 			columnWidth: '.Masonry-gridSizer'
