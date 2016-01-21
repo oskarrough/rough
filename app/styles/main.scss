@@ -8,10 +8,11 @@
 @import 'base/helpers';
 
 /**
- * Third party
+ * Third party (automatically imported from `./node_modules`)
  */
-@import '../../node_modules/susy/sass/susy';
-@import '../../node_modules/component-ratio/styles/component-ratio-mixin';
+@import 'suitcss-base/index.css';
+@import 'susy/sass/susy';
+@import 'component-ratio/styles/component-ratio-mixin';
 
 
 /**
@@ -27,7 +28,6 @@
 /**
  * Base
  */
-@import '../../node_modules/suitcss-base/index';
 @import 'base/fonts';
 @import 'base/base';
 
