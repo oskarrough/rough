@@ -42,23 +42,22 @@ git init
 Finally install the dependencies:
 
 ```
-npm install; bower install
+npm install
 ```
 
 That's it. Check the features listed above or dive directly into the `gulpfile.babel.js` to see what tasks are available.
 
 ## Structure
 
-- bower_components
 - app/images
-- app/images/icons
-- app/scripts (own scripts go here)
-- app/scripts/vendor (third party scripts that are not available through a package manager (e.g. npm/bower) go here)
+- app/images/icons (svg icons)
 - app/styles
+- app/scripts
+- app/scripts/vendor (for modules not available through npm)
 
 ## Extras
 
-It also contains a few, optional features:
+It also contains a few *optional* features:
 
 - Custom select styles
 - Grids using Susy for the math
@@ -79,17 +78,17 @@ We use the Sass preprocessor written in .scss - all tabs, no spaces. All selecto
 Styles are divided into:
 
 - Base
-- Layout
 - Utilities
 - Components
+- Layout
 
-Base styles can not contain any classes. This is the default elements and configuration as colors, layout measures etc.
+**Base** styles are not allowed to use class selectors. The base is for styling default elements and configuration as colors, layout measures etc.
 
-Layout is your main site layout and grid systems.
+**Utilities** are helpers to build your project. Could be for alignment, spacing or clearfixing etc.
 
-Utilities are helpers to build your project. Could be for alignment, spacing or clearfixing etc.
+**Components** are the parts that make up your project. They are based on the 'base', build with 'utilities' and placed into 'layout'. Components can also contain layout. Most components are unique to a project.
 
-Components are the parts that make up your project. They are based on the 'base', build with 'utilities' and placed into 'layout'. Components can also contain layout. Most components are unique to a project.
+**Layout** is your main layout and grid systems. Keep this as small as possible because it is not reusable. Attempt to (re)use components and utilities instead.
 
 ## Naming convention
 
@@ -109,4 +108,4 @@ The `app/styles/base/_icons.scss` file contains a few base styles to make stylin
 
 Here's the nuclear method:
 
-`rm -rf bower_components node_modules; npm cache clean; bower cache clean; npm install; bower i`
+`rm -rf node_modules; npm cache clean; npm install`
