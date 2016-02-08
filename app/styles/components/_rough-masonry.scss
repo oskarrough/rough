@@ -21,7 +21,7 @@ Also see masonry.js
 .Masonry {
 
 	// Make sure it's clearfixed
-	&:after {
+	&::after {
 		content: '';
 		display: block;
 		clear: both;
