@@ -1,7 +1,7 @@
-import gulp from 'gulp';
-import uglify from 'gulp-uglify';
-import cssnano from 'gulp-cssnano';
-import htmlmin from 'gulp-htmlmin';
+const gulp = require('gulp');
+const uglify = require('gulp-uglify');
+const cssnano = require('gulp-cssnano');
+const htmlmin = require('gulp-htmlmin');
 
 gulp.task('copy-from-app', () => {
 	return gulp.src([

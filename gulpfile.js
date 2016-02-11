@@ -6,9 +6,9 @@
 	`gulp` it'll run the task defined in `gulp/default.js`
 */
 
-import gulp from'gulp';
-import requireDir from 'require-dir';
-import runSequence from 'run-sequence';
+const gulp = require('gulp');
+const requireDir = require('require-dir');
+const runSequence = require('run-sequence');
 
 // Require all tasks in gulp
 requireDir('./gulp');

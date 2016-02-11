@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const changed = require('gulp-changed');
 const imagemin = require('gulp-imagemin');
-const gutil = require('gulp-util');
 
 gulp.task('images', ['images:optimize', 'images:favicons']);
 
@@ -27,9 +26,5 @@ gulp.task('images:optimize', () => {
 			progressive: true,
 			svgoPlugins: [{cleanupIDs: false}]
 		}))
-		.on('error', err => {
-			gutil.log(err);
-			this.end();
-		})
 		.pipe(gulp.dest('dist/images'));
 });

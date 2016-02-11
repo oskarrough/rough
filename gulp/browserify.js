@@ -5,7 +5,6 @@ const gulp = require('gulp');
 const source = require('vinyl-source-stream');
 const browserify = require('browserify');
 const babelify = require('babelify');
-const browserifyCss = require('browserify-css');
 const browserSync = require('./serve');
 const browserifyShim = require('browserify-shim');
 const notify = require('gulp-notify');
@@ -17,7 +16,6 @@ gulp.task('browserify', () => {
 	return browserify('app/scripts/main.js', {debug: true})
 		.transform(babelify)
 		.transform(browserifyShim)
-		.transform(browserifyCss, {global: true})
 		.bundle()
 		.on('error', notify.onError(error => `Browserify error: ${error}`))
 		.pipe(source('bundle.js'))
