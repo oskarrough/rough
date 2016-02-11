@@ -7,7 +7,7 @@
 */
 
 import gulp from'gulp';
-import requireDir from'require-dir';
+import requireDir from 'require-dir';
 import runSequence from 'run-sequence';
 
 // Require all tasks in gulp

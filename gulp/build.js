@@ -1,7 +1,7 @@
 import gulp from 'gulp';
 import uglify from 'gulp-uglify';
-import minifyCss from 'gulp-minify-css';
-import minifyHtml from 'gulp-minify-html';
+import cssnano from 'gulp-cssnano';
+import htmlmin from 'gulp-htmlmin';
 
 gulp.task('copy-from-app', () => {
 	return gulp.src([
@@ -25,13 +25,13 @@ gulp.task('copy-from-tmp', () => {
 
 gulp.task('minify-templates', () => {
 	return gulp.src('dist/**/*.html', {base: 'dist'})
-		.pipe(minifyHtml({conditionals: true, empty: true, loose: true, spare: true}))
+		.pipe(htmlmin({collapseWhitespace: true}))
 		.pipe(gulp.dest('dist'));
 });
 
 gulp.task('minify-styles', () => {
 	return gulp.src('dist/styles/*.css', {base: 'dist'})
-		.pipe(minifyCss({compatibility: '*'}))
+		.pipe(cssnano())
 		.pipe(gulp.dest('dist'));
 });
 
