@@ -18,12 +18,10 @@
 /**
  * Utilities (abstract patterns to be reused in components)
  */
-// @import 'utilities/align';
 @import 'utilities/clearfix';
 @import 'utilities/text-inputs';
-// @import 'utilities/media-block';
-// @import 'utilities/negative-text';
-// @import 'utilities/truncate';
+@import 'utilities/negative-text';
+@import 'utilities/text-truncate';
 
 /**
  * Base
@@ -41,6 +39,7 @@
 @import 'components/custom-select';
 @import 'components/logo';
 @import 'components/nav';
+@import 'components/media-block';
 @import 'components/rough-masonry';
 
 /**

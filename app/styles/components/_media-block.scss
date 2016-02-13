@@ -8,7 +8,7 @@
 }
 .MediaBlock-media {
 	float: left;
-	margin-right: rem($space);
+	margin-right: rem($m);
 }
 .MediaBlock-body {
 	display: table-cell;
@@ -19,5 +19,5 @@
 .MediaBlock-media--right {
 	float: right;
 	margin-right: auto;
-	margin-left: rem($space);
+	margin-left: rem($m);
 }

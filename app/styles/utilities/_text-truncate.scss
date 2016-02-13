@@ -1,0 +1,18 @@
+/**
+ 	TEXT TRUNCATE
+
+	Element must be either block or inline-block
+	and have a width.
+
+	.Element {
+		@include text-truncate;
+		display: inline-block;
+		max-width: 200px;
+	}
+ */
+
+@mixin text-truncate() {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
