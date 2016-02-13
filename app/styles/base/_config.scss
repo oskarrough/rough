@@ -1,16 +1,23 @@
-// Typography
-$root-font-size: 16px;
-$root-line-height: 1.4;
-$root-font-family: serif;
-
 // Colors
 $blue: #1a70ff;
 $red: #f00;
-$background-color: #fff !default;
-$text-color: #111 !default;
+$white: #fff;
+$black: #111;
+
+// Typography
+$global-space: 24px;
+$global-font-size: 16px;
+$global-line-height: 1.4;
+$global-font-family: serif;
+$background-color: $white;
+$text-color: $black;
 
 // Layout
-$space: 30px;
+$s: (14/$global-space);
+$sm: (18/$global-space);
+$m: $global-space;
+$ml: (36/$global-space);
+$l: (48/$global-space);
 
 // Susy
 // gutters are defined as a gutter/column ratio
@@ -26,6 +33,7 @@ $layout-sm: 660px;
 $layout-m: 768px;
 $layout-ml: 1024px;
 $layout-l: 1440px;
+$layout-xl: 1900px;
 
 // Good looking easings for animations
 $easing:  cubic-bezier(0.165, 0.840, 0.400, 1.000);
