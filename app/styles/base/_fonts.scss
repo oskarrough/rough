@@ -21,25 +21,25 @@
 	font-family: $global-font-family;
 }
 
-@mixin type-h1 {
+@mixin type-1 {
   font-size: rem($ml);
   @media (min-width: $layout-m) {
     font-size: rem($l);
   }
 }
-@mixin type-h2 {
+@mixin type-2 {
   font-size: rem($m);
   @media (min-width: $layout-m) {
     font-size: rem($ml);
   }
 }
-@mixin type-h3 {
+@mixin type-3 {
   font-size: rem($sm);
   @media (min-width: $layout-m) {
     font-size: rem($m);
   }
 }
-@mixin type-h4 {
+@mixin type-4 {
   font-size: rem($s);
   @media (min-width: $layout-m) {
     font-size: rem($sm);
