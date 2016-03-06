@@ -31,7 +31,8 @@ gulp.task('minify-templates', () => {
 
 gulp.task('minify-styles', () => {
 	return gulp.src('dist/styles/*.css', {base: 'dist'})
-		.pipe(cssnano())
+		// Don't remove vendor-prefixes.
+		.pipe(cssnano({autoprefixer: false}))
 		.pipe(gulp.dest('dist'));
 });
 
