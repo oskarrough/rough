@@ -13,11 +13,11 @@ $background-color: $white;
 $text-color: $black;
 
 // Layout
-$s: (14/$global-space);
-$sm: (18/$global-space);
+$s: 14;
+$sm: 18;
 $m: $global-space;
-$ml: (36/$global-space);
-$l: (48/$global-space);
+$ml: 36;
+$l: 48;
 
 // Susy
 // gutters are defined as a gutter/column ratio
