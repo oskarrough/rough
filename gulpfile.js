@@ -22,20 +22,18 @@ gulp.task('scripts', ['browserify']);
 gulp.task('serve', cb => {
 	runSequence(
 		['templates', 'styles', 'scripts', 'icons'],
-		['serve:dev', 'watch']
-	);
-	cb();
+		['serve:dev', 'watch'],
+		cb);
 });
 gulp.task('s', ['serve']);
 
 // Build everything
 gulp.task('build', cb => {
 	runSequence(
-		['clean'],
+		'clean',
 		['icons', 'images', 'templates', 'styles', 'scripts'],
 		['copy-from-app', 'copy-from-tmp'],
 		['minify-styles', 'minify-scripts', 'minify-templates'],
-		['critical']
-	);
-	cb();
+		'critical',
+		cb);
 });
