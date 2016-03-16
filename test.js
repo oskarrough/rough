@@ -1,6 +1,7 @@
 import test from 'ava';
 import fs from 'fs';
 import gulp from 'gulp';
+import glob from 'glob';
 require('./gulpfile');
 const spawnSync = require('child_process').spawnSync;
 
@@ -45,6 +46,10 @@ test('it builds', async t => {
 	const value = await spawnSync('gulp', ['build']);
 	t.ok(value.status === 0);
 	t.true(fs.lstatSync('dist/index.html').isFile());
-	t.true(fs.lstatSync('dist/styles/main.css').isFile());
-	t.true(fs.lstatSync('dist/scripts/bundle.js').isFile());
+	glob('dist/styles/*.css', (err, files) => {
+		t.true(fs.lstatSync(files[0]).isFile());
+	});
+	glob('dist/scripts/*.js', (err, files) => {
+		t.true(fs.lstatSync(files[0]).isFile());
+	});
 });
