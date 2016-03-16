@@ -24,6 +24,8 @@ Below the hood the following tasks are used. You can always call them directly, 
 
 See http://rough.surge.sh for a demo.
 
+![](https://david-dm.org/oskarrough/rough.svg)
+
 ## Getting started
 
 You can either [download](https://github.com/oskarrough/rough/archive/master.zip) or clone the project:
