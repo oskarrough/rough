@@ -10,6 +10,7 @@ gulp.task('build', cb => {
 		'clean',
 		['icons', 'images', 'templates', 'styles', 'scripts'],
 		['copy-from-app', 'copy-from-tmp'],
+		'rev',
 		['minify-styles', 'minify-scripts', 'minify-templates'],
 		'critical',
 		cb);
