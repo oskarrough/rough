@@ -25,31 +25,21 @@ test('we have gulp tasks', t => {
 	t.ok(gulp.tasks.templates);
 });
 
-// test('styles compile', async t => {
-// 	const value = await spawnSync('gulp', ['styles']);
-// 	t.ok(value.status === 0);
-// 	t.true(fs.lstatSync('.tmp/styles/main.css').isFile());
-// });
-
-// test('scripts compile', async t => {
-// 	const value = await spawnSync('gulp', ['scripts']);
-// 	t.ok(value.status === 0); t.true(fs.lstatSync('.tmp/scripts/bundle.js').isFile());
-// });
-
-// test('templates compile', async t => {
-// 	const value = await spawnSync('gulp', ['templates']);
-// 	t.ok(value.status === 0);
-// 	t.true(fs.lstatSync('.tmp/index.html').isFile());
-// });
-
 test('it builds', async t => {
 	const value = await spawnSync('gulp', ['build']);
 	t.ok(value.status === 0);
-	t.true(fs.lstatSync('dist/index.html').isFile());
+});
+
+test.cb('it really builds', t => {
+	t.plan(3);
+	glob('dist/*.html', (err, files) => {
+		t.ok(err === null && fs.lstatSync(files[0]).isFile());
+	});
 	glob('dist/styles/*.css', (err, files) => {
-		t.true(fs.lstatSync(files[0]).isFile());
+		t.ok(err === null && fs.lstatSync(files[0]).isFile());
 	});
 	glob('dist/scripts/*.js', (err, files) => {
-		t.true(fs.lstatSync(files[0]).isFile());
+		t.ok(err === null && fs.lstatSync(files[0]).isFile());
+		t.end();
 	});
 });
