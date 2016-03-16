@@ -2,7 +2,20 @@ const gulp = require('gulp');
 const uglify = require('gulp-uglify');
 const cssnano = require('gulp-cssnano');
 const htmlmin = require('gulp-htmlmin');
+const runSequence = require('run-sequence');
 
+// Build everything
+gulp.task('build', cb => {
+	runSequence(
+		'clean',
+		['icons', 'images', 'templates', 'styles', 'scripts'],
+		['copy-from-app', 'copy-from-tmp'],
+		['minify-styles', 'minify-scripts', 'minify-templates'],
+		'critical',
+		cb);
+});
+
+// Copies files not handled by other tasks.
 gulp.task('copy-from-app', () => {
 	return gulp.src([
 		'app/*.*',
@@ -18,8 +31,9 @@ gulp.task('copy-from-app', () => {
 	}).pipe(gulp.dest('dist'));
 });
 
+// Copies processed files.
 gulp.task('copy-from-tmp', () => {
-	return gulp.src(['.tmp/**/*'])
+	return gulp.src(['.tmp/**/*', '!.tmp/styles/**', '!.tmp/scripts/**'])
 		.pipe(gulp.dest('dist'));
 });
 
@@ -31,8 +45,7 @@ gulp.task('minify-templates', () => {
 
 gulp.task('minify-styles', () => {
 	return gulp.src('dist/styles/*.css', {base: 'dist'})
-		// Don't remove vendor-prefixes.
-		.pipe(cssnano({autoprefixer: false}))
+		.pipe(cssnano({autoprefixer: false})) // Don't remove vendor-prefixes.
 		.pipe(gulp.dest('dist'));
 });
 
