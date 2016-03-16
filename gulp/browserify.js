@@ -13,7 +13,7 @@ const notify = require('gulp-notify');
 
 // Runs browserify with transforms on our scripts
 gulp.task('browserify', () => {
-	return browserify('app/scripts/main.js', {debug: true})
+	return browserify('app/scripts/index.js', {debug: true})
 		.transform(babelify)
 		.transform(browserifyShim)
 		.bundle()
