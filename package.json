@@ -35,7 +35,6 @@
     "gulp-plumber": "^1.0.1",
     "gulp-postcss": "^6.0.0",
     "gulp-rev-all": "^0.8.24",
-    "gulp-rev-napkin": "^0.1.0",
     "gulp-sass": "^2.1.0",
     "gulp-shell": "^0.5.0",
     "gulp-sourcemaps": "^1.6.0",
