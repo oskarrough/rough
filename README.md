@@ -20,6 +20,7 @@ Below the hood the following tasks are used. You can always call them directly, 
 - `icons` with Grunticon for SVG icons
 - `images` optimizes images and generates SVG icons with `icons`
 - `critical` is used by build to inline critical-path CSS
+- `rev` to revision static assets for better caching
 
 See http://rough.surge.sh for a demo.
 
