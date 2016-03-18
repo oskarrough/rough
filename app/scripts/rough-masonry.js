@@ -1,6 +1,6 @@
 const $ = require('jquery');
 const Masonry = require('masonry-layout');
-const imagesLoaded = require('imagesLoaded');
+const imagesLoaded = require('imagesloaded');
 
 // Dynamic grid with Masonry
 

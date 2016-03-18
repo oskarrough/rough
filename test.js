@@ -1,9 +1,10 @@
 import test from 'ava';
+
+// Special modules needed for these tests.
 import fs from 'fs';
 import gulp from 'gulp';
 import glob from 'glob';
 require('./gulpfile');
-const spawnSync = require('child_process').spawnSync;
 
 test('we have the required structure', t => {
 	t.true(fs.lstatSync('app').isDirectory());
@@ -13,33 +14,20 @@ test('we have the required structure', t => {
 });
 
 test('we have gulp tasks', t => {
-	t.ok(gulp.tasks.build);
-	t.ok(gulp.tasks.browserify);
-	t.ok(gulp.tasks.clean);
-	t.ok(gulp.tasks.default);
-	t.ok(gulp.tasks.handlebars);
-	t.ok(gulp.tasks.sass);
-	t.ok(gulp.tasks.scripts);
-	t.ok(gulp.tasks.serve);
-	t.ok(gulp.tasks.styles);
-	t.ok(gulp.tasks.templates);
+	const tasks = ['build', 'browserify', 'clean', 'default', 'handlebars', 'sass', 'scripts', 'serve', 'styles', 'templates'];
+	t.plan(tasks.length);
+	for (let i = 0; i < tasks.length; i++) {
+		t.ok(gulp.tasks[tasks[i]]);
+	}
 });
 
-test('it builds', async t => {
-	const value = await spawnSync('gulp', ['build']);
-	t.ok(value.status === 0);
-});
-
-test.cb('it really builds', t => {
+// Expects that you've run `npm run build` earlier.
+test('it builds and compiles', async t => {
 	t.plan(3);
-	glob('dist/*.html', (err, files) => {
-		t.ok(err === null && fs.lstatSync(files[0]).isFile());
-	});
-	glob('dist/styles/*.css', (err, files) => {
-		t.ok(err === null && fs.lstatSync(files[0]).isFile());
-	});
-	glob('dist/scripts/*.js', (err, files) => {
-		t.ok(err === null && fs.lstatSync(files[0]).isFile());
-		t.end();
-	});
+	const templates = await glob.sync('dist/*.html');
+	t.ok(templates.length);
+	const styles = await glob.sync('dist/styles/*.css');
+	t.ok(styles.length);
+	const scripts = await glob.sync('dist/scripts/*.js');
+	t.ok(scripts.length);
 });

@@ -1,15 +1,17 @@
-# Rough  🌴
+# Rough
 
 A well-tested, boilerplate for developing new internet projects.
 
 ![Pablo Picasso, 1969 — Homme et femme- bustes](http://i.imgur.com/nSxXkO5.jpg)
 
+![](https://travis-ci.org/oskarrough/rough.svg) ![](https://david-dm.org/oskarrough/rough.svg)
+
 ## Features
 
-Rough at its core is a gulp workflow based on these three tasks:
+Rough at its core is a gulp workflow based on these two tasks:
 
-- `serve` starts a server, everything will compile and live-reload on changes
-- `build` moves everything to `/dist` — compiled, minified and optimized
+- `serve` starts a local server, everything will compile and live-reload on changes
+- `build` moves everything to `/dist` — compiled, minified and optimized. Ready for deployment
 - `serve:dist` starts a server to test your build
 
 Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
@@ -24,11 +26,9 @@ Below the hood the following tasks are used. You can always call them directly, 
 
 See http://rough.surge.sh for a demo.
 
-![](https://david-dm.org/oskarrough/rough.svg)
-
 ## Getting started
 
-You can either [download](https://github.com/oskarrough/rough/archive/master.zip) or clone the project:
+Make sure you have at least node > 4 installed. Check by doing `node -v`. You can either [download](https://github.com/oskarrough/rough/archive/master.zip) or clone the project:
 
 ```
 git clone https://github.com/oskarrough/rough.git
@@ -48,7 +48,7 @@ Finally install the dependencies:
 npm install
 ```
 
-That's it. Check the features listed above or dive directly into the `gulpfile.babel.js` to see what tasks are available.
+That's it. Check the features listed above or dive directly into the `gulpfile.js` to see what tasks are available.
 
 ## Structure
 
@@ -57,6 +57,7 @@ That's it. Check the features listed above or dive directly into the `gulpfile.b
 - app/styles
 - app/scripts
 - app/scripts/vendor (for modules not available through npm)
+- app/fonts (webfonts)
 
 ## Extras
 
@@ -109,6 +110,4 @@ The `app/styles/base/_icons.scss` file contains a few base styles to make stylin
 
 ## Trouble in paradise?
 
-Here's the nuclear method:
-
-`rm -rf node_modules; npm cache clean; npm install`
+Please try the the nuclear method: `rm -rf node_modules; npm cache clean; npm install`
