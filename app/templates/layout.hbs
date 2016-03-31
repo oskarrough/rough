@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en" class="no-js">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{model.title}}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	 <link rel="stylesheet" href="styles/index.css">
-
-	 <script>
-	 	// Using loadJS and picturefill we polyfill responsive images, we need be
-	 	// https://github.com/filamentgroup/loadJS + https://github.com/scottjehl/picturefill
-	 	!function(a){var b=function(b,c){"use strict";var d=a.document.getElementsByTagName("script")[0],e=a.document.createElement("script");return e.src=b,e.async=!0,d.parentNode.insertBefore(e,d),c&&"function"==typeof c&&(e.onload=c),e};"undefined"!=typeof module?module.exports=b:a.loadJS=b}("undefined"!=typeof global?global:this);
-	 	if (!window.HTMLPictureElement){
-	 		document.createElement('picture');
-	 		loadJS('https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js');
-	 	}
-	 </script>
-
-	 <script src="scripts/vendor/modernizr-custom.js"></script>
-	 <script src="images/icons/grunticon.loader.js"></script>
-	 <script>grunticon(['images/icons/icons.data.svg.css', 'images/icons/icons.data.png.css', 'images/icons/icons.fallback.css'], grunticon.svgLoadedCallback );</script>
-    <noscript><link href="images/icons/icons.fallback.css" rel="stylesheet"></noscript>
-  </head>
-  <body>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{model.title}}</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="styles/index.css">
+	<script>
+	// Using loadJS and picturefill we polyfill responsive images, we need be
+	// https://github.com/filamentgroup/loadJS + https://github.com/scottjehl/picturefill
+	!function(a){var b=function(b,c){"use strict";var d=a.document.getElementsByTagName("script")[0],e=a.document.createElement("script");return e.src=b,e.async=!0,d.parentNode.insertBefore(e,d),c&&"function"==typeof c&&(e.onload=c),e};"undefined"!=typeof module?module.exports=b:a.loadJS=b}("undefined"!=typeof global?global:this);
+	if (!window.HTMLPictureElement){
+	document.createElement('picture');
+	loadJS('https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js');
+	}
+	</script>
+	<script src="scripts/vendor/modernizr-custom.js"></script>
+	<script src="images/icons/grunticon.loader.js"></script>
+	<script>grunticon(['images/icons/icons.data.svg.css', 'images/icons/icons.data.png.css', 'images/icons/icons.fallback.css'], grunticon.svgLoadedCallback );</script>
+	<noscript><link href="images/icons/icons.fallback.css" rel="stylesheet"></noscript>
+</head>
+<body>
 
 	<div class="App">
 		<header id="SiteHeader" class="SiteHeader">
