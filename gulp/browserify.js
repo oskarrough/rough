@@ -1,6 +1,3 @@
-// @todo implement watchify
-// https://github.com/Browsersync/recipes/tree/master/recipes/gulp.browserify
-
 const gulp = require('gulp');
 const source = require('vinyl-source-stream');
 const browserify = require('browserify');
@@ -8,8 +5,6 @@ const babelify = require('babelify');
 const browserSync = require('./serve');
 const browserifyShim = require('browserify-shim');
 const notify = require('gulp-notify');
-
-// const watchify = require('watchify');
 
 // Runs browserify with transforms on our scripts
 gulp.task('browserify', () => {
