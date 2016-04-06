@@ -28,25 +28,7 @@ See http://rough.surge.sh for a demo.
 
 ## Getting started
 
-Make sure you have at least node > 4 installed. Check by doing `node -v`. You can either [download](https://github.com/oskarrough/rough/archive/master.zip) or clone the project:
-
-```
-git clone https://github.com/oskarrough/rough.git
-```
-
-If you clone it, remember to remove the .git history (unless you're looking to contribute, of course).
-
-```
-cd rough
-rm -rf .git
-git init
-```
-
-Finally install the dependencies:
-
-```
-npm install
-```
+Make sure you have at least node > 5 installed. Check by doing `node -v`. To use it, [download it](https://github.com/oskarrough/rough/archive/master.zip) and run `npm install` inside the directory.
 
 That's it. Check the features listed above or dive directly into the `gulpfile.js` to see what tasks are available.
 
@@ -71,15 +53,13 @@ It also contains a few *optional* features:
 
 And base styles to cover many edge-cases.
 
-- Normalize and base
+- SUIT CSS base (extends normalize.css)
 - Component based styles structure
 - Useful mixins/utilities for calculating rem/em etc.
 
 ## Styles
 
-We use the Sass preprocessor written in .scss - all tabs, no spaces. All selectors and properties should be on their own lines.
-
-Styles are divided into:
+Stylesheets are compiled from SCSS and divided into:
 
 - Base
 - Utilities
@@ -100,14 +80,12 @@ We closely follow [SUIT's naming convention](https://github.com/suitcss/suit/blo
 
 ## Icons
 
-We are using grunticon-cli to handle icons and svg sprites. There's a `gulp icons` task that compiles all .svg (and png) images from `app/images/icons` to `.tmp/styles/icons/` that contains all icons as inline images, referenced with a CSS class. It automatically runs when you `gulp serve` or `gulp build`.
+We are using grunticon-cli to handle icons and svg sprites. There's a `gulp icons` task that compiles all .svg (and png) icons that you place in `app/images/icons`. Grunticon will merge them into a single CSS file that is then loaded async. It automatically runs as you  `gulp serve` or `gulp build`. Grunticon includes a `grunticon.loader.js` which is referenced in the head of your `index.html`. It will load the appropriate sprite method depending on your browser. Don't worry, it works.
 
-For example, to use a `example-icon.svg` icon, you could add an element `<i class="icon icon-example-icon"></i>`.
-
-Grunticon includes a `grunticon.loader.js` which is referenced in the head of your `index.html`. It will load the appropriate sprite method depending on your browser. Don't worry, it works.
+For example, to use a `example-icon.svg` icon, you could the element `<i class="icon-example-icon"></i>`.
 
 The `app/styles/base/_icons.scss` file contains a few base styles to make styling icons easier.
 
 ## Trouble in paradise?
 
-Please try the the nuclear method: `rm -rf node_modules; npm cache clean; npm install`
+Are you on node >5? Please try the the nuclear method: `rm -rf node_modules; npm cache clean; npm install`
