@@ -1,6 +1,6 @@
-const $ = require('jquery');
-const Masonry = require('masonry-layout');
-const imagesLoaded = require('imagesloaded');
+import $ from 'jquery';
+import Masonry from 'masonry-layout';
+import imagesLoaded from 'imagesloaded';
 
 // Dynamic grid with Masonry
 
@@ -24,8 +24,8 @@ const RoughMasonry = {
 	},
 
 	runMasonry() {
-		const elem = this.$el[0];
-		this.msnry = new Masonry(elem, {
+		const el = this.$el[0];
+		this.msnry = new Masonry(el, {
 			itemSelector: '.Masonry-item',
 			gutter: '.Masonry-gutterSizer',
 			columnWidth: '.Masonry-gridSizer'
@@ -36,7 +36,6 @@ const RoughMasonry = {
 
 		// layout again
 		// this.$el.masonry();
-
 		// layout again after all images are loaded
 		// this.$el.imagesLoaded( function(){
 		// 	this.$el.masonry();
@@ -55,20 +54,19 @@ const RoughMasonry = {
 	}
 };
 
-module.exports = function (el, options) {
+const setup = function (el, options) {
 	RoughMasonry.defaults = {
 		container: '#Masonry'
 	};
-
-	// Extending options:
+	// Extending options
 	RoughMasonry.opts = $.extend({}, RoughMasonry.defaults, options);
-
 	// If an element was passed, use it, otherwise use a default el
 	if (el) {
 		RoughMasonry.$el = $(el);
 	} else {
 		RoughMasonry.$el = $(RoughMasonry.defaults.container);
 	}
-
 	RoughMasonry.init();
 };
+
+export default setup;
