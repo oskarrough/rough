@@ -22,14 +22,14 @@
 }
 
 @mixin type-1 {
-  font-size: rem($ml);
+  font-size: 2rem;
 }
 @mixin type-2 {
-  font-size: rem($space);
+  font-size: 1.25rem;
 }
 @mixin type-3 {
-  font-size: rem($sm);
+  font-size: 1rem;
 }
 @mixin type-4 {
-  font-size: rem($s);
+  font-size: 0.875rem;
 }
