@@ -23,25 +23,13 @@
 
 @mixin type-1 {
   font-size: rem($ml);
-  @media (min-width: $layout-m) {
-    font-size: rem($l);
-  }
 }
 @mixin type-2 {
-  font-size: rem($m);
-  @media (min-width: $layout-m) {
-    font-size: rem($ml);
-  }
+  font-size: rem($space);
 }
 @mixin type-3 {
   font-size: rem($sm);
-  @media (min-width: $layout-m) {
-    font-size: rem($m);
-  }
 }
 @mixin type-4 {
   font-size: rem($s);
-  @media (min-width: $layout-m) {
-    font-size: rem($sm);
-  }
 }

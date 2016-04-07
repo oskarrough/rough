@@ -5,19 +5,12 @@ $white: #fff;
 $black: #111;
 
 // Typography
-$global-space: 24px;
+$space: 24px;
 $global-font-size: 16px;
 $global-line-height: 1.4;
 $global-font-family: -apple-system, BlinkMacSystemFont, \.SFNSDisplay-Light, Roboto, sans-serif;
 $background-color: $white;
 $text-color: $black;
-
-// Layout
-$s: 14;
-$sm: 18;
-$m: $global-space;
-$ml: 36;
-$l: 48;
 
 // Susy
 // gutters are defined as a gutter/column ratio

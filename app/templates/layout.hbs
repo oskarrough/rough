@@ -24,21 +24,18 @@
 <body>
 
 	<div class="App">
-		<header id="SiteHeader" class="SiteHeader">
+		<header class="App-header">
 			{{#block "header"}}
 				<h1 class="Logo">
 					<a href="/">{{model.title}}</a>
 				</h1>
-
 				{{> "nav"}}
 			{{/block}}
 		</header>
-
-		<main id="SiteMain" class="SiteMain">
+		<main class="App-main">
 			{{#block "main"}}{{/block}}
 		</main>
-
-		<footer id="SiteFooter" class="SiteFooter">
+		<footer class="App-footer">
 			{{#block "footer"}}{{/block}}
 		</footer>
 	</div>

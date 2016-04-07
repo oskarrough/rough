@@ -1,6 +1,6 @@
  /**
  * Base
- * 
+ *
  */
 
 :root {
@@ -37,13 +37,11 @@ ul,
 blockquote,
 pre,
 fieldset,
-input,
 table,
 address,
-textarea,
 figure {
 	margin-top: 0;
-	margin-bottom: rem($m);
+	margin-bottom: rem($space);
 }
 
 // Headers
