@@ -1,10 +1,8 @@
-import test from 'ava';
-
-// Special modules needed for these tests.
 import fs from 'fs';
+import test from 'ava';
 import gulp from 'gulp';
 import glob from 'glob';
-require('./gulpfile');
+import './gulpfile';
 
 test('we have the required structure', t => {
 	t.true(fs.lstatSync('app').isDirectory());
@@ -17,7 +15,7 @@ test('we have gulp tasks', t => {
 	const tasks = ['build', 'browserify', 'clean', 'default', 'handlebars', 'sass', 'scripts', 'serve', 'styles', 'templates'];
 	t.plan(tasks.length);
 	for (let i = 0; i < tasks.length; i++) {
-		t.ok(gulp.tasks[tasks[i]]);
+		t.truthy(gulp.tasks[tasks[i]]);
 	}
 });
 
@@ -25,9 +23,9 @@ test('we have gulp tasks', t => {
 test('it builds and compiles', async t => {
 	t.plan(3);
 	const templates = await glob.sync('dist/*.html');
-	t.ok(templates.length);
+	t.truthy(templates.length);
 	const styles = await glob.sync('dist/styles/*.css');
-	t.ok(styles.length);
+	t.truthy(styles.length);
 	const scripts = await glob.sync('dist/scripts/*.js');
-	t.ok(scripts.length);
+	t.truthy(scripts.length);
 });

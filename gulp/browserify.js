@@ -3,9 +3,9 @@ const source = require('vinyl-source-stream');
 const browserify = require('browserify');
 const babelify = require('babelify');
 const rollupify = require('rollupify');
-const browserSync = require('./serve');
 const browserifyShim = require('browserify-shim');
 const notify = require('gulp-notify');
+const browserSync = require('./serve');
 
 // Runs browserify with transforms on our scripts
 gulp.task('browserify', () => {
