@@ -11,13 +11,14 @@
 #{$all-text-inputs} {
 	width: 100%;
 	max-width: 100%;
-	border: 1px solid #f00;
+	border: 1px solid $gray;
+	border-radius: $border-radius;
 }
 
 // Focus and hover styles for text inputs
 #{$all-text-inputs-focus},
 #{$all-text-inputs-hover} {
-	border: 1px solid #0f0;
+	border: 1px solid $black;
 }
 
 // Active styles for text inputs

@@ -16,11 +16,10 @@
 // }
 
 @mixin type-global {
-  font-size: $global-font-size;
+	font-size: $global-font-size;
 	line-height: $global-line-height;
 	font-family: $global-font-family;
 }
-
 @mixin type-1 {
   font-size: 2rem;
 }

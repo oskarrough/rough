@@ -1,19 +1,20 @@
 // Colors
-$blue: #1a70ff;
-$red: #f00;
-$white: #fff;
-$black: #111;
-
-// Typography
-$space: 24px;
-$global-font-size: 16px;
-$global-line-height: 1.4;
-$global-font-family: -apple-system, BlinkMacSystemFont, \.SFNSDisplay-Light, Roboto, sans-serif;
+$blue: hsl(217, 100%, 50%);
+$red: hsl(0, 100%, 50%);
+$white: hsl(0, 0%, 100%);
+$gray: hsl(0, 0%, 40%);
+$black: hsl(0, 0%, 7%);
 $background-color: $white;
 $text-color: $black;
 
-// Susy
-// gutters are defined as a gutter/column ratio
+// Typography (also see _fonts.scss)
+$global-font-size: 16px;
+$global-line-height: 1.4;
+$global-font-family: -apple-system, BlinkMacSystemFont, \.SFNSDisplay-Regular, Roboto, sans-serif;
+$space: 24px;
+$border-radius: 2px;
+
+// Susy configuration
 $susy: (
 	global-box-sizing: border-box,
 	columns: 12,

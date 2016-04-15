@@ -58,7 +58,7 @@
     "magnific-popup": "^1.0.0",
     "masonry-layout": "^4.0.0",
     "rollupify": "^0.2.0",
-    "suitcss-base": "^1.0.1",
+    "suitcss-base": "^2.0.0",
     "susy": "^2.2.6"
   },
   "babel": {

@@ -1,7 +1,6 @@
 .App {
-	margin: 1rem;
+	margin: 2rem 1rem;
 	max-width: rem(900);
-
 	@media (min-width: $layout-m) {
 		margin: 2rem;
 	}
