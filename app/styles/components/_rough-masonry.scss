@@ -4,29 +4,27 @@
 
 /*
 
-In order to solve fluid roundings two elements are inserted with js: .Masonry-gridSizer and .gutter-sizer - they are necessary if your masonry items are using percentage widths.
+In order to solve fluid roundings two elements are inserted with js:
+	.Masonry-gridSizer
+	.gutter-sizer
 
-The horizontal gutter comes from the .Masonry-gutterSizer element only so do not use any margin-left or right on the masonry items nor the .Masonry-gridSizer.
+They are necessary if your masonry items are using percentage widths. The
+horizontal gutter comes from the .Masonry-gutterSizer element only so do not
+use any margin-left or right on the masonry items nor the .Masonry-gridSizer.
 
 It's important that the items and the grid-sizer have synced widths.
-It's important that the gutter-sizer adjust according to the width of the items/grid-sizer
+It's important that the gutter-sizer adjust according to the width of the items
 
 Also see masonry.js
 */
 
-
-/**
- * The masonry container
- */
 .Masonry {
-
 	// Make sure it's clearfixed
 	&::after {
-		content: '';
+		content: "";
 		display: block;
 		clear: both;
 	}
-
 	// Fade in masonry when it is ready. Class is added with js.
 	// opacity: 0;
 	// transition: 400ms;
@@ -53,7 +51,6 @@ Also see masonry.js
 		height: auto;
 	}
 }
-
 .Masonry-item {
 	outline: 1px solid;
 	margin-bottom: 1em;
@@ -102,7 +99,6 @@ $masonry-l-columns: 6;
 	@media (min-width: $masonry-ml) { width: span(1 of $masonry-ml-columns); }
 	@media (min-width: $masonry-l) { width: span(1 of $masonry-l-columns); }
 }
-
 .Masonry-item {
 
 	// To fade in each masonry item as they load

@@ -1,9 +1,4 @@
-/**
- * Iterative delay or the 'rolling piano effect'
- * puts a higher and higher transition-delay on items so they appear one after another
- */
-
-@mixin iterative-delay($count: 2, $delay: 0.07s) {
+@mixin delayEach($count: 2, $delay: 0.07s) {
 	@for $i from 1 through $count {
 		&:nth-child(#{$i}) {
 			transition-delay: $delay * $i;
@@ -11,17 +6,13 @@
 	}
 }
 
-// Example:
-
 /*
-img {
-	@include iterative-delay(10);
+.example-delay-each {
+	@include delayEach(10);
 	transition: opacity 250ms ease-in-out;
-	opacity: 0;
-
+	opacity: 0.5;
 	// show them when they are loaded or if we dont have js
-	.is-active &,
-	.no-js & {
+	&:hover {
 		opacity: 1;
 	}
 }
