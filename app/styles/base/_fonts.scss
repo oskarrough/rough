@@ -20,15 +20,19 @@
 	line-height: $global-line-height;
 	font-family: $global-font-family;
 }
+
 @mixin type-1 {
-  font-size: 2rem;
+	font-size: 2rem;
 }
+
 @mixin type-2 {
-  font-size: 1.25rem;
+	font-size: 1.25rem;
 }
+
 @mixin type-3 {
-  font-size: 1rem;
+	font-size: 1rem;
 }
+
 @mixin type-4 {
-  font-size: 0.875rem;
+	font-size: 0.875rem;
 }
