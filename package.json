@@ -9,8 +9,8 @@
     "clean": "rm -rf dist .tmp",
     "start": "gulp serve",
     "build": "gulp build",
-    "test": "npm run lint && ava",
-    "lint": "xo && stylelint --syntax scss app/styles/**/*.scss"
+    "test": "npm run lint; npm run build; ava",
+    "lint": "xo; stylelint --syntax scss app/styles/**/*.scss"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",
@@ -18,7 +18,7 @@
     "babel-core": "^6.5.1",
     "babel-preset-es2015": "^6.5.0",
     "babelify": "^7.2.0",
-    "browser-sync": "^2.9.3",
+    "browser-sync": "^2.12.3",
     "browserify": "^13.0.0",
     "browserify-shim": "^3.8.11",
     "critical": "^0.7.0",
