@@ -1,5 +1,9 @@
+sudo: false # performance
 language: node_js
 node_js:
   - '5'
 before_install:
   - 'npm install -g ava xo'
+cache:
+  directories:
+    - node_modules
