@@ -1,16 +1,27 @@
 # Rough
 
-A well-tested, boilerplate for developing new internet projects.
+A well-tested, boilerplate for developing new internet projects --> http://rough.surge.sh
 
 ![Pablo Picasso, 1969 — Homme et femme- bustes](http://i.imgur.com/nSxXkO5.jpg)
 
- 
-
 ![](https://travis-ci.org/oskarrough/rough.svg) ![](https://david-dm.org/oskarrough/rough.svg)
+
+## Getting started
+
+Make sure your `node -v` is at least 5. Then do:
+
+```bash
+curl -sL https://github.com/oskarrough/rough/archive/master.zip | tar xz
+cd rough-master
+npm install
+npm start
+```
+
+That's it. Check the features listed below or dive directly into the `package.json` and `gulpfile.js` to see what scripts and tasks are available.
 
 ## Features
 
-It's very similar to [yeoman/generator-webapp](https://github.com/yeoman/generator-webapp) in being a gulp workflow based on these three scripts:
+This rough boilerplate is very similar to [yeoman/generator-webapp](https://github.com/yeoman/generator-webapp) in being a gulp workflow based on three scripts:
 
 1. `npm start` starts a local server, everything will compile and live-reload on changes
 2. `npm run build` moves everything to `/dist` — compiled, minified and optimized. Ready for deployment
@@ -19,21 +30,13 @@ It's very similar to [yeoman/generator-webapp](https://github.com/yeoman/generat
 Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
 
 - `gulp templates` with Handlebars (and handlebars-layouts)
-- `gulp styles` with Sass (and libsass, autoprefixer & sourcemaps)
+- `gulp styles` with Sass (and libsass, autoprefixer & sourcemaps + easy imports from npm modules)
 - `gulp scripts` with Browserify, Rollup and next-gen JavaScript with Babel
 - `gulp icons` with Grunticon for SVG icons
 - `gulp images` optimizes images and generates SVG icons with `icons`
 - `gulp critical` is used by build to inline critical-path CSS
 - `gulp rev` to revision static assets for better caching
 - `gulp serve:dist` to test what you just build locally
-
-See http://rough.surge.sh for a demo.
-
-## Getting started
-
-Make sure you have at least node > 5 installed. Check by doing `node -v`. To use it, [download it](https://github.com/oskarrough/rough/archive/master.zip) and run `npm install` inside the directory.
-
-That's it. Check the features listed above or dive directly into the `gulpfile.js` to see what tasks are available.
 
 ## Structure
 
