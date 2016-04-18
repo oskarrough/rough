@@ -5,6 +5,7 @@
 :root {
 	@include type-global;
 }
+
 html {
 	background-color: $background-color;
 	color: $text-color;
@@ -20,6 +21,7 @@ html {
 		font-size: $global-font-size + 2;
 	}
 }
+
 body {
 	// Remove default browser margin.
 	margin: 0;
@@ -50,12 +52,15 @@ figure {
 h1 {
 	@include type-1;
 }
+
 h2 {
 	@include type-2;
 }
+
 h3 {
 	@include type-3;
 }
+
 h4 {
 	@include type-4;
 }
@@ -75,9 +80,11 @@ audio,
 embed {
 	max-width: 100%;
 }
+
 svg {
 	max-height: 100%;
 }
+
 img {
 	height: auto;
 	vertical-align: bottom;

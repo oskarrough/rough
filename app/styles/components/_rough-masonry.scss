@@ -51,6 +51,7 @@ Also see masonry.js
 		height: auto;
 	}
 }
+
 .Masonry-item {
 	outline: 1px solid;
 	margin-bottom: 1em;
@@ -99,6 +100,7 @@ $masonry-l-columns: 6;
 	@media (min-width: $masonry-ml) { width: span(1 of $masonry-ml-columns); }
 	@media (min-width: $masonry-l) { width: span(1 of $masonry-l-columns); }
 }
+
 .Masonry-item {
 
 	// To fade in each masonry item as they load

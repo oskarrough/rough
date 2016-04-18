@@ -9,8 +9,8 @@
     "clean": "rm -rf dist .tmp",
     "start": "gulp serve",
     "build": "gulp build",
-    "test": "gulp build && xo && ava",
-    "lint:styles": "stylelint --syntax scss \"app/styles/**/*.scss\""
+    "test": "npm run lint && ava",
+    "lint": "xo && stylelint --syntax scss app/styles/**/*.scss"
   },
   "devDependencies": {
     "autoprefixer": "^6.0.3",

@@ -1,20 +1,7 @@
 {
-  "extends": "stylelint-config-suitcss",
+  "extends": "stylelint-config-standard",
   "files": "app/styles/**/*.scss",
-  "syntax": "scss",
   "rules": {
-    "indentation": "tab",
-    "at-rule-empty-line-before": [ "always", {
-      except: ["blockless-group"],
-      ignore: ["after-comment", "all-nested"]
-    }],
-    "rule-non-nested-empty-line-before": ["never-multi-line", {
-      ignore: ["after-comment"]
-    }],
-    "rule-nested-empty-line-before": ["always-multi-line", {
-      ignore: ["after-comment"],
-      except: ["first-nested"]
-    }],
-    "declaration-block-properties-order": []
+    "indentation": "tab"
   }
 }
