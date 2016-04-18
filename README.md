@@ -4,25 +4,28 @@ A well-tested, boilerplate for developing new internet projects.
 
 ![Pablo Picasso, 1969 — Homme et femme- bustes](http://i.imgur.com/nSxXkO5.jpg)
 
+ 
+
 ![](https://travis-ci.org/oskarrough/rough.svg) ![](https://david-dm.org/oskarrough/rough.svg)
 
 ## Features
 
-Rough at its core is a gulp workflow based on these two tasks:
+It's very similar to [yeoman/generator-webapp](https://github.com/yeoman/generator-webapp) in being a gulp workflow based on these three scripts:
 
-- `serve` starts a local server, everything will compile and live-reload on changes
-- `build` moves everything to `/dist` — compiled, minified and optimized. Ready for deployment
-- `serve:dist` starts a server to test your build
+1. `npm start` starts a local server, everything will compile and live-reload on changes
+2. `npm run build` moves everything to `/dist` — compiled, minified and optimized. Ready for deployment
+3. `npm test`lints your styles and scripts and runs tests (by default there's a test to ensure your project compiles and builds)
 
 Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
 
-- `templates` with Handlebars (and handlebars-layouts)
-- `styles` with Sass (and libsass, autoprefixer & sourcemaps)
-- `scripts` with Browserify and next-gen JavaScript with Babel
-- `icons` with Grunticon for SVG icons
-- `images` optimizes images and generates SVG icons with `icons`
-- `critical` is used by build to inline critical-path CSS
-- `rev` to revision static assets for better caching
+- `gulp templates` with Handlebars (and handlebars-layouts)
+- `gulp styles` with Sass (and libsass, autoprefixer & sourcemaps)
+- `gulp scripts` with Browserify, Rollup and next-gen JavaScript with Babel
+- `gulp icons` with Grunticon for SVG icons
+- `gulp images` optimizes images and generates SVG icons with `icons`
+- `gulp critical` is used by build to inline critical-path CSS
+- `gulp rev` to revision static assets for better caching
+- `gulp serve:dist` to test what you just build locally
 
 See http://rough.surge.sh for a demo.
 
@@ -36,6 +39,7 @@ That's it. Check the features listed above or dive directly into the `gulpfile.j
 
 - app/images
 - app/images/icons (svg icons)
+- app/images/favicons (moved to root on build)
 - app/styles
 - app/scripts
 - app/scripts/vendor (for modules not available through npm)
