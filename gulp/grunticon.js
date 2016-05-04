@@ -14,11 +14,19 @@ gulp.task('icons', () => {
 	const inputDir = 'app/images/icons/';
 	const outputDir = '.tmp/images/icons/';
 	const options = {enhanceSVG: true};
-	const files = fs.readdirSync(inputDir).map(fileName => path.join(inputDir, fileName));
-	const grunticon = new Grunticon(files, outputDir, options);
 
-	grunticon.process(() => {
-		deferred.resolve();
+	fs.lstat(inputDir, (err, stats) => {
+		if (!err && stats.isDirectory()) {
+			// the inputdir exists
+			const files = fs.readdirSync(inputDir).map(fileName => path.join(inputDir, fileName));
+			const grunticon = new Grunticon(files, outputDir, options);
+			grunticon.process(() => {
+				deferred.resolve();
+			});
+		} else {
+			console.log(`No icons to compile, that's ok.`);
+			deferred.resolve();
+		}
 	});
 
 	return deferred.promise;
