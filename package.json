@@ -20,7 +20,6 @@
     "babelify": "^7.3.0",
     "browser-sync": "^2.12.5",
     "browserify": "^13.0.0",
-    "critical": "^0.7.0",
     "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-babel": "^6.1.2",
