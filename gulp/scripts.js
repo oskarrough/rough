@@ -7,12 +7,12 @@ const notify = require('gulp-notify');
 const browserSync = require('./serve');
 
 // Runs browserify with transforms on our scripts
-gulp.task('browserify', () => {
-	return browserify('app/scripts/index.js', {debug: true})
+gulp.task('scripts', () => {
+	return browserify('src/scripts/index.js', {debug: true})
 		.transform(rollupify)
 		.transform(babelify)
 		.bundle()
-		.on('error', notify.onError(error => `Browserify error: ${error}`))
+			.on('error', notify.onError(error => `Browserify error: ${error}`))
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('.tmp/scripts'))
 		.pipe(browserSync.stream({once: true}));

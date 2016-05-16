@@ -8,13 +8,13 @@ const postcss = require('gulp-postcss');
 const atImport = require('postcss-import');
 const browserSync = require('./serve');
 
-// Compiles Sass with autoprefixer and sourcemaps
+// Add support for more browsers than Autoprefixer does out of the box
 const browsers = ['ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10'];
 
 const sassOptions = {
-	// Fluid grids require more than 3 decimals…
+	// Fluid grids require more than 3 decimals.
 	precision: 10,
-	// Also look in npm and bower
+	// Also look in npm and bower.
 	includePaths: [
 		'.',
 		path.join(__dirname, '../node_modules'),
@@ -22,8 +22,8 @@ const sassOptions = {
 	]
 };
 
-gulp.task('sass', () => {
-	return gulp.src('app/styles/*.scss')
+gulp.task('styles', () => {
+	return gulp.src('src/styles/*.scss')
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(sass.sync(sassOptions)

@@ -16,7 +16,7 @@ gulp.task('serve:tmp', cb => {
 	browserSync.init({
 		notify: false,
 		server: {
-			baseDir: ['.tmp', 'app']
+			baseDir: ['.tmp', 'src']
 		}
 	});
 	cb();
@@ -27,10 +27,10 @@ gulp.task('serve:tmp', cb => {
  */
 gulp.task('watch', cb => {
 	gulp.watch([
-		'app/*.html'
+		'src/*.html'
 	]).on('change', browserSync.reload);
-	gulp.watch('app/styles/**/*.{css,scss}', ['styles']);
-	gulp.watch('app/scripts/**/*.js', ['scripts']);
+	gulp.watch('src/styles/**/*.{css,scss}', ['styles']);
+	gulp.watch('src/scripts/**/*.js', ['scripts']);
 	cb();
 });
 

@@ -8,12 +8,13 @@
 
 const gulp = require('gulp');
 const requireDir = require('require-dir');
+const del = require('del');
 
 // Require all tasks in gulp
 requireDir('./gulp');
 
-gulp.task('default', ['build']);
-gulp.task('templates', ['handlebars']);
-gulp.task('styles', ['sass']);
-gulp.task('scripts', ['browserify']);
+// Deletes the two folders containing compiled output.
+gulp.task('clean', () => del(['.tmp', 'dist']));
+
+// Alias for 'serve'
 gulp.task('s', ['serve']);

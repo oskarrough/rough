@@ -9,30 +9,21 @@ gulp.task('build', cb => {
 	runSequence(
 		'clean',
 		['styles', 'scripts'],
-		['copy-from-app', 'copy-from-tmp'],
+		['copy-from-src', 'copy-from-tmp'],
 		['minify-styles', 'minify-scripts', 'minify-templates'],
 		'critical',
 		cb);
 });
 
 // Copies files not handled by other tasks.
-gulp.task('copy-from-app', () => {
-	return gulp.src([
-		'app/*.*',
-		'app/fonts/**/*',
-		'!app/*.html'
-	], {
-		// Because we copy multiple dirs we have to:
-		// 1. keep folder structure
-		base: 'app',
-		// 2. include .dotfiles
-		dot: true
-	}).pipe(gulp.dest('dist'));
+gulp.task('copy-from-src', () => {
+	return gulp.src('src/*.*', {dot: true})
+		.pipe(gulp.dest('dist'));
 });
 
 // Copies processed files.
 gulp.task('copy-from-tmp', () => {
-	return gulp.src(['.tmp/**/*', '!.tmp/styles/**', '!.tmp/scripts/**'])
+	return gulp.src(['.tmp/**/*'])
 		.pipe(gulp.dest('dist'));
 });
 
