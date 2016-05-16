@@ -11,7 +11,7 @@ gulp.task('build', cb => {
 		['styles', 'scripts'],
 		['copy-from-src', 'copy-from-tmp'],
 		['minify-styles', 'minify-scripts', 'minify-templates'],
-		'critical',
+		'clean:tmp',
 		cb);
 });
 

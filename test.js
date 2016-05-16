@@ -5,8 +5,8 @@ import glob from 'glob';
 import './gulpfile';
 
 test('we have the required structure', t => {
+	t.true(fs.lstatSync('.gulp').isDirectory());
 	t.true(fs.lstatSync('src').isDirectory());
-	t.true(fs.lstatSync('gulp').isDirectory());
 	t.true(fs.lstatSync('gulpfile.js').isFile());
 	t.true(fs.lstatSync('package.json').isFile());
 });

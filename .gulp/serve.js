@@ -2,9 +2,7 @@ const gulp = require('gulp');
 const browserSync = require('browser-sync').create();
 const runSequence = require('run-sequence');
 
-/**
- * Development server
- */
+// Development server
 gulp.task('serve', cb => {
 	runSequence(
 		['styles', 'scripts'],
@@ -22,9 +20,7 @@ gulp.task('serve:tmp', cb => {
 	cb();
 });
 
-/**
- * Run tasks (that might reload the server) when these files change.
- */
+// Run tasks (that might reload the server) when these files change.
 gulp.task('watch', cb => {
 	gulp.watch([
 		'src/*.html'
