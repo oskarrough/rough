@@ -1,16 +1,28 @@
-{{#extend "layout"}}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Rough</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="styles/index.css">
+	<!-- <script>
+	// Using loadJS and picturefill we polyfill responsive images, we need be
+	// https://github.com/filamentgroup/loadJS + https://github.com/scottjehl/picturefill
+	!function(a){var b=function(b,c){"use strict";var d=a.document.getElementsByTagName("script")[0],e=a.document.createElement("script");return e.src=b,e.async=!0,d.parentNode.insertBefore(e,d),c&&"function"==typeof c&&(e.onload=c),e};"undefined"!=typeof module?module.exports=b:a.loadJS=b}("undefined"!=typeof global?global:this);
+	if (!window.HTMLPictureElement){
+		document.createElement('picture');
+		loadJS('https://cdnjs.cloudflare.com/ajax/libs/picturefill/3.0.2/picturefill.min.js');
+	}
+	</script> -->
+	<!-- <script src="scripts/vendor/modernizr-custom.js"></script> -->
+</head>
+<body>
 
-	{{#content "header" mode="append"}}
-		<p>This is appended to the header from the index page.</p>
-	{{/content}}
+	<h1>Hello</h1>
 
-	{{#content "main"}}
-		<p>Using handlebars and handlebars-layouts we get some nifty extras for templating.<br>We have outlets, blocks, partials, extending. This page showcases that.
-		<p>See the <a href="https://github.com/oskarrough/rough">documentation</a> and dive into the source code to see more.</p>
-	{{/content}}
+	<script src="scripts/bundle.js"></script>
 
-	{{#content "footer" mode="prepend"}}
-		<p>This text is prepended to the {{lower "FOOTER"}} from the index template.</p>
-	{{/content}}
-
-{{/extend}}
+</body>
+</html>

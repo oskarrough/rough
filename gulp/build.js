@@ -8,9 +8,8 @@ const runSequence = require('run-sequence');
 gulp.task('build', cb => {
 	runSequence(
 		'clean',
-		['icons', 'images', 'templates', 'styles', 'scripts'],
+		['styles', 'scripts'],
 		['copy-from-app', 'copy-from-tmp'],
-		'rev',
 		['minify-styles', 'minify-scripts', 'minify-templates'],
 		'critical',
 		cb);
@@ -21,7 +20,6 @@ gulp.task('copy-from-app', () => {
 	return gulp.src([
 		'app/*.*',
 		'app/fonts/**/*',
-		'app/scripts/vendor/**/*',
 		'!app/*.html'
 	], {
 		// Because we copy multiple dirs we have to:
