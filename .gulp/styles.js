@@ -1,20 +1,20 @@
 const path = require('path');
+const atImport = require('postcss-import');
 const autoprefixer = require('autoprefixer');
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
+const postcss = require('gulp-postcss');
 const sass = require('gulp-sass');
 const sourcemaps = require('gulp-sourcemaps');
-const postcss = require('gulp-postcss');
-const atImport = require('postcss-import');
+const errorHandler = require('./error-handler');
 const browserSync = require('./serve');
 
 // Add support for more browsers than Autoprefixer does out of the box
 const browsers = ['ie >= 10', 'ie_mob >= 10', 'ff >= 30', 'chrome >= 34', 'safari >= 7', 'opera >= 23', 'ios >= 7', 'android >= 4.4', 'bb >= 10'];
 
+// Fluid grids require more than 3 decimals. Also look in npm and bower.
 const sassOptions = {
-	// Fluid grids require more than 3 decimals.
 	precision: 10,
-	// Also look in npm and bower.
 	includePaths: [
 		'.',
 		path.join(__dirname, '../node_modules'),
@@ -24,10 +24,9 @@ const sassOptions = {
 
 gulp.task('styles', () => {
 	return gulp.src('src/styles/*.scss')
-		.pipe(plumber())
+		.pipe(plumber({errorHandler}))
 		.pipe(sourcemaps.init())
-		.pipe(sass.sync(sassOptions)
-			.on('error', sass.logError))
+		.pipe(sass.sync(sassOptions))
 		.pipe(postcss([
 			atImport(),
 			autoprefixer({browsers})

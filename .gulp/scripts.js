@@ -4,6 +4,7 @@ const browserify = require('browserify');
 const babelify = require('babelify');
 const rollupify = require('rollupify');
 const browserSync = require('./serve');
+const errorHandler = require('./error-handler');
 
 // Runs browserify with transforms on our scripts
 gulp.task('scripts', () => {
@@ -11,7 +12,7 @@ gulp.task('scripts', () => {
 		.transform(rollupify)
 		.transform(babelify)
 		.bundle()
-			// .on('error', notify.onError(error => `Browserify error: ${error}`))
+		.on('error', errorHandler)
 		.pipe(source('bundle.js'))
 		.pipe(gulp.dest('.tmp/scripts'))
 		.pipe(browserSync.stream({once: true}));
