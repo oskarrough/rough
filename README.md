@@ -1,33 +1,29 @@
-# Rough
+# Rough(er)
 
-A well-tested, boilerplate for developing new internet projects --> http://rough.surge.sh
+A modern development workflow, anywhere you need it.
 
-![Pablo Picasso, 1969 — Homme et femme- bustes](http://i.imgur.com/nSxXkO5.jpg)
+1. `curl -sL https://github.com/oskarrough/rough/archive/master.zip | tar xz`
+2. `cd rough-master`
+3. `npm install; npm start`
+
+## The workflow
+
+### 1. `npm start`
+
+Start a local server where everything from the `src` folder will compile and live-reload as you develop.
+
+Write your CSS like it was 1988 or make use of sass, autoprefixer and easy imports from npm modules. Your scripts will be compiled with ES2015/2016 modules into a single, bundled and minified file.
+
+### 2. `npm run build`
+
+Compiles and minifies everything into the `dist` folder. Ready for deployment.
+
+### 3. `npm test`
+
+Lints your styles using stylelint, your scripts using xo and runs tests using ava. By default there's a test to ensure your project builds successfully.
+
+## Notes
+
+Make sure your node version (test with `node -v`) is at least 5.
 
 ![](https://travis-ci.org/oskarrough/rough.svg) ![](https://david-dm.org/oskarrough/rough.svg)
-
-## Getting started
-
-Make sure your `node -v` is at least 5. Then do:
-
-```bash
-curl -sL https://github.com/oskarrough/rough/archive/master.zip | tar xz
-cd rough-master
-npm install
-npm start
-```
-
-That's it. Check the features listed below or dive directly into the `package.json` and `gulpfile.js` to see what scripts and tasks are available.
-
-## Features
-
-1. `npm start` starts a local server, everything will compile and live-reload on changes
-2. `npm run build` moves everything to `/dist` — compiled, minified and optimized. Ready for deployment
-3. `npm test`lints your styles and scripts and runs tests (by default there's a test to ensure your project compiles and builds)
-
-Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
-
-- `gulp templates` with Handlebars (and handlebars-layouts)
-- `gulp styles` with Sass (and libsass, autoprefixer & sourcemaps + easy imports from npm modules)
-- `gulp scripts` with Browserify, Rollup and next-gen JavaScript with Babel
-- `gulp critical` is used by build to inline critical-path CSS

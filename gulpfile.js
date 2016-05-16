@@ -1,9 +1,9 @@
 /*
-	Instead of one giant gulpfile, we have one file per task inside
-	the gulp folder.
+	Use these three commands:
 
-	All tasks are required automatically here. For instance, when you run
-	`gulp` it'll run the task defined in `gulp/default.js`
+	- `npm start`
+	- `npm run build`
+	- `npm test`
 */
 
 const gulp = require('gulp');
@@ -11,10 +11,13 @@ const requireDir = require('require-dir');
 const del = require('del');
 
 // Require all tasks in gulp
-requireDir('./gulp');
+requireDir('.gulp');
 
-// Deletes the two folders containing compiled output.
+// Cleans up compiled output
 gulp.task('clean', () => del(['.tmp', 'dist']));
+gulp.task('clean:tmp', () => del(['.tmp']));
 
 // Alias for 'serve'
+// npm start
+gulp.task('default', ['serve']);
 gulp.task('s', ['serve']);
