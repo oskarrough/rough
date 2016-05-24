@@ -8,12 +8,9 @@ gulp.task('images', ['images:optimize', 'images:favicons']);
 gulp.task('images:optimize', () => {
 	return gulp.src(['app/images/**/*', '!app/images/icons/**/*', '!app/images/favicons/**/*'])
 		.pipe(changed('dist/images'))
-		.pipe(imagemin({
-			// Progressive jpgs appear to load faster
-			progressive: true,
-			// Don't remove IDs from SVGs as they are often used as hooks for embedding and styling
-			svgoPlugins: [{cleanupIDs: false}]
-		}))
+		.pipe(imagemin([
+			imagemin.svgo({plugins: [{cleanupIDs: false}]})
+		]))
 		.pipe(gulp.dest('dist/images'));
 });
 

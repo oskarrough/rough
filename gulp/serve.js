@@ -42,7 +42,7 @@ gulp.task('watch', cb => {
 	gulp.watch([
 		'app/images/**/*'
 	]).on('change', browserSync.reload);
-	gulp.watch(['app/*.html', 'app/templates/**/*.{hbs,js,json}'], ['handlebars']);
+	gulp.watch(['app/*.html', 'app/templates/**/*.{hbs,js,json}'], ['templates']);
 	gulp.watch('app/styles/**/*.scss', ['styles']);
 	gulp.watch('app/scripts/**/*.js', ['scripts']);
 	gulp.watch('app/images/icons/*.{svg,png}', ['icons']);
