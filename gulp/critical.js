@@ -6,7 +6,8 @@ gulp.task('critical', () => {
 	return gulp.src('dist/*.html')
 		.pipe(critical({
 			base: 'dist/',
-			inline: true
+			inline: true,
+			minify: true
 		}))
 		.pipe(gulp.dest('dist'));
 });
