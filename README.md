@@ -55,7 +55,6 @@ It also contains a few *optional* features:
 - Custom select styles
 - Grids using Susy for the math
 - Lazy loading and responsive images using lazysizes and picturefill
-- Robust fluid grids combining Masonry and imagesLoaded
 - Modernizr (use the link in the top of the file to customize it)
 
 And base styles to cover many edge-cases.
