@@ -1,12 +1,10 @@
 /**
- * Global styles (avoid anything but element selectors here)
+ * Global styles
+ * no classes are allowed here, just element selectors
  */
 
-:root {
-	@include type-global;
-}
-
 html {
+	@include type-global;
 	background-color: $background-color;
 	color: $text-color;
 
@@ -17,14 +15,9 @@ html {
 	font-feature-settings: "kern" 1;
 	font-kerning: normal;
 
-	@media (min-width: $layout-l) {
+	@include breakpoint($l) {
 		font-size: $global-font-size + 2;
 	}
-}
-
-body {
-	// Remove default browser margin.
-	margin: 0;
 }
 
 // Set a consistent margin between block elements.
@@ -47,6 +40,11 @@ figure {
 	margin-top: 0;
 	margin-bottom: rem($space);
 }
+
+// The lobotomized owl selector
+// * + * {
+// 	margin-top: rem($space);
+// }
 
 // Headers
 h1 {

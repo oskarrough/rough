@@ -1,0 +1,47 @@
+/**
+ * Breakpoints
+ * using https://github.com/at-import/breakpoint
+ */
+
+$breakpoints: (
+	xs: 543px,
+	sm: max-width 660px,
+	s: 660px,
+	md: 660px 1024px,
+	m: 768px,
+	l: 1024px,
+	xl: 1440px,
+);
+
+// Aliases `map-get($breakpoint, xl)` to `bp(xl)`.
+@function bp($name) {
+	@return map-get($breakpoints, $name);
+}
+
+// Who wants to write bp(xs) when you can write $xs? Not me.
+$xs: bp(xs);
+$sm: bp(sm);
+$s: bp(s);
+$md: bp(md);
+$m: bp(m);
+$l: bp(l);
+$xl: bp(xl);
+
+/*
+	Example breakpoint usage
+
+	body {
+		@include breakpoint($sm) {
+			color: red;
+		}
+		@include breakpoint($md) {
+			color: green;
+		}
+		@include breakpoint($l) {
+			color: blue;
+		}
+		@media (min-height: $s) and (max-height: 999px) {
+			color: pink;
+		}
+	}
+*/

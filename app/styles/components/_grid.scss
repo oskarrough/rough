@@ -24,7 +24,7 @@
 
 // If all cells in a grid have the same width you can use this one instead.
 .Grid--gallery .Grid-cell {
-	@media (min-width: $layout-s) {
+	@media (min-width: bp(s)) {
 		@include gallery(1 of 5);
 	}
 }

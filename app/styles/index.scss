@@ -2,26 +2,28 @@
 	https://github.com/oskarrough/rough
 */
 
-@import "base/config";
-@import "base/helpers";
-
-// Third party (automatically imported from `./node_modules`)
-@import "suitcss-base/index.css";
+// Third party (imported from node_modules)
+@import "breakpoint-sass/stylesheets/breakpoint";
 @import "susy/sass/susy";
 @import "component-ratio/styles/component-ratio-mixin";
-@import "base/timing-functions";
+@import "suitcss-base/index.css";
 
-// Utilities (abstract patterns to be reused in components)
+// Base
+@import "base/breakpoints";
+@import "base/config";
+@import "base/colors";
+@import "base/helpers";
+@import "base/timing-functions";
+@import "base/typography";
+
+// Utilities
 @import "utilities/clearfix";
 @import "utilities/negative-text";
 @import "utilities/text-inputs";
 @import "utilities/text-truncate";
 
-// Base
-@import "base/fonts";
-@import "base/global";
-
 // Components
+@import "components/global";
 @import "components/animation";
 @import "components/icons";
 @import "components/forms";
@@ -30,7 +32,5 @@
 @import "components/logo";
 @import "components/nav";
 @import "components/media-block";
-
-// Layout (lays out the components to form a page layout)
-@import "layout/grid";
-@import "layout/layout";
+@import "components/grid";
+@import "components/layout";
