@@ -10,7 +10,7 @@ const gulp = require('gulp');
 const requireDir = require('require-dir');
 
 // Require all tasks in gulp
-requireDir('./gulp');
+requireDir('./.gulp');
 
 gulp.task('default', ['build']);
 gulp.task('templates', ['handlebars']);
