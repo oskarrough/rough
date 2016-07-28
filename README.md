@@ -25,7 +25,7 @@ This rough boilerplate is very similar to [yeoman/generator-webapp](https://gith
 
 1. `npm start` starts a local server, everything will compile and live-reload on changes
 2. `npm run build` moves everything to `/dist` — compiled, minified and optimized. Ready for deployment
-3. `npm test`lints your styles and scripts and runs tests (by default there's a test to ensure your project compiles and builds)
+3. `npm test` lints your styles and scripts and runs tests (by default there's a test to ensure your project compiles and builds)
 
 Below the hood the following tasks are used. You can always call them directly, although it shouldn't be necessary.
 
@@ -54,6 +54,7 @@ It also contains a few *optional* features:
 
 - Custom select styles
 - Grids using Susy for the math
+- Configurable breakpoints
 - Lazy loading and responsive images using lazysizes and picturefill
 - Modernizr (use the link in the top of the file to customize it)
 
@@ -78,8 +79,6 @@ Stylesheets are compiled from SCSS and divided into:
 
 **Components** are the parts that make up your project. They are based on the 'base', build with 'utilities' and placed into 'layout'. Components can also contain layout. Most components are unique to a project.
 
-**Layout** is your main layout and grid systems. Keep this as small as possible because it is not reusable. Attempt to (re)use components and utilities instead.
-
 ## Naming convention
 
 We closely follow [SUIT's naming convention](https://github.com/suitcss/suit/blob/master/doc/naming-conventions.md).
@@ -94,4 +93,4 @@ The `app/styles/base/_icons.scss` file contains a few base styles to make stylin
 
 ## Trouble in paradise?
 
-Are you on node >5? Please try the the nuclear method: `rm -rf node_modules; npm cache clean; npm install`
+Are you using a node version of at least 5? Please try the the nuclear method: `rm -rf node_modules; npm cache clean; npm install`

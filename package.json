@@ -48,8 +48,8 @@
     "q": "^1.4.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.4",
-    "stylelint": "^6.6.0",
-    "stylelint-config-suitcss": "^7.0.0",
+    "stylelint": "^7.0.3",
+    "stylelint-config-suitcss": "^8.0.0",
     "vinyl-source-stream": "^1.1.0",
     "xo": "^0.16.0"
   },
