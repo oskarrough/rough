@@ -4,16 +4,14 @@ root = true
 
 [*]
 charset = utf-8
-indent_style = tabs
-#indent_size = 2 # no size specified because tabs
 end_of_line = lf
+indent_style = tab
 insert_final_newline = true
 trim_trailing_whitespace = true
 
 [*.md]
 trim_trailing_whitespace = false
 
-[{.bower.json,package.json}]
-# The indent size used in the `package.json` file cannot be changed
+[{package.json}]
 indent_size = 2
 indent_style = space
