@@ -4,7 +4,8 @@ const imagemin = require('gulp-imagemin');
 
 gulp.task('images', ['images:optimize', 'images:favicons']);
 
-// Optimize all images (except icons and favicons, which are handled by other tasks)
+// Optimize all images
+// … except icons and favicons, which are handled by `gulp icons` and `gulp images:favicons` respectively.
 gulp.task('images:optimize', () => {
 	return gulp.src(['app/images/**/*', '!app/images/icons/**/*', '!app/images/favicons/**/*'])
 		.pipe(changed('dist/images'))
