@@ -54,7 +54,6 @@
   },
   "dependencies": {
     "breakpoint-sass": "^2.7.0",
-    "component-ratio": "github:kopfwelt/component-ratio#1.0.0",
     "imagesloaded": "^4.1.0",
     "jquery": "^3.0.0",
     "lazysizes": "^2.0.4",
