@@ -1,8 +1,7 @@
 import fs from 'fs';
 import test from 'ava';
-import gulp from 'gulp';
 import glob from 'glob';
-import './gulpfile';
+import gulpTasks from './gulpfile';
 
 test('we have the required structure', t => {
 	t.true(fs.lstatSync('.gulp').isDirectory());
@@ -12,10 +11,10 @@ test('we have the required structure', t => {
 });
 
 test('we have gulp tasks', t => {
-	const tasks = ['build', 'browserify', 'clean', 'default', 'handlebars', 'sass', 'scripts', 'serve', 'styles', 'templates'];
+	const tasks = ['build', 'browserify', 'clean', 'default', 'handlebars', 'sass', 'scripts', 'serve', 'styles', 'templates', 'watch', 'icons', 'minify-styles', 'minify-scripts', 'minify-templates', 'images', 'rev'];
 	t.plan(tasks.length);
 	for (let i = 0; i < tasks.length; i++) {
-		t.truthy(gulp.tasks[tasks[i]]);
+		t.truthy(gulpTasks[tasks[i]]);
 	}
 });
 

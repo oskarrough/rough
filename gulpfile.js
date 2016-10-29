@@ -17,3 +17,6 @@ gulp.task('templates', ['handlebars']);
 gulp.task('styles', ['sass']);
 gulp.task('scripts', ['browserify']);
 gulp.task('s', ['serve']);
+
+module.exports = gulp.tasks;
+
