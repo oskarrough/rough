@@ -5,7 +5,6 @@
 // Third party (imported from node_modules)
 @import "breakpoint-sass/stylesheets/breakpoint";
 @import "susy/sass/susy";
-@import "component-ratio/styles/component-ratio-mixin";
 @import "suitcss-base/index.css";
 
 // Base
@@ -21,6 +20,7 @@
 @import "utilities/negative-text";
 @import "utilities/text-inputs";
 @import "utilities/text-truncate";
+@import "utilities/ratio";
 
 // Components
 @import "components/global";
