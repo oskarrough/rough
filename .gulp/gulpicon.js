@@ -10,5 +10,7 @@ const gulpicon = require('gulpicon/tasks/gulpicon');
 const svgs = glob.sync('app/images/icons/*.svg');
 
 gulp.task('icons', gulpicon(svgs, {
+	enhanceSVG: true,
+	cssprefix: '.Icon-',
 	dest: '.tmp/images/icons'
 }));

@@ -5,8 +5,8 @@
 $icon-size: 20px;
 
 // targets all classes that include "icon-"
-[class^="icon-"],
-[class*=" icon-"] {
+[class^="Icon-"],
+[class*=" Icon-"] {
 	// give the icons a dimension
 	display: inline-block;
 	font-size: $icon-size;
